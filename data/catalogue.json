@@ -1,0 +1,860 @@
+{
+  "title": "Awesome Robot RSI",
+  "description": "Recent research on robot recursive self-improvement: policies, reusable skills, code, and agent harnesses that improve through execution feedback.",
+  "updated_at": "2026-10-28",
+  "cutoff": "2026-07-01",
+  "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
+  "papers": [
+    {
+      "id": "worldscape-r2si",
+      "name": "WorldScape-R²SI",
+      "title": "R²SI: Recursive Robot Self-Improvement via a Bi-Level Agentic System with Agent–Model Co-Evolution",
+      "date": "2026-10-24",
+      "date_source": "https://r2si.worldscape.io/report.pdf",
+      "date_note": "Technical report date; the project was announced on 2026-10-17.",
+      "authors": [
+        "Manifold AI Team"
+      ],
+      "category": "Policy & skill learning",
+      "tags": [
+        "RSI",
+        "Skills",
+        "Harness evolution",
+        "Policy learning",
+        "Simulation"
+      ],
+      "summary": "A two-layer agent system improves both reusable robot Skills and the reactive action model. The inner Robot Agent acts from RGB observations, proprioception and memory; the outer Recursion Agent reviews rollouts, revises Skills, selects execution records for model training, and promotes updates after tests. WorldScape-R²SI combines persistent harness revisions with model-weight updates.",
+      "loop": "Execute → review rollouts → revise Skills and/or train the reactive model → test against acceptance criteria → release a versioned update → execute again.",
+      "evidence": "The technical report and official RoboDojo-Sim snapshot report Average Score 46.58 and Success Rate 39.35%. The project page retains its historical October 17 rank-one claim; the October 28 snapshot ranks the system fourth. Reported simulations and selected case studies do not establish broad real-world performance.",
+      "links": {
+        "paper": "https://r2si.worldscape.io/report.pdf",
+        "project": "https://r2si.worldscape.io/",
+        "models": "https://huggingface.co/manifoldai-research/WorldScape-R2SI"
+      },
+      "figure": {
+        "path": "assets/papers/worldscape-r2si.png",
+        "source": "https://r2si.worldscape.io/report.pdf#page=2",
+        "caption": "Figure 1: a Recursion Agent tests and releases harness and reactive-model updates for an inner Robot Agent.",
+        "credit": "Manifold AI Team, R²SI technical report, Figure 1.",
+        "extraction": "Rendered only the original Figure 1 region from PDF page 2, without redrawing or changing its content.",
+        "alt": "Figure 1: a Recursion Agent tests and releases harness and reactive-model updates for an inner Robot Agent."
+      },
+      "sources": [
+        "https://r2si.worldscape.io/report.pdf",
+        "https://r2si.worldscape.io/",
+        "https://huggingface.co/manifoldai-research/WorldScape-R2SI",
+        "https://robodojo-benchmark.com/leaderboard?bench=sim#agent"
+      ],
+      "source_catalogue": "RoboDojo-Sim Agent leaderboard top five; supplemental primary-source verification.",
+      "checked_at": "2026-10-28",
+      "setting": "RoboDojo-Sim manipulation; Agent + World Action Model.",
+      "foundational": false
+    },
+    {
+      "id": "sera",
+      "title": "From VLM Planners to Robotic Agents: Self-Evolving Harnesses for History-Dependent Manipulation",
+      "date": "2026-10-21",
+      "category": "Code & harness evolution",
+      "summary": "Wraps a fixed VLA executor with an editable planning harness that manages task history and selects improvements from rollout feedback.",
+      "loop": "Execute with a frozen VLA → summarize task history and failures → edit planning harness → verify and select → freeze for held-out evaluation.",
+      "setting": "Simulation · RoboMME history-dependent manipulation",
+      "evidence": "The selected harness is frozen before held-out testing, while episode context continues to update. The paper reports 51.38% RoboMME success with autonomous selection versus 44.38% without self-evolution. The Apache-2.0 implementation uses an external Codex planner and the released RoboMME grounded-subgoal π0.5 checkpoint; model weights and benchmark assets are downloaded separately. Evaluation is in simulation.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.29560",
+        "project": "https://stevenkkxs.github.io/sera-webpage/",
+        "code": "https://github.com/StevenKKXS/SERA"
+      },
+      "figure": {
+        "path": "assets/papers/sera.png",
+        "alt": "SERA method: a task-history harness around a frozen VLA is revised and selected using rollout feedback.",
+        "source": "https://stevenkkxs.github.io/sera-webpage/",
+        "url": "https://stevenkkxs.github.io/sera-webpage/assets/method_overview.png",
+        "credit": "Tingwen Du et al., From VLM Planners to Robotic Agents: Self-Evolving Harnesses for History-Dependent Manipulation. Core method figure from the official paper/project.",
+        "bytes": 389680,
+        "content_type": "image/png"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.29560",
+        "https://arxiv.org/abs/2610.29560",
+        "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md",
+        "https://stevenkkxs.github.io/sera-webpage/"
+      ],
+      "foundational": false,
+      "authors": [
+        "Tingwen Du",
+        "Haoyu Guo",
+        "Hanxue Zhang",
+        "Xuanxu Wang",
+        "Junting Dong",
+        "Chao Gao",
+        "Mingfei Han",
+        "Tao Lu",
+        "Mulin Yu",
+        "Chunhua Shen",
+        "Xiaojun Chang",
+        "Zhihui Li"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.29560"
+    },
+    {
+      "id": "physrsi-eval",
+      "title": "Where is Physical RSI capability from? An Observational Scaling Law of LLM-as-policy",
+      "date": "2026-10-19",
+      "category": "Evaluation",
+      "summary": "Introduces PhysRSI-Eval to study how public model capabilities and early robot feedback relate to the speed, extent, and generalization of self-improvement.",
+      "loop": "Evaluate the initial agent → repeated budgeted attempts with persistent code/tools/memory → revise between attempts → measure gain timing, best scores, cost and generalization.",
+      "setting": "Simulation · 18 RoboDojo dual-arm tasks; released generalization code covers four tasks",
+      "evidence": "The paper evaluates 18 RoboDojo manipulation tasks with fixed model weights and interaction budgets; agents revise persistent code, tools and memory for up to 17 improvement rounds. The released generalization-study implementation covers four tasks rather than the paper’s full 18. Best-score metrics include partial progress and differ from native binary success; capability associations are observational.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.26848",
+        "project": "https://physrsi-eval.github.io/",
+        "code": "https://github.com/PhysRSI-Eval/PhysRSI-Eval-code"
+      },
+      "figure": {
+        "path": "assets/papers/physrsi-eval.jpg",
+        "alt": "PhysRSI-Eval workflow: initial evaluation is followed by budgeted attempts with persistent skills, tools, policies, and memory.",
+        "source": "https://physrsi-eval.github.io/",
+        "url": "https://physrsi-eval.github.io/static/img/workflow.jpg",
+        "credit": "Zekai Li et al., Where is Physical RSI capability from? An Observational Scaling Law of LLM-as-policy. Core method figure from the official paper/project.",
+        "bytes": 342466,
+        "content_type": "image/jpeg"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.26848",
+        "https://arxiv.org/abs/2610.26848",
+        "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md",
+        "https://physrsi-eval.github.io/"
+      ],
+      "foundational": false,
+      "authors": [
+        "Zekai Li",
+        "Jiayi Yu",
+        "Jinlu Zhang",
+        "Luyang Niu",
+        "Zekun Qi",
+        "Jun Zheng",
+        "Xuchuan Chen",
+        "Dairu Liu",
+        "Yintianrun Zhang",
+        "He Wang",
+        "Li Yi"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.26848"
+    },
+    {
+      "id": "skill-rsi",
+      "title": "Compile Once, Run Cheap: Frozen, Portable Skills for Embodied Agents, and What Recursive Self-Improvement Adds",
+      "date": "2026-10-18",
+      "category": "Policy & skill learning",
+      "summary": "Uses a strong model to write, diagnose, repair, and qualify robot skills offline, then reuses the frozen files as code alone or through a cheaper caller.",
+      "loop": "Draft code skills → run development layouts → diagnose and repair from evidence → qualify on newly sampled layouts → freeze and reuse with code-only or cheaper callers.",
+      "setting": "Simulation · RoboTwin 2.0 manipulation",
+      "evidence": "Skill-RSI separates compilation from deployment and validates after freezing on hidden layouts. Seven released skills cover four of seven RoboTwin 2.0 tasks; all experiments are in simulation. Code is Apache-2.0; data, ledgers, and frozen skills are CC BY 4.0. Raw model I/O and evidence images are not included, and no direct-control baseline was run.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.25114",
+        "code": "https://github.com/Orillusion/embodied-skill-rsi",
+        "data": "https://github.com/Orillusion/embodied-skill-rsi/tree/main/data"
+      },
+      "figure": {
+        "path": "assets/papers/skill-rsi.png",
+        "alt": "Skill-RSI Figure 1: generate, repair, qualify and freeze a skill offline, then reuse the immutable files with code-only or cheaper callers.",
+        "source": "https://arxiv.org/pdf/2610.25114#page=2",
+        "url": "https://arxiv.org/pdf/2610.25114",
+        "credit": "Figure 1 © the Skill-RSI authors; extracted from page 2 of the official PDF (figure region only)."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.25114",
+        "https://arxiv.org/abs/2610.25114",
+        "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md"
+      ],
+      "foundational": false,
+      "authors": [
+        "Jingwen Bai",
+        "Guochao Bai",
+        "Canbo Zhang",
+        "Shuangqi Li",
+        "Minchao Hu",
+        "Weichun Huang",
+        "Shuang Liu"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.25114"
+    },
+    {
+      "id": "hexashell",
+      "name": "HexaShell",
+      "title": "HexaShell: A Thin Harness for Exploring the Limits of VLM Agents as Robot Coding Agents",
+      "date": "2026-10-16",
+      "date_source": "https://arxiv.org/html/2610.23479v1",
+      "authors": [
+        "Hongcheng Gao",
+        "Alex Zhou",
+        "Jay Zhu",
+        "Zelin Zheng",
+        "Shijia Ge",
+        "Xiping Li",
+        "Di Wu",
+        "Yazhe Wang",
+        "Jianshu Zeng",
+        "Xuan Shangguan",
+        "Yongli Wang",
+        "Yexing Wan",
+        "Lingyu He",
+        "Zhiqi Jia",
+        "Sihang Wu",
+        "Xiao He"
+      ],
+      "category": "Code & harness evolution",
+      "tags": [
+        "RSI",
+        "Tool repair",
+        "Frozen tools",
+        "Simulation"
+      ],
+      "summary": "An unchanged coding agent operates a robot through a thin command-line harness and calibrated RGB observations. Between episodes, a second agent diagnoses failures, repairs executable tools, and tests the revisions. The foundation model stays fixed while the reusable tool library improves; evaluation then freezes the tools.",
+      "loop": "Run a robot episode → diagnose failures → write or repair a reusable tool → test on development layouts → freeze tools for evaluation.",
+      "evidence": "Official RoboDojo evaluation covers 42 tasks and 2,100 episodes: Average Score 53.18 and Success Rate 46.85%. The release provides frozen tools, recipes, results and interface contracts, while server, executors, agent container and evolution infrastructure are not all released. Two physical-arm demonstrations are narrower evidence than the simulation benchmark.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.23479",
+        "code": "https://github.com/HexaFuture/HexaShell",
+        "project": "https://hexafuture.ai/blog/hexashell/"
+      },
+      "figure": {
+        "path": "assets/papers/hexashell.webp",
+        "source": "https://hexafuture.ai/blog/hexashell/assets/fig04-harness-20261020.webp",
+        "caption": "Figure 4 (latest manuscript): the acting-agent harness and a separate optimizer that updates reusable tools between episodes.",
+        "credit": "Hongcheng Gao, Alex Zhou et al., HexaShell, Figure 4; official HexaFuture project page.",
+        "alt": "Figure 4 (latest manuscript): the acting-agent harness and a separate optimizer that updates reusable tools between episodes."
+      },
+      "sources": [
+        "https://arxiv.org/html/2610.23479v1",
+        "https://hexafuture.ai/blog/hexashell/",
+        "https://github.com/HexaFuture/HexaShell",
+        "https://robodojo-benchmark.com/leaderboard?bench=sim#agent"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent README, matching HexaShell row; primary sources checked.",
+      "checked_at": "2026-10-28",
+      "setting": "RoboDojo-Sim: 42 manipulation tasks; two physical-arm demonstrations.",
+      "foundational": false
+    },
+    {
+      "id": "embodiedevo",
+      "title": "EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence",
+      "date": "2026-10-13",
+      "category": "Code & harness evolution",
+      "summary": "Turns interaction feedback in a Playground scene into reusable code Skills and diagnostic Lessons, then freezes them for fresh agents to solve unseen scenes without model-weight updates.",
+      "loop": "Practice in a Playground scene → diagnose physical feedback → revise persistent Skills and Lessons → freeze experience → fresh agents solve unseen Test scenes.",
+      "setting": "Simulation · RoboDojo-Sim",
+      "evidence": "Evaluated on RoboDojo-Sim with a Playground/Test protocol. The paper reports an average score of 44.48 and 37.82% success; these results are author-reported and have not been independently reproduced here.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.18867",
+        "project": "https://lab.einsia.ai/embodiedevo/",
+        "code": "https://github.com/Einsia/EmbodiedEvo"
+      },
+      "figure": {
+        "path": "assets/papers/embodiedevo.webp",
+        "alt": "EmbodiedEvo method: Playground feedback evolves Skills and Lessons before a frozen harness transfers to fresh Test agents.",
+        "source": "https://lab.einsia.ai/embodiedevo/",
+        "url": "https://lab.einsia.ai/embodied-rsi/figures/method-two-stages-poster.webp",
+        "credit": "Wenyi Li et al., EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence. Core method figure from the official paper/project.",
+        "bytes": 127636,
+        "content_type": "image/webp"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.18867",
+        "https://arxiv.org/abs/2610.18867",
+        "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md",
+        "https://lab.einsia.ai/embodiedevo/"
+      ],
+      "foundational": false,
+      "authors": [
+        "Wenyi Li",
+        "Yizhe Chi",
+        "Youjie Zheng",
+        "Chunyu Liu",
+        "Xiaoqiu Wang",
+        "Mingju Gao",
+        "Zheng Jiang",
+        "Deyao Hong",
+        "Calvin Xiao",
+        "Kaisen Yang",
+        "Qinhuai Na"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.18867"
+    },
+    {
+      "id": "sear",
+      "title": "SEAR: Self-Evolving Agentic Robotics",
+      "date": "2026-10-13",
+      "category": "Evaluation",
+      "summary": "Studies whether robot agents retain useful skills and memories beyond extra retries, and whether improvements transfer across tasks, simulators, and real robots.",
+      "loop": "Run code-as-policy, agent-as-policy or VLA auto-research within fixed budgets → collect independent feedback → retain a cross-task library → evaluate against restarts and no-library controls on held-out conditions.",
+      "setting": "Simulation and real robot · 330 simulated tasks and five physical tasks",
+      "evidence": "SEAR compares code-as-policy, live agent-as-policy, and VLA auto-research modes across seven frontier models, 330 simulated tasks, and five physical tasks. Budget-matched controls distinguish retained experience from restarts, privileged information, and luck. The paper and project are public; the repository contains announcement assets and an unchecked code-release milestone, not an executable implementation.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.18792",
+        "project": "https://sear.bot/"
+      },
+      "figure": {
+        "path": "assets/papers/sear.png",
+        "alt": "SEAR Figure 2: code policies, live agents, and auto-research update a persistent library from simulation or hardware feedback.",
+        "source": "https://arxiv.org/html/2610.18792v1#S1.F2",
+        "url": "https://arxiv.org/html/2610.18792v1/harness-loop-and-real-world-sequences.png",
+        "credit": "Xinyi Wang et al., SEAR: Self-Evolving Agentic Robotics. Core method figure from the official paper/project.",
+        "bytes": 2086675,
+        "content_type": "image/png"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.18792",
+        "https://arxiv.org/abs/2610.18792",
+        "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md"
+      ],
+      "foundational": false,
+      "authors": [
+        "Xinyi Wang",
+        "Bangzheng Li",
+        "Hanyu Wang",
+        "Lin Zhang",
+        "Andrea Yaoyun Cui",
+        "Zhenggang Tang",
+        "Shyamal Buch",
+        "Dejia Xu"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.18792"
+    },
+    {
+      "id": "rsi-nav",
+      "title": "RSI-Nav: Data-Centric Recursive Self-Improvement for Navigation via Policy-Synchronized Language-Action Dual Bootstrapping",
+      "date": "2026-10-11",
+      "category": "Navigation",
+      "summary": "Unifies navigation, instruction generation, and spatial understanding in one VLM; filters generated instructions by navigation success and path efficiency, then updates the policy after each trajectory shard with spatial-data replay.",
+      "loop": "Generate language for unlabeled trajectories with the current policy → execute and filter by goal completion and efficiency → jointly update navigation and instruction generation with spatial replay → repeat per trajectory shard.",
+      "setting": "Simulation and real robot · R2R-CE, RxR-CE, DEEP Robotics M20",
+      "evidence": "Built on Qwen3.5-9B and evaluated on R2R-CE, RxR-CE, and a DEEP Robotics M20 robot. Released code covers training, trajectory conversion, recursive self-improvement, and R2R-CE evaluation; weights and datasets are prepared separately.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.15782",
+        "code": "https://github.com/OpenGVLab/RSI-Nav"
+      },
+      "figure": {
+        "path": "assets/papers/rsi-nav.png",
+        "alt": "RSI-Nav Figure 3: the current policy generates instructions, filters them through execution, and updates after each trajectory shard.",
+        "source": "https://arxiv.org/html/2610.15782v1#S3.F3",
+        "url": "https://arxiv.org/html/2610.15782v1/RSI-Nav_main_final.png",
+        "credit": "Songze Li et al., RSI-Nav: Data-Centric Recursive Self-Improvement for Navigation via Policy-Synchronized Language-Action Dual Bootstrapping. Core method figure from the official paper/project.",
+        "bytes": 279657,
+        "content_type": "image/png"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.15782",
+        "https://arxiv.org/abs/2610.15782",
+        "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md"
+      ],
+      "foundational": false,
+      "authors": [
+        "Songze Li",
+        "Haoming Gu",
+        "Ziyang Gong",
+        "Zhitong Wang",
+        "Gengze Zhou",
+        "Zun Wang",
+        "Yuhan Zhu",
+        "Tianxiang Jiang",
+        "Juanzi Li",
+        "Qi Wu",
+        "Weinan Zhang",
+        "Yu Qiao",
+        "Wenwei Zhang",
+        "Yi Wang"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.15782"
+    },
+    {
+      "id": "coap",
+      "title": "Embodied Turing Machines: Stateful Code for Robot Recursive Self-Improvement",
+      "date": "2026-10-08",
+      "category": "Code & harness evolution",
+      "summary": "Introduces Code-Only-as-Policy (COAP), a shared stateful code library that improves from execution feedback and controls robot tasks without model inference at test time.",
+      "loop": "Execute stateful code on development layouts → inspect measured state and failures → coding agents propose and test library diffs → retain improvements → run fixed code policies without model inference.",
+      "setting": "Simulation · 42 RoboDojo bimanual tasks",
+      "evidence": "Reports 70.24% success across RoboDojo’s 42 bimanual tasks. The authors identify accurate state measurement and robust code logic as key limitations.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.12369"
+      },
+      "figure": {
+        "path": "assets/papers/coap.png",
+        "alt": "COAP Figure 3: coding agents improve a shared stateful library offline; the final program controls the robot without model inference.",
+        "source": "https://arxiv.org/html/2610.12369v1#S3.F3",
+        "url": "https://arxiv.org/html/2610.12369v1/fig_method_overview.png",
+        "credit": "Kairui Hu et al., Embodied Turing Machines: Stateful Code for Robot Recursive Self-Improvement. Core method figure from the official paper/project.",
+        "bytes": 204952,
+        "content_type": "image/png"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.12369",
+        "https://arxiv.org/abs/2610.12369",
+        "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md"
+      ],
+      "foundational": false,
+      "authors": [
+        "Kairui Hu",
+        "Siyuan Hu",
+        "Fangzhou Hong",
+        "Zhaoxi Chen",
+        "Ziwei Liu"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.12369"
+    },
+    {
+      "id": "embodiedrsi",
+      "title": "EmbodiedRSI: Active Continual Robot Learning Through Hypothesis-Guided Co-Evolution",
+      "date": "2026-10-07",
+      "category": "Code & harness evolution",
+      "summary": "Selects informative robot trials to test competing hypotheses and jointly refine executable code, reusable skills, and memory around frozen robot foundation models.",
+      "loop": "Maintain competing code/skill hypotheses → select informative physical experiments by value of information → co-evolve code and skills → consolidate reward-grounded hierarchical memory → improve subsequent adaptation.",
+      "setting": "Simulation and real robot · RoboCasa365, LIBERO-Pro; SO-101 arm with frozen SmolVLA",
+      "evidence": "The official project reports 77.0% overall RoboCasa365 success, 86.8% LIBERO-Pro, and 71.3% across five real-world tasks. The harness transfers from simulation; SmolVLA was first fine-tuned with 50 demonstrations per physical task and then frozen. Glasses-grasp success decreases from 60.0% to 56.7%.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.10498",
+        "project": "https://geeksongs.github.io/agentic_robotics/"
+      },
+      "figure": {
+        "path": "assets/papers/embodiedrsi.png",
+        "alt": "EmbodiedRSI architecture: the Fast System tests code/skill hypotheses through a Hypothesis Graph while the Slow System consolidates hierarchical memory.",
+        "source": "https://geeksongs.github.io/agentic_robotics/",
+        "url": "https://geeksongs.github.io/agentic_robotics/assets/figures/overview.png",
+        "credit": "Python Song et al. (2026), EMBODIEDRSI method overview."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.10498",
+        "https://geeksongs.github.io/agentic_robotics/",
+        "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md"
+      ],
+      "foundational": false,
+      "authors": [],
+      "date_source": "https://arxiv.org/abs/2610.10498"
+    },
+    {
+      "id": "rpg",
+      "title": "Reconstruct, Practice, Go Real: Guided Self-Improvement for Embodied Agents",
+      "date": "2026-10-01",
+      "category": "Policy & skill learning",
+      "summary": "RPG develops reusable robot skills and a shared system prompt through dataset-guided simulation practice, using failure diagnosis and cross-task validation before physical deployment.",
+      "loop": "Reconstruct dataset tasks in simulation → practice and inspect execution video with privileged diagnostics → implement and cross-validate skill revisions → merge a shared library → freeze for physical deployment.",
+      "setting": "Simulation and real robot · 22 simulated tasks; 30 physical trials across three tasks",
+      "evidence": "Model weights stay fixed; privileged simulator state and dataset videos support offline diagnosis. Evaluated on 22 simulated tasks and 30 physical trials across three tasks after calibration and hardware adaptation. Code is listed as forthcoming.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.02204",
+        "project": "https://rpg-robot.github.io/"
+      },
+      "figure": {
+        "path": "assets/papers/rpg.webp",
+        "alt": "RPG pipeline: runtime and privileged agents, video diagnosis, an implementor, and a merger improve a shared skill library.",
+        "source": "https://rpg-robot.github.io/",
+        "url": "https://rpg-robot.github.io/static/images/pipeline-0930.webp",
+        "credit": "Yen-Jen Wang et al., Reconstruct, Practice, Go Real: Guided Self-Improvement for Embodied Agents. Core method figure from the official paper/project.",
+        "bytes": 164748,
+        "content_type": "image/webp"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.02204",
+        "https://arxiv.org/abs/2610.02204",
+        "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md",
+        "https://rpg-robot.github.io/"
+      ],
+      "foundational": false,
+      "authors": [
+        "Yen-Jen Wang",
+        "Haozhe Jiang",
+        "Shuying Deng",
+        "Haoru Xue",
+        "Weirui Ye",
+        "Rocky Duan",
+        "Nika Haghtalab",
+        "S. Shankar Sastry",
+        "Pieter Abbeel",
+        "Haozhi Qi"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.02204"
+    },
+    {
+      "id": "pyrua-lean",
+      "name": "PyRUA-Lean",
+      "title": "Fewer Tokens, Better Action: GPT-6 Astra Robot Agents with 14% Higher Success Rate but 65% Fewer Tokens",
+      "date": "2026-10-01",
+      "date_source": "https://arxiv.org/html/2610.01939v1",
+      "authors": [
+        "Ruiyang Si",
+        "Jianxin Bi",
+        "Shunyu Yang",
+        "Rui Ni",
+        "Wenbo Huang",
+        "Qiang Wang",
+        "Shulong Jiang",
+        "Duomin Wang",
+        "Xiuyu Li",
+        "Haiwen Feng",
+        "Zhen Dong",
+        "Daquan Zhou"
+      ],
+      "category": "Leaderboard reference",
+      "tags": [
+        "Code execution",
+        "Token efficiency",
+        "Adjacent baseline",
+        "Simulation"
+      ],
+      "summary": "An interactive Python runtime lets a robot agent compose primitives, run local checks and retries, and return only requested observations. This reduces repeated model calls and redundant images. Its later open 4B Coder model is trained with GRPO, but efficient online execution and post-training alone do not demonstrate a persistent recursive self-improvement process.",
+      "loop": "No persistent self-improvement loop established; efficient online code execution is an adjacent baseline.",
+      "evidence": "The matched-planner study covers 700 simulated instances across LIBERO-PRO, RoboTwin 2.0 and RoboCasa365. Token reductions apply to instances solved by both agents. The current verified RoboDojo snapshot is 55.26 Average Score and 50.35% Success Rate; the paper/project 58.20/51.62% experiment is a separate result and should not replace it.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.01939",
+        "code": "https://github.com/DAGroup-PKU/PyRUA-Lean",
+        "project": "https://dagroup-pku.github.io/PyRUA-Lean/",
+        "models": "https://huggingface.co/DAGroup-PKU/PyRUA-Lean-Coder-v0.1-4B"
+      },
+      "figure": {
+        "path": "assets/papers/pyrua-lean.svg",
+        "source": "https://arxiv.org/html/2610.01939v1/method_red.svg",
+        "caption": "Figure 2: composing primitives in Python cells with selective observation feedback.",
+        "credit": "Ruiyang Si, Jianxin Bi et al., PyRUA-Lean, Figure 2.",
+        "alt": "Figure 2: composing primitives in Python cells with selective observation feedback."
+      },
+      "sources": [
+        "https://arxiv.org/html/2610.01939v1",
+        "https://dagroup-pku.github.io/PyRUA-Lean/",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean",
+        "https://robodojo-benchmark.com/leaderboard?bench=sim#agent"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent README, matching PyRUA-Lean row; primary sources checked.",
+      "checked_at": "2026-10-28",
+      "setting": "Simulation: LIBERO-PRO, RoboTwin 2.0, RoboCasa365 and RoboDojo.",
+      "foundational": false
+    },
+    {
+      "id": "roboharn-evo",
+      "title": "RoboHarn-Evo: Evolving Hierarchical Physical Knowledge for Self-Improving Robotic Manipulation",
+      "date": "2026-09-29",
+      "category": "Code & harness evolution",
+      "summary": "Improves robot manipulation by retrieving and evolving hierarchical task and action knowledge from execution feedback while keeping the base model and executor fixed.",
+      "loop": "Retrieve task/action knowledge → ground and execute skills → verify effects → reflect on recorded episodes → correct and consolidate hierarchical knowledge for future tasks.",
+      "setting": "Simulation and real robot · RMBench, frozen-knowledge RoboDojo transfer, physical manipulation",
+      "evidence": "Inner-loop retrieval grounds reusable knowledge in the current scene; outer-loop updates correct and consolidate it across episodes. Evaluated on RMBench, frozen-knowledge transfer to RoboDojo, and real-robot tasks. Public code includes the harness, knowledge maintenance, and benchmark adapters; simulator assets, model checkpoints, and services are configured separately.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2609.37583",
+        "project": "https://ruckbreasoning.github.io/RoboHarn-Evo/",
+        "code": "https://github.com/RUCKBReasoning/RoboHarn-Evo"
+      },
+      "figure": {
+        "path": "assets/papers/roboharn-evo.webp",
+        "alt": "RoboHarn-Evo method: task planning, grounded action, execution checks, and episode reflection evolve hierarchical knowledge.",
+        "source": "https://ruckbreasoning.github.io/RoboHarn-Evo/",
+        "url": "https://ruckbreasoning.github.io/RoboHarn-Evo/assets/images/method.webp?v=e697a5bc6b92",
+        "credit": "Shifeng Bao et al., RoboHarn-Evo: Evolving Hierarchical Physical Knowledge for Self-Improving Robotic Manipulation. Core method figure from the official paper/project.",
+        "bytes": 250858,
+        "content_type": "image/webp"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.37583",
+        "https://arxiv.org/abs/2609.37583",
+        "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md",
+        "https://ruckbreasoning.github.io/RoboHarn-Evo/"
+      ],
+      "foundational": false,
+      "authors": [
+        "Shifeng Bao",
+        "Fanding Huang",
+        "Yihan Lin",
+        "Youhe Feng",
+        "Guanlin Li",
+        "Chen Zhao",
+        "Yang Li",
+        "Jiawei He",
+        "Cheng Chi",
+        "Jing Zhang"
+      ],
+      "date_source": "https://arxiv.org/abs/2609.37583"
+    },
+    {
+      "id": "rhd",
+      "title": "Recursive Harness Distillation across Agents for Robot Manipulation",
+      "date": "2026-09-27",
+      "category": "Code & harness evolution",
+      "summary": "Distills a strong agent’s robot-intervention experience into a playbook for a lighter agent, then refines that guidance from the recipient’s execution feedback.",
+      "loop": "A strong agent intervenes around a frozen VLA → distill experience into a playbook → lighter agent executes → use recipient feedback to revise the shared playbook.",
+      "setting": "Simulation and real robot · SimplerEnv Bridge and Franka Panda",
+      "evidence": "Agents edit instructions, attention, and proposed actions around a frozen VLA. Evaluated in SimplerEnv Bridge and on a physical Franka Panda without updating model parameters.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2609.33378",
+        "project": "https://seungyeon.me/RHD"
+      },
+      "figure": {
+        "path": "assets/papers/rhd.png",
+        "alt": "RHD Figure 1: a strong agent distills robot-intervention experience into a playbook refined with a lighter agent’s feedback.",
+        "source": "https://seungyeon.me/RHD/",
+        "url": "https://seungyeon.me/RHD/assets/paper-overview.png",
+        "credit": "Seungyeon Kim et al., Recursive Harness Distillation across Agents for Robot Manipulation. Core method figure from the official paper/project.",
+        "bytes": 295322,
+        "content_type": "image/png"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.33378",
+        "https://arxiv.org/abs/2609.33378",
+        "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md",
+        "https://seungyeon.me/RHD"
+      ],
+      "foundational": false,
+      "authors": [
+        "Seungyeon Kim",
+        "Junhoo Lee",
+        "Minkyu Kim",
+        "Baekseung Kim",
+        "Nojun Kwak"
+      ],
+      "date_source": "https://arxiv.org/abs/2609.33378"
+    },
+    {
+      "id": "zetta",
+      "title": "Zetta ζ: An Efficient Closed-Loop Embodied Harness for Self-Evolving Physical Intelligence",
+      "date": "2026-08-17",
+      "category": "Code & harness evolution",
+      "summary": "Keeps the base policy frozen while developing runtime critics and recovery skills through execution, diagnosis, and gated updates.",
+      "loop": "Execute a frozen policy with runtime critics → diagnose failure → evolve critic and recovery skills → gate updates → reuse validated interventions.",
+      "setting": "Simulation · LIBERO-Pro Goal and LIBERO-10 perturbations; 18 RoboCasa Atomic-Seen tasks",
+      "evidence": "With the base VLA frozen, the official project reports 90.8% mean success on LIBERO-Pro Goal (T/S) and 93.6% across 18 RoboCasa Atomic-Seen tasks under its rollout budget. These are simulation results; Goal success is distinct from the lower LIBERO-10 results, and task/rollout budgets should be matched in comparisons.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2608.16590",
+        "project": "https://air-embodied-brain.github.io/zetta/",
+        "code": "https://github.com/air-embodied-brain/Zetta-Embodiment"
+      },
+      "figure": {
+        "path": "assets/papers/zetta.png",
+        "alt": "Zetta Z-Harness framework: execution feedback evolves runtime critics and recovery skills around a frozen policy.",
+        "source": "https://air-embodied-brain.github.io/zetta/",
+        "url": "https://fe-1301391939.cos.ap-shanghai.myqcloud.com/zetta/framework-cropped.png",
+        "credit": "Xin Ding et al., Zetta ζ: An Efficient Closed-Loop Embodied Harness for Self-Evolving Physical Intelligence. Core method figure from the official paper/project.",
+        "bytes": 53739,
+        "content_type": "image/png"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.16590",
+        "https://arxiv.org/abs/2608.16590",
+        "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md",
+        "https://air-embodied-brain.github.io/zetta/"
+      ],
+      "foundational": false,
+      "authors": [
+        "Xin Ding",
+        "Liang Mi",
+        "Mingzhe Huang",
+        "Zixuan Wang",
+        "Chao Zhang",
+        "Zixu Hao",
+        "Fu Chen",
+        "Xiangyu Li",
+        "Yikai Zheng",
+        "Yaoyu Guo",
+        "Weijun Wang",
+        "Kun Li",
+        "Hao Wu",
+        "Yunxin Liu",
+        "Ting Cao"
+      ],
+      "date_source": "https://arxiv.org/abs/2608.16590"
+    },
+    {
+      "id": "shaper",
+      "title": "SHAPER: Self-Evolving Embodied Agents via Skill-Harness Evolution",
+      "date": "2026-08-11",
+      "category": "Code & harness evolution",
+      "summary": "Keeps model parameters frozen while evolving reusable skills and a context-code harness from target-environment rollouts.",
+      "loop": "Collect target-environment rollouts → diagnose round/episode failures into textual gradients → evolve skills then context-code harness → sandbox validation and top-K selection.",
+      "setting": "Simulation · VLABench and ESI-Bench",
+      "evidence": "Evaluated on VLABench and ESI-Bench with different action interfaces. Improves external skills and execution context without model training.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2608.11350"
+      },
+      "figure": {
+        "path": "assets/papers/shaper.png",
+        "alt": "SHAPER Figure 2: rollout diagnosis produces textual gradients for sequential skill and harness evolution with sandbox validation and selection.",
+        "source": "https://arxiv.org/html/2608.11350v1#S3.F2",
+        "url": "https://arxiv.org/html/2608.11350v1/figures/main.png",
+        "credit": "Peidong Wang et al., SHAPER: Self-Evolving Embodied Agents via Skill-Harness Evolution. Core method figure from the official paper/project.",
+        "bytes": 1297889,
+        "content_type": "image/png"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.11350",
+        "https://arxiv.org/abs/2608.11350",
+        "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md"
+      ],
+      "foundational": false,
+      "authors": [
+        "Peidong Wang",
+        "Zhiming Ma",
+        "Ying Chang",
+        "Xufang Luo",
+        "Yiqun Zhang",
+        "Zihan Wang",
+        "Xiaocui Yang",
+        "Shi Feng",
+        "Yuqing Yang",
+        "Dongsheng Li"
+      ],
+      "date_source": "https://arxiv.org/abs/2608.11350"
+    },
+    {
+      "id": "aspire",
+      "title": "ASPIRE: Agentic /Skills Discovery for Robotics",
+      "date": "2026-06-30",
+      "updated": "2026-10-20",
+      "category": "Policy & skill learning",
+      "summary": "A coding agent writes robot programs, inspects multimodal execution traces, diagnoses failures, validates repairs and saves successful strategies as reusable /skills. Evolutionary search explores diverse candidate programs, while a growing skill library carries experience to new tasks. Improvement accumulates as executable programs and in-context skill knowledge rather than updates to the underlying language model.",
+      "loop": "Execute candidate programs → diagnose multimodal traces → repair and validate code → save reusable /skills for subsequent tasks.",
+      "setting": "LIBERO-Pro, Robosuite and BEHAVIOR-1K simulation; selected physical-robot transfer experiments.",
+      "evidence": "Evaluated on LIBERO-Pro, Robosuite and BEHAVIOR-1K, with simulation-to-real skill transfer and online physical-robot examples including Rubik’s Cube manipulation. The project distinguishes debug seeds from held-out evaluation seeds. Behavior is bounded by a predefined perception, planning and control API. The real-world setup still requires success detection, resets, monitoring and calibration; reported performance depends on the language model, task subset and evaluation protocol.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2607.00272",
+        "code": "https://github.com/NVlabs/ASPIRE",
+        "project": "https://research.nvidia.com/labs/gear/aspire/"
+      },
+      "figure": {
+        "path": "assets/papers/aspire.png",
+        "alt": "ASPIRE system overview: execution traces, agentic program search and a reusable skill library (Figure 1).",
+        "source": "https://arxiv.org/html/2607.00272v2#S1.F1",
+        "credit": "Runyu Lu et al., ASPIRE, arXiv:2607.00272v2, Figure 1. CC BY 4.0.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "original_url": "https://arxiv.org/html/2607.00272v2/system_design.png"
+      },
+      "foundational": true,
+      "sources": [
+        "https://arxiv.org/abs/2607.00272",
+        "https://research.nvidia.com/labs/gear/aspire/",
+        "https://github.com/NVlabs/ASPIRE"
+      ]
+    },
+    {
+      "id": "enpire",
+      "title": "ENPIRE: Agentic Robot Policy Self-Improvement in the Real World",
+      "date": "2026-06-18",
+      "updated": "2026-09-20",
+      "category": "Policy & skill learning",
+      "summary": "Turns physical robot research into a repeatable reset–execute–verify–refine loop. Coding agents inspect rollout logs, propose changes to heuristics or learning code, and evaluate those changes on one robot or a fleet. Its four modules connect environment setup, policy improvement, rollout and experiment evolution; the open implementation supports code-as-policy and neural policy training.",
+      "loop": "Reset and execute → verify outcomes and inspect logs → revise policy code or training → evaluate the revision and retain improvements.",
+      "setting": "Physical robot manipulation and RoboCasa simulation.",
+      "evidence": "Real-world manipulation includes Push-T, pin insertion, GPU insertion and zip-tie tasks, with additional RoboCasa simulation. The project page defines its headline 99% result as pass@8 with adaptive in-context retries; it should not be presented as 99% single-attempt success. Requires calibrated stations and task-specific reset and outcome-verification functions. Robot-fleet speedups consume additional tokens and depend on resource utilization.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2606.19980",
+        "code": "https://github.com/NVlabs/ENPIRE",
+        "project": "https://research.nvidia.com/labs/gear/enpire/"
+      },
+      "figure": {
+        "path": "assets/papers/enpire.png",
+        "alt": "ENPIRE physical autoresearch framework and real-world task overview (Figure 2).",
+        "source": "https://arxiv.org/html/2606.19980v2#S0.F2",
+        "credit": "Wenli Xiao et al., ENPIRE, arXiv:2606.19980v2, Figure 2. CC BY 4.0.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "original_url": "https://arxiv.org/html/2606.19980v2/figure-v4.png"
+      },
+      "foundational": true,
+      "sources": [
+        "https://arxiv.org/abs/2606.19980",
+        "https://research.nvidia.com/labs/gear/enpire/",
+        "https://github.com/NVlabs/ENPIRE"
+      ]
+    }
+  ],
+  "leaderboard": {
+    "source": "https://robodojo-benchmark.com/leaderboard?bench=sim#agent",
+    "checked_at": "2026-10-28",
+    "updated_at": "2026-10-26T00:00:00.000Z",
+    "latest_news_date": "2026-10-27",
+    "freshness_note": "updated_at is the timestamp declared in the official JavaScript bundle; its news includes a newer October 27 entry. checked_at is the collection date.",
+    "metric": "Average Score (descending); Success Rate (%) shown separately",
+    "protocol": "RoboDojo-Sim Agent track; 42 simulation tasks in Generalization, Precision, Long-Horizon, Memory, and Open. Includes Agent, Agent + WAM and Agent + VLA entries. Score is a progress metric, not success rate; Generalization averages standard and random layouts. The site sorts Average Score descending, then Success Rate descending, then model name; display ranks are ordinal. Top five have no ties.",
+    "protocol_url": "https://robodojo-benchmark.com/leaderboard/protocol",
+    "rows": [
+      {
+        "rank": 1,
+        "name": "GO-3 Nano Preview",
+        "team": "AGIBOT",
+        "score": 61.9,
+        "success_rate": 56.42,
+        "type": "Agent + WAM",
+        "links": {},
+        "note": "Leaderboard-only preview in this collection; no primary paper, code, or recursive-improvement claim verified. Added by the official news log on 2026-10-27."
+      },
+      {
+        "rank": 2,
+        "name": "PyRUA-Lean",
+        "team": "PKU DAGroup",
+        "score": 55.26,
+        "success_rate": 50.35,
+        "type": "Agent",
+        "links": {
+          "paper": "https://arxiv.org/abs/2610.01939",
+          "code": "https://github.com/DAGroup-PKU/PyRUA-Lean",
+          "project": "https://dagroup-pku.github.io/PyRUA-Lean/"
+        },
+        "note": "Efficient code-execution framework; keep as an adjacent robot-agent baseline, not evidence of recursive self-improvement. Paper/project experiments differ from this verified leaderboard snapshot."
+      },
+      {
+        "rank": 3,
+        "name": "HexaShell-Preview",
+        "team": "HexaFuture",
+        "score": 53.18,
+        "success_rate": 46.85,
+        "type": "Agent",
+        "links": {
+          "paper": "https://arxiv.org/abs/2610.23479",
+          "code": "https://github.com/HexaFuture/HexaShell",
+          "project": "https://hexafuture.ai/blog/hexashell/"
+        },
+        "note": "Between episodes, an optimizer repairs reusable tools from failures; frozen tools are used for evaluation. Release is partial, not the complete server/evolution infrastructure."
+      },
+      {
+        "rank": 4,
+        "name": "WorldScape-R²SI",
+        "team": "Manifold AI",
+        "score": 46.58,
+        "success_rate": 39.35,
+        "type": "Agent + WAM",
+        "links": {
+          "paper": "https://r2si.worldscape.io/report.pdf",
+          "project": "https://r2si.worldscape.io/",
+          "models": "https://huggingface.co/manifoldai-research/WorldScape-R2SI"
+        },
+        "note": "A Robot Agent acts through Skills; a Recursion Agent revises Skills and can train a reactive model. The project page preserves its historical October 17 #1 claim; current rank is #4."
+      },
+      {
+        "rank": 5,
+        "name": "EmbodiedEvo",
+        "team": "Einsia.AI",
+        "score": 45.08,
+        "success_rate": 38.95,
+        "type": "Agent",
+        "links": {
+          "paper": "https://arxiv.org/abs/2610.18867",
+          "code": "https://github.com/Einsia/EmbodiedEvo",
+          "project": "https://lab.einsia.ai/embodiedevo/"
+        },
+        "note": "Turns Playground interaction into persistent Skills and Lessons, frozen before test scenes. Original paper metrics 44.48/37.82 differ from current official 45.08/38.95."
+      }
+    ],
+    "additional_baseline": {
+      "rank": 6,
+      "name": "PhysicalRSI",
+      "team": "HKU MMLab & KAI",
+      "score": 36.27,
+      "success_rate": 31.38,
+      "type": "Agent + VLA",
+      "links": {
+        "project": "https://mmlab.hk/research/PhysicalRSI"
+      },
+      "note": "Useful RSI baseline outside the top five; official project is a research blog, not a verified standalone paper in this snapshot."
+    },
+    "evidence": {
+      "bundle_url": "https://robodojo-benchmark.com/assets/index-CjJl8yvH.js",
+      "bundle_sha256": "cae0073551be66a36687556c4c0f60a652167a9ecdc750613c394c9c0f405bfc",
+      "extraction": "Read static to model-score records, Jt model-type map, default ne={dimension:average,metric:score}, and ar split using type.includes(agent). Verified against official news records. No browser render used."
+    }
+  }
+}
