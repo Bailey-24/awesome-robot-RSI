@@ -37,12 +37,15 @@ def validate_catalogue(data, root=ROOT):
     checked_date = date.fromisoformat(data['updated_at'])
     cutoff = date.fromisoformat(data['cutoff'])
     seen = set()
+    excluded = {item['id'] for item in data.get('excluded_papers', [])}
     for paper in data["papers"]:
         for field in ("id", "title", "date", "category", "summary", "loop", "setting", "evidence", "links", "figure"):
             if not paper.get(field):
                 raise ValueError(f"Missing {field} for {paper.get('id', 'paper')}")
         if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", paper["id"]) or paper["id"] in seen:
             raise ValueError("Paper IDs must be unique URL-safe slugs")
+        if paper['id'] in excluded:
+            raise ValueError(f"Paper explicitly excluded by curator: {paper['id']}")
         seen.add(paper["id"])
         if not re.fullmatch(r"\d{4}-\d{2}(?:-\d{2})?", paper["date"]):
             raise ValueError(f"Invalid release date: {paper['date']}")
@@ -103,8 +106,17 @@ def resource_links(links, keys, css=""):
                    for key in keys if links.get(key))
 
 
-def render_paper(paper):
+def leaderboard_note(paper, board):
+    for row in (board or {}).get('rows', []):
+        if row.get('links', {}).get('paper') == paper['links'].get('paper'):
+            return f"RoboDojo-Sim Agent #{row['rank']} · Score {row['score']:.2f} · Success {row['success_rate']:.2f}% ({board['checked_at']})."
+    return ''
+
+
+def render_paper(paper, board=None):
     figure = paper["figure"]
+    note = leaderboard_note(paper, board)
+    rank_html = f' <a class="inline-ranking" href="{esc(board["source"])}">{esc(note)}</a>' if note else ''
     foundational = '<span class="tag foundation">Foundation</span>' if paper.get("foundational") else ""
     primary = resource_links(paper["links"], ("paper", "code"), "primary-resource")
     secondary = resource_links(paper["links"], ("data", "models"))
@@ -115,22 +127,9 @@ def render_paper(paper):
     return f'''<article class="paper-card" id="{esc(paper['id'])}" data-category="{esc(paper['category'])}" data-date="{esc(paper['date'])}" data-code="{'true' if paper['links'].get('code') else 'false'}">
   <figure class="paper-figure"><a href="{esc(figure['source'])}" aria-label="View original figure for {esc(paper['title'])}"><img src="{esc(figure['path'])}" alt="{esc(figure['alt'])}" loading="lazy" decoding="async"></a><figcaption>{esc(figure['credit'])} · <a href="{esc(figure['source'])}">Figure source →</a></figcaption></figure>
   <div class="paper-content"><div class="paper-meta"><time datetime="{esc(paper['date'])}">{esc(date_text)}</time>{revised}<span class="tag">{esc(paper['category'])}</span>{foundational}</div>{date_note}
-  <h3><a href="{esc(paper['links']['paper'])}">{esc(paper['title'])}</a></h3><p class="paper-summary">{esc(paper['summary'])}</p>
+  <h3><a href="{esc(paper['links']['paper'])}">{esc(paper['title'])}</a></h3><p class="paper-summary">{esc(paper['summary'])}{rank_html}</p>
   <nav class="resources" aria-label="Resources for {esc(paper['title'])}"><div class="primary-resources">{primary}</div>{f'<div class="secondary-resources">{secondary}</div>' if secondary else ''}{project}</nav></div>
 </article>'''
-
-
-def render_board(board):
-    if not board.get("rows"):
-        return ""
-    rows = []
-    for index, row in enumerate(board["rows"], 1):
-        links = row.get("links", {})
-        url = links.get("project") or links.get("paper") or links.get("code")
-        name = f'<a href="{esc(url)}">{esc(row["name"])} →</a>' if url else esc(row["name"])
-        note = ''
-        rows.append(f'<tr><td class="rank">{esc(row.get("rank", index))}</td><th scope="row">{name}<span class="board-type">{esc(row.get("type", "Agent"))}</span>{note}</th><td>{esc(row["score"])}</td><td>{esc(row["success_rate"])}%</td></tr>')
-    return f'''<section class="leaderboard" id="leaderboard" aria-labelledby="leaderboard-title"><div class="section-heading"><div><p class="eyebrow">A benchmark reference</p><h2 id="leaderboard-title">RoboDojo · Sim agents</h2></div><a href="{esc(board['source'])}">Official leaderboard →</a></div><p class="board-intro">Updated {esc(board['checked_at'])} · Ranked by Score.</p><div class="table-scroll"><table><thead><tr><th scope="col">Rank</th><th scope="col">Agent</th><th scope="col">Score</th><th scope="col">Success rate</th></tr></thead><tbody>{''.join(rows)}</tbody></table></div></section>'''
 
 
 def render_html(data):
@@ -140,11 +139,10 @@ def render_html(data):
     nav = ''.join(f'<button type="button" data-category="{esc(category)}" aria-pressed="false"><span>{esc(category)}</span><span>{sum(p["category"] == category for p in papers)}</span></button>' for category in categories)
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="{esc(data['description'])}"><meta name="color-scheme" content="light"><title>{esc(data['title'])} · Robot Recursive Self-Improvement</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%23e45735'/%3E%3Ctext x='50' y='66' text-anchor='middle' font-family='monospace' font-size='50' fill='white'%3E↻%3C/text%3E%3C/svg%3E"><link rel="stylesheet" href="style.css"><script src="app.js" defer></script></head>
-<body><a class="skip-link" href="#papers">Skip to papers</a><header class="topbar shell"><a class="brand" href="#top"><span class="brand-icon" aria-hidden="true">↻</span> awesome-robot-RSI</a><nav aria-label="Main navigation"><a href="#papers">Papers</a><a href="#leaderboard">Leaderboard</a><a href="{esc(data['repository'])}">GitHub →</a></nav></header>
+<body><a class="skip-link" href="#papers">Skip to papers</a><header class="topbar shell"><a class="brand" href="#top"><span class="brand-icon" aria-hidden="true">↻</span> awesome-robot-RSI</a><nav aria-label="Main navigation"><a href="#papers">Papers</a><a href="https://robodojo-benchmark.com/leaderboard?bench=sim#agent">RoboDojo →</a><a href="{esc(data['repository'])}">GitHub →</a></nav></header>
 <main id="top"><section class="hero shell"><p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> A focused reading list · Updated {esc(data['updated_at'])}</p><h1>Robots that learn<br>to <em>improve themselves.</em></h1><p class="hero-description">{esc(data['description'])}</p><div class="hero-bottom"><p><strong>{len(papers)}</strong> selected works <span>·</span> <strong>{h2_count}</strong> from H2 2026 <span>·</span> Paper → experiment → improvement</p><a class="hero-link" href="#papers">Explore the collection <span aria-hidden="true">↓</span></a></div><div class="loop-strip" aria-label="The self-improvement cycle"><span><b>01</b> Act &amp; observe</span><span aria-hidden="true">→</span><span><b>02</b> Diagnose &amp; revise</span><span aria-hidden="true">→</span><span><b>03</b> Evaluate &amp; retain</span><span class="loop-return" aria-hidden="true">↻</span></div></section>
 <div class="catalogue shell" id="papers"><aside class="sidebar"><div class="sidebar-inner"><p class="eyebrow">The collection</p><h2>Follow the loop.</h2><p class="scope-note">Recent papers, newest first.</p><nav class="category-nav enhanced-control" aria-label="Filter by research area" hidden><button type="button" data-category="all" aria-pressed="true"><span>All papers</span><span>{len(papers)}</span></button>{nav}</nav><a class="sidebar-source" href="{esc(data['repository'])}/blob/main/CONTRIBUTING.md">Suggest a paper →</a></div></aside>
-<section class="paper-list" aria-label="Selected papers"><div class="search-controls enhanced-control" hidden><label class="search-field"><span aria-hidden="true">⌕</span><span class="sr-only">Search papers</span><input id="search" type="search" maxlength="300" placeholder="Search papers, methods, settings…" autocomplete="off"><kbd>/</kbd></label><div class="filter-row"><label class="code-toggle"><input type="checkbox" id="code-only"> Code available</label><label class="sort-label">Sort <select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select></label><button class="reset-button" id="reset" type="button">Reset</button></div></div><p class="results-count" id="result-count" role="status" aria-live="polite">{len(papers)} papers · all research areas</p><noscript><p class="notice">All papers are readable below. Enable JavaScript to search and filter.</p></noscript><p class="empty-state" id="empty" hidden>No papers match these filters. Try another term or reset the collection.</p><div id="paper-cards">{''.join(render_paper(paper) for paper in papers)}</div></section></div>
-<div class="shell">{render_board(data.get('leaderboard', {}))}</div>
+<section class="paper-list" aria-label="Selected papers"><div class="search-controls enhanced-control" hidden><label class="search-field"><span aria-hidden="true">⌕</span><span class="sr-only">Search papers</span><input id="search" type="search" maxlength="300" placeholder="Search papers, methods, settings…" autocomplete="off"><kbd>/</kbd></label><div class="filter-row"><label class="code-toggle"><input type="checkbox" id="code-only"> Code available</label><label class="sort-label">Sort <select id="sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select></label><button class="reset-button" id="reset" type="button">Reset</button></div></div><p class="results-count" id="result-count" role="status" aria-live="polite">{len(papers)} papers · all research areas</p><noscript><p class="notice">All papers are readable below. Enable JavaScript to search and filter.</p></noscript><p class="empty-state" id="empty" hidden>No papers match these filters. Try another term or reset the collection.</p><div id="paper-cards">{''.join(render_paper(paper, data.get('leaderboard')) for paper in papers)}</div></section></div>
 </main>
 <footer><div class="shell footer-inner"><div><a class="footer-brand" href="#top">awesome-robot-RSI <span aria-hidden="true">↻</span></a><p>A living reading list for robot recursive self-improvement.</p></div><nav aria-label="Footer"><a href="{esc(data['repository'])}">Source &amp; contributions →</a><a href="https://github.com/kairunwen/Awesome-Robot-Use-Agent">Original collection →</a><a href="#top">Back to top ↑</a></nav></div><p class="shell credits">Curated from Awesome Robot Use Agent and verified primary sources. Code: MIT. Paper figures retain their authors’ rights.</p></footer></body></html>'''
 
@@ -166,18 +164,14 @@ def render_readme(data):
             out += [paper['date_note'], '']
         out += [f'![{figure["alt"]}]({figure["path"]})', '',
                 f'*{figure["credit"].rstrip(".")}. [Figure source]({figure["source"]}).*', '', paper['summary'], '']
+        note = leaderboard_note(paper, data.get('leaderboard'))
+        if note:
+            out[-2] += f" [{note}]({data['leaderboard']['source']})"
         links = paper['links']
         out += [' · '.join(f'[{RESOURCE_NAMES[key]}]({links[key]})' for key in ('paper', 'code') if links.get(key)), '']
         extras = ' · '.join(f'[{RESOURCE_NAMES[key]}]({links[key]})' for key in ('data', 'models', 'project') if links.get(key))
         if extras:
             out += [extras, '']
-    board = data.get('leaderboard', {})
-    if board.get('rows'):
-        out += ['## RoboDojo · Sim agents', '',
-                f'Updated {board["checked_at"]} · [Official leaderboard]({board["source"]})', '',
-                '| Rank | Agent | Score | Success rate |', '| --- | --- | --- | --- |']
-        for index, row in enumerate(board['rows'], 1):
-            out.append(f'| {row.get("rank", index)} | {md_escape(row["name"])} | {row["score"]} | {row["success_rate"]}% |')
     out += ['', '## Development', '',
             'See [build and deployment instructions](docs/使用与部署.md). Edit `data/catalogue.json`, then run `python3 website/build.py` to update the README and website.', '',
             '## Attribution', '',

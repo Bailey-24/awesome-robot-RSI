@@ -14,9 +14,9 @@ Edit `data/catalogue.json`, the single source for the README and website. Includ
 
 The build presents Paper and Code first, then available Data and Models, followed by Project. Avoid collapsible summaries or “Details & sources” text.
 
-## Leaderboard snapshots
+## Inline rankings
 
-Record the benchmark, track, ordering metric, check date, official update date, and source with every snapshot. RoboDojo Score and Success Rate are separate metrics. Preserve official names and values; do not infer a research paper or RSI mechanism from a high leaderboard rank. Keep baseline/system rows distinct from the paper collection.
+Record the benchmark, track, ordering metric, check date, official update date, and source with every snapshot. RoboDojo Score and Success Rate are separate metrics. Preserve official names and values; do not infer a research paper or RSI mechanism from a high leaderboard rank. Keep baseline systems distinct from RSI methods. Show verified ranks and scores only in the corresponding paper summary; do not render a separate leaderboard table. Respect `excluded_papers`; never automatically re-add an explicitly removed paper.
 
 ## Validate and build
 

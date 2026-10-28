@@ -16,7 +16,7 @@ Technical report date; the project was announced on 2026-10-17.
 
 *Manifold AI Team, R²SI technical report, Figure 1. [Figure source](https://r2si.worldscape.io/report.pdf#page=2).*
 
-Uses a Robot Agent to execute tasks and a Recursion Agent to improve reusable skills and train the reactive model from rollout feedback.
+Uses a Robot Agent to execute tasks and a Recursion Agent to improve reusable skills and train the reactive model from rollout feedback. [RoboDojo-Sim Agent #4 · Score 46.58 · Success 39.35% (2026-10-28).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://r2si.worldscape.io/report.pdf)
 
@@ -58,7 +58,7 @@ Evaluates how robot agents improve across repeated attempts, measuring learning 
 
 *Hongcheng Gao, Alex Zhou et al., HexaShell, Figure 4; official HexaFuture project page. [Figure source](https://hexafuture.ai/blog/hexashell/assets/fig04-harness-20261020.webp).*
 
-Pairs a robot coding agent with an optimizer that diagnoses failed episodes and repairs reusable tools for future tasks.
+Pairs a robot coding agent with an optimizer that diagnoses failed episodes and repairs reusable tools for future tasks. [RoboDojo-Sim Agent #3 · Score 53.18 · Success 46.85% (2026-10-28).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.23479) · [Code](https://github.com/HexaFuture/HexaShell)
 
@@ -72,7 +72,7 @@ Pairs a robot coding agent with an optimizer that diagnoses failed episodes and 
 
 *Wenyi Li et al., EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence. Core method figure from the official paper/project. [Figure source](https://lab.einsia.ai/embodiedevo/).*
 
-Learns reusable code skills and diagnostic lessons in a practice scene, then transfers them to new scenes without updating model weights.
+Learns reusable code skills and diagnostic lessons in a practice scene, then transfers them to new scenes without updating model weights. [RoboDojo-Sim Agent #5 · Score 45.08 · Success 38.95% (2026-10-28).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.18867) · [Code](https://github.com/Einsia/EmbodiedEvo)
 
@@ -152,7 +152,7 @@ Reconstructs tasks in simulation, improves a shared skill library through practi
 
 *Ruiyang Si, Jianxin Bi et al., PyRUA-Lean, Figure 2. [Figure source](https://arxiv.org/html/2610.01939v1/method_red.svg).*
 
-Reduces model calls and redundant observations by letting robot agents compose actions and handle checks and retries in an interactive Python runtime.
+Reduces model calls and redundant observations by letting robot agents compose actions and handle checks and retries in an interactive Python runtime. [RoboDojo-Sim Agent #2 · Score 55.26 · Success 50.35% (2026-10-28).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.01939) · [Code](https://github.com/DAGroup-PKU/PyRUA-Lean)
 
@@ -240,17 +240,6 @@ Automates real-world policy improvement through repeated robot resets, execution
 
 [Project](https://research.nvidia.com/labs/gear/enpire/)
 
-## RoboDojo · Sim agents
-
-Updated 2026-10-28 · [Official leaderboard](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
-
-| Rank | Agent | Score | Success rate |
-| --- | --- | --- | --- |
-| 1 | GO-3 Nano Preview | 61.9 | 56.42% |
-| 2 | PyRUA-Lean | 55.26 | 50.35% |
-| 3 | HexaShell-Preview | 53.18 | 46.85% |
-| 4 | WorldScape-R²SI | 46.58 | 39.35% |
-| 5 | EmbodiedEvo | 45.08 | 38.95% |
 
 ## Development
 

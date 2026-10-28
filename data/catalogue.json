@@ -818,5 +818,12 @@
       "bundle_sha256": "cae0073551be66a36687556c4c0f60a652167a9ecdc750613c394c9c0f405bfc",
       "extraction": "Read static to model-score records, Jt model-type map, default ne={dimension:average,metric:score}, and ar split using type.includes(agent). Verified against official news records. No browser render used."
     }
-  }
+  },
+  "excluded_papers": [
+    {
+      "id": "skill-rsi",
+      "paper": "https://arxiv.org/abs/2610.25114",
+      "reason": "Removed at the curator’s request; do not re-add automatically."
+    }
+  ]
 }
