@@ -23,12 +23,6 @@ All figures are authentic method/overview figures from the linked official paper
 - Credit: Zekai Li et al., Where is Physical RSI capability from? An Observational Scaling Law of LLM-as-policy. Core method figure from the official paper/project.
 - Source: https://physrsi-eval.github.io/
 
-## skill-rsi
-
-- File: [skill-rsi.png](papers/skill-rsi.png)
-- Paper: [Compile Once, Run Cheap: Frozen, Portable Skills for Embodied Agents, and What Recursive Self-Improvement Adds](https://arxiv.org/abs/2610.25114)
-- Credit: Figure 1 © the Skill-RSI authors; extracted from page 2 of the official PDF (figure region only).
-- Source: https://arxiv.org/pdf/2610.25114#page=2
 
 ## hexashell
 
