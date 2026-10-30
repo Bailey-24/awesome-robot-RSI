@@ -1,7 +1,7 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-10-28",
+  "updated_at": "2026-10-30",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
@@ -726,16 +726,26 @@
   ],
   "leaderboard": {
     "source": "https://robodojo-benchmark.com/leaderboard?bench=sim#agent",
-    "checked_at": "2026-10-28",
-    "updated_at": "2026-10-26T00:00:00.000Z",
-    "latest_news_date": "2026-10-27",
-    "freshness_note": "updated_at is the timestamp declared in the official JavaScript bundle; its news includes a newer October 27 entry. checked_at is the collection date.",
+    "checked_at": "2026-10-30",
+    "updated_at": "2026-10-30T00:00:00.000Z",
+    "latest_news_date": "2026-10-30",
+    "freshness_note": "updated_at is the timestamp declared in the official JavaScript bundle; checked_at is the date these rankings were verified.",
     "metric": "Average Score (descending); Success Rate (%) shown separately",
-    "protocol": "RoboDojo-Sim Agent track; 42 simulation tasks in Generalization, Precision, Long-Horizon, Memory, and Open. Includes Agent, Agent + WAM and Agent + VLA entries. Score is a progress metric, not success rate; Generalization averages standard and random layouts. The site sorts Average Score descending, then Success Rate descending, then model name; display ranks are ordinal. Top five have no ties.",
+    "protocol": "RoboDojo-Sim Agent track; 42 simulation tasks in Generalization, Precision, Long-Horizon, Memory, and Open. Includes Agent, Agent + WAM and Agent + VLA entries. Score is a progress metric, not success rate; Generalization averages standard and random layouts. The site sorts Average Score descending, then Success Rate descending, then model name; display ranks are ordinal. No ties affect the retained agent ranks.",
     "protocol_url": "https://robodojo-benchmark.com/leaderboard/protocol",
     "rows": [
       {
         "rank": 1,
+        "name": "Q0-Preview",
+        "team": "Qoo Tech",
+        "score": 73.33,
+        "success_rate": 68.0,
+        "type": "Agent",
+        "links": {},
+        "note": "New official leaderboard entry. No primary paper or persistent self-improvement mechanism verified; not added to the paper collection."
+      },
+      {
+        "rank": 2,
         "name": "GO-3 Nano Preview",
         "team": "AGIBOT",
         "score": 61.9,
@@ -745,7 +755,7 @@
         "note": "Leaderboard-only preview in this collection; no primary paper, code, or recursive-improvement claim verified. Added by the official news log on 2026-10-27."
       },
       {
-        "rank": 2,
+        "rank": 3,
         "name": "PyRUA-Lean",
         "team": "PKU DAGroup",
         "score": 55.26,
@@ -759,7 +769,7 @@
         "note": "Efficient code-execution framework; keep as an adjacent robot-agent baseline, not evidence of recursive self-improvement. Paper/project experiments differ from this verified leaderboard snapshot."
       },
       {
-        "rank": 3,
+        "rank": 4,
         "name": "HexaShell-Preview",
         "team": "HexaFuture",
         "score": 53.18,
@@ -773,7 +783,7 @@
         "note": "Between episodes, an optimizer repairs reusable tools from failures; frozen tools are used for evaluation. Release is partial, not the complete server/evolution infrastructure."
       },
       {
-        "rank": 4,
+        "rank": 5,
         "name": "WorldScape-R²SI",
         "team": "Manifold AI",
         "score": 46.58,
@@ -784,10 +794,10 @@
           "project": "https://r2si.worldscape.io/",
           "models": "https://huggingface.co/manifoldai-research/WorldScape-R2SI"
         },
-        "note": "A Robot Agent acts through Skills; a Recursion Agent revises Skills and can train a reactive model. The project page preserves its historical October 17 #1 claim; current rank is #4."
+        "note": "A Robot Agent acts through Skills; a Recursion Agent revises Skills and can train a reactive model. Historical project-page rank-one claims are separate from the current official rank."
       },
       {
-        "rank": 5,
+        "rank": 6,
         "name": "EmbodiedEvo",
         "team": "Einsia.AI",
         "score": 45.08,
@@ -802,7 +812,7 @@
       }
     ],
     "additional_baseline": {
-      "rank": 6,
+      "rank": 7,
       "name": "PhysicalRSI",
       "team": "HKU MMLab & KAI",
       "score": 36.27,
@@ -814,9 +824,9 @@
       "note": "Useful RSI baseline outside the top five; official project is a research blog, not a verified standalone paper in this snapshot."
     },
     "evidence": {
-      "bundle_url": "https://robodojo-benchmark.com/assets/index-CjJl8yvH.js",
-      "bundle_sha256": "cae0073551be66a36687556c4c0f60a652167a9ecdc750613c394c9c0f405bfc",
-      "extraction": "Read static to model-score records, Jt model-type map, default ne={dimension:average,metric:score}, and ar split using type.includes(agent). Verified against official news records. No browser render used."
+      "bundle_url": "https://robodojo-benchmark.com/assets/index-DEMgWCA5.js",
+      "bundle_sha256": "d6d07c5bad77d048b9093face3d4c99b6294c631a092e57266b25c1ad38ea6f5",
+      "extraction": "Official simulation records with agent, agent-wam and agent-vla types; Average Score descending, then Success Rate descending, then model name. October 30 official news confirms Q0-Preview entry."
     }
   },
   "excluded_papers": [
