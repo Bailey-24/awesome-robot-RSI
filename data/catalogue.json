@@ -1,7 +1,7 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-10-30",
+  "updated_at": "2026-10-31",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
@@ -464,9 +464,9 @@
         "Adjacent baseline",
         "Simulation"
       ],
-      "summary": "Reduces model calls and redundant observations by letting robot agents compose actions and handle checks and retries in an interactive Python runtime.",
-      "loop": "No persistent self-improvement loop established; efficient online code execution is an adjacent baseline.",
-      "evidence": "The matched-planner study covers 700 simulated instances across LIBERO-PRO, RoboTwin 2.0 and RoboCasa365. Token reductions apply to instances solved by both agents. The current verified RoboDojo snapshot is 55.26 Average Score and 50.35% Success Rate; the paper/project 58.20/51.62% experiment is a separate result and should not replace it.",
+      "summary": "Reduces repeated model calls by letting robot agents compose actions and local checks in Python. The repository also releases PyRUA-RSI’s offline-refined task programs, which run without language-model calls during evaluation.",
+      "loop": "The original paper studies efficient online code execution. The PyRUA-RSI extension reports an offline code-writing loop: execute candidate programs in RoboDojo, retain programs solving more episodes, and freeze them before evaluation.",
+      "evidence": "The matched-planner study covers 700 simulated instances across LIBERO-PRO, RoboTwin 2.0 and RoboCasa365. Token reductions apply to instances solved by both agents. The current verified RoboDojo snapshot is 55.26 Average Score and 50.35% Success Rate; the paper/project 58.20/51.62% experiment is a separate result and should not replace it. On 2026-10-30 the official repository released 54 fixed PyRUA-RSI task programs and an evaluation-only adapter. The author-reported development-seed results (82.82% success / 87.16 Score) and held-out seed-2 results (80.73% / 85.36) are separate from the official PyRUA-Lean leaderboard row. A dedicated technical report is forthcoming; the full improvement loop is not released.",
       "links": {
         "paper": "https://arxiv.org/abs/2610.01939",
         "code": "https://github.com/DAGroup-PKU/PyRUA-Lean",
@@ -484,12 +484,40 @@
         "https://arxiv.org/html/2610.01939v1",
         "https://dagroup-pku.github.io/PyRUA-Lean/",
         "https://github.com/DAGroup-PKU/PyRUA-Lean",
-        "https://robodojo-benchmark.com/leaderboard?bench=sim#agent"
+        "https://robodojo-benchmark.com/leaderboard?bench=sim#agent",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/20dbb21e823030077ff4ddd4463cb91e36277515/integrations/xpolicylab/PyRUA_RSI/README.md",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/tree/main/integrations/xpolicylab/PyRUA_RSI",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/main/integrations/xpolicylab/evaluation/robodojo_summary_rsi.md"
       ],
       "source_catalogue": "Awesome-Robot-Use-Agent README, matching PyRUA-Lean row; primary sources checked.",
       "checked_at": "2026-10-28",
       "setting": "Simulation: LIBERO-PRO, RoboTwin 2.0, RoboCasa365 and RoboDojo.",
-      "foundational": false
+      "foundational": false,
+      "related_releases": [
+        {
+          "name": "PyRUA-RSI offline programs",
+          "date": "2026-10-30",
+          "code": "https://github.com/DAGroup-PKU/PyRUA-Lean/tree/main/integrations/xpolicylab/PyRUA_RSI",
+          "results": "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/main/integrations/xpolicylab/evaluation/robodojo_summary_rsi.md",
+          "source": "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/20dbb21e823030077ff4ddd4463cb91e36277515/integrations/xpolicylab/PyRUA_RSI/README.md",
+          "status": "54 task programs and evaluation adapter released; dedicated technical report forthcoming. This is an extension of PyRUA-Lean, not a new paper.",
+          "evaluation": {
+            "source": "author-reported RoboDojo evaluation, not the official PyRUA-Lean leaderboard row",
+            "seed_0": {
+              "success_rate": 82.82,
+              "score": 87.16,
+              "episodes": 2100,
+              "used_in_development": true
+            },
+            "seed_2": {
+              "success_rate": 80.73,
+              "score": 85.36,
+              "held_out": true
+            }
+          },
+          "limitations": "The released adapter is evaluation-only. The README describes offline candidate execution and retention, but the complete program-improvement loop is not released here."
+        }
+      ]
     },
     {
       "id": "roboharn-evo",
@@ -726,7 +754,7 @@
   ],
   "leaderboard": {
     "source": "https://robodojo-benchmark.com/leaderboard?bench=sim#agent",
-    "checked_at": "2026-10-30",
+    "checked_at": "2026-10-31",
     "updated_at": "2026-10-30T00:00:00.000Z",
     "latest_news_date": "2026-10-30",
     "freshness_note": "updated_at is the timestamp declared in the official JavaScript bundle; checked_at is the date these rankings were verified.",
@@ -738,8 +766,8 @@
         "rank": 1,
         "name": "Q0-Preview",
         "team": "Qoo Tech",
-        "score": 73.33,
-        "success_rate": 68.0,
+        "score": 74.2,
+        "success_rate": 68.87,
         "type": "Agent",
         "links": {},
         "note": "New official leaderboard entry. No primary paper or persistent self-improvement mechanism verified; not added to the paper collection."
@@ -824,9 +852,9 @@
       "note": "Useful RSI baseline outside the top five; official project is a research blog, not a verified standalone paper in this snapshot."
     },
     "evidence": {
-      "bundle_url": "https://robodojo-benchmark.com/assets/index-DEMgWCA5.js",
-      "bundle_sha256": "d6d07c5bad77d048b9093face3d4c99b6294c631a092e57266b25c1ad38ea6f5",
-      "extraction": "Official simulation records with agent, agent-wam and agent-vla types; Average Score descending, then Success Rate descending, then model name. October 30 official news confirms Q0-Preview entry."
+      "bundle_url": "https://robodojo-benchmark.com/assets/index-DXE6c9rW.js",
+      "bundle_sha256": "1180aa1911a98cd671da7fb1f14e554b09349843ab95c2824e2421369c80c6b8",
+      "extraction": "Official simulation records filtered by agent types; ranked by Average Score, then Success Rate, then name. Q0-Preview score changed to 74.20 / 68.87%; the four collected paper ranks and metrics are unchanged."
     }
   },
   "excluded_papers": [
