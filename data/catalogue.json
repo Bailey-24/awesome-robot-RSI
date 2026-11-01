@@ -1,10 +1,83 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-10-31",
+  "updated_at": "2026-11-01",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
+    {
+      "id": "gym-anything-robotics",
+      "title": "Gym-Anything for Robotics: Scaling physical simulations with digital agents",
+      "date": "2026-10-29",
+      "category": "Evaluation",
+      "summary": "Builds audited robot simulations and studies agents that retain notes and code across repeated attempts. RoboWorld also evaluates privileged coaching and VLA training from code-generated demonstrations.",
+      "loop": "Execute robot attempts in a simulation → retain notes and code in context → reset to the same start → revise subsequent attempts. Separately, creation and audit agents iteratively repair simulation and task code and share lessons across simulations.",
+      "setting": "RoboWorld: 25 simulations, 175 training environments and 25 test environments; robot manipulation, mobile and humanoid embodiments in simulation.",
+      "evidence": "Section 5 studies persistent in-context learning across three attempts, qualitative coaching from a privileged teacher, and transfer from privileged experience. Learning experiments use 11 simulations; code-generated demonstrations train pi0.5 on two gift-box tasks. Initial frontier agents complete no test tasks. These simulation studies do not establish broad real-world transfer.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.40565",
+        "code": "https://github.com/gym-anything/robotics",
+        "project": "https://gym-anything.github.io/robotics/"
+      },
+      "figure": {
+        "path": "assets/papers/gym-anything-robotics.png",
+        "alt": "Gym-Anything Figure 2: simulation selection, creation and audit, task generation, and learning from repeated attempts and privileged experience.",
+        "source": "https://arxiv.org/html/2610.40565v1#S1.F2",
+        "credit": "Pranjal Aggarwal and Sean Welleck, Gym-Anything for Robotics, Figure 2. CC BY 4.0.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "original_url": "https://arxiv.org/html/2610.40565v1/overview.png"
+      },
+      "authors": [
+        "Pranjal Aggarwal",
+        "Sean Welleck"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.40565",
+      "sources": [
+        "https://arxiv.org/abs/2610.40565",
+        "https://arxiv.org/html/2610.40565v1#S5",
+        "https://gym-anything.github.io/robotics/",
+        "https://github.com/gym-anything/robotics"
+      ],
+      "foundational": false
+    },
+    {
+      "id": "robotagentbench",
+      "title": "RobotAgentBench: Towards Open-world Robot Autonomy",
+      "date": "2026-10-26",
+      "category": "Evaluation",
+      "summary": "Benchmarks household robot agents that revise and retain reusable control tools from execution feedback. Compares recursive self-improvement across task-level capabilities and open-ended home scenarios.",
+      "loop": "Plan, execute and verify household actions → identify failures → refine reusable control functions → retain successful tools across attempts → reevaluate task and scenario performance.",
+      "setting": "AgiBot G1 household robot; 50 simulated home layouts, task-level evaluations and four open-ended scenario types; matched simulation and real-world subsets.",
+      "evidence": "Section 2.3 defines the code-planner/code-policy/code-verifier + RSI architecture with persistent tool improvements. Section 3.3 and Figure 6 compare three coding agents over successive RSI iterations. Simulation and real-world scores are separate; the public evaluator and clients are not a reproduction of every paper experiment.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.34649",
+        "code": "https://github.com/AetherLabsAI/RobotAgentBench",
+        "project": "https://aetherlabsai.github.io/RobotAgentBench/",
+        "data": "https://huggingface.co/datasets/AetherLabs-AI/RobotAgentBench-TrainingData",
+        "models": "https://huggingface.co/AetherLabs-AI/InternVLA-A1.5-RAB"
+      },
+      "figure": {
+        "path": "assets/papers/robotagentbench.png",
+        "alt": "RobotAgentBench Figure 1: household environments, composable tasks and task-level and open-ended scenario evaluation.",
+        "source": "https://arxiv.org/html/2610.34649v1#S1.F1",
+        "credit": "Lingjun Mao et al., RobotAgentBench, Figure 1. CC BY 4.0.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "original_url": "https://arxiv.org/html/2610.34649v1/Robot_Agent_Arena.png"
+      },
+      "authors": [
+        "Lingjun Mao",
+        "Jinglin Cao",
+        "Lukun He"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.34649",
+      "sources": [
+        "https://arxiv.org/abs/2610.34649",
+        "https://arxiv.org/html/2610.34649v1",
+        "https://aetherlabsai.github.io/RobotAgentBench/",
+        "https://github.com/AetherLabsAI/RobotAgentBench"
+      ],
+      "foundational": false
+    },
     {
       "id": "worldscape-r2si",
       "name": "WorldScape-R²SI",
@@ -203,10 +276,10 @@
       "title": "EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence",
       "date": "2026-10-13",
       "category": "Code & harness evolution",
-      "summary": "Learns reusable code skills and diagnostic lessons in a practice scene, then transfers them to new scenes without updating model weights.",
+      "summary": "Learns reusable code Skills and diagnostic Lessons in a practice scene, then transfers them to new scenes without weight updates. Learned artifacts for 42 RoboDojo tasks are now public.",
       "loop": "Practice in a Playground scene → diagnose physical feedback → revise persistent Skills and Lessons → freeze experience → fresh agents solve unseen Test scenes.",
       "setting": "Simulation · RoboDojo-Sim",
-      "evidence": "Evaluated on RoboDojo-Sim with a Playground/Test protocol. The paper reports an average score of 44.48 and 37.82% success; these results are author-reported and have not been independently reproduced here.",
+      "evidence": "Evaluated on RoboDojo-Sim with a Playground/Test protocol. The paper reports an average score of 44.48 and 37.82% success; these results are author-reported and have not been independently reproduced here. The official repository added learned Skills and Lessons for 42 RoboDojo tasks on 2026-10-31; these released artifacts do not replace the paper’s fresh Playground-to-Test protocol. No project-wide license has been selected.",
       "links": {
         "paper": "https://arxiv.org/abs/2610.18867",
         "project": "https://lab.einsia.ai/embodiedevo/",
@@ -225,7 +298,10 @@
         "https://arxiv.org/abs/2610.18867",
         "https://arxiv.org/abs/2610.18867",
         "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md",
-        "https://lab.einsia.ai/embodiedevo/"
+        "https://lab.einsia.ai/embodiedevo/",
+        "https://github.com/Einsia/EmbodiedEvo/blob/689a09b419d2555bf94f7345f58c62969a43739e/README.md",
+        "https://github.com/Einsia/EmbodiedEvo/tree/main/Workspace/skills",
+        "https://github.com/Einsia/EmbodiedEvo/tree/main/Workspace/lessons"
       ],
       "foundational": false,
       "authors": [
@@ -241,7 +317,17 @@
         "Kaisen Yang",
         "Qinhuai Na"
       ],
-      "date_source": "https://arxiv.org/abs/2610.18867"
+      "date_source": "https://arxiv.org/abs/2610.18867",
+      "related_releases": [
+        {
+          "name": "Learned Skills and Lessons for 42 RoboDojo tasks",
+          "date": "2026-10-31",
+          "skills": "https://github.com/Einsia/EmbodiedEvo/tree/main/Workspace/skills",
+          "lessons": "https://github.com/Einsia/EmbodiedEvo/tree/main/Workspace/lessons",
+          "source": "https://github.com/Einsia/EmbodiedEvo/blob/689a09b419d2555bf94f7345f58c62969a43739e/README.md",
+          "note": "Released artifacts are available for reference and reuse; standard Playground/Test runs learn and freeze their own knowledge. The repository has not selected a project-wide license."
+        }
+      ]
     },
     {
       "id": "sear",

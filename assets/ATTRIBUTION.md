@@ -125,3 +125,21 @@ All figures are authentic method/overview figures from the linked official paper
 - Source: https://arxiv.org/html/2606.19980v2#S0.F2
 - Original license: https://creativecommons.org/licenses/by/4.0/
 - Original asset: https://arxiv.org/html/2606.19980v2/figure-v4.png
+
+## gym-anything-robotics
+
+- File: [gym-anything-robotics.png](papers/gym-anything-robotics.png)
+- Paper: [Gym-Anything for Robotics: Scaling physical simulations with digital agents](https://arxiv.org/abs/2610.40565)
+- Credit: Pranjal Aggarwal and Sean Welleck, Gym-Anything for Robotics, Figure 2. CC BY 4.0.
+- Source: https://arxiv.org/html/2610.40565v1#S1.F2
+- Original asset: https://arxiv.org/html/2610.40565v1/overview.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+
+## robotagentbench
+
+- File: [robotagentbench.png](papers/robotagentbench.png)
+- Paper: [RobotAgentBench: Towards Open-world Robot Autonomy](https://arxiv.org/abs/2610.34649)
+- Credit: Lingjun Mao et al., RobotAgentBench, Figure 1. CC BY 4.0.
+- Source: https://arxiv.org/html/2610.34649v1#S1.F1
+- Original asset: https://arxiv.org/html/2610.34649v1/Robot_Agent_Arena.png
+- Original license: https://creativecommons.org/licenses/by/4.0/

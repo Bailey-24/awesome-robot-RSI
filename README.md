@@ -6,6 +6,34 @@ Recent papers on robot recursive self-improvement.
 
 ## Papers
 
+### Gym-Anything for Robotics: Scaling physical simulations with digital agents
+
+**First release:** 2026-10-29
+
+![Gym-Anything Figure 2: simulation selection, creation and audit, task generation, and learning from repeated attempts and privileged experience.](assets/papers/gym-anything-robotics.png)
+
+*Pranjal Aggarwal and Sean Welleck, Gym-Anything for Robotics, Figure 2. CC BY 4.0. [Figure source](https://arxiv.org/html/2610.40565v1#S1.F2).*
+
+Builds audited robot simulations and studies agents that retain notes and code across repeated attempts. RoboWorld also evaluates privileged coaching and VLA training from code-generated demonstrations.
+
+[Paper](https://arxiv.org/abs/2610.40565) · [Code](https://github.com/gym-anything/robotics)
+
+[Project](https://gym-anything.github.io/robotics/)
+
+### RobotAgentBench: Towards Open-world Robot Autonomy
+
+**First release:** 2026-10-26
+
+![RobotAgentBench Figure 1: household environments, composable tasks and task-level and open-ended scenario evaluation.](assets/papers/robotagentbench.png)
+
+*Lingjun Mao et al., RobotAgentBench, Figure 1. CC BY 4.0. [Figure source](https://arxiv.org/html/2610.34649v1#S1.F1).*
+
+Benchmarks household robot agents that revise and retain reusable control tools from execution feedback. Compares recursive self-improvement across task-level capabilities and open-ended home scenarios.
+
+[Paper](https://arxiv.org/abs/2610.34649) · [Code](https://github.com/AetherLabsAI/RobotAgentBench)
+
+[Data](https://huggingface.co/datasets/AetherLabs-AI/RobotAgentBench-TrainingData) · [Models](https://huggingface.co/AetherLabs-AI/InternVLA-A1.5-RAB) · [Project](https://aetherlabsai.github.io/RobotAgentBench/)
+
 ### R²SI: Recursive Robot Self-Improvement via a Bi-Level Agentic System with Agent–Model Co-Evolution
 
 **Report released:** 2026-10-24
@@ -72,7 +100,7 @@ Pairs a robot coding agent with an optimizer that diagnoses failed episodes and 
 
 *Wenyi Li et al., EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence. Core method figure from the official paper/project. [Figure source](https://lab.einsia.ai/embodiedevo/).*
 
-Learns reusable code skills and diagnostic lessons in a practice scene, then transfers them to new scenes without updating model weights. [RoboDojo-Sim Agent #6 · Score 45.08 · Success 38.95% (2026-10-31).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Learns reusable code Skills and diagnostic Lessons in a practice scene, then transfers them to new scenes without weight updates. Learned artifacts for 42 RoboDojo tasks are now public. [RoboDojo-Sim Agent #6 · Score 45.08 · Success 38.95% (2026-10-31).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.18867) · [Code](https://github.com/Einsia/EmbodiedEvo)
 
