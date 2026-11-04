@@ -6,6 +6,76 @@ Recent papers on robot recursive self-improvement.
 
 ## Papers
 
+### TAMPAgent: Agentic Belief-Space Planning for Mobile Manipulation
+
+**First release:** 2026-11-02
+
+![TAMPAgent Figure 4: agent hypotheses, planner constraints, tool certification, execution and replanning.](assets/papers/tampagent.png)
+
+*Utkarsh A. Mishra et al., TAMPAgent, Figure 4. CC BY 4.0. [Figure source](https://arxiv.org/html/2611.03584v1#S3.F4).*
+
+Combines an agent with belief-space task-and-motion planning. A single-task self-improvement study retains memory between attempts, allowing earlier failures to guide later solutions.
+
+[Paper](https://arxiv.org/abs/2611.03584)
+
+[Project](https://umishra.me/TAMPAgent/)
+
+### RoboArchitect: Automating the Design of Robotic Agents with Persistent Memory
+
+**First release:** 2026-10-30
+
+![RoboArchitect Figure 2: a coding model diagnoses rollouts and evolves a frozen policy’s harness and persistent memory.](assets/papers/roboarchitect.png)
+
+*Shengguang Wu et al., RoboArchitect, Figure 2. [Figure source](https://arxiv.org/html/2610.42141v1#S2.F2).*
+
+A coding model studies robot rollouts and repeatedly improves the tools, control routines and persistent memory around a frozen VLA policy. The resulting harness is evaluated on unseen scenes and tasks.
+
+[Paper](https://arxiv.org/abs/2610.42141) · [Code](https://github.com/roboarchitect-ai/RoboArchitect)
+
+[Project](https://roboarchitect-ai.github.io/)
+
+### REA: A Routed Embodied Agent Runtime for Asynchronous Brain-Cerebellum Control
+
+**First release:** 2026-10-30
+
+![REA Figure 3: asynchronous policy dispatch from route memory and a boundary-triggered judge gate, compared with blocking control loops.](assets/papers/rea.png)
+
+*Pengfei Zhou et al., REA, Figure 3. CC BY-NC-SA 4.0. [Figure source](https://arxiv.org/html/2610.42053v1#S1.F3).*
+
+Retains development success statistics to route among reusable robot policies, including ASPIRE’s refined and evolved code. It evaluates this memory and a failure-judging gate on held-out episodes.
+
+[Paper](https://arxiv.org/abs/2610.42053) · [Code](https://github.com/InfRec-Cardinal/REA)
+
+[Project](https://mikeeeeeeeeeeeeee.github.io/REA/)
+
+### BioAgent: Self-Directed Skill Acquisition and Capability Growth for Long-Horizon Laboratory Protocols
+
+**First release:** 2026-10-30
+
+![BioAgent Figure 2: requirement analysis, capability matching, targeted teaching, execution verification and offline learning return validated skills to future planning.](assets/papers/bioagent.png)
+
+*Gaojing Zhang et al., BioAgent, Figure 2. [Figure source](https://arxiv.org/html/2610.41383v1#S2.F2).*
+
+Uses execution records to identify missing laboratory skills, request human teaching when needed, and validate new or revised skills. Accepted experience supports offline policy updates and reusable task packages.
+
+[Paper](https://arxiv.org/abs/2610.41383)
+
+[Project](https://suiuko.github.io/bioagentweb/)
+
+### TinyAstral: Transferring Self-Evolving Harnesses to Tiny Generalist Manipulation Agents
+
+**First release:** 2026-10-30
+
+![TinyAstral Figure 2: statistically gated harness evolution, teacher-trajectory distillation and deployment of small students in the same harness.](assets/papers/tinyastral.png)
+
+*Kehong Gong et al., TinyAstral, Figure 2. [Figure source](https://arxiv.org/html/2610.41216v1#S3.F2).*
+
+Coding agents improve a frozen teacher’s tools, memory and recovery, keeping edits that pass paired statistical tests. Teacher trajectories then train small robot agents that reuse the evolved harness.
+
+[Paper](https://arxiv.org/abs/2610.41216) · [Code](https://github.com/Garfield-kh/TinyAstral)
+
+[Data](https://huggingface.co/datasets/kehong/TinyAstral-SFT) · [Models](https://huggingface.co/kehong/TinyAstral-weights) · [Project](https://garfield-kh.github.io/TinyAstral/)
+
 ### Gym-Anything for Robotics: Scaling physical simulations with digital agents
 
 **First release:** 2026-10-29
@@ -19,6 +89,20 @@ Builds audited robot simulations and studies agents that retain notes and code a
 [Paper](https://arxiv.org/abs/2610.40565) · [Code](https://github.com/gym-anything/robotics)
 
 [Project](https://gym-anything.github.io/robotics/)
+
+### Ask to Evolve: A Unified Harness for Lifelong Embodied Navigation with Hybrid Action Space and Persistent Memory
+
+**First release:** 2026-10-29
+
+![EvoLife Figure 2: hybrid navigation actions, active interaction and persistent spatial memory retain experience for future tasks.](assets/papers/evolife.png)
+
+*Kai Sheng et al., EvoLife, Figure 2. [Figure source](https://arxiv.org/html/2610.39446v1#S3.F2).*
+
+Combines navigation with active requests for guidance and persistent spatial memory. It retains place descriptions, observations and interaction history to improve later visits and tasks.
+
+[Paper](https://arxiv.org/abs/2610.39446)
+
+[Project](https://kai-sheng-caesar.github.io/EvoLife-Web/)
 
 ### RobotAgentBench: Towards Open-world Robot Autonomy
 
@@ -82,11 +166,11 @@ Evaluates how robot agents improve across repeated attempts, measuring learning 
 
 **First release:** 2026-10-16
 
-![Figure 4 (latest manuscript): the acting-agent harness and a separate optimizer that updates reusable tools between episodes.](assets/papers/hexashell.webp)
+![HexaShell-Preview Figure 4: the acting-agent harness and a separate optimizer that updates reusable tools between episodes.](assets/papers/hexashell.webp)
 
 *Hongcheng Gao, Alex Zhou et al., HexaShell, Figure 4; official HexaFuture project page. [Figure source](https://hexafuture.ai/blog/hexashell/assets/fig04-harness-20261020.webp).*
 
-Pairs a robot coding agent with an optimizer that diagnoses failed episodes and repairs reusable tools for future tasks. [RoboDojo-Sim Agent #4 · Score 53.18 · Success 46.85% (2026-10-31).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+An optimizer repairs reusable tools from failed robot episodes. The November code release adds a shared 14-tool harness and human-reviewed task skills drafted from earlier runs. [RoboDojo-Sim Agent (HexaShell-Preview) #4 · Score 53.18 · Success 46.85% (2026-10-31).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.23479) · [Code](https://github.com/HexaFuture/HexaShell)
 

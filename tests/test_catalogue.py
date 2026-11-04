@@ -67,6 +67,23 @@ class RendererTests(unittest.TestCase):
         self.assertIn(data['papers'][0]['date_note'], page)
         self.assertIn(data['papers'][0]['date_note'], readme)
 
+    def test_version_label_keeps_preview_metrics_distinct_from_new_release(self):
+        data = fixture()
+        paper = data['papers'][0]
+        data['leaderboard'] = {
+            'source': 'https://example.org/board', 'checked_at': '2026-10-28',
+            'rows': [{'rank': 4, 'name': 'HexaShell-Preview', 'score': 53.18,
+                      'success_rate': 46.85, 'links': {'paper': paper['links']['paper']}}],
+        }
+        note = 'RoboDojo-Sim Agent #4 · Score 53.18 · Success 46.85% (2026-10-28).'
+        self.assertEqual(builder.leaderboard_note(paper, data['leaderboard']), note)
+        paper['leaderboard_label'] = 'HexaShell-Preview'
+        labelled = note.replace('Agent #4', 'Agent (HexaShell-Preview) #4')
+        self.assertIn(labelled, builder.render_html(data))
+        self.assertIn(labelled, builder.render_readme(data))
+        paper['links']['paper'] = 'https://example.org/another-paper'
+        self.assertEqual(builder.leaderboard_note(paper, data['leaderboard']), '')
+
     def test_schema_rejects_unsafe_figures_duplicates_links_and_unmarked_old_dates(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

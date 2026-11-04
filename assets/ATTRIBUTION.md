@@ -143,3 +143,63 @@ All figures are authentic method/overview figures from the linked official paper
 - Source: https://arxiv.org/html/2610.34649v1#S1.F1
 - Original asset: https://arxiv.org/html/2610.34649v1/Robot_Agent_Arena.png
 - Original license: https://creativecommons.org/licenses/by/4.0/
+
+## tampagent
+
+- File: [tampagent.png](papers/tampagent.png)
+- Paper: [TAMPAgent: Agentic Belief-Space Planning for Mobile Manipulation](https://arxiv.org/abs/2611.03584)
+- Credit: Utkarsh A. Mishra et al., TAMPAgent, Figure 4. CC BY 4.0.
+- Source: https://arxiv.org/html/2611.03584v1#S3.F4
+- Original asset: https://arxiv.org/html/2611.03584v1/tagent_execution_loop_new_reversed.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: none; original image downloaded unchanged.
+
+## roboarchitect
+
+- File: [roboarchitect.png](papers/roboarchitect.png)
+- Paper: [RoboArchitect: Automating the Design of Robotic Agents with Persistent Memory](https://arxiv.org/abs/2610.42141)
+- Credit: Shengguang Wu et al., RoboArchitect, Figure 2. arXiv perpetual non-exclusive distribution license; copyright remains with the authors.
+- Source: https://arxiv.org/html/2610.42141v1#S2.F2
+- Original asset: https://arxiv.org/html/2610.42141v1/method.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: none; original image downloaded unchanged.
+
+## rea
+
+- File: [rea.png](papers/rea.png)
+- Paper: [REA: A Routed Embodied Agent Runtime for Asynchronous Brain-Cerebellum Control](https://arxiv.org/abs/2610.42053)
+- Credit: Pengfei Zhou et al., REA, Figure 3. CC BY-NC-SA 4.0.
+- Source: https://arxiv.org/html/2610.42053v1#S1.F3
+- Original asset: https://arxiv.org/html/2610.42053v1/REA_Fig2_coupling_TitleCase.png
+- Original license: https://creativecommons.org/licenses/by-nc-sa/4.0/
+- Changes: none; original image downloaded unchanged.
+
+## bioagent
+
+- File: [bioagent.png](papers/bioagent.png)
+- Paper: [BioAgent: Self-Directed Skill Acquisition and Capability Growth for Long-Horizon Laboratory Protocols](https://arxiv.org/abs/2610.41383)
+- Credit: Gaojing Zhang et al., BioAgent, Figure 2. arXiv perpetual non-exclusive distribution license; copyright remains with the authors.
+- Source: https://arxiv.org/html/2610.41383v1#S2.F2
+- Original asset: https://arxiv.org/html/2610.41383v1/figures/pipeline.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: none; original image downloaded unchanged.
+
+## tinyastral
+
+- File: [tinyastral.png](papers/tinyastral.png)
+- Paper: [TinyAstral: Transferring Self-Evolving Harnesses to Tiny Generalist Manipulation Agents](https://arxiv.org/abs/2610.41216)
+- Credit: Kehong Gong et al., TinyAstral, Figure 2. arXiv perpetual non-exclusive distribution license; copyright remains with the authors.
+- Source: https://arxiv.org/html/2610.41216v1#S3.F2
+- Original asset: https://arxiv.org/html/2610.41216v1/fig_overview_3col.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: none; original image downloaded unchanged.
+
+## evolife
+
+- File: [evolife.png](papers/evolife.png)
+- Paper: [Ask to Evolve: A Unified Harness for Lifelong Embodied Navigation with Hybrid Action Space and Persistent Memory](https://arxiv.org/abs/2610.39446)
+- Credit: Kai Sheng et al., EvoLife, Figure 2. arXiv perpetual non-exclusive distribution license; copyright remains with the authors.
+- Source: https://arxiv.org/html/2610.39446v1#S3.F2
+- Original asset: https://arxiv.org/html/2610.39446v1/fig01_overview.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: none; original image downloaded unchanged.

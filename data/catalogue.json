@@ -1,10 +1,213 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-01",
+  "updated_at": "2026-11-04",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
+    {
+      "id": "tampagent",
+      "title": "TAMPAgent: Agentic Belief-Space Planning for Mobile Manipulation",
+      "date": "2026-11-02",
+      "category": "Evaluation",
+      "summary": "Combines an agent with belief-space task-and-motion planning. A single-task self-improvement study retains memory between attempts, allowing earlier failures to guide later solutions.",
+      "loop": "Execute a mobile-manipulation attempt → save observations and lessons in memory → reset and retry with that memory → compare completion and token use.",
+      "setting": "Simulated RBY1 and G1 mobile manipulation, plus physical RBY1 and G1 demonstrations; the repeated-attempt study uses simulation task T9.",
+      "evidence": "Figure 10 and Section 4 test recursive self-improvement on one task. TAMPAgent and GaP succeed on attempt three, CaP on attempt four; TAMPAgent uses 42%/31% fewer uncached input tokens. This narrow experiment does not establish cross-task continual improvement.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.03584",
+        "project": "https://umishra.me/TAMPAgent/"
+      },
+      "figure": {
+        "path": "assets/papers/tampagent.png",
+        "alt": "TAMPAgent Figure 4: agent hypotheses, planner constraints, tool certification, execution and replanning.",
+        "source": "https://arxiv.org/html/2611.03584v1#S3.F4",
+        "credit": "Utkarsh A. Mishra et al., TAMPAgent, Figure 4. CC BY 4.0.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "original_url": "https://arxiv.org/html/2611.03584v1/tagent_execution_loop_new_reversed.png"
+      },
+      "authors": [
+        "Utkarsh A. Mishra",
+        "Alperen Degirmenci",
+        "Yongxin Chen",
+        "Danfei Xu",
+        "Tucker Hermans",
+        "Caelan Garrett"
+      ],
+      "date_source": "https://arxiv.org/abs/2611.03584",
+      "sources": [
+        "https://arxiv.org/abs/2611.03584",
+        "https://arxiv.org/html/2611.03584v1",
+        "https://umishra.me/TAMPAgent/"
+      ],
+      "foundational": false
+    },
+    {
+      "id": "roboarchitect",
+      "title": "RoboArchitect: Automating the Design of Robotic Agents with Persistent Memory",
+      "date": "2026-10-30",
+      "category": "Code & harness evolution",
+      "summary": "A coding model studies robot rollouts and repeatedly improves the tools, control routines and persistent memory around a frozen VLA policy. The resulting harness is evaluated on unseen scenes and tasks.",
+      "loop": "Run the frozen policy inside its harness → inspect rollout traces and failures → edit control routines, tools and persistent memory → evaluate and refine the harness → test on held-out episodes.",
+      "setting": "Simulation across LIBERO-Pro, VLABench, SimplerEnv and RoboCasa-365, with held-out scene and task splits.",
+      "evidence": "Figure 2 and Sections 3–4 describe automatic harness optimization without model-weight updates. Author-reported mean held-out success rises from 9.7% to 43.3% on unseen scenes and 12.7% to 40.2% on unseen tasks. These are simulation evaluations, not official RoboDojo results.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.42141",
+        "code": "https://github.com/roboarchitect-ai/RoboArchitect",
+        "project": "https://roboarchitect-ai.github.io/"
+      },
+      "figure": {
+        "path": "assets/papers/roboarchitect.png",
+        "alt": "RoboArchitect Figure 2: a coding model diagnoses rollouts and evolves a frozen policy’s harness and persistent memory.",
+        "source": "https://arxiv.org/html/2610.42141v1#S2.F2",
+        "credit": "Shengguang Wu et al., RoboArchitect, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "original_url": "https://arxiv.org/html/2610.42141v1/method.png"
+      },
+      "authors": [
+        "Shengguang Wu",
+        "Suning Huang",
+        "Cherie Ho",
+        "Ria Doshi",
+        "Hao Zhu",
+        "Serena Yeung-Levy"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.42141",
+      "sources": [
+        "https://arxiv.org/abs/2610.42141",
+        "https://arxiv.org/html/2610.42141v1",
+        "https://github.com/roboarchitect-ai/RoboArchitect",
+        "https://roboarchitect-ai.github.io/"
+      ],
+      "foundational": false
+    },
+    {
+      "id": "rea",
+      "title": "REA: A Routed Embodied Agent Runtime for Asynchronous Brain-Cerebellum Control",
+      "date": "2026-10-30",
+      "category": "Evaluation",
+      "summary": "Retains development success statistics to route among reusable robot policies, including ASPIRE’s refined and evolved code. It evaluates this memory and a failure-judging gate on held-out episodes.",
+      "loop": "Evaluate reusable policies on development seeds → retain per-task success and efficiency statistics as route memory → dispatch and escalate among policies on held-out seeds → compare with source-policy and routing ablations.",
+      "setting": "LIBERO-Pro, RoboTwin 2.0 and BEHAVIOR-1K simulation, with separate physical-robot demonstrations.",
+      "evidence": "Sections 4.3–4.4 and Appendix A.2 evaluate frozen generated-policy libraries, including ASPIRE Fix and Evo. On ASPIRE’s 59-task LIBERO-Pro subset, route memory lifts author-reported success from 66.3% to 71.9%; the judge gate reaches 74.9%. This is evaluation of persistent routing over improved policies, not evidence that the runtime autonomously rewrites policies at test time.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.42053",
+        "code": "https://github.com/InfRec-Cardinal/REA",
+        "project": "https://mikeeeeeeeeeeeeee.github.io/REA/"
+      },
+      "figure": {
+        "path": "assets/papers/rea.png",
+        "alt": "REA Figure 3: asynchronous policy dispatch from route memory and a boundary-triggered judge gate, compared with blocking control loops.",
+        "source": "https://arxiv.org/html/2610.42053v1#S1.F3",
+        "credit": "Pengfei Zhou et al., REA, Figure 3. CC BY-NC-SA 4.0.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "original_url": "https://arxiv.org/html/2610.42053v1/REA_Fig2_coupling_TitleCase.png"
+      },
+      "authors": [
+        "Pengfei Zhou",
+        "Yixing Ma",
+        "Zhengfeiyang Zhang",
+        "Haoyuan Chen",
+        "Zhenglin Wan",
+        "Hexin Wang",
+        "Wangbo Zhao",
+        "Yang You"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.42053",
+      "sources": [
+        "https://arxiv.org/abs/2610.42053",
+        "https://arxiv.org/html/2610.42053v1",
+        "https://github.com/InfRec-Cardinal/REA",
+        "https://mikeeeeeeeeeeeeee.github.io/REA/"
+      ],
+      "foundational": false
+    },
+    {
+      "id": "bioagent",
+      "title": "BioAgent: Self-Directed Skill Acquisition and Capability Growth for Long-Horizon Laboratory Protocols",
+      "date": "2026-10-30",
+      "category": "Policy & skill learning",
+      "summary": "Uses execution records to identify missing laboratory skills, request human teaching when needed, and validate new or revised skills. Accepted experience supports offline policy updates and reusable task packages.",
+      "loop": "Match protocol requirements to validated skills → identify a capability gap from execution evidence → construct or revise a skill, requesting human demonstrations when needed → validate the sequence → retain accepted experience for offline learning and future protocols.",
+      "setting": "Physical Monte 02 dual-arm laboratory protocols with 20 and 31 ordered skill calls; 25 atomic skills.",
+      "evidence": "The second protocol reuses 17 skill types unchanged, revises two implementations and adds five skill types. Complete-task success is 66%/58% over 50 runs per protocol with recovery. Requirements are human-reviewed and acquisition can require teaching; this is not fully autonomous skill discovery.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.41383",
+        "project": "https://suiuko.github.io/bioagentweb/"
+      },
+      "figure": {
+        "path": "assets/papers/bioagent.png",
+        "alt": "BioAgent Figure 2: requirement analysis, capability matching, targeted teaching, execution verification and offline learning return validated skills to future planning.",
+        "source": "https://arxiv.org/html/2610.41383v1#S2.F2",
+        "credit": "Gaojing Zhang et al., BioAgent, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "original_url": "https://arxiv.org/html/2610.41383v1/figures/pipeline.png"
+      },
+      "authors": [
+        "Gaojing Zhang",
+        "Changwen Chen",
+        "Zichen Luo",
+        "Jialiang Li",
+        "Yuhan Wang",
+        "Yifei Xie",
+        "Wenzhao Lian"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.41383",
+      "sources": [
+        "https://arxiv.org/abs/2610.41383",
+        "https://arxiv.org/html/2610.41383v1",
+        "https://suiuko.github.io/bioagentweb/"
+      ],
+      "foundational": false
+    },
+    {
+      "id": "tinyastral",
+      "title": "TinyAstral: Transferring Self-Evolving Harnesses to Tiny Generalist Manipulation Agents",
+      "date": "2026-10-30",
+      "category": "Code & harness evolution",
+      "summary": "Coding agents improve a frozen teacher’s tools, memory and recovery, keeping edits that pass paired statistical tests. Teacher trajectories then train small robot agents that reuse the evolved harness.",
+      "loop": "Read frozen-teacher execution trajectories → propose a harness edit → accept only after a pre-registered paired A/B gate → freeze the final harness → collect reasoning and recovery traces → distill small student policies.",
+      "setting": "RoboTwin, Guava and LIBERO-Pro training simulations; unseen simulation benchmarks and SO-ARM101 demonstrations.",
+      "evidence": "Humans predefine rules and budget; frontier coding agents propose harness edits. Table 1 reports teacher success from 33.4% at H1 to 63.6% at the final harness on 500 RoboTwin episodes, and 62.8% for the final 4B student. Students are trained separately for each harness version; teacher weights remain frozen.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.41216",
+        "code": "https://github.com/Garfield-kh/TinyAstral",
+        "data": "https://huggingface.co/datasets/kehong/TinyAstral-SFT",
+        "models": "https://huggingface.co/kehong/TinyAstral-weights",
+        "project": "https://garfield-kh.github.io/TinyAstral/"
+      },
+      "figure": {
+        "path": "assets/papers/tinyastral.png",
+        "alt": "TinyAstral Figure 2: statistically gated harness evolution, teacher-trajectory distillation and deployment of small students in the same harness.",
+        "source": "https://arxiv.org/html/2610.41216v1#S3.F2",
+        "credit": "Kehong Gong et al., TinyAstral, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "original_url": "https://arxiv.org/html/2610.41216v1/fig_overview_3col.png"
+      },
+      "authors": [
+        "Kehong Gong",
+        "Xiaoxu Zheng",
+        "Guanli Hou",
+        "Seunghun Lee",
+        "Mengqi Guo",
+        "Runjia Tan",
+        "Zhengyu Wen",
+        "Qi Wang",
+        "Xiaoyu He",
+        "Mingyuan Zhang",
+        "Michael Bi Mi"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.41216",
+      "sources": [
+        "https://arxiv.org/abs/2610.41216",
+        "https://arxiv.org/html/2610.41216v1",
+        "https://github.com/Garfield-kh/TinyAstral",
+        "https://huggingface.co/datasets/kehong/TinyAstral-SFT",
+        "https://huggingface.co/kehong/TinyAstral-weights",
+        "https://garfield-kh.github.io/TinyAstral/"
+      ],
+      "foundational": false
+    },
     {
       "id": "gym-anything-robotics",
       "title": "Gym-Anything for Robotics: Scaling physical simulations with digital agents",
@@ -37,6 +240,43 @@
         "https://arxiv.org/html/2610.40565v1#S5",
         "https://gym-anything.github.io/robotics/",
         "https://github.com/gym-anything/robotics"
+      ],
+      "foundational": false
+    },
+    {
+      "id": "evolife",
+      "title": "Ask to Evolve: A Unified Harness for Lifelong Embodied Navigation with Hybrid Action Space and Persistent Memory",
+      "date": "2026-10-29",
+      "category": "Navigation",
+      "summary": "Combines navigation with active requests for guidance and persistent spatial memory. It retains place descriptions, observations and interaction history to improve later visits and tasks.",
+      "loop": "Navigate and observe execution feedback → ask for guidance when uncertain → store spatially grounded observations and dialogue → retrieve and revise that memory on later visits → evaluate repeated navigation.",
+      "setting": "Eight simulated navigation benchmarks spanning four task families, plus multi-day physical navigation.",
+      "evidence": "Figure 2 describes retained place memory linking poses and supporting evidence across tasks. Author-reported R2R revisit SPL rises from 82.23 to 93.31. Active guidance can come from a multimodal guide in simulation or people in physical experiments; results do not imply fully unassisted learning.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.39446",
+        "project": "https://kai-sheng-caesar.github.io/EvoLife-Web/"
+      },
+      "figure": {
+        "path": "assets/papers/evolife.png",
+        "alt": "EvoLife Figure 2: hybrid navigation actions, active interaction and persistent spatial memory retain experience for future tasks.",
+        "source": "https://arxiv.org/html/2610.39446v1#S3.F2",
+        "credit": "Kai Sheng et al., EvoLife, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "original_url": "https://arxiv.org/html/2610.39446v1/fig01_overview.png"
+      },
+      "authors": [
+        "Kai Sheng",
+        "Liuyi Wang",
+        "Jinlong Li",
+        "Haojie Dai",
+        "Chengju Liu",
+        "Qijun Chen"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.39446",
+      "sources": [
+        "https://arxiv.org/abs/2610.39446",
+        "https://arxiv.org/html/2610.39446v1",
+        "https://kai-sheng-caesar.github.io/EvoLife-Web/"
       ],
       "foundational": false
     },
@@ -245,9 +485,9 @@
         "Frozen tools",
         "Simulation"
       ],
-      "summary": "Pairs a robot coding agent with an optimizer that diagnoses failed episodes and repairs reusable tools for future tasks.",
+      "summary": "An optimizer repairs reusable tools from failed robot episodes. The November code release adds a shared 14-tool harness and human-reviewed task skills drafted from earlier runs.",
       "loop": "Run a robot episode → diagnose failures → write or repair a reusable tool → test on development layouts → freeze tools for evaluation.",
-      "evidence": "Official RoboDojo evaluation covers 42 tasks and 2,100 episodes: Average Score 53.18 and Success Rate 46.85%. The release provides frozen tools, recipes, results and interface contracts, while server, executors, agent container and evolution infrastructure are not all released. Two physical-arm demonstrations are narrower evidence than the simulation benchmark.",
+      "evidence": "The official HexaShell-Preview evaluation reports Score 53.18 and Success Rate 46.85% across 42 RoboDojo tasks. The November 3 code/report release instead provides a general 14-tool harness, simulator and physical-robot adapters, runtime, sandbox and task skills; its RoboDojo 85.0% success / 88.8 Score are author-run results under a different protocol, not an official leaderboard update. Earlier optimizer-derived task tools remain on branch v1.0. The arXiv record is still v2 dated October 20.",
       "links": {
         "paper": "https://arxiv.org/abs/2610.23479",
         "code": "https://github.com/HexaFuture/HexaShell",
@@ -256,20 +496,33 @@
       "figure": {
         "path": "assets/papers/hexashell.webp",
         "source": "https://hexafuture.ai/blog/hexashell/assets/fig04-harness-20261020.webp",
-        "caption": "Figure 4 (latest manuscript): the acting-agent harness and a separate optimizer that updates reusable tools between episodes.",
+        "caption": "HexaShell-Preview Figure 4: the acting-agent harness and a separate optimizer that updates reusable tools between episodes.",
         "credit": "Hongcheng Gao, Alex Zhou et al., HexaShell, Figure 4; official HexaFuture project page.",
-        "alt": "Figure 4 (latest manuscript): the acting-agent harness and a separate optimizer that updates reusable tools between episodes."
+        "alt": "HexaShell-Preview Figure 4: the acting-agent harness and a separate optimizer that updates reusable tools between episodes."
       },
       "sources": [
         "https://arxiv.org/html/2610.23479v1",
         "https://hexafuture.ai/blog/hexashell/",
         "https://github.com/HexaFuture/HexaShell",
-        "https://robodojo-benchmark.com/leaderboard?bench=sim#agent"
+        "https://robodojo-benchmark.com/leaderboard?bench=sim#agent",
+        "https://github.com/HexaFuture/HexaShell/commit/e0190ddb757955131578e9f9071f4ee8e7113f7a",
+        "https://github.com/HexaFuture/HexaShell/tree/v1.0"
       ],
       "source_catalogue": "Awesome-Robot-Use-Agent README, matching HexaShell row; primary sources checked.",
-      "checked_at": "2026-10-28",
+      "checked_at": "2026-11-04",
       "setting": "RoboDojo-Sim: 42 manipulation tasks; two physical-arm demonstrations.",
-      "foundational": false
+      "foundational": false,
+      "leaderboard_label": "HexaShell-Preview",
+      "related_releases": [
+        {
+          "date": "2026-11-03",
+          "title": "HexaShell: A Universal Harness for Robot Coding Agents in Simulation and the Real World",
+          "source": "https://github.com/HexaFuture/HexaShell/commit/e0190ddb757955131578e9f9071f4ee8e7113f7a",
+          "report": "https://github.com/HexaFuture/HexaShell/blob/main/hexashell_paper.pdf",
+          "previous_code": "https://github.com/HexaFuture/HexaShell/tree/v1.0",
+          "note": "Released runtime, sandbox, simulator and real-robot adapters, general tools and human-reviewed task skills. New self-evaluated metrics use protocols different from the official HexaShell-Preview leaderboard entry."
+        }
+      ]
     },
     {
       "id": "embodiedevo",
