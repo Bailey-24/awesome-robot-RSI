@@ -203,3 +203,14 @@ All figures are authentic method/overview figures from the linked official paper
 - Original asset: https://arxiv.org/html/2610.39446v1/fig01_overview.png
 - Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
 - Changes: none; original image downloaded unchanged.
+
+## hexashell-v3
+
+- File: [hexashell-v3.png](papers/hexashell-v3.png)
+- Paper: [HexaShell: A Universal Harness for Robot Coding Agents in Simulation and the Real World](https://arxiv.org/abs/2610.23479)
+- Credit: Hongcheng Gao, Jianshu Zeng et al., HexaShell v3, Figure 2. CC BY 4.0.
+- Source: https://arxiv.org/html/2610.23479v3#S2.F2
+- Original asset: https://raw.githubusercontent.com/HexaFuture/HexaShell/e0190ddb757955131578e9f9071f4ee8e7113f7a/assets/paper-figure-2.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: none; original overview image downloaded unchanged from the authors’ release.
+- The earlier Preview figure and its credit are retained above for the historical version.

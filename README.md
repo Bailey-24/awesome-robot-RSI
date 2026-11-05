@@ -162,15 +162,15 @@ Evaluates how robot agents improve across repeated attempts, measuring learning 
 
 [Project](https://physrsi-eval.github.io/)
 
-### HexaShell: A Thin Harness for Exploring the Limits of VLM Agents as Robot Coding Agents
+### HexaShell: A Universal Harness for Robot Coding Agents in Simulation and the Real World
 
 **First release:** 2026-10-16
 
-![HexaShell-Preview Figure 4: the acting-agent harness and a separate optimizer that updates reusable tools between episodes.](assets/papers/hexashell.webp)
+![HexaShell v3 Figure 2: shared robot API, sandboxed Python execution, grounded perception and adapters, with optional retained task skills.](assets/papers/hexashell-v3.png)
 
-*Hongcheng Gao, Alex Zhou et al., HexaShell, Figure 4; official HexaFuture project page. [Figure source](https://hexafuture.ai/blog/hexashell/assets/fig04-harness-20261020.webp).*
+*Hongcheng Gao, Jianshu Zeng et al., HexaShell v3, Figure 2. CC BY 4.0. [Figure source](https://arxiv.org/html/2610.23479v3#S2.F2).*
 
-An optimizer repairs reusable tools from failed robot episodes. The November code release adds a shared 14-tool harness and human-reviewed task skills drafted from earlier runs. [RoboDojo-Sim Agent (HexaShell-Preview) #4 · Score 53.18 · Success 46.85% (2026-10-31).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Shares a 14-tool harness across simulators and real robots. An analysis agent drafts reusable task skills from earlier execution records, with human review before evaluation. [RoboDojo-Sim Agent (HexaShell-Preview) #4 · Score 53.18 · Success 46.85% (2026-10-31).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.23479) · [Code](https://github.com/HexaFuture/HexaShell)
 

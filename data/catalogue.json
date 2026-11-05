@@ -1,7 +1,7 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-04",
+  "updated_at": "2026-11-05",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
@@ -457,22 +457,22 @@
     {
       "id": "hexashell",
       "name": "HexaShell",
-      "title": "HexaShell: A Thin Harness for Exploring the Limits of VLM Agents as Robot Coding Agents",
+      "title": "HexaShell: A Universal Harness for Robot Coding Agents in Simulation and the Real World",
       "date": "2026-10-16",
-      "date_source": "https://arxiv.org/html/2610.23479v1",
+      "date_source": "https://arxiv.org/abs/2610.23479",
       "authors": [
         "Hongcheng Gao",
+        "Jianshu Zeng",
         "Alex Zhou",
-        "Jay Zhu",
-        "Zelin Zheng",
         "Shijia Ge",
+        "Xuan Shangguan",
+        "Yazhe Wang",
+        "Yexing Wan",
+        "Zelin Zheng",
+        "Jay Zhu",
         "Xiping Li",
         "Di Wu",
-        "Yazhe Wang",
-        "Jianshu Zeng",
-        "Xuan Shangguan",
         "Yongli Wang",
-        "Yexing Wan",
         "Lingyu He",
         "Zhiqi Jia",
         "Sihang Wu",
@@ -480,25 +480,26 @@
       ],
       "category": "Code & harness evolution",
       "tags": [
-        "RSI",
-        "Tool repair",
-        "Frozen tools",
-        "Simulation"
+        "Reusable skills",
+        "Human review",
+        "Cross-embodiment",
+        "Simulation & real robots"
       ],
-      "summary": "An optimizer repairs reusable tools from failed robot episodes. The November code release adds a shared 14-tool harness and human-reviewed task skills drafted from earlier runs.",
-      "loop": "Run a robot episode → diagnose failures → write or repair a reusable tool → test on development layouts → freeze tools for evaluation.",
-      "evidence": "The official HexaShell-Preview evaluation reports Score 53.18 and Success Rate 46.85% across 42 RoboDojo tasks. The November 3 code/report release instead provides a general 14-tool harness, simulator and physical-robot adapters, runtime, sandbox and task skills; its RoboDojo 85.0% success / 88.8 Score are author-run results under a different protocol, not an official leaderboard update. Earlier optimizer-derived task tools remain on branch v1.0. The arXiv record is still v2 dated October 20.",
+      "summary": "Shares a 14-tool harness across simulators and real robots. An analysis agent drafts reusable task skills from earlier execution records, with human review before evaluation.",
+      "loop": "Run robot episodes → analyze recorded code, outputs and images → draft evidence-backed Markdown task skills → human review and format checks → retain skills for later evaluation. The earlier Preview used an optimizer to repair task-specific code tools.",
+      "evidence": "arXiv v3, Sections 2.4 and E.6, describes 205 retained task skills drafted from earlier run records and reviewed by people. The new shared harness is distinct from HexaShell-TaskTools (the Preview on branch v1.0). Table 6 reports author-run RoboDojo success 85.00% and Score 88.81 with skills, versus 69.92% / 75.73 without skills, under protocols different from the official Preview leaderboard row (46.85% success / 53.18 Score). Physical tests succeed in 76 of 90 episodes. This is human-reviewed skill acquisition, not fully autonomous recursive harness evolution.",
       "links": {
         "paper": "https://arxiv.org/abs/2610.23479",
         "code": "https://github.com/HexaFuture/HexaShell",
         "project": "https://hexafuture.ai/blog/hexashell/"
       },
       "figure": {
-        "path": "assets/papers/hexashell.webp",
-        "source": "https://hexafuture.ai/blog/hexashell/assets/fig04-harness-20261020.webp",
-        "caption": "HexaShell-Preview Figure 4: the acting-agent harness and a separate optimizer that updates reusable tools between episodes.",
-        "credit": "Hongcheng Gao, Alex Zhou et al., HexaShell, Figure 4; official HexaFuture project page.",
-        "alt": "HexaShell-Preview Figure 4: the acting-agent harness and a separate optimizer that updates reusable tools between episodes."
+        "path": "assets/papers/hexashell-v3.png",
+        "source": "https://arxiv.org/html/2610.23479v3#S2.F2",
+        "alt": "HexaShell v3 Figure 2: shared robot API, sandboxed Python execution, grounded perception and adapters, with optional retained task skills.",
+        "credit": "Hongcheng Gao, Jianshu Zeng et al., HexaShell v3, Figure 2. CC BY 4.0.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "original_url": "https://raw.githubusercontent.com/HexaFuture/HexaShell/e0190ddb757955131578e9f9071f4ee8e7113f7a/assets/paper-figure-2.png"
       },
       "sources": [
         "https://arxiv.org/html/2610.23479v1",
@@ -506,11 +507,15 @@
         "https://github.com/HexaFuture/HexaShell",
         "https://robodojo-benchmark.com/leaderboard?bench=sim#agent",
         "https://github.com/HexaFuture/HexaShell/commit/e0190ddb757955131578e9f9071f4ee8e7113f7a",
-        "https://github.com/HexaFuture/HexaShell/tree/v1.0"
+        "https://github.com/HexaFuture/HexaShell/tree/v1.0",
+        "https://arxiv.org/abs/2610.23479",
+        "https://arxiv.org/html/2610.23479v3#S2.SS4",
+        "https://arxiv.org/html/2610.23479v3#A5.SS6",
+        "https://raw.githubusercontent.com/HexaFuture/HexaShell/e0190ddb757955131578e9f9071f4ee8e7113f7a/assets/paper-figure-2.png"
       ],
       "source_catalogue": "Awesome-Robot-Use-Agent README, matching HexaShell row; primary sources checked.",
-      "checked_at": "2026-11-04",
-      "setting": "RoboDojo-Sim: 42 manipulation tasks; two physical-arm demonstrations.",
+      "checked_at": "2026-11-05",
+      "setting": "RoboDojo, RoboCasa365, LIBERO-PRO and RoboTwin 2.0 simulation; nine tasks on physical dual-arm PiPER-X robots.",
       "foundational": false,
       "leaderboard_label": "HexaShell-Preview",
       "related_releases": [
@@ -520,9 +525,10 @@
           "source": "https://github.com/HexaFuture/HexaShell/commit/e0190ddb757955131578e9f9071f4ee8e7113f7a",
           "report": "https://github.com/HexaFuture/HexaShell/blob/main/hexashell_paper.pdf",
           "previous_code": "https://github.com/HexaFuture/HexaShell/tree/v1.0",
-          "note": "Released runtime, sandbox, simulator and real-robot adapters, general tools and human-reviewed task skills. New self-evaluated metrics use protocols different from the official HexaShell-Preview leaderboard entry."
+          "note": "Released runtime, sandbox, simulator and real-robot adapters, general tools and human-reviewed task skills; incorporated in arXiv v3 dated November 3. New self-evaluated metrics use protocols different from the official HexaShell-Preview leaderboard entry."
         }
-      ]
+      ],
+      "updated": "2026-11-03"
     },
     {
       "id": "embodiedevo",
