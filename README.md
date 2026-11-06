@@ -6,6 +6,20 @@ Recent papers on robot recursive self-improvement.
 
 ## Papers
 
+### PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data
+
+**First release:** 2026-11-03
+
+![PyRUA-DataFarm Figure 3: grounding, task and expert code, simulated episodes, video rendering and admission, with rejected outputs routed back to the responsible stage.](assets/papers/pyrua-datafarm.png)
+
+*Kewei Zhang, Juncheng Ma et al., PyRUA-DataFarm, Figure 3. CC BY 4.0. [Figure source](https://arxiv.org/html/2611.05320v1#S4.F3).*
+
+Refines robot expert programs through simulator rollouts against a frozen judge, retaining verified experts to generate demonstrations. Independently reviewed video renders turn those rollouts into action-labelled data for training real-robot policies.
+
+[Paper](https://arxiv.org/abs/2611.05320) · [Code](https://github.com/DAGroup-PKU/PyRUA-Lean/tree/DataFarm)
+
+[Project](https://dagroup-pku.github.io/PyRUA-Lean/DataFarm/)
+
 ### TAMPAgent: Agentic Belief-Space Planning for Mobile Manipulation
 
 **First release:** 2026-11-02

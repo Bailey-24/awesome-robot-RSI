@@ -1,10 +1,61 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-05",
+  "updated_at": "2026-11-06",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
+    {
+      "id": "pyrua-datafarm",
+      "title": "PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data",
+      "date": "2026-11-03",
+      "category": "Code & harness evolution",
+      "summary": "Refines robot expert programs through simulator rollouts against a frozen judge, retaining verified experts to generate demonstrations. Independently reviewed video renders turn those rollouts into action-labelled data for training real-robot policies.",
+      "loop": "Write a task expert → run development-seed rollouts → use the frozen judge’s verdicts to revise controller code → evaluate on hidden held-out seeds → retain verified experts and handoff records → generate and independently review demonstrations for policy training.",
+      "setting": "Simulator task reconstruction from one real calibration episode; action-labelled video rendering; pi0.5 policies trained on 100 episodes per task and evaluated on five physical PiPER-arm tasks in the original and an unseen appearance condition.",
+      "evidence": "Section 4.4 describes controller-program development through judged simulator rollouts followed by hidden-seed admission. The released expert harness persists handoff bundles and a content-addressed verified-expert library. Figure 3 and Appendix A route rejections to the responsible stage while retaining prior attempts. Author-reported real-robot outcomes are 93/100 successes for farm-data policies versus 84/100 for teleoperation data, and 87/100 versus 46/100 under an unseen tablecloth and coloured lighting. These results evaluate generated-data training, not repeated autonomous policy-weight improvement or demonstrated long-term capability-layer evolution. The separate capability-evolution module’s example evaluator verifies software behaviour only.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.05320",
+        "code": "https://github.com/DAGroup-PKU/PyRUA-Lean/tree/DataFarm",
+        "project": "https://dagroup-pku.github.io/PyRUA-Lean/DataFarm/"
+      },
+      "figure": {
+        "path": "assets/papers/pyrua-datafarm.png",
+        "alt": "PyRUA-DataFarm Figure 3: grounding, task and expert code, simulated episodes, video rendering and admission, with rejected outputs routed back to the responsible stage.",
+        "source": "https://arxiv.org/html/2611.05320v1#S4.F3",
+        "credit": "Kewei Zhang, Juncheng Ma et al., PyRUA-DataFarm, Figure 3. CC BY 4.0.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "original_url": "https://arxiv.org/html/2611.05320v1/fig2-method.png"
+      },
+      "authors": [
+        "Kewei Zhang",
+        "Juncheng Ma",
+        "Guodong Lv",
+        "Duomin Wang",
+        "Feixiang Ruan",
+        "Ruiyang Si",
+        "Chuanrui Zhang",
+        "Yuxuan Chen",
+        "Hao Chen",
+        "Yichen Liu",
+        "Yintianrun Zhang",
+        "Yufan Deng",
+        "Enze Xie",
+        "Daquan Zhou"
+      ],
+      "date_source": "https://arxiv.org/abs/2611.05320",
+      "sources": [
+        "https://arxiv.org/abs/2611.05320",
+        "https://arxiv.org/html/2611.05320v1#S4.SS4",
+        "https://arxiv.org/html/2611.05320v1#A1",
+        "https://dagroup-pku.github.io/PyRUA-Lean/DataFarm/",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/tree/DataFarm",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/0360c407065f51909ebb1f7a3fa2a8067f906526/docs/reference/expert-harness.md",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/0360c407065f51909ebb1f7a3fa2a8067f906526/docs/reference/capability-evolution.md",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/commit/2599d51e572597b414519b6e053191d2728ecd5b"
+      ],
+      "foundational": false
+    },
     {
       "id": "tampagent",
       "title": "TAMPAgent: Agentic Belief-Space Planning for Mobile Manipulation",

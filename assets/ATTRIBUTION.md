@@ -214,3 +214,13 @@ All figures are authentic method/overview figures from the linked official paper
 - Original license: https://creativecommons.org/licenses/by/4.0/
 - Changes: none; original overview image downloaded unchanged from the authors’ release.
 - The earlier Preview figure and its credit are retained above for the historical version.
+
+## pyrua-datafarm
+
+- File: [pyrua-datafarm.png](papers/pyrua-datafarm.png)
+- Paper: [PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data](https://arxiv.org/abs/2611.05320)
+- Credit: Kewei Zhang, Juncheng Ma et al., PyRUA-DataFarm, Figure 3. CC BY 4.0.
+- Source: https://arxiv.org/html/2611.05320v1#S4.F3
+- Original asset: https://arxiv.org/html/2611.05320v1/fig2-method.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: none; original method figure downloaded unchanged.
