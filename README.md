@@ -190,6 +190,46 @@ Shares a 14-tool harness across simulators and real robots. An analysis agent dr
 
 [Project](https://hexafuture.ai/blog/hexashell/)
 
+### InstAgent: A Recursively Self-Improving Agent Operating System for Heterogeneous Robot Collaboration
+
+**First release:** 2026-10-16
+
+![InstAgent Figure 2: BT-based RSI from Skill BTs to collaboration programs. (a) Skill BTs provide reusable capability procedures for task composition. (b) HeteroComposer binds retrieved subtrees to task-specific roles and arguments and composes them with inter-](assets/papers/instagent.png)
+
+*Haoyang Luo et al., InstAgent, Figure 2. [Figure source](https://arxiv.org/html/2610.23098v1#S3.F2).*
+
+Turns execution-time corrections into validated collaboration behavior trees that can be reused by robot teams. Shared multimodal memory preserves context for later tasks and handoffs.
+
+[Paper](https://arxiv.org/abs/2610.23098)
+
+[Project](https://instagent01.github.io/)
+
+### CoEvolve: Self-Evolving Code Policies from Skills to Strategies for Humanoid Robots
+
+**First release:** 2026-10-16
+
+![CoEvolve Figure 2: Framework of CoEvolve . The Task Orchestrator commits a team subtask, which the Policy Coder grounds into executable robot policies. Physical verification accepts or rejects the resulting transition; rejected executions trigger structured c](assets/papers/coevolve.png)
+
+*Zicheng Liu et al., CoEvolve, Figure 2. CC BY 4.0. [Figure source](https://arxiv.org/html/2610.23288v1#S1.F2).*
+
+Revises multi-humanoid coordination code from verified physical transitions while keeping motor skills fixed. Accepted coordination examples and experience guide later runs.
+
+[Paper](https://arxiv.org/abs/2610.23288)
+
+### CarryOn: A Dual-Loop Harness for Personalized and Reliable Robot Assistance
+
+**First release:** 2026-10-15
+
+![CarryOn Figure 2: Two loops, one task context. The planning loop grounds a request in persistent context and dispatches supported subtasks. The execution loop retains the VLA for manipulation, with proactive shielding before hazardous contact and recovery af](assets/papers/carryon.png)
+
+*Zixuan Wang et al., CarryOn, Figure 2. CC BY 4.0. [Figure source](https://arxiv.org/html/2610.21453v1#S3.F2).*
+
+Keeps revisable user and scene memory for personalized robot assistance. Reflection on failed rollouts refines reusable recovery skills around a frozen VLA policy.
+
+[Paper](https://arxiv.org/abs/2610.21453) · [Code](https://github.com/JIA-Lab-research/CarryOn)
+
+[Project](https://vincent2311.github.io/Projects/CarryOn/)
+
 ### EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence
 
 **First release:** 2026-10-13
@@ -256,6 +296,44 @@ Selects informative robot experiments to test hypotheses and improve executable 
 
 [Project](https://geeksongs.github.io/agentic_robotics/)
 
+### EmbodiedSmith: Scaling Embodied Data through Recursive Self-Improvement Flywheel in Simulation
+
+**First release:** 2026-10-06
+
+![EmbodiedSmith Figure 3: Closed-loop robot task generation and validation. (a) Instructions are grounded in the scene, robot configuration, and available skills. (b) The Agent proposes a skill sequence and success conditions, which are used to build and compile a c](assets/papers/embodiedsmith.webp)
+
+*Yikai Qin et al., EmbodiedSmith, Figure 3. [Figure source](https://arxiv.org/html/2610.07969v1#S3.F4).*
+
+Uses simulation checks to revise task code, robot plans and scenes in a coupled generation loop. Accepted executions become demonstrations for training robot policies.
+
+[Paper](https://arxiv.org/abs/2610.07969)
+
+### Co-Evolving Robot Orchestrators and Policies through Deployment
+
+**First release:** 2026-10-06
+
+![Robo-COP Figure 2: The Robo-COP deployment-to-learning loop. A: The orchestrator mixes scripted motion and VLA calls, logs one action stream, and updates memory. B: Judges segment the stream into labeled skills; a controller decides when to train. C: Candidat](assets/papers/robo-cop.webp)
+
+*Xilun Zhang et al., Robo-COP, Figure 2. [Figure source](https://arxiv.org/html/2610.09228v1#S2.F2).*
+
+Curates demonstrations from deployment, selectively fine-tunes robot skills and adopts policies only after verification. The orchestrator updates its memories as the policy changes.
+
+[Paper](https://arxiv.org/abs/2610.09228)
+
+### RobotUse: Allocating Computation, Context, and Decisions
+
+**First release:** 2026-10-04
+
+![RobotUse Figure 1: RobotUse. The main agent decides in language: from the current state, the playbook, and returned reports, it issues an instruction. The subagent decides on the image, selecting points and poses that the robot backend plans and executes, and](assets/papers/robotuse.png)
+
+*Junhoo Lee et al., RobotUse, Figure 1. CC BY 4.0. [Figure source](https://arxiv.org/html/2610.04929v1#S1.F1).*
+
+A between-episode refiner turns robot execution reports into a persistent playbook. Later attempts reuse and revise guidance on spatial choices, recovery and task delegation.
+
+[Paper](https://arxiv.org/abs/2610.04929) · [Code](https://github.com/robotuse-team/RobotUse)
+
+[Project](https://robotuse-team.github.io/)
+
 ### Reconstruct, Practice, Go Real: Guided Self-Improvement for Embodied Agents
 
 **First release:** 2026-10-01
@@ -284,6 +362,46 @@ Reduces repeated model calls by letting robot agents compose actions and local c
 
 [Models](https://huggingface.co/DAGroup-PKU/PyRUA-Lean-Coder-v0.1-4B) · [Project](https://dagroup-pku.github.io/PyRUA-Lean/)
 
+### DynaHarness: A Dynamic Physical Harness for Self-Evolving Robot Agents
+
+**First release:** 2026-09-30
+
+![DynaHarness Figure 2: Overview of DynaHarness . The slow brain plans; the fast brain governs execution; the offline loop evaluates updates from recorded evidence.](assets/papers/dynaharness.png)
+
+*Haoyuan Deng et al., DynaHarness, Figure 2. [Figure source](https://arxiv.org/html/2609.40306v1#S3.F2).*
+
+Attributes execution failures to reusable robot capabilities and proposes targeted repairs. Paired regression checks decide which revisions enter the shared physical harness.
+
+[Paper](https://arxiv.org/abs/2609.40306)
+
+[Project](https://denghaoyuan123.github.io/Dynaharness_page/)
+
+### ASENA: Self-evolving Agents for Embodied Navigation
+
+**First release:** 2026-09-30
+
+![ASENA Figure 2: ASENA connects coding agents to physical robots. The system integrates robot sensing, a persistent workspace, supervised execution, and an optional learned navigation policy. Each run is stored as an MCAP record [ 10 ] that aligns sensor an](assets/papers/asena.png)
+
+*An-Chieh Cheng et al., ASENA, Figure 2. CC BY 4.0. [Figure source](https://arxiv.org/html/2609.39207v1#S3.F2).*
+
+Coding agents retain notes and executable skills after inspecting simulation feedback. A shared robot harness supports navigation, interaction and supervised physical execution without changing agent weights.
+
+[Paper](https://arxiv.org/abs/2609.39207)
+
+[Project](https://research.nvidia.com/labs/gear/asena/)
+
+### Make Code as Policy Great Again: Frontier Agents Write, Call, and Evolve Robot Tools
+
+**First release:** 2026-09-30
+
+![URAI Figure 2: Tool development and execution in URAI. (a) Between episodes, the programming agent revises the tool collection, code, and execution strategy using development feedback. Validated versions are frozen before evaluation; model weights remain ](assets/papers/urai.png)
+
+*Shijia Ge et al., URAI, Figure 2. CC BY 4.0. [Figure source](https://arxiv.org/html/2609.39018v1#S3.F2).*
+
+A programming agent uses execution feedback and human guidance to refine reusable robot tools. A separate execution agent selects tools, with validated revisions kept across episodes.
+
+[Paper](https://arxiv.org/abs/2609.39018)
+
 ### RoboHarn-Evo: Evolving Hierarchical Physical Knowledge for Self-Improving Robotic Manipulation
 
 **First release:** 2026-09-29
@@ -298,6 +416,20 @@ Uses execution feedback to revise hierarchical task and action knowledge while k
 
 [Project](https://ruckbreasoning.github.io/RoboHarn-Evo/)
 
+### DexAgent: An Agentic Human2Sim2Robot Framework for Dexterous Manipulation with Self-Evolving Tool Library
+
+**First release:** 2026-09-28
+
+![DexAgent Figure 2: DexAgent converts a single egocentric human video and a task prompt into robot training data through four stages. Stage 1 decomposes the task into subgoals and identifies the manipulated objects and their key properties. Stage 2 reconstruct](assets/papers/dexagent.png)
+
+*Youhui Wang et al., DexAgent, Figure 2. CC BY 4.0. [Figure source](https://arxiv.org/html/2609.35318v1#S3.F2).*
+
+Converts human videos into simulated robot demonstrations using property-specific checks to repair skills and verifiers. Newly developed tools remain in a library for later videos.
+
+[Paper](https://arxiv.org/abs/2609.35318)
+
+[Project](https://dexagent123.github.io/)
+
 ### Recursive Harness Distillation across Agents for Robot Manipulation
 
 **First release:** 2026-09-27
@@ -311,6 +443,46 @@ Distills a strong agent’s robot experience into a playbook for a lighter agent
 [Paper](https://arxiv.org/abs/2609.33378)
 
 [Project](https://seungyeon.me/RHD)
+
+### RoboFoundry: System-as-Policy Evolution for Self-Learning Embodied Agents
+
+**First release:** 2026-09-26
+
+![RoboFoundry Figure 2: Overview of RoboFoundry. (a) The inner loop runs task-specific System-as-Policy through context/skill surfaces and semantic/execution bindings, producing embodiment-specific rollouts and traces. (b) The general system supplies reusable cont](assets/papers/robofoundry.webp)
+
+*Jingsong Liang et al., RoboFoundry, Figure 2. [Figure source](https://arxiv.org/html/2609.32862v1#S2.F2).*
+
+Turns execution traces into tested changes to context, memory and hierarchical skills. Recurring repairs are promoted into a shared system for later tasks and robot embodiments.
+
+[Paper](https://arxiv.org/abs/2609.32862)
+
+[Project](https://jingsongliang.com/robofoundry/)
+
+### HarnessPAI: An Evolving Harness for Physical AI
+
+**First release:** 2026-09-24
+
+![HarnessPAI Figure 1: Overview of HarnessPAI , a general physical harness framework.](assets/papers/harnesspai.webp)
+
+*Xin Wang et al., HarnessPAI, Figure 1. [Figure source](https://arxiv.org/html/2609.29166v1#S0.F1).*
+
+Executes fixed robot programs within each rollout, then uses failure feedback to revise code between rollouts. Validated programs and repair skills are kept for reuse and demonstration generation.
+
+[Paper](https://arxiv.org/abs/2609.29166) · [Code](https://github.com/Darwin-Agent/HarnessPAI)
+
+[Project](https://darwin-agent.github.io/HarnessPAI/)
+
+### RACaP: Agentic Reasoning, Acting, and Coding as Policies for Evolvable Robot Learning
+
+**First release:** 2026-09-24
+
+![RACaP Figure 1: RACaP separates code evolution from runtime execution. During evolution, a capability curriculum produces paired rollouts, a visual critic and coding agent revise reusable mechanisms, and native success selects the next version. During depl](assets/papers/racap.png)
+
+*Zexi Li et al., RACaP, Figure 1. [Figure source](https://arxiv.org/html/2609.29394v1#S1.F1).*
+
+Evolves typed robot APIs, a ReAct harness and experience memory through a capability curriculum and paired candidate tests. Deployment reuses frozen APIs while visual reasoning adapts their arguments.
+
+[Paper](https://arxiv.org/abs/2609.29394) · [Code](https://github.com/Robo-Harness/racap)
 
 ### Zetta ζ: An Efficient Closed-Loop Embodied Harness for Self-Evolving Physical Intelligence
 
@@ -337,6 +509,20 @@ Improves runtime critics and recovery skills from execution feedback around a fr
 Uses rollout diagnosis to evolve reusable skills and the agent’s context-code harness without updating model weights.
 
 [Paper](https://arxiv.org/abs/2608.11350)
+
+### PhyAgentOS: A Self-Evolving Operating System for Embodied Agents with Decoupled Cognitive Planning and Physical Execution
+
+**First release:** 2026-07-18
+
+![PhyAgentOS Figure 3: Overall architecture of PhyAgentOS. The agent layer determines task intent and compiles executable sessions, whereas the runtime layer supervises and performs target interaction. The shared protocol boundary makes the handoff explicit, audi](assets/papers/phyagentos.png)
+
+*Yang Liu et al., PhyAgentOS, Figure 3. [Figure source](https://arxiv.org/html/2607.16636v1#S3.F3).*
+
+Turns verified robot sessions into reusable skills and corrective lessons. File-based state and memory connect planning, supervised execution and later task attempts.
+
+[Paper](https://arxiv.org/abs/2607.16636) · [Code](https://github.com/PhyAgentOS/PhyAgentOS-core)
+
+[Project](https://phy-agent-os.net)
 
 ### ASPIRE: Agentic /Skills Discovery for Robotics
 

@@ -1,7 +1,7 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-06",
+  "updated_at": "2026-11-09",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
@@ -582,6 +582,129 @@
       "updated": "2026-11-03"
     },
     {
+      "id": "instagent",
+      "title": "InstAgent: A Recursively Self-Improving Agent Operating System for Heterogeneous Robot Collaboration",
+      "date": "2026-10-16",
+      "category": "Code & harness evolution",
+      "summary": "Turns execution-time corrections into validated collaboration behavior trees that can be reused by robot teams. Shared multimodal memory preserves context for later tasks and handoffs.",
+      "loop": "Execute a collaboration tree → validate handoffs and outcomes → revise and consolidate successful subtrees → retain linked context and procedural experience for future tasks.",
+      "setting": "Twenty physical heterogeneous multi-robot tasks, evaluated with three high-level models.",
+      "evidence": "The RSI mechanism updates collaboration programs from execution feedback and preserves successful revisions. The paper evaluates task success, first-attempt completion and efficiency on physical robot teams.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.23098",
+        "project": "https://instagent01.github.io/"
+      },
+      "figure": {
+        "path": "assets/papers/instagent.png",
+        "alt": "InstAgent Figure 2: BT-based RSI from Skill BTs to collaboration programs. (a) Skill BTs provide reusable capability procedures for task composition. (b) HeteroComposer binds retrieved subtrees to task-specific roles and arguments and composes them with inter-",
+        "source": "https://arxiv.org/html/2610.23098v1#S3.F2",
+        "credit": "Haoyang Luo et al., InstAgent, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "original_url": "https://arxiv.org/html/2610.23098v1/fig2.png"
+      },
+      "authors": [
+        "Haoyang Luo",
+        "Junhao Qin",
+        "Jingyan Cao",
+        "Yi Huang",
+        "Guangjie Yang",
+        "Xiaoyu Chen",
+        "Haotao Lu",
+        "Tianxiang Gui",
+        "Ye Shi",
+        "Jingya Wang"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.23098",
+      "sources": [
+        "https://arxiv.org/abs/2610.23098",
+        "https://arxiv.org/html/2610.23098v1",
+        "https://arxiv.org/html/2610.23098v1#S3.F2",
+        "https://instagent01.github.io/"
+      ],
+      "foundational": false
+    },
+    {
+      "id": "coevolve",
+      "title": "CoEvolve: Self-Evolving Code Policies from Skills to Strategies for Humanoid Robots",
+      "date": "2026-10-16",
+      "category": "Code & harness evolution",
+      "summary": "Revises multi-humanoid coordination code from verified physical transitions while keeping motor skills fixed. Accepted coordination examples and experience guide later runs.",
+      "loop": "Execute coordination code → verify support, contact, stability and balance → revise rejected behavior from an accepted checkpoint → retain verified coordination experience → evaluate subsequent layouts and experience initialization.",
+      "setting": "Two simulated Unitree G1 humanoids carrying a freely supported rigid payload through constrained corridors.",
+      "evidence": "The paper reports 8 successes among 15 base runs over three backbone families, plus two additional layouts and same-/cross-backbone experience initialization. This is simulation-level coordination evolution with fixed motor skills; motion precision and contact stability remain limitations.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.23288"
+      },
+      "figure": {
+        "path": "assets/papers/coevolve.png",
+        "alt": "CoEvolve Figure 2: Framework of CoEvolve . The Task Orchestrator commits a team subtask, which the Policy Coder grounds into executable robot policies. Physical verification accepts or rejects the resulting transition; rejected executions trigger structured c",
+        "source": "https://arxiv.org/html/2610.23288v1#S1.F2",
+        "credit": "Zicheng Liu et al., CoEvolve, Figure 2. CC BY 4.0.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "original_url": "https://arxiv.org/html/2610.23288v1/framework2.png"
+      },
+      "authors": [
+        "Zicheng Liu",
+        "Haochen Wu",
+        "Jiawei He",
+        "Suyun Zhao",
+        "Huan Yang",
+        "Cheng Chi",
+        "Hao Tang"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.23288",
+      "sources": [
+        "https://arxiv.org/abs/2610.23288",
+        "https://arxiv.org/html/2610.23288v1",
+        "https://arxiv.org/html/2610.23288v1#S1.F2"
+      ],
+      "foundational": false
+    },
+    {
+      "id": "carryon",
+      "title": "CarryOn: A Dual-Loop Harness for Personalized and Reliable Robot Assistance",
+      "date": "2026-10-15",
+      "category": "Policy & skill learning",
+      "summary": "Keeps revisable user and scene memory for personalized robot assistance. Reflection on failed rollouts refines reusable recovery skills around a frozen VLA policy.",
+      "loop": "Run a personalized task → monitor physical execution and detect failures → invoke and reflect on recovery → revise reusable recovery skills and persistent context → reuse them in later attempts.",
+      "setting": "Simulation and physical robot assistance, including preference grounding, action shielding and recovery reuse.",
+      "evidence": "The paper separates within-rollout supervision from offline refinement of recovery skills. Author-reported recovery success rises from 13% to 80% when refined skills are reused. The VLA remains frozen; reported shielding results are separate from recovery-learning results.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.21453",
+        "code": "https://github.com/JIA-Lab-research/CarryOn",
+        "project": "https://vincent2311.github.io/Projects/CarryOn/"
+      },
+      "figure": {
+        "path": "assets/papers/carryon.png",
+        "alt": "CarryOn Figure 2: Two loops, one task context. The planning loop grounds a request in persistent context and dispatches supported subtasks. The execution loop retains the VLA for manipulation, with proactive shielding before hazardous contact and recovery af",
+        "source": "https://arxiv.org/html/2610.21453v1#S3.F2",
+        "credit": "Zixuan Wang et al., CarryOn, Figure 2. CC BY 4.0.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "original_url": "https://vincent2311.github.io/Projects/CarryOn/assets/architecture.png"
+      },
+      "authors": [
+        "Zixuan Wang",
+        "Yuqi Liu",
+        "Yuxin Chen",
+        "Sengqiao Yang",
+        "Jinhui Ye",
+        "Pengguang Chen",
+        "Changsheng Lu",
+        "Shu Liu",
+        "Bei Yu",
+        "Jiaya Jia"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.21453",
+      "sources": [
+        "https://arxiv.org/abs/2610.21453",
+        "https://arxiv.org/html/2610.21453v1",
+        "https://arxiv.org/html/2610.21453v1#S3.F2",
+        "https://github.com/JIA-Lab-research/CarryOn",
+        "https://vincent2311.github.io/Projects/CarryOn/"
+      ],
+      "foundational": false
+    },
+    {
       "id": "embodiedevo",
       "title": "EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence",
       "date": "2026-10-13",
@@ -791,6 +914,132 @@
       "date_source": "https://arxiv.org/abs/2610.10498"
     },
     {
+      "id": "embodiedsmith",
+      "title": "EmbodiedSmith: Scaling Embodied Data through Recursive Self-Improvement Flywheel in Simulation",
+      "date": "2026-10-06",
+      "category": "Code & harness evolution",
+      "summary": "Uses simulation checks to revise task code, robot plans and scenes in a coupled generation loop. Accepted executions become demonstrations for training robot policies.",
+      "loop": "Generate a scene and task plan → run simulation and programmatic checks → review failures → revise scene/task code and robot plans → retain executable accepted tasks and trajectories for data generation.",
+      "setting": "Simulation data generation for mobile manipulators, humanoids and dexterous hands, including articulated, deformable and fluid interactions.",
+      "evidence": "The task-generation method explicitly runs and validates plans, routes failure diagnosis to task or scene revision, and checks executable delivery. Downstream experiments study generated-data diversity and generalization; they do not demonstrate an unconstrained robot modifying its own weights during deployment.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.07969"
+      },
+      "figure": {
+        "path": "assets/papers/embodiedsmith.webp",
+        "alt": "EmbodiedSmith Figure 3: Closed-loop robot task generation and validation. (a) Instructions are grounded in the scene, robot configuration, and available skills. (b) The Agent proposes a skill sequence and success conditions, which are used to build and compile a c",
+        "source": "https://arxiv.org/html/2610.07969v1#S3.F4",
+        "credit": "Yikai Qin et al., EmbodiedSmith, Figure 3.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "original_url": "https://arxiv.org/html/2610.07969v1/fig/data_scaling/image.png",
+        "processing": "Lossless WebP encoding; dimensions and decoded pixels unchanged."
+      },
+      "authors": [
+        "Yikai Qin",
+        "Yifei Deng",
+        "Mingjian Liang",
+        "Wenxuan Song",
+        "Zepeng Lin",
+        "Zhiyi Jiang",
+        "Jiajun Fu",
+        "Qiao Sun",
+        "Huashuo Lei",
+        "Xicheng Gong",
+        "Jiayi Chen",
+        "Han Zhao",
+        "Shuanghao Bai",
+        "Pengxiang Ding",
+        "Pengwei Wang",
+        "Haoang Li"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.07969",
+      "sources": [
+        "https://arxiv.org/abs/2610.07969",
+        "https://arxiv.org/html/2610.07969v1",
+        "https://arxiv.org/html/2610.07969v1#S3.F4"
+      ],
+      "foundational": false
+    },
+    {
+      "id": "robo-cop",
+      "title": "Co-Evolving Robot Orchestrators and Policies through Deployment",
+      "date": "2026-10-06",
+      "category": "Policy & skill learning",
+      "summary": "Curates demonstrations from deployment, selectively fine-tunes robot skills and adopts policies only after verification. The orchestrator updates its memories as the policy changes.",
+      "loop": "Execute with a mixed scripted/VLA orchestrator → curate skill-level demonstrations from successes and failures → selectively fine-tune recurring weak skills → verify target-skill gains and retention → adopt the candidate policy and continue deployment.",
+      "setting": "Ten simulated RoboLab tasks and three physical robot tasks.",
+      "evidence": "Author-reported held-out success is 64.8% to 73.8% in simulation and 38.3% to 50.0% on three physical tasks; unverified fixed-schedule fine-tuning reaches 65.8% in simulation. These are paper experiments, not RoboDojo leaderboard values. The project endpoint returned HTTP 403 at review, so no unverified Code/Data/Models links are shown.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.09228"
+      },
+      "figure": {
+        "path": "assets/papers/robo-cop.webp",
+        "alt": "Robo-COP Figure 2: The Robo-COP deployment-to-learning loop. A: The orchestrator mixes scripted motion and VLA calls, logs one action stream, and updates memory. B: Judges segment the stream into labeled skills; a controller decides when to train. C: Candidat",
+        "source": "https://arxiv.org/html/2610.09228v1#S2.F2",
+        "credit": "Xilun Zhang et al., Robo-COP, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "original_url": "https://arxiv.org/html/2610.09228v1/figures/method.png",
+        "processing": "Lossless WebP encoding; dimensions and decoded pixels unchanged."
+      },
+      "authors": [
+        "Xilun Zhang",
+        "Maggie Wang",
+        "Erik Bauer",
+        "Hong-Xing Yu",
+        "Huang Huang",
+        "Jiajun Wu",
+        "Marco Pavone"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.09228",
+      "sources": [
+        "https://arxiv.org/abs/2610.09228",
+        "https://arxiv.org/html/2610.09228v1",
+        "https://arxiv.org/html/2610.09228v1#S2.F2"
+      ],
+      "foundational": false
+    },
+    {
+      "id": "robotuse",
+      "title": "RobotUse: Allocating Computation, Context, and Decisions",
+      "date": "2026-10-04",
+      "category": "Code & harness evolution",
+      "summary": "A between-episode refiner turns robot execution reports into a persistent playbook. Later attempts reuse and revise guidance on spatial choices, recovery and task delegation.",
+      "loop": "Execute a task with subgoal reports → read main-agent trajectories between episodes → refine conditional guidance in a persistent playbook → reuse it in main and local decisions while keeping model parameters and backend code fixed.",
+      "setting": "RoboLab manipulation simulation and physical Franka Panda tasks.",
+      "evidence": "Section 4.4 explicitly retains experience across episodes; the refiner sees main-agent turns and local reports, rather than all low-level interaction details. The paper reports real-world learning and transfer under imperfect feedback. Code release runs native RoboLab episodes; external models, simulators and services are separate dependencies.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.04929",
+        "code": "https://github.com/robotuse-team/RobotUse",
+        "project": "https://robotuse-team.github.io/"
+      },
+      "figure": {
+        "path": "assets/papers/robotuse.png",
+        "alt": "RobotUse Figure 1: RobotUse. The main agent decides in language: from the current state, the playbook, and returned reports, it issues an instruction. The subagent decides on the image, selecting points and poses that the robot backend plans and executes, and",
+        "source": "https://arxiv.org/html/2610.04929v1#S1.F1",
+        "credit": "Junhoo Lee et al., RobotUse, Figure 1. CC BY 4.0.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "original_url": "https://raw.githubusercontent.com/robotuse-team/RobotUse/main/docs/media/robotuse-overview.png"
+      },
+      "authors": [
+        "Junhoo Lee",
+        "Injun Baek",
+        "Seungyeon Kim",
+        "Suhyun Jeon",
+        "Minkyu Kim",
+        "Baekseung Kim",
+        "Nojun Kwak"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.04929",
+      "sources": [
+        "https://arxiv.org/abs/2610.04929",
+        "https://arxiv.org/html/2610.04929v1",
+        "https://arxiv.org/html/2610.04929v1#S1.F1",
+        "https://github.com/robotuse-team/RobotUse",
+        "https://robotuse-team.github.io/"
+      ],
+      "foundational": false
+    },
+    {
       "id": "rpg",
       "title": "Reconstruct, Practice, Go Real: Guided Self-Improvement for Embodied Agents",
       "date": "2026-10-01",
@@ -916,6 +1165,131 @@
       ]
     },
     {
+      "id": "dynaharness",
+      "title": "DynaHarness: A Dynamic Physical Harness for Self-Evolving Robot Agents",
+      "date": "2026-09-30",
+      "category": "Code & harness evolution",
+      "summary": "Attributes execution failures to reusable robot capabilities and proposes targeted repairs. Paired regression checks decide which revisions enter the shared physical harness.",
+      "loop": "Record bounded physical execution → attribute failures to a capability or mechanism → propose targeted revisions → compare parent and candidate with paired regression checks → admit validated capability updates.",
+      "setting": "LIBERO-Pro simulation, post-selection transfer tests and physical manipulation.",
+      "evidence": "Sections 3.6–3.7 and the attribution-driven self-evolution experiments distinguish reusable capability revision from within-episode monitoring. The reported 75.2% on 800 new initial states and 74.0% versus 63.9% dynamic-execution comparison use different experimental contrasts. The project-linked GitHub repository returned 404, so it is not advertised as released code.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2609.40306",
+        "project": "https://denghaoyuan123.github.io/Dynaharness_page/"
+      },
+      "figure": {
+        "path": "assets/papers/dynaharness.png",
+        "alt": "DynaHarness Figure 2: Overview of DynaHarness . The slow brain plans; the fast brain governs execution; the offline loop evaluates updates from recorded evidence.",
+        "source": "https://arxiv.org/html/2609.40306v1#S3.F2",
+        "credit": "Haoyuan Deng et al., DynaHarness, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "original_url": "https://arxiv.org/html/2609.40306v1/img002.png"
+      },
+      "authors": [
+        "Haoyuan Deng",
+        "Jiebin Liu",
+        "Tengxiao Zhang",
+        "Langning Yan",
+        "Hongye Cao",
+        "Ziwei Wang"
+      ],
+      "date_source": "https://arxiv.org/abs/2609.40306",
+      "sources": [
+        "https://arxiv.org/abs/2609.40306",
+        "https://arxiv.org/html/2609.40306v1",
+        "https://arxiv.org/html/2609.40306v1#S3.F2",
+        "https://denghaoyuan123.github.io/Dynaharness_page/"
+      ],
+      "foundational": false
+    },
+    {
+      "id": "asena",
+      "title": "ASENA: Self-evolving Agents for Embodied Navigation",
+      "date": "2026-09-30",
+      "category": "Navigation",
+      "summary": "Coding agents retain notes and executable skills after inspecting simulation feedback. A shared robot harness supports navigation, interaction and supervised physical execution without changing agent weights.",
+      "loop": "Run recurring navigation tasks → inspect simulator feedback → edit notes and executable skills → consolidate a persistent workspace → evaluate later passes with fixed model and policy weights.",
+      "setting": "Simulated R2R/RxR navigation and embodied question answering; supervised Unitree G1 demonstrations.",
+      "evidence": "The paper evaluates ten passes over recurring 100-task subsets: success rises from 72% to 98% on R2R and 65% to 89% on RxR. This measures repeated-task workspace evolution, not held-out task generalization. Physical demonstrations use supervised execution and do not establish the same autonomous learning gains on hardware.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2609.39207",
+        "project": "https://research.nvidia.com/labs/gear/asena/"
+      },
+      "figure": {
+        "path": "assets/papers/asena.png",
+        "alt": "ASENA Figure 2: ASENA connects coding agents to physical robots. The system integrates robot sensing, a persistent workspace, supervised execution, and an optional learned navigation policy. Each run is stored as an MCAP record [ 10 ] that aligns sensor an",
+        "source": "https://arxiv.org/html/2609.39207v1#S3.F2",
+        "credit": "An-Chieh Cheng et al., ASENA, Figure 2. CC BY 4.0.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "original_url": "https://arxiv.org/html/2609.39207v1/system-overview.png"
+      },
+      "authors": [
+        "An-Chieh Cheng",
+        "Isabella Liu",
+        "Edmund Bu",
+        "Johan Bjorck",
+        "Hongxu Yin",
+        "Zhengyi Luo",
+        "Jan Kautz",
+        "Linxi \"Jim\" Fan",
+        "Yuke Zhu",
+        "Sifei Liu"
+      ],
+      "date_source": "https://arxiv.org/abs/2609.39207",
+      "sources": [
+        "https://arxiv.org/abs/2609.39207",
+        "https://arxiv.org/html/2609.39207v1",
+        "https://arxiv.org/html/2609.39207v1#S3.F2",
+        "https://research.nvidia.com/labs/gear/asena/"
+      ],
+      "foundational": false
+    },
+    {
+      "id": "urai",
+      "title": "Make Code as Policy Great Again: Frontier Agents Write, Call, and Evolve Robot Tools",
+      "date": "2026-09-30",
+      "category": "Code & harness evolution",
+      "summary": "A programming agent uses execution feedback and human guidance to refine reusable robot tools. A separate execution agent selects tools, with validated revisions kept across episodes.",
+      "loop": "Run development episodes → revise tool contracts, implementations and recovery from feedback and human guidance → validate and freeze accepted tools → reuse them in later execution episodes.",
+      "setting": "Five RoboDojo simulation tasks and seven physical AgileX dual-arm tasks.",
+      "evidence": "The paper explicitly preserves validated tool revisions across episodes with frozen foundation-model weights. Tool development includes human steering; reported execution-time and token savings exclude unmeasured authoring and steering costs. Five-task aggregate results are not the official all-task RoboDojo leaderboard.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2609.39018"
+      },
+      "figure": {
+        "path": "assets/papers/urai.png",
+        "alt": "URAI Figure 2: Tool development and execution in URAI. (a) Between episodes, the programming agent revises the tool collection, code, and execution strategy using development feedback. Validated versions are frozen before evaluation; model weights remain ",
+        "source": "https://arxiv.org/html/2609.39018v1#S3.F2",
+        "credit": "Shijia Ge et al., URAI, Figure 2. CC BY 4.0.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "original_url": "https://arxiv.org/html/2609.39018v1/URAI_fig2_framework.png"
+      },
+      "authors": [
+        "Shijia Ge",
+        "Alex Zhou",
+        "Jianshu Zeng",
+        "Yexing Wan",
+        "Di Wu",
+        "Zelin Zheng",
+        "Yazhe Wang",
+        "Zhiqi Jia",
+        "Xuan Shangguan",
+        "Jay Zhu",
+        "Yijun Liu",
+        "Lingyu He",
+        "Sihang Wu",
+        "Xiao He",
+        "Hongcheng Gao"
+      ],
+      "date_source": "https://arxiv.org/abs/2609.39018",
+      "sources": [
+        "https://arxiv.org/abs/2609.39018",
+        "https://arxiv.org/html/2609.39018v1",
+        "https://arxiv.org/html/2609.39018v1#S3.F2"
+      ],
+      "foundational": false
+    },
+    {
       "id": "roboharn-evo",
       "title": "RoboHarn-Evo: Evolving Hierarchical Physical Knowledge for Self-Improving Robotic Manipulation",
       "date": "2026-09-29",
@@ -960,6 +1334,43 @@
       "date_source": "https://arxiv.org/abs/2609.37583"
     },
     {
+      "id": "dexagent",
+      "title": "DexAgent: An Agentic Human2Sim2Robot Framework for Dexterous Manipulation with Self-Evolving Tool Library",
+      "date": "2026-09-28",
+      "category": "Policy & skill learning",
+      "summary": "Converts human videos into simulated robot demonstrations using property-specific checks to repair skills and verifiers. Newly developed tools remain in a library for later videos.",
+      "loop": "Interpret a human video → reconstruct simulation and optimize robot trajectories → use property-specific verifier feedback to refine stages → retain new skills and verifiers → reuse the enlarged tool library on subsequent videos.",
+      "setting": "Human2Sim2Robot dexterous data generation and policy evaluation across eleven physical tasks.",
+      "evidence": "The paper explicitly retains newly developed skills and verifiers and studies processing efficiency as more human videos are encountered. Policies are trained from accepted synthetic trajectories. This is tool-library growth in a data-generation workflow, not evidence that the deployed policy independently edits its own weights.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2609.35318",
+        "project": "https://dexagent123.github.io/"
+      },
+      "figure": {
+        "path": "assets/papers/dexagent.png",
+        "alt": "DexAgent Figure 2: DexAgent converts a single egocentric human video and a task prompt into robot training data through four stages. Stage 1 decomposes the task into subgoals and identifies the manipulated objects and their key properties. Stage 2 reconstruct",
+        "source": "https://arxiv.org/html/2609.35318v1#S3.F2",
+        "credit": "Youhui Wang et al., DexAgent, Figure 2. CC BY 4.0.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "original_url": "https://arxiv.org/html/2609.35318v1/method2.png"
+      },
+      "authors": [
+        "Youhui Wang",
+        "Yunzhu Li",
+        "Li Fei-Fei",
+        "Jiajun Wu",
+        "Huang Huang"
+      ],
+      "date_source": "https://arxiv.org/abs/2609.35318",
+      "sources": [
+        "https://arxiv.org/abs/2609.35318",
+        "https://arxiv.org/html/2609.35318v1",
+        "https://arxiv.org/html/2609.35318v1#S3.F2",
+        "https://dexagent123.github.io/"
+      ],
+      "foundational": false
+    },
+    {
       "id": "rhd",
       "title": "Recursive Harness Distillation across Agents for Robot Manipulation",
       "date": "2026-09-27",
@@ -996,6 +1407,160 @@
         "Nojun Kwak"
       ],
       "date_source": "https://arxiv.org/abs/2609.33378"
+    },
+    {
+      "id": "robofoundry",
+      "title": "RoboFoundry: System-as-Policy Evolution for Self-Learning Embodied Agents",
+      "date": "2026-09-26",
+      "category": "Code & harness evolution",
+      "summary": "Turns execution traces into tested changes to context, memory and hierarchical skills. Recurring repairs are promoted into a shared system for later tasks and robot embodiments.",
+      "loop": "Act and record traces → diagnose gaps in context or skills → propose task-specific system changes → check repair and retention on separate sets → promote recurring useful changes to the general system.",
+      "setting": "EmbodiedBench, RoboMemArena and LIBERO-PRO simulation, with physical transfer and online-evolution demonstrations.",
+      "evidence": "The method treats context and hierarchical skills as an evolvable system, with held-in repair and held-out retention checks before general promotion. Simulation benchmark gains and physical demonstrations are different evidence. The public repository currently contains project materials and TODOs for implementation releases; no Code link is shown.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2609.32862",
+        "project": "https://jingsongliang.com/robofoundry/"
+      },
+      "figure": {
+        "path": "assets/papers/robofoundry.webp",
+        "alt": "RoboFoundry Figure 2: Overview of RoboFoundry. (a) The inner loop runs task-specific System-as-Policy through context/skill surfaces and semantic/execution bindings, producing embodiment-specific rollouts and traces. (b) The general system supplies reusable cont",
+        "source": "https://arxiv.org/html/2609.32862v1#S2.F2",
+        "credit": "Jingsong Liang et al., RoboFoundry, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "original_url": "https://arxiv.org/html/2609.32862v1/robo_model.png",
+        "processing": "Lossless WebP encoding; dimensions and decoded pixels unchanged."
+      },
+      "authors": [
+        "Jingsong Liang",
+        "Shuhao Liao",
+        "Shizhe Zhang",
+        "Diyuan Hou",
+        "Yuxin Cai",
+        "Xinjian Deng",
+        "Chengyang He",
+        "Wenhui Huang",
+        "Runjia Tan",
+        "Zhidong Wang",
+        "Lan Yu",
+        "Xuesong Tian",
+        "Guillaume Sartoretti",
+        "Jie Luo",
+        "Yao Mu",
+        "Wenjun Wu",
+        "Wanhua Li",
+        "Chen Lv"
+      ],
+      "date_source": "https://arxiv.org/abs/2609.32862",
+      "sources": [
+        "https://arxiv.org/abs/2609.32862",
+        "https://arxiv.org/html/2609.32862v1",
+        "https://arxiv.org/html/2609.32862v1#S2.F2",
+        "https://jingsongliang.com/robofoundry/"
+      ],
+      "foundational": false
+    },
+    {
+      "id": "harnesspai",
+      "title": "HarnessPAI: An Evolving Harness for Physical AI",
+      "date": "2026-09-24",
+      "category": "Code & harness evolution",
+      "summary": "Executes fixed robot programs within each rollout, then uses failure feedback to revise code between rollouts. Validated programs and repair skills are kept for reuse and demonstration generation.",
+      "loop": "Execute a fixed task program → collect outcome evidence → diagnose and revise candidate programs between rollouts → validate before promotion → retain code and structured skills, and generate demonstrations from converged programs.",
+      "setting": "Desktop manipulation, household simulation, robot-vacuum and legged settings, with downstream VLA/WAM interfaces.",
+      "evidence": "The paper distinguishes fixed program-level execution from closed-loop evolution across rollouts. The current official repository includes harness implementation, configurations, scripts and examples; its README describes candidate validation and reusable skill promotion. Reported downstream fine-tuning is a separate stage from coding-agent harness evolution.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2609.29166",
+        "code": "https://github.com/Darwin-Agent/HarnessPAI",
+        "project": "https://darwin-agent.github.io/HarnessPAI/"
+      },
+      "figure": {
+        "path": "assets/papers/harnesspai.webp",
+        "alt": "HarnessPAI Figure 1: Overview of HarnessPAI , a general physical harness framework.",
+        "source": "https://arxiv.org/html/2609.29166v1#S0.F1",
+        "credit": "Xin Wang et al., HarnessPAI, Figure 1.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "original_url": "https://arxiv.org/html/2609.29166v1/images/framework/intro.png",
+        "processing": "Lossless WebP encoding; dimensions and decoded pixels unchanged."
+      },
+      "authors": [
+        "Xin Wang",
+        "Wenhao Wu",
+        "Menghao Zhang",
+        "Zhi Wang",
+        "Kun Shao",
+        "Jian Luan",
+        "Yang Li",
+        "Qing Li",
+        "Shangding Gu",
+        "Huichi Zhou",
+        "Shuqing Shi",
+        "Fei Ni",
+        "Shuo Lu",
+        "Weicheng Meng",
+        "Kang Li",
+        "Jin Wu",
+        "Kang Zhao",
+        "Shangmin Guo",
+        "Gen Li",
+        "Yongqiang Tang",
+        "Zhizhong Zhang",
+        "Yuan Xie",
+        "Heng Qu"
+      ],
+      "date_source": "https://arxiv.org/abs/2609.29166",
+      "sources": [
+        "https://arxiv.org/abs/2609.29166",
+        "https://arxiv.org/html/2609.29166v1",
+        "https://arxiv.org/html/2609.29166v1#S0.F1",
+        "https://github.com/Darwin-Agent/HarnessPAI",
+        "https://darwin-agent.github.io/HarnessPAI/"
+      ],
+      "foundational": false
+    },
+    {
+      "id": "racap",
+      "title": "RACaP: Agentic Reasoning, Acting, and Coding as Policies for Evolvable Robot Learning",
+      "date": "2026-09-24",
+      "category": "Code & harness evolution",
+      "summary": "Evolves typed robot APIs, a ReAct harness and experience memory through a capability curriculum and paired candidate tests. Deployment reuses frozen APIs while visual reasoning adapts their arguments.",
+      "loop": "Build capability APIs through a curriculum → diagnose rollout failures with a visual critic → propose reusable API/harness/memory edits → compare parent and candidate on matched tasks and budgets → freeze accepted code for deployment.",
+      "setting": "LIBERO-90, zero-shot LIBERO-PRO and LIBERO-Long simulation; a separate decision-distillation study.",
+      "evidence": "The paper and released evolution implementation separate autonomous pre-deployment evolution from frozen runtime code. Runtime recovery does not rewrite APIs. Source release includes runtime and evolution code but excludes external model weights, training datasets and raw trajectories.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2609.29394",
+        "code": "https://github.com/Robo-Harness/racap"
+      },
+      "figure": {
+        "path": "assets/papers/racap.png",
+        "alt": "RACaP Figure 1: RACaP separates code evolution from runtime execution. During evolution, a capability curriculum produces paired rollouts, a visual critic and coding agent revise reusable mechanisms, and native success selects the next version. During depl",
+        "source": "https://arxiv.org/html/2609.29394v1#S1.F1",
+        "credit": "Zexi Li et al., RACaP, Figure 1.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "original_url": "https://arxiv.org/html/2609.29394v1/RACaP_Figure1_editable.png"
+      },
+      "authors": [
+        "Zexi Li",
+        "Yehang Zhang",
+        "Haojian Huang",
+        "Bohan Zhou",
+        "Wenqian Li",
+        "Chenxu Wang",
+        "Yifan Chang",
+        "Yangkai Wei",
+        "Tianyi Zhang",
+        "Ying-Cong Chen",
+        "Kaiwen Zhou",
+        "Yinchuan Li",
+        "James Cheng"
+      ],
+      "date_source": "https://arxiv.org/abs/2609.29394",
+      "sources": [
+        "https://arxiv.org/abs/2609.29394",
+        "https://arxiv.org/html/2609.29394v1",
+        "https://arxiv.org/html/2609.29394v1#S1.F1",
+        "https://github.com/Robo-Harness/racap"
+      ],
+      "foundational": false
     },
     {
       "id": "zetta",
@@ -1086,6 +1651,51 @@
         "Dongsheng Li"
       ],
       "date_source": "https://arxiv.org/abs/2608.11350"
+    },
+    {
+      "id": "phyagentos",
+      "title": "PhyAgentOS: A Self-Evolving Operating System for Embodied Agents with Decoupled Cognitive Planning and Physical Execution",
+      "date": "2026-07-18",
+      "category": "Code & harness evolution",
+      "summary": "Turns verified robot sessions into reusable skills and corrective lessons. File-based state and memory connect planning, supervised execution and later task attempts.",
+      "loop": "Compile a goal into an executable session → supervise physical execution and collect evidence → verify semantic completion → consolidate reusable knowledge, corrective lessons and skills → retrieve them for subsequent sessions.",
+      "setting": "Simulation, games and physical-robot validation over heterogeneous embodiments; manipulation evaluations include LIBERO, CALVIN and RoboCasa365.",
+      "evidence": "The runtime distinguishes execution termination from task success and retains verified experience through epistemic memory without retraining. Games, simulator benchmarks and hardware demonstrations are separate validation levels; support across embodiments is not equivalent to independently reproduced autonomous RSI gains.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2607.16636",
+        "code": "https://github.com/PhyAgentOS/PhyAgentOS-core",
+        "project": "https://phy-agent-os.net"
+      },
+      "figure": {
+        "path": "assets/papers/phyagentos.png",
+        "alt": "PhyAgentOS Figure 3: Overall architecture of PhyAgentOS. The agent layer determines task intent and compiles executable sessions, whereas the runtime layer supervises and performs target interaction. The shared protocol boundary makes the handoff explicit, audi",
+        "source": "https://arxiv.org/html/2607.16636v1#S3.F3",
+        "credit": "Yang Liu et al., PhyAgentOS, Figure 3.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "original_url": "https://arxiv.org/html/2607.16636v1/paos.png"
+      },
+      "authors": [
+        "Yang Liu",
+        "Weixing Chen",
+        "Xinshuai Song",
+        "Tao Pu",
+        "Siwen Mo",
+        "Yongjie Bai",
+        "Zihao Chen",
+        "Qianran Sun",
+        "Liruo Zhong",
+        "Ying Shen",
+        "Liang Lin"
+      ],
+      "date_source": "https://arxiv.org/abs/2607.16636",
+      "sources": [
+        "https://arxiv.org/abs/2607.16636",
+        "https://arxiv.org/html/2607.16636v1",
+        "https://arxiv.org/html/2607.16636v1#S3.F3",
+        "https://github.com/PhyAgentOS/PhyAgentOS-core",
+        "https://phy-agent-os.net"
+      ],
+      "foundational": false
     },
     {
       "id": "aspire",

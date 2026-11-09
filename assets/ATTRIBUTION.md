@@ -224,3 +224,143 @@ All figures are authentic method/overview figures from the linked official paper
 - Original asset: https://arxiv.org/html/2611.05320v1/fig2-method.png
 - Original license: https://creativecommons.org/licenses/by/4.0/
 - Changes: none; original method figure downloaded unchanged.
+
+## instagent
+
+- File: [instagent.png](papers/instagent.png)
+- Paper: [InstAgent: A Recursively Self-Improving Agent Operating System for Heterogeneous Robot Collaboration](https://arxiv.org/abs/2610.23098)
+- Credit: Haoyang Luo et al., InstAgent, Figure 2.
+- Source: https://arxiv.org/html/2610.23098v1#S3.F2
+- Original asset: https://arxiv.org/html/2610.23098v1/fig2.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original figure downloaded unchanged.
+
+## coevolve
+
+- File: [coevolve.png](papers/coevolve.png)
+- Paper: [CoEvolve: Self-Evolving Code Policies from Skills to Strategies for Humanoid Robots](https://arxiv.org/abs/2610.23288)
+- Credit: Zicheng Liu et al., CoEvolve, Figure 2. CC BY 4.0.
+- Source: https://arxiv.org/html/2610.23288v1#S1.F2
+- Original asset: https://arxiv.org/html/2610.23288v1/framework2.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: None; original figure downloaded unchanged.
+
+## embodiedsmith
+
+- File: [embodiedsmith.webp](papers/embodiedsmith.webp)
+- Paper: [EmbodiedSmith: Scaling Embodied Data through Recursive Self-Improvement Flywheel in Simulation](https://arxiv.org/abs/2610.07969)
+- Credit: Yikai Qin et al., EmbodiedSmith, Figure 3.
+- Source: https://arxiv.org/html/2610.07969v1#S3.F4
+- Original asset: https://arxiv.org/html/2610.07969v1/fig/data_scaling/image.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: Lossless WebP encoding; dimensions and decoded pixels unchanged.
+
+## robo-cop
+
+- File: [robo-cop.webp](papers/robo-cop.webp)
+- Paper: [Co-Evolving Robot Orchestrators and Policies through Deployment](https://arxiv.org/abs/2610.09228)
+- Credit: Xilun Zhang et al., Robo-COP, Figure 2.
+- Source: https://arxiv.org/html/2610.09228v1#S2.F2
+- Original asset: https://arxiv.org/html/2610.09228v1/figures/method.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: Lossless WebP encoding; dimensions and decoded pixels unchanged.
+
+## dynaharness
+
+- File: [dynaharness.png](papers/dynaharness.png)
+- Paper: [DynaHarness: A Dynamic Physical Harness for Self-Evolving Robot Agents](https://arxiv.org/abs/2609.40306)
+- Credit: Haoyuan Deng et al., DynaHarness, Figure 2.
+- Source: https://arxiv.org/html/2609.40306v1#S3.F2
+- Original asset: https://arxiv.org/html/2609.40306v1/img002.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original figure downloaded unchanged.
+
+## asena
+
+- File: [asena.png](papers/asena.png)
+- Paper: [ASENA: Self-evolving Agents for Embodied Navigation](https://arxiv.org/abs/2609.39207)
+- Credit: An-Chieh Cheng et al., ASENA, Figure 2. CC BY 4.0.
+- Source: https://arxiv.org/html/2609.39207v1#S3.F2
+- Original asset: https://arxiv.org/html/2609.39207v1/system-overview.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: None; original figure downloaded unchanged.
+
+## urai
+
+- File: [urai.png](papers/urai.png)
+- Paper: [Make Code as Policy Great Again: Frontier Agents Write, Call, and Evolve Robot Tools](https://arxiv.org/abs/2609.39018)
+- Credit: Shijia Ge et al., URAI, Figure 2. CC BY 4.0.
+- Source: https://arxiv.org/html/2609.39018v1#S3.F2
+- Original asset: https://arxiv.org/html/2609.39018v1/URAI_fig2_framework.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: None; original figure downloaded unchanged.
+
+## dexagent
+
+- File: [dexagent.png](papers/dexagent.png)
+- Paper: [DexAgent: An Agentic Human2Sim2Robot Framework for Dexterous Manipulation with Self-Evolving Tool Library](https://arxiv.org/abs/2609.35318)
+- Credit: Youhui Wang et al., DexAgent, Figure 2. CC BY 4.0.
+- Source: https://arxiv.org/html/2609.35318v1#S3.F2
+- Original asset: https://arxiv.org/html/2609.35318v1/method2.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: None; original figure downloaded unchanged.
+
+## robofoundry
+
+- File: [robofoundry.webp](papers/robofoundry.webp)
+- Paper: [RoboFoundry: System-as-Policy Evolution for Self-Learning Embodied Agents](https://arxiv.org/abs/2609.32862)
+- Credit: Jingsong Liang et al., RoboFoundry, Figure 2.
+- Source: https://arxiv.org/html/2609.32862v1#S2.F2
+- Original asset: https://arxiv.org/html/2609.32862v1/robo_model.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: Lossless WebP encoding; dimensions and decoded pixels unchanged.
+
+## harnesspai
+
+- File: [harnesspai.webp](papers/harnesspai.webp)
+- Paper: [HarnessPAI: An Evolving Harness for Physical AI](https://arxiv.org/abs/2609.29166)
+- Credit: Xin Wang et al., HarnessPAI, Figure 1.
+- Source: https://arxiv.org/html/2609.29166v1#S0.F1
+- Original asset: https://arxiv.org/html/2609.29166v1/images/framework/intro.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: Lossless WebP encoding; dimensions and decoded pixels unchanged.
+
+## racap
+
+- File: [racap.png](papers/racap.png)
+- Paper: [RACaP: Agentic Reasoning, Acting, and Coding as Policies for Evolvable Robot Learning](https://arxiv.org/abs/2609.29394)
+- Credit: Zexi Li et al., RACaP, Figure 1.
+- Source: https://arxiv.org/html/2609.29394v1#S1.F1
+- Original asset: https://arxiv.org/html/2609.29394v1/RACaP_Figure1_editable.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original figure downloaded unchanged.
+
+## phyagentos
+
+- File: [phyagentos.png](papers/phyagentos.png)
+- Paper: [PhyAgentOS: A Self-Evolving Operating System for Embodied Agents with Decoupled Cognitive Planning and Physical Execution](https://arxiv.org/abs/2607.16636)
+- Credit: Yang Liu et al., PhyAgentOS, Figure 3.
+- Source: https://arxiv.org/html/2607.16636v1#S3.F3
+- Original asset: https://arxiv.org/html/2607.16636v1/paos.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original figure downloaded unchanged.
+
+## carryon
+
+- File: [carryon.png](papers/carryon.png)
+- Paper: [CarryOn: A Dual-Loop Harness for Personalized and Reliable Robot Assistance](https://arxiv.org/abs/2610.21453)
+- Credit: Zixuan Wang et al., CarryOn, Figure 2. CC BY 4.0.
+- Source: https://arxiv.org/html/2610.21453v1#S3.F2
+- Original asset: https://vincent2311.github.io/Projects/CarryOn/assets/architecture.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: None; original figure downloaded unchanged.
+
+## robotuse
+
+- File: [robotuse.png](papers/robotuse.png)
+- Paper: [RobotUse: Allocating Computation, Context, and Decisions](https://arxiv.org/abs/2610.04929)
+- Credit: Junhoo Lee et al., RobotUse, Figure 1. CC BY 4.0.
+- Source: https://arxiv.org/html/2610.04929v1#S1.F1
+- Original asset: https://raw.githubusercontent.com/robotuse-team/RobotUse/main/docs/media/robotuse-overview.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: None; original figure downloaded unchanged.
