@@ -14,7 +14,7 @@ Recent papers on robot recursive self-improvement.
 
 *Kewei Zhang, Juncheng Ma et al., PyRUA-DataFarm, Figure 3. CC BY 4.0. [Figure source](https://arxiv.org/html/2611.05320v1#S4.F3).*
 
-Refines robot expert programs through simulator rollouts against a frozen judge, retaining verified experts to generate demonstrations. Independently reviewed video renders turn those rollouts into action-labelled data for training real-robot policies.
+Refines and retains robot expert programs from simulator feedback to generate training demonstrations. The November 11 code release adds user-feedback repairs with re-frozen task contracts and fresh hidden-seed admission checks.
 
 [Paper](https://arxiv.org/abs/2611.05320) · [Code](https://github.com/DAGroup-PKU/PyRUA-Lean/tree/DataFarm)
 

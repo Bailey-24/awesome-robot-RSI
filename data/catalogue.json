@@ -1,7 +1,7 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-09",
+  "updated_at": "2026-11-12",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
@@ -10,10 +10,10 @@
       "title": "PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data",
       "date": "2026-11-03",
       "category": "Code & harness evolution",
-      "summary": "Refines robot expert programs through simulator rollouts against a frozen judge, retaining verified experts to generate demonstrations. Independently reviewed video renders turn those rollouts into action-labelled data for training real-robot policies.",
+      "summary": "Refines and retains robot expert programs from simulator feedback to generate training demonstrations. The November 11 code release adds user-feedback repairs with re-frozen task contracts and fresh hidden-seed admission checks.",
       "loop": "Write a task expert → run development-seed rollouts → use the frozen judge’s verdicts to revise controller code → evaluate on hidden held-out seeds → retain verified experts and handoff records → generate and independently review demonstrations for policy training.",
       "setting": "Simulator task reconstruction from one real calibration episode; action-labelled video rendering; pi0.5 policies trained on 100 episodes per task and evaluated on five physical PiPER-arm tasks in the original and an unseen appearance condition.",
-      "evidence": "Section 4.4 describes controller-program development through judged simulator rollouts followed by hidden-seed admission. The released expert harness persists handoff bundles and a content-addressed verified-expert library. Figure 3 and Appendix A route rejections to the responsible stage while retaining prior attempts. Author-reported real-robot outcomes are 93/100 successes for farm-data policies versus 84/100 for teleoperation data, and 87/100 versus 46/100 under an unseen tablecloth and coloured lighting. These results evaluate generated-data training, not repeated autonomous policy-weight improvement or demonstrated long-term capability-layer evolution. The separate capability-evolution module’s example evaluator verifies software behaviour only.",
+      "evidence": "Section 4.4 describes controller-program development through judged simulator rollouts followed by hidden-seed admission. The released expert harness persists handoff bundles and a content-addressed verified-expert library. Figure 3 and Appendix A route rejections to the responsible stage while retaining prior attempts. Author-reported real-robot outcomes are 93/100 successes for farm-data policies versus 84/100 for teleoperation data, and 87/100 versus 46/100 under an unseen tablecloth and coloured lighting. These results evaluate generated-data training, not repeated autonomous policy-weight improvement or demonstrated long-term capability-layer evolution. The separate capability-evolution module’s example evaluator verifies software behaviour only. The November 11 code release adds user-feedback repair phases: a separate reviewer amends only requirements addressed by quoted user feedback, freezes a new contract and hidden admission seeds, and a producer revises the expert in a new version. These are documented role instructions and software capabilities; the release does not change the original paper date or establish new official benchmark gains.",
       "links": {
         "paper": "https://arxiv.org/abs/2611.05320",
         "code": "https://github.com/DAGroup-PKU/PyRUA-Lean/tree/DataFarm",
@@ -52,9 +52,23 @@
         "https://github.com/DAGroup-PKU/PyRUA-Lean/tree/DataFarm",
         "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/0360c407065f51909ebb1f7a3fa2a8067f906526/docs/reference/expert-harness.md",
         "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/0360c407065f51909ebb1f7a3fa2a8067f906526/docs/reference/capability-evolution.md",
-        "https://github.com/DAGroup-PKU/PyRUA-Lean/commit/2599d51e572597b414519b6e053191d2728ecd5b"
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/commit/2599d51e572597b414519b6e053191d2728ecd5b",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/commit/d788388632848576cc33f0de3775df2cefa76b80",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/d788388632848576cc33f0de3775df2cefa76b80/docs/reference/phased-runs.md",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/d788388632848576cc33f0de3775df2cefa76b80/prompts/phases/R1u.md",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/d788388632848576cc33f0de3775df2cefa76b80/prompts/phases/P2u.md"
       ],
-      "foundational": false
+      "foundational": false,
+      "related_releases": [
+        {
+          "date": "2026-11-11",
+          "name": "User-feedback repair phases and new-robot inputs",
+          "source": "https://github.com/DAGroup-PKU/PyRUA-Lean/commit/d788388632848576cc33f0de3775df2cefa76b80",
+          "documentation": "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/d788388632848576cc33f0de3775df2cefa76b80/docs/reference/phased-runs.md",
+          "note": "Adds per-role model selection, R1u contract amendment and P2u expert repair, URDF-package inspection, LeRobot episode import, and explicit object-placement modes. User-feedback requirements are quoted with provenance; only addressed contract parts change. The independent reviewer is instructed to freeze a new version and fresh hidden admission seeds, while prior contracts, admissions and failures remain in the record. This is a code release, not a new paper or paper revision.",
+          "evaluation_note": "The release documents a RealBot-01 adaptation case in which five of twelve capture attempts were admitted and all five later passed blind H3 render review. These are author-reported data-generation admission outcomes, not physical task success rates or official RoboDojo metrics."
+        }
+      ]
     },
     {
       "id": "tampagent",
