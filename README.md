@@ -82,7 +82,7 @@ Uses execution records to identify missing laboratory skills, request human teac
 
 ![TinyAstral Figure 2: statistically gated harness evolution, teacher-trajectory distillation and deployment of small students in the same harness.](assets/papers/tinyastral.png)
 
-*Kehong Gong et al., TinyAstral, Figure 2. [Figure source](https://arxiv.org/html/2610.41216v1#S3.F2).*
+*Kehong Gong et al., TinyAstral v2, Figure 2. [Figure source](https://arxiv.org/html/2610.41216v2#S3.F2).*
 
 Coding agents improve a frozen teacher’s tools, memory and recovery, keeping edits that pass paired statistical tests. Teacher trajectories then train small robot agents that reuse the evolved harness.
 
@@ -98,7 +98,7 @@ Coding agents improve a frozen teacher’s tools, memory and recovery, keeping e
 
 *Pranjal Aggarwal and Sean Welleck, Gym-Anything for Robotics, Figure 2. CC BY 4.0. [Figure source](https://arxiv.org/html/2610.40565v1#S1.F2).*
 
-Builds audited robot simulations and studies agents that retain notes and code across repeated attempts. RoboWorld also evaluates privileged coaching and VLA training from code-generated demonstrations.
+Builds audited robot simulations and evaluates agents that retain notes and code across attempts. The code release now includes 175 training-task selections alongside the 25-task RoboWorld test split.
 
 [Paper](https://arxiv.org/abs/2610.40565) · [Code](https://github.com/gym-anything/robotics)
 
@@ -286,11 +286,11 @@ Builds a shared stateful code library through execution feedback, then runs robo
 
 **First release:** 2026-10-07
 
-![EmbodiedRSI architecture: the Fast System tests code/skill hypotheses through a Hypothesis Graph while the Slow System consolidates hierarchical memory.](assets/papers/embodiedrsi.png)
+![EmbodiedRSI v2 Figure 2: hypothesis-guided code-skill trials, hierarchical memory, and a PPO-trained memory manager that improves later adaptation.](assets/papers/embodiedrsi-v2.png)
 
-*Python Song et al. (2026), EMBODIEDRSI method overview. [Figure source](https://geeksongs.github.io/agentic_robotics/).*
+*Python Song et al., EmbodiedRSI v2, Figure 2. [Figure source](https://arxiv.org/html/2610.10498v2#S3.F2).*
 
-Selects informative robot experiments to test hypotheses and improve executable code, reusable skills, and memory.
+Chooses robot trials to distinguish competing code and skill hypotheses, then updates reusable code and skills. A learned memory manager consolidates experience to guide later adaptation.
 
 [Paper](https://arxiv.org/abs/2610.10498)
 

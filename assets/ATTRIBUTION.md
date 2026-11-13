@@ -364,3 +364,23 @@ All figures are authentic method/overview figures from the linked official paper
 - Original asset: https://raw.githubusercontent.com/robotuse-team/RobotUse/main/docs/media/robotuse-overview.png
 - Original license: https://creativecommons.org/licenses/by/4.0/
 - Changes: None; original figure downloaded unchanged.
+
+## tinyastral-v2
+
+- File: [tinyastral.png](papers/tinyastral.png)
+- Paper: [TinyAstral: Transferring Self-Evolving Harnesses to Tiny Generalist Manipulation Agents](https://arxiv.org/abs/2610.41216)
+- Credit: Kehong Gong et al., TinyAstral v2, Figure 2.
+- Source: https://arxiv.org/html/2610.41216v2#S3.F2
+- Original asset: https://arxiv.org/html/2610.41216v2/fig_overview_3col.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: none; v2 image is byte-for-byte identical to the retained v1 image.
+
+## embodiedrsi-v2
+
+- File: [embodiedrsi-v2.png](papers/embodiedrsi-v2.png)
+- Paper: [EmbodiedRSI: Active Continual Robot Learning Through Hypothesis-Guided Co-Evolution](https://arxiv.org/abs/2610.10498)
+- Credit: Python Song et al., EmbodiedRSI v2, Figure 2.
+- Source: https://arxiv.org/html/2610.10498v2#S3.F2
+- Original asset: https://arxiv.org/html/2610.10498v2/Main_figure.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: none; original v2 method figure downloaded unchanged. The earlier project figure and attribution are retained for the historical version.

@@ -1,7 +1,7 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-12",
+  "updated_at": "2026-11-13",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
@@ -233,7 +233,7 @@
       "summary": "Coding agents improve a frozen teacher’s tools, memory and recovery, keeping edits that pass paired statistical tests. Teacher trajectories then train small robot agents that reuse the evolved harness.",
       "loop": "Read frozen-teacher execution trajectories → propose a harness edit → accept only after a pre-registered paired A/B gate → freeze the final harness → collect reasoning and recovery traces → distill small student policies.",
       "setting": "RoboTwin, Guava and LIBERO-Pro training simulations; unseen simulation benchmarks and SO-ARM101 demonstrations.",
-      "evidence": "Humans predefine rules and budget; frontier coding agents propose harness edits. Table 1 reports teacher success from 33.4% at H1 to 63.6% at the final harness on 500 RoboTwin episodes, and 62.8% for the final 4B student. Students are trained separately for each harness version; teacher weights remain frozen.",
+      "evidence": "Humans predefine rules and budget; frontier coding agents propose harness edits. Table 1 reports teacher success from 33.4% at H1 to 63.6% at the final harness on 500 RoboTwin episodes, and 62.8% for the final 4B student. Students are trained separately for each harness version; teacher weights remain frozen. arXiv v2 dated November 12 clarifies Table 2 competitor protocols. Its author-run PyRUA-Lean-4B comparison uses that method’s official per-step success signal and 90-minute budget (46.0% on RoboTwin, 60.0% on LIBERO-Pro), while the TinyAstral strict protocol withholds that signal. These are paper comparisons, not official leaderboard metrics; no claim of matched protocol is made across those rows.",
       "links": {
         "paper": "https://arxiv.org/abs/2610.41216",
         "code": "https://github.com/Garfield-kh/TinyAstral",
@@ -244,10 +244,10 @@
       "figure": {
         "path": "assets/papers/tinyastral.png",
         "alt": "TinyAstral Figure 2: statistically gated harness evolution, teacher-trajectory distillation and deployment of small students in the same harness.",
-        "source": "https://arxiv.org/html/2610.41216v1#S3.F2",
-        "credit": "Kehong Gong et al., TinyAstral, Figure 2.",
+        "source": "https://arxiv.org/html/2610.41216v2#S3.F2",
+        "credit": "Kehong Gong et al., TinyAstral v2, Figure 2.",
         "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-        "original_url": "https://arxiv.org/html/2610.41216v1/fig_overview_3col.png"
+        "original_url": "https://arxiv.org/html/2610.41216v2/fig_overview_3col.png"
       },
       "authors": [
         "Kehong Gong",
@@ -269,19 +269,24 @@
         "https://github.com/Garfield-kh/TinyAstral",
         "https://huggingface.co/datasets/kehong/TinyAstral-SFT",
         "https://huggingface.co/kehong/TinyAstral-weights",
-        "https://garfield-kh.github.io/TinyAstral/"
+        "https://garfield-kh.github.io/TinyAstral/",
+        "https://arxiv.org/html/2610.41216v2",
+        "https://arxiv.org/html/2610.41216v2#S3.F2",
+        "https://arxiv.org/html/2610.41216v2#S4",
+        "https://github.com/Garfield-kh/TinyAstral/commit/8b21b1cb61889d647c2d68b2d068764f33f06d9a"
       ],
-      "foundational": false
+      "foundational": false,
+      "updated": "2026-11-12"
     },
     {
       "id": "gym-anything-robotics",
       "title": "Gym-Anything for Robotics: Scaling physical simulations with digital agents",
       "date": "2026-10-29",
       "category": "Evaluation",
-      "summary": "Builds audited robot simulations and studies agents that retain notes and code across repeated attempts. RoboWorld also evaluates privileged coaching and VLA training from code-generated demonstrations.",
+      "summary": "Builds audited robot simulations and evaluates agents that retain notes and code across attempts. The code release now includes 175 training-task selections alongside the 25-task RoboWorld test split.",
       "loop": "Execute robot attempts in a simulation → retain notes and code in context → reset to the same start → revise subsequent attempts. Separately, creation and audit agents iteratively repair simulation and task code and share lessons across simulations.",
       "setting": "RoboWorld: 25 simulations, 175 training environments and 25 test environments; robot manipulation, mobile and humanoid embodiments in simulation.",
-      "evidence": "Section 5 studies persistent in-context learning across three attempts, qualitative coaching from a privileged teacher, and transfer from privileged experience. Learning experiments use 11 simulations; code-generated demonstrations train pi0.5 on two gift-box tasks. Initial frontier agents complete no test tasks. These simulation studies do not establish broad real-world transfer.",
+      "evidence": "Section 5 studies persistent in-context learning across three attempts, qualitative coaching from a privileged teacher, and transfer from privileged experience. Learning experiments use 11 simulations; code-generated demonstrations train pi0.5 on two gift-box tasks. Initial frontier agents complete no test tasks. These simulation studies do not establish broad real-world transfer. The November 12 code commit expands the training manifest from 25 to 175 distinct selections over 25 simulations while preserving the original prefix; this releases the remaining 150 training selections described by the benchmark. Some added selections use revised task-set contracts, so the code-release scope is kept separate from the paper’s original evaluation protocol.",
       "links": {
         "paper": "https://arxiv.org/abs/2610.40565",
         "code": "https://github.com/gym-anything/robotics",
@@ -304,9 +309,29 @@
         "https://arxiv.org/abs/2610.40565",
         "https://arxiv.org/html/2610.40565v1#S5",
         "https://gym-anything.github.io/robotics/",
-        "https://github.com/gym-anything/robotics"
+        "https://github.com/gym-anything/robotics",
+        "https://github.com/gym-anything/robotics/commit/983fe1a9df95aeb7874c03094f928ec1542d5870",
+        "https://github.com/gym-anything/robotics/blob/983fe1a9df95aeb7874c03094f928ec1542d5870/benchmarks/roboworld/splits/train.json",
+        "https://github.com/gym-anything/robotics/blob/983fe1a9df95aeb7874c03094f928ec1542d5870/benchmarks/roboworld/splits/test.json",
+        "https://github.com/gym-anything/robotics/blob/983fe1a9df95aeb7874c03094f928ec1542d5870/benchmarks/roboworld/README.md"
       ],
-      "foundational": false
+      "foundational": false,
+      "related_releases": [
+        {
+          "date": "2026-11-12",
+          "name": "Complete RoboWorld training-task manifest and task-set implementations",
+          "source": "https://github.com/gym-anything/robotics/commit/983fe1a9df95aeb7874c03094f928ec1542d5870",
+          "train_manifest": "https://github.com/gym-anything/robotics/blob/983fe1a9df95aeb7874c03094f928ec1542d5870/benchmarks/roboworld/splits/train.json",
+          "test_manifest": "https://github.com/gym-anything/robotics/blob/983fe1a9df95aeb7874c03094f928ec1542d5870/benchmarks/roboworld/splits/test.json",
+          "documentation": "https://github.com/gym-anything/robotics/blob/983fe1a9df95aeb7874c03094f928ec1542d5870/benchmarks/roboworld/README.md",
+          "training_tasks": 175,
+          "test_tasks": 25,
+          "simulations": 25,
+          "additional_training_selections": 150,
+          "date_note": "Date uses the Git committer timestamp (November 12); the author timestamp is November 11. This is a code release, not a paper revision.",
+          "note": "The preceding commit listed 25 training selections; all 25 remain unchanged as the prefix of the expanded 175-entry manifest. The update adds the remaining six training selections per simulation, with task-set implementations and some revised contracts. Test tasks remain the 25 hardest tasks used in the paper. Revised training contracts are not presented as new paper evaluation results or a new trajectory dataset."
+        }
+      ]
     },
     {
       "id": "evolife",
@@ -903,29 +928,43 @@
       "title": "EmbodiedRSI: Active Continual Robot Learning Through Hypothesis-Guided Co-Evolution",
       "date": "2026-10-07",
       "category": "Code & harness evolution",
-      "summary": "Selects informative robot experiments to test hypotheses and improve executable code, reusable skills, and memory.",
+      "summary": "Chooses robot trials to distinguish competing code and skill hypotheses, then updates reusable code and skills. A learned memory manager consolidates experience to guide later adaptation.",
       "loop": "Maintain competing code/skill hypotheses → select informative physical experiments by value of information → co-evolve code and skills → consolidate reward-grounded hierarchical memory → improve subsequent adaptation.",
       "setting": "Simulation and real robot · RoboCasa365, LIBERO-Pro; SO-101 arm with frozen SmolVLA",
-      "evidence": "The official project reports 77.0% overall RoboCasa365 success, 86.8% LIBERO-Pro, and 71.3% across five real-world tasks. The harness transfers from simulation; SmolVLA was first fine-tuned with 50 demonstrations per physical task and then frozen. Glasses-grasp success decreases from 60.0% to 56.7%.",
+      "evidence": "arXiv v2 specifies matched initial states and unchanged surrounding calls for hypothesis tests, joint code-skill gain evidence, and a PPO-trained memory Manager that is frozen at evaluation; the encoder and LLM operator remain frozen. Author-reported results are 77.0% overall RoboCasa365, 86.8% LIBERO-Pro and 71.3% across five physical SO-101 tasks (30 trials per condition per task). The physical SmolVLA backbone is first fully fine-tuned on 50 demonstrations per task, then frozen, so zero-shot transfer refers to the agentic harness rather than an untrained robot policy. Glasses-grasp success decreases from 60.0% to 56.7%.",
       "links": {
         "paper": "https://arxiv.org/abs/2610.10498",
         "project": "https://geeksongs.github.io/agentic_robotics/"
       },
       "figure": {
-        "path": "assets/papers/embodiedrsi.png",
-        "alt": "EmbodiedRSI architecture: the Fast System tests code/skill hypotheses through a Hypothesis Graph while the Slow System consolidates hierarchical memory.",
-        "source": "https://geeksongs.github.io/agentic_robotics/",
-        "url": "https://geeksongs.github.io/agentic_robotics/assets/figures/overview.png",
-        "credit": "Python Song et al. (2026), EMBODIEDRSI method overview."
+        "path": "assets/papers/embodiedrsi-v2.png",
+        "alt": "EmbodiedRSI v2 Figure 2: hypothesis-guided code-skill trials, hierarchical memory, and a PPO-trained memory manager that improves later adaptation.",
+        "source": "https://arxiv.org/html/2610.10498v2#S3.F2",
+        "credit": "Python Song et al., EmbodiedRSI v2, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "original_url": "https://arxiv.org/html/2610.10498v2/Main_figure.png"
       },
       "sources": [
         "https://arxiv.org/abs/2610.10498",
         "https://geeksongs.github.io/agentic_robotics/",
-        "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md"
+        "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md",
+        "https://arxiv.org/html/2610.10498v2",
+        "https://arxiv.org/html/2610.10498v2#S3.F2",
+        "https://arxiv.org/html/2610.10498v2#S3.SS2",
+        "https://arxiv.org/html/2610.10498v2#S3.SS3",
+        "https://arxiv.org/html/2610.10498v2#S4.SS3"
       ],
       "foundational": false,
-      "authors": [],
-      "date_source": "https://arxiv.org/abs/2610.10498"
+      "authors": [
+        "Python Song",
+        "Zhixuan Liang",
+        "Kelsey Fu",
+        "Mengdi Wang",
+        "Junfeng Yang",
+        "Shilong Liu"
+      ],
+      "date_source": "https://arxiv.org/abs/2610.10498",
+      "updated": "2026-11-12"
     },
     {
       "id": "embodiedsmith",
