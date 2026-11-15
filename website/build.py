@@ -109,7 +109,8 @@ def resource_links(links, keys, css=""):
 def leaderboard_note(paper, board):
     for row in (board or {}).get('rows', []):
         if row.get('links', {}).get('paper') == paper['links'].get('paper'):
-            label = f" ({paper['leaderboard_label']})" if paper.get("leaderboard_label") else ""
+            labels = [value for value in (paper.get('leaderboard_label'), board.get('display_scope')) if value]
+            label = f" ({'; '.join(labels)})" if labels else ""
             return f"RoboDojo-Sim Agent{label} #{row['rank']} · Score {row['score']:.2f} · Success {row['success_rate']:.2f}% ({board['checked_at']})."
     return ''
 

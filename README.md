@@ -6,6 +6,20 @@ Recent papers on robot recursive self-improvement.
 
 ## Papers
 
+### Training Reasoning Models in Simulation to Natively Use Real Robots
+
+**First release:** 2026-11-14
+
+![PEAR Figure 1: simulated robot rollouts and rewards train a reasoning policy that transfers to a real robot.](assets/papers/pear.png)
+
+*Jiaming Tang et al., PEAR technical report, Figure 1. [Figure source](https://mit-han-lab.github.io/pear-blog/paper.pdf#page=1).*
+
+Uses simulated robot-task success to update a reasoning model through reinforcement learning, retaining improved control in its weights. The authors report transfer to unseen tasks and a real dual-arm robot without demonstration training.
+
+[Paper](https://mit-han-lab.github.io/pear-blog/paper.pdf) · [Code](https://github.com/mit-han-lab/pear)
+
+[Models](https://huggingface.co/collections/mit-han-lab/pear) · [Project](https://mit-han-lab.github.io/pear-blog/)
+
 ### PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data
 
 **First release:** 2026-11-03
@@ -142,7 +156,7 @@ Technical report date; the project was announced on 2026-10-17.
 
 *Manifold AI Team, R²SI technical report, Figure 1. [Figure source](https://r2si.worldscape.io/report.pdf#page=2).*
 
-Uses a Robot Agent to execute tasks and a Recursion Agent to improve reusable skills and train the reactive model from rollout feedback. [RoboDojo-Sim Agent #5 · Score 46.58 · Success 39.35% (2026-10-31).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Uses a Robot Agent to execute tasks and a Recursion Agent to improve reusable skills and train the reactive model from rollout feedback. [RoboDojo-Sim Agent (w/o Open) #7 · Score 45.93 · Success 37.31% (2026-11-15).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://r2si.worldscape.io/report.pdf)
 
@@ -184,7 +198,7 @@ Evaluates how robot agents improve across repeated attempts, measuring learning 
 
 *Hongcheng Gao, Jianshu Zeng et al., HexaShell v3, Figure 2. CC BY 4.0. [Figure source](https://arxiv.org/html/2610.23479v3#S2.F2).*
 
-Shares a 14-tool harness across simulators and real robots. An analysis agent drafts reusable task skills from earlier execution records, with human review before evaluation. [RoboDojo-Sim Agent (HexaShell-Preview) #4 · Score 53.18 · Success 46.85% (2026-10-31).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Shares a 14-tool harness across simulators and real robots. An analysis agent drafts reusable task skills from earlier execution records, with human review before evaluation. [RoboDojo-Sim Agent (HexaShell-Preview; w/o Open) #6 · Score 51.98 · Success 44.75% (2026-11-15).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.23479) · [Code](https://github.com/HexaFuture/HexaShell)
 
@@ -238,7 +252,7 @@ Keeps revisable user and scene memory for personalized robot assistance. Reflect
 
 *Wenyi Li et al., EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence. Core method figure from the official paper/project. [Figure source](https://lab.einsia.ai/embodiedevo/).*
 
-Learns reusable code Skills and diagnostic Lessons in a practice scene, then transfers them to new scenes without weight updates. Learned artifacts for 42 RoboDojo tasks are now public. [RoboDojo-Sim Agent #6 · Score 45.08 · Success 38.95% (2026-10-31).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Learns reusable code Skills and diagnostic Lessons in a practice scene, then transfers them to new scenes without weight updates. Learned artifacts for 42 RoboDojo tasks are now public. [RoboDojo-Sim Agent (w/o Open) #8 · Score 43.40 · Success 36.38% (2026-11-15).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.18867) · [Code](https://github.com/Einsia/EmbodiedEvo)
 
@@ -356,7 +370,7 @@ Reconstructs tasks in simulation, improves a shared skill library through practi
 
 *Ruiyang Si, Jianxin Bi et al., PyRUA-Lean, Figure 2. [Figure source](https://arxiv.org/html/2610.01939v1/method_red.svg).*
 
-Reduces repeated model calls by letting robot agents compose actions and local checks in Python. The repository also releases PyRUA-RSI’s offline-refined task programs, which run without language-model calls during evaluation. [RoboDojo-Sim Agent #3 · Score 55.26 · Success 50.35% (2026-10-31).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Reduces repeated model calls by letting robot agents compose actions and local checks in Python. The repository also releases PyRUA-RSI’s offline-refined task programs, which run without language-model calls during evaluation. [RoboDojo-Sim Agent (w/o Open) #5 · Score 53.94 · Success 48.37% (2026-11-15).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.01939) · [Code](https://github.com/DAGroup-PKU/PyRUA-Lean)
 

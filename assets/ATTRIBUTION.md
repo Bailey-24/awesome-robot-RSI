@@ -384,3 +384,12 @@ All figures are authentic method/overview figures from the linked official paper
 - Original asset: https://arxiv.org/html/2610.10498v2/Main_figure.png
 - Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
 - Changes: none; original v2 method figure downloaded unchanged. The earlier project figure and attribution are retained for the historical version.
+
+## pear
+
+- File: [pear.png](papers/pear.png)
+- Paper: [Training Reasoning Models in Simulation to Natively Use Real Robots](https://mit-han-lab.github.io/pear-blog/paper.pdf)
+- Credit: Jiaming Tang, Zhuoyang Zhang, Junxian Guo, Fangzhou Zhao, Yilong Zhao, Zekai Li, Xingyang Li, Yuyang Zhao, Song Bian, Zhijian Liu and Song Han. PEAR technical report, Figure 1.
+- Source: https://mit-han-lab.github.io/pear-blog/paper.pdf#page=1
+- Original license: no separate figure license is stated in the author-hosted report or project page; original authors retain rights. The code repository’s Apache-2.0 license is not applied to this paper figure.
+- Changes: rendered only the original Figure 1 region from PDF page 1 at 216 dpi, without redrawing or altering its content.

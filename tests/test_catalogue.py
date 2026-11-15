@@ -81,6 +81,10 @@ class RendererTests(unittest.TestCase):
         labelled = note.replace('Agent #4', 'Agent (HexaShell-Preview) #4')
         self.assertIn(labelled, builder.render_html(data))
         self.assertIn(labelled, builder.render_readme(data))
+        data['leaderboard']['display_scope'] = 'w/o Open'
+        scoped = labelled.replace('(HexaShell-Preview)', '(HexaShell-Preview; w/o Open)')
+        self.assertIn(scoped, builder.render_html(data))
+        self.assertIn(scoped, builder.render_readme(data))
         paper['links']['paper'] = 'https://example.org/another-paper'
         self.assertEqual(builder.leaderboard_note(paper, data['leaderboard']), '')
 

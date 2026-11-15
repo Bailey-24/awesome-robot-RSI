@@ -1,10 +1,69 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-13",
+  "updated_at": "2026-11-15",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
+    {
+      "id": "pear",
+      "name": "PEAR",
+      "title": "Training Reasoning Models in Simulation to Natively Use Real Robots",
+      "date": "2026-11-14",
+      "date_source": "https://mit-han-lab.github.io/pear-blog/paper.pdf",
+      "date_evidence": "The author-hosted PDF states “Preprint. November 14, 2026.” Code and model releases are dated November 13; these are distinct from the technical report date. No arXiv identifier is linked by the official report, project or code README at verification.",
+      "authors": [
+        "Jiaming Tang",
+        "Zhuoyang Zhang",
+        "Junxian Guo",
+        "Fangzhou Zhao",
+        "Yilong Zhao",
+        "Zekai Li",
+        "Xingyang Li",
+        "Yuyang Zhao",
+        "Song Bian",
+        "Zhijian Liu",
+        "Song Han"
+      ],
+      "category": "Policy & skill learning",
+      "summary": "Uses simulated robot-task success to update a reasoning model through reinforcement learning, retaining improved control in its weights. The authors report transfer to unseen tasks and a real dual-arm robot without demonstration training.",
+      "loop": "Sample multi-round robot rollouts → assign terminal binary success rewards → compute group-relative advantages and asynchronous policy-gradient updates → retain updated model weights → collect new rollouts; add harder tasks as transferred success supplies a learning signal.",
+      "setting": "Qwen3.8-27B trained in LIBERO and on two RoboDojo tasks; zero-shot evaluations include LIBERO perturbations, RoboLab-120 and a physical dual-arm YAM.",
+      "evidence": "Section 3.2 explicitly updates model parameters from simulated execution rewards using GRPO-style advantages and score-centering correction. This is persistent policy improvement during training, not a claim of autonomous weight updates on the deployed robot. Author-reported LIBERO success rises from 1.6% to 74.4%; the final model succeeds in 18/30 physical YAM trials (12/20 pickup, 6/10 alignment) versus 0/30 for the base model. The real-world sample is small. Paper RoboDojo results cover only general pickup and align blocks (71.2% and 78.8% success after training); these are not an official full-track leaderboard rank, Score or success rate. Simulator and model logos in Figure 1 illustrate the infrastructure; the reported training uses LIBERO and RoboDojo, not every pictured environment/model.",
+      "links": {
+        "paper": "https://mit-han-lab.github.io/pear-blog/paper.pdf",
+        "code": "https://github.com/mit-han-lab/pear",
+        "models": "https://huggingface.co/collections/mit-han-lab/pear",
+        "project": "https://mit-han-lab.github.io/pear-blog/"
+      },
+      "figure": {
+        "path": "assets/papers/pear.png",
+        "alt": "PEAR Figure 1: simulated robot rollouts and rewards train a reasoning policy that transfers to a real robot.",
+        "source": "https://mit-han-lab.github.io/pear-blog/paper.pdf#page=1",
+        "credit": "Jiaming Tang et al., PEAR technical report, Figure 1.",
+        "extraction": "Rendered only the original Figure 1 region from PDF page 1 at 216 dpi; no redrawing or content changes.",
+        "license_note": "No separate license for the author-hosted paper figure is stated; original authors retain rights. The code repository Apache-2.0 license is not assumed to relicense this paper figure."
+      },
+      "sources": [
+        "https://mit-han-lab.github.io/pear-blog/paper.pdf",
+        "https://mit-han-lab.github.io/pear-blog/",
+        "https://github.com/mit-han-lab/pear/tree/f32aa1f7c2ec9c3f45630cc9f8541b3201e8e087",
+        "https://huggingface.co/collections/mit-han-lab/pear"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 8d83da39f75dc6c7669fade870f345e17e69b422; verified against original report and actual code/weights.",
+      "checked_at": "2026-11-15",
+      "resource_releases": {
+        "code_commit": "f32aa1f7c2ec9c3f45630cc9f8541b3201e8e087",
+        "code_date": "2026-11-13",
+        "code_license": "Apache-2.0",
+        "models": [
+          "mit-han-lab/Qwen3.8-27B-PEAR",
+          "mit-han-lab/Qwen3.8-27B-PEAR-LIBERO_only",
+          "mit-han-lab/Qwen3.8-27B-PEAR-NVFP4"
+        ],
+        "model_note": "All three public model repositories contain actual safetensors shards; no model/figure license inferred from the code license."
+      }
+    },
     {
       "id": "pyrua-datafarm",
       "title": "PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data",
@@ -1813,108 +1872,505 @@
   ],
   "leaderboard": {
     "source": "https://robodojo-benchmark.com/leaderboard?bench=sim#agent",
-    "checked_at": "2026-10-31",
-    "updated_at": "2026-10-30T00:00:00.000Z",
-    "latest_news_date": "2026-10-30",
+    "checked_at": "2026-11-15",
+    "updated_at": "2026-11-03T00:00:00.000Z",
+    "latest_news_date": "2026-11-14",
     "freshness_note": "updated_at is the timestamp declared in the official JavaScript bundle; checked_at is the date these rankings were verified.",
-    "metric": "Average Score (descending); Success Rate (%) shown separately",
-    "protocol": "RoboDojo-Sim Agent track; 42 simulation tasks in Generalization, Precision, Long-Horizon, Memory, and Open. Includes Agent, Agent + WAM and Agent + VLA entries. Score is a progress metric, not success rate; Generalization averages standard and random layouts. The site sorts Average Score descending, then Success Rate descending, then model name; display ranks are ordinal. No ties affect the retained agent ranks.",
+    "metric": "Average Score excluding Open (descending); corresponding Success Rate (%) shown separately",
+    "protocol": "The Sim Agent track now averages Generalization, Precision, Long-Horizon and Memory, excluding Open. Generalization is the mean of standard and randomized layouts. Entries are ordered by unrounded Average Score, then Success Rate, then model name; display ranks are ordinal. Scores and success rates are distinct. The official November 14 rule update marks nonconforming task-specific prompts with an asterisk and explanations. Historical all-five-category values and author experiments remain distinct from this snapshot.",
     "protocol_url": "https://robodojo-benchmark.com/leaderboard/protocol",
     "rows": [
       {
-        "rank": 1,
-        "name": "Q0-Preview",
-        "team": "Qoo Tech",
-        "score": 74.2,
-        "success_rate": 68.87,
+        "name": "SOLVE",
+        "team": "NVIDIA",
         "type": "Agent",
         "links": {},
-        "note": "New official leaderboard entry. No primary paper or persistent self-improvement mechanism verified; not added to the paper collection."
+        "note": "New official leaderboard entry; no verified primary paper or persistent self-improvement mechanism is linked by the board. Not automatically added to the paper collection.",
+        "rank": 1,
+        "score": 79.5,
+        "success_rate": 74.96,
+        "dimensions": {
+          "generalizationStd": [
+            66.55,
+            61.67
+          ],
+          "generalizationRand": [
+            67.29,
+            64.36
+          ],
+          "precision": [
+            83.59,
+            81.5
+          ],
+          "longHorizon": [
+            72.65,
+            61
+          ],
+          "memory": [
+            94.83,
+            94.33
+          ],
+          "average": [
+            79.4975,
+            74.96125
+          ]
+        }
       },
       {
         "rank": 2,
-        "name": "GO-3 Nano Preview",
-        "team": "AGIBOT",
-        "score": 61.9,
-        "success_rate": 56.42,
-        "type": "Agent + WAM",
+        "name": "Q0-Preview",
+        "team": "Qoo Tech",
+        "score": 73.2,
+        "success_rate": 67.34,
+        "type": "Agent",
         "links": {},
-        "note": "Leaderboard-only preview in this collection; no primary paper, code, or recursive-improvement claim verified. Added by the official news log on 2026-10-27."
+        "note": "New official leaderboard entry. No primary paper or persistent self-improvement mechanism verified; not added to the paper collection.",
+        "dimensions": {
+          "generalizationStd": [
+            64.75,
+            58.67
+          ],
+          "generalizationRand": [
+            63.25,
+            58.67
+          ],
+          "precision": [
+            65.3,
+            58.5
+          ],
+          "longHorizon": [
+            69.8,
+            58.5
+          ],
+          "memory": [
+            93.68,
+            93.67
+          ],
+          "open": [
+            78.2,
+            75
+          ],
+          "average": [
+            74.2,
+            68.87
+          ]
+        }
       },
       {
+        "name": "Agent-as-Policy",
+        "team": "Realworld Labs",
+        "type": "Agent",
+        "links": {},
+        "note": "New official leaderboard entry; no verified primary paper or persistent self-improvement mechanism is linked by the board. Not automatically added to the paper collection.",
         "rank": 3,
+        "score": 63.46,
+        "success_rate": 54.42,
+        "dimensions": {
+          "generalizationStd": [
+            61.6,
+            57.67
+          ],
+          "generalizationRand": [
+            59.65,
+            54.67
+          ],
+          "precision": [
+            51.92,
+            44.75
+          ],
+          "longHorizon": [
+            52.56,
+            31.75
+          ],
+          "memory": [
+            88.75,
+            85
+          ],
+          "open": [
+            57.94,
+            56.75
+          ],
+          "average": [
+            62.36,
+            54.88
+          ]
+        }
+      },
+      {
+        "rank": 4,
+        "name": "GO-3 Nano Preview",
+        "team": "AGIBOT",
+        "score": 61.95,
+        "success_rate": 56.71,
+        "type": "Agent + WAM",
+        "links": {},
+        "note": "Leaderboard-only preview in this collection; no primary paper, code, or recursive-improvement claim verified. Added by the official news log on 2026-10-27.",
+        "dimensions": {
+          "generalizationStd": [
+            45.93,
+            43
+          ],
+          "generalizationRand": [
+            26.97,
+            24.33
+          ],
+          "precision": [
+            78.65,
+            76
+          ],
+          "longHorizon": [
+            68.21,
+            53.5
+          ],
+          "memory": [
+            64.5,
+            63.67
+          ],
+          "open": [
+            61.71,
+            55.25
+          ],
+          "average": [
+            61.9,
+            56.42
+          ]
+        }
+      },
+      {
+        "rank": 5,
         "name": "PyRUA-Lean",
         "team": "PKU DAGroup",
-        "score": 55.26,
-        "success_rate": 50.35,
+        "score": 53.94,
+        "success_rate": 48.37,
         "type": "Agent",
         "links": {
           "paper": "https://arxiv.org/abs/2610.01939",
           "code": "https://github.com/DAGroup-PKU/PyRUA-Lean",
           "project": "https://dagroup-pku.github.io/PyRUA-Lean/"
         },
-        "note": "Efficient code-execution framework; keep as an adjacent robot-agent baseline, not evidence of recursive self-improvement. Paper/project experiments differ from this verified leaderboard snapshot."
+        "note": "Efficient code-execution framework; keep as an adjacent robot-agent baseline, not evidence of recursive self-improvement. Paper/project experiments differ from this verified leaderboard snapshot.",
+        "dimensions": {
+          "generalizationStd": [
+            50.47,
+            45.33333333333333
+          ],
+          "generalizationRand": [
+            46.07,
+            41
+          ],
+          "precision": [
+            44.77,
+            38.25
+          ],
+          "longHorizon": [
+            54.3,
+            43.75
+          ],
+          "memory": [
+            68.4,
+            68.33
+          ],
+          "open": [
+            60.56,
+            58.25
+          ],
+          "average": [
+            55.26,
+            50.35
+          ]
+        }
       },
       {
-        "rank": 4,
+        "rank": 6,
         "name": "HexaShell-Preview",
         "team": "HexaFuture",
-        "score": 53.18,
-        "success_rate": 46.85,
+        "score": 51.98,
+        "success_rate": 44.75,
         "type": "Agent",
         "links": {
           "paper": "https://arxiv.org/abs/2610.23479",
           "code": "https://github.com/HexaFuture/HexaShell",
           "project": "https://hexafuture.ai/blog/hexashell/"
         },
-        "note": "Between episodes, an optimizer repairs reusable tools from failures; frozen tools are used for evaluation. Release is partial, not the complete server/evolution infrastructure."
+        "note": "Between episodes, an optimizer repairs reusable tools from failures; frozen tools are used for evaluation. Release is partial, not the complete server/evolution infrastructure.",
+        "dimensions": {
+          "generalizationStd": [
+            43.28,
+            38
+          ],
+          "generalizationRand": [
+            35.15,
+            31
+          ],
+          "precision": [
+            41.25,
+            32
+          ],
+          "longHorizon": [
+            42.91,
+            31.5
+          ],
+          "memory": [
+            84.53,
+            81
+          ],
+          "open": [
+            57.97,
+            55.25
+          ],
+          "average": [
+            53.18,
+            46.85
+          ]
+        }
       },
       {
-        "rank": 5,
+        "rank": 7,
         "name": "WorldScape-R²SI",
         "team": "Manifold AI",
-        "score": 46.58,
-        "success_rate": 39.35,
+        "score": 45.93,
+        "success_rate": 37.31,
         "type": "Agent + WAM",
         "links": {
           "paper": "https://r2si.worldscape.io/report.pdf",
           "project": "https://r2si.worldscape.io/",
           "models": "https://huggingface.co/manifoldai-research/WorldScape-R2SI"
         },
-        "note": "A Robot Agent acts through Skills; a Recursion Agent revises Skills and can train a reactive model. Historical project-page rank-one claims are separate from the current official rank."
+        "note": "A Robot Agent acts through Skills; a Recursion Agent revises Skills and can train a reactive model. Historical project-page rank-one claims are separate from the current official rank.",
+        "dimensions": {
+          "generalizationStd": [
+            46.62,
+            40.33
+          ],
+          "generalizationRand": [
+            39.28,
+            31.33
+          ],
+          "precision": [
+            23.51,
+            15.5
+          ],
+          "longHorizon": [
+            51.48,
+            34.25
+          ],
+          "memory": [
+            65.78,
+            63.67
+          ],
+          "open": [
+            49.16,
+            47.5
+          ],
+          "average": [
+            46.58,
+            39.35
+          ]
+        }
       },
       {
-        "rank": 6,
+        "rank": 8,
         "name": "EmbodiedEvo",
         "team": "Einsia.AI",
-        "score": 45.08,
-        "success_rate": 38.95,
+        "score": 43.4,
+        "success_rate": 36.38,
         "type": "Agent",
         "links": {
           "paper": "https://arxiv.org/abs/2610.18867",
           "code": "https://github.com/Einsia/EmbodiedEvo",
           "project": "https://lab.einsia.ai/embodiedevo/"
         },
-        "note": "Turns Playground interaction into persistent Skills and Lessons, frozen before test scenes. Original paper metrics 44.48/37.82 differ from current official 45.08/38.95."
+        "note": "Turns Playground interaction into persistent Skills and Lessons, frozen before test scenes. Original paper metrics 44.48/37.82 differ from current official 45.08/38.95.",
+        "dimensions": {
+          "generalizationStd": [
+            34.55,
+            30.33
+          ],
+          "generalizationRand": [
+            35.88,
+            31.33
+          ],
+          "precision": [
+            25.15,
+            16.25
+          ],
+          "longHorizon": [
+            33.83,
+            21.75
+          ],
+          "memory": [
+            79.4,
+            76.67
+          ],
+          "open": [
+            51.81,
+            49.25
+          ],
+          "average": [
+            45.08,
+            38.95
+          ]
+        }
       }
     ],
     "additional_baseline": {
-      "rank": 7,
+      "rank": 9,
       "name": "PhysicalRSI",
       "team": "HKU MMLab & KAI",
-      "score": 36.27,
-      "success_rate": 31.38,
+      "score": 38.12,
+      "success_rate": 33.0,
       "type": "Agent + VLA",
       "links": {
         "project": "https://mmlab.hk/research/PhysicalRSI"
       },
-      "note": "Useful RSI baseline outside the top five; official project is a research blog, not a verified standalone paper in this snapshot."
+      "note": "Useful RSI baseline outside the top five; official project is a research blog, not a verified standalone paper in this snapshot.",
+      "dimensions": {
+        "generalizationStd": [
+          31.57,
+          25.67
+        ],
+        "generalizationRand": [
+          11.04,
+          5.56
+        ],
+        "precision": [
+          38.05,
+          32.5
+        ],
+        "longHorizon": [
+          46.37,
+          37.33
+        ],
+        "memory": [
+          46.74,
+          46.56
+        ],
+        "open": [
+          28.88,
+          24.92
+        ],
+        "average": [
+          36.27,
+          31.38
+        ]
+      }
     },
     "evidence": {
-      "bundle_url": "https://robodojo-benchmark.com/assets/index-DXE6c9rW.js",
-      "bundle_sha256": "1180aa1911a98cd671da7fb1f14e554b09349843ab95c2824e2421369c80c6b8",
-      "extraction": "Official simulation records filtered by agent types; ranked by Average Score, then Success Rate, then name. Q0-Preview score changed to 74.20 / 68.87%; the four collected paper ranks and metrics are unchanged."
-    }
+      "bundle_url": "https://robodojo-benchmark.com/assets/index-H6JLcyNk.js",
+      "bundle_sha256": "7403f73eb41e8559d6b830eae551008c8064f8ad6f53655c36629e844ac3a63b",
+      "extraction": "Official Er() computes the Agent average as the unweighted mean of Generalization=(standard+random)/2, Precision, Long-Horizon and Memory. Sorted before rounding; displayed with the official two-decimal rounding. SOLVE and Agent-as-Policy are leaderboard-only references, not added papers.",
+      "rules_url": "https://robodojo-benchmark.com/leaderboard/agent-rule",
+      "description_url": "https://robodojo-benchmark.com/leaderboard/detail-description",
+      "declared_timestamp_note": "The bundle record timestamp remains November 3, while the official news announces the scoring/rule and new-entry update on November 14."
+    },
+    "display_scope": "w/o Open",
+    "history": [
+      {
+        "source": "https://robodojo-benchmark.com/leaderboard?bench=sim#agent",
+        "checked_at": "2026-10-31",
+        "updated_at": "2026-10-30T00:00:00.000Z",
+        "latest_news_date": "2026-10-30",
+        "freshness_note": "updated_at is the timestamp declared in the official JavaScript bundle; checked_at is the date these rankings were verified.",
+        "metric": "Average Score (descending); Success Rate (%) shown separately",
+        "protocol": "RoboDojo-Sim Agent track; 42 simulation tasks in Generalization, Precision, Long-Horizon, Memory, and Open. Includes Agent, Agent + WAM and Agent + VLA entries. Score is a progress metric, not success rate; Generalization averages standard and random layouts. The site sorts Average Score descending, then Success Rate descending, then model name; display ranks are ordinal. No ties affect the retained agent ranks.",
+        "protocol_url": "https://robodojo-benchmark.com/leaderboard/protocol",
+        "rows": [
+          {
+            "rank": 1,
+            "name": "Q0-Preview",
+            "team": "Qoo Tech",
+            "score": 74.2,
+            "success_rate": 68.87,
+            "type": "Agent",
+            "links": {},
+            "note": "New official leaderboard entry. No primary paper or persistent self-improvement mechanism verified; not added to the paper collection."
+          },
+          {
+            "rank": 2,
+            "name": "GO-3 Nano Preview",
+            "team": "AGIBOT",
+            "score": 61.9,
+            "success_rate": 56.42,
+            "type": "Agent + WAM",
+            "links": {},
+            "note": "Leaderboard-only preview in this collection; no primary paper, code, or recursive-improvement claim verified. Added by the official news log on 2026-10-27."
+          },
+          {
+            "rank": 3,
+            "name": "PyRUA-Lean",
+            "team": "PKU DAGroup",
+            "score": 55.26,
+            "success_rate": 50.35,
+            "type": "Agent",
+            "links": {
+              "paper": "https://arxiv.org/abs/2610.01939",
+              "code": "https://github.com/DAGroup-PKU/PyRUA-Lean",
+              "project": "https://dagroup-pku.github.io/PyRUA-Lean/"
+            },
+            "note": "Efficient code-execution framework; keep as an adjacent robot-agent baseline, not evidence of recursive self-improvement. Paper/project experiments differ from this verified leaderboard snapshot."
+          },
+          {
+            "rank": 4,
+            "name": "HexaShell-Preview",
+            "team": "HexaFuture",
+            "score": 53.18,
+            "success_rate": 46.85,
+            "type": "Agent",
+            "links": {
+              "paper": "https://arxiv.org/abs/2610.23479",
+              "code": "https://github.com/HexaFuture/HexaShell",
+              "project": "https://hexafuture.ai/blog/hexashell/"
+            },
+            "note": "Between episodes, an optimizer repairs reusable tools from failures; frozen tools are used for evaluation. Release is partial, not the complete server/evolution infrastructure."
+          },
+          {
+            "rank": 5,
+            "name": "WorldScape-R²SI",
+            "team": "Manifold AI",
+            "score": 46.58,
+            "success_rate": 39.35,
+            "type": "Agent + WAM",
+            "links": {
+              "paper": "https://r2si.worldscape.io/report.pdf",
+              "project": "https://r2si.worldscape.io/",
+              "models": "https://huggingface.co/manifoldai-research/WorldScape-R2SI"
+            },
+            "note": "A Robot Agent acts through Skills; a Recursion Agent revises Skills and can train a reactive model. Historical project-page rank-one claims are separate from the current official rank."
+          },
+          {
+            "rank": 6,
+            "name": "EmbodiedEvo",
+            "team": "Einsia.AI",
+            "score": 45.08,
+            "success_rate": 38.95,
+            "type": "Agent",
+            "links": {
+              "paper": "https://arxiv.org/abs/2610.18867",
+              "code": "https://github.com/Einsia/EmbodiedEvo",
+              "project": "https://lab.einsia.ai/embodiedevo/"
+            },
+            "note": "Turns Playground interaction into persistent Skills and Lessons, frozen before test scenes. Original paper metrics 44.48/37.82 differ from current official 45.08/38.95."
+          }
+        ],
+        "additional_baseline": {
+          "rank": 7,
+          "name": "PhysicalRSI",
+          "team": "HKU MMLab & KAI",
+          "score": 36.27,
+          "success_rate": 31.38,
+          "type": "Agent + VLA",
+          "links": {
+            "project": "https://mmlab.hk/research/PhysicalRSI"
+          },
+          "note": "Useful RSI baseline outside the top five; official project is a research blog, not a verified standalone paper in this snapshot."
+        },
+        "evidence": {
+          "bundle_url": "https://robodojo-benchmark.com/assets/index-DXE6c9rW.js",
+          "bundle_sha256": "1180aa1911a98cd671da7fb1f14e554b09349843ab95c2824e2421369c80c6b8",
+          "extraction": "Official simulation records filtered by agent types; ranked by Average Score, then Success Rate, then name. Q0-Preview score changed to 74.20 / 68.87%; the four collected paper ranks and metrics are unchanged."
+        }
+      }
+    ]
   },
   "excluded_papers": [
     {
