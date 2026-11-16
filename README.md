@@ -20,6 +20,200 @@ Uses simulated robot-task success to update a reasoning model through reinforcem
 
 [Models](https://huggingface.co/collections/mit-han-lab/pear) · [Project](https://mit-han-lab.github.io/pear-blog/)
 
+### ACE-CaP-0: Real-World Code-as-Policies in the Era of Experience
+
+**First release:** 2026-11-12
+
+![ACE-CaP-0: from policy development to standalone execution. (a) The coding agent writes and revises an executable policy using real-world feedback, with a shared robot toolbox that supports both policy execution and dire](assets/papers/ace-cap-0.png)
+
+*CaP Team et al., ACE-CaP-0, Figure 5. [Figure source](https://arxiv.org/html/2611.16872v1#S3.F5).*
+
+Refines reusable robot-control programs from physical execution feedback, requesting demonstrations and simulator trials when needed. The retained programs run with perception and control but no coding agent at deployment.
+
+[Paper](https://arxiv.org/abs/2611.16872)
+
+[Project](https://acerobotics2025.github.io/ACE-CaP/)
+
+### What Can a VLA Learn from the Agent That Calls It? Task-Level Experience Distillation for Embodied Navigation
+
+**First release:** 2026-11-12
+
+![Overview of H2E. (a) On training scenes, a frontier LLM planner with a place graph and its own tools calls the base VLA. We keep the sessions that reach the goal. (b) H2E turns one kept session into labels. ① Every step ](assets/papers/h2e.png)
+
+*Jinze Tao et al., H2E, Figure 2. [Figure source](https://arxiv.org/html/2611.16246v1#S2.F2).*
+
+Turns successful navigation-agent sessions into training examples for the VLA that the agent calls. Task-level relabeling and progress masking retain useful actions while reducing detours, so the adapted VLA navigates without the planner.
+
+[Paper](https://arxiv.org/abs/2611.16246)
+
+### JustRUA: A Controlled Study of GPT-6 Robot-Use Agents
+
+**First release:** 2026-11-11
+
+![The testbed loop and the four axes of the study. The model issues a command, the unchanged planner turns it into a motion, and the simulator returns the next observation and, at the end, the score. Solid blue outlines ma](assets/papers/justrua.png)
+
+*Zefan Wang et al., JustRUA, Figure 2. [Figure source](https://arxiv.org/html/2611.16009v1#S2.F2).*
+
+Separates the effects of robot harnesses, action interfaces, experience reuse, and scene geometry in controlled experiments. Its experience-reuse ablations test whether demonstrations and self-written skills help beyond a simpler fixed harness.
+
+[Paper](https://arxiv.org/abs/2611.16009) · [Code](https://github.com/ZefanW/JustRUA)
+
+[Project](https://zefanw.github.io/JustRUA)
+
+### RoboACE: Adversarial Co-Evolution for Robot Self-Improvement
+
+**First release:** 2026-11-09
+
+![Alternating revisions connect challenge production and execution. The curriculum side uses prior capability evidence to probe a fixed execution deployment. Admitted conditions form a fixed snapshot for comparing executio](assets/papers/roboace.svg)
+
+*Delin Zhao et al., RoboACE, Figure 2. [Figure source](https://arxiv.org/html/2611.13034v1#S3.F2).*
+
+Alternates improvements to a practice-generating curriculum and an execution harness around frozen models. Fixed challenge snapshots test whether reusable execution revisions address the weaknesses found during practice.
+
+[Paper](https://arxiv.org/abs/2611.13034)
+
+### Flip Anything with Agentic Robotics Self-Learning
+
+**First release:** 2026-11-09
+
+![self-learning loop; evaluation traces guide reusable graph-code revisions.](assets/papers/flipanything.png)
+
+*Shuangyu Xie et al., Flip Anything, Figure 2. [Figure source](https://arxiv.org/html/2611.11941v1#S2.F2).*
+
+Uses simulation failures to develop and revise reusable bimanual flipping strategies. The resulting graph program combines grasping, handover, pushing, and recovery, with physical-robot demonstrations.
+
+[Paper](https://arxiv.org/abs/2611.11941)
+
+[Project](https://berkeleyautomation.github.io/flipanything/)
+
+### World In-Context Learning for Agentic Robot Manipulation
+
+**First release:** 2026-11-09
+
+![RoboScript method overview from the official project.](assets/papers/roboscript.webp)
+
+*Heng Fang et al., RoboScript, Figure 4. [Figure source](https://ArcheOne-AI.github.io/RoboScript/static/images/3-RoboScript.webp).*
+
+Rehearses a manipulation task in simulation and stores execution lessons as reusable Task Memory. RoboScript freezes that memory for new scenes and uses later reflection to guide subsequent improvement rounds.
+
+[Paper](https://arxiv.org/abs/2611.12885) · [Code](https://github.com/ArcheOne-AI/RoboScript)
+
+[Project](https://ArcheOne-AI.github.io/RoboScript)
+
+### Review the Episodes, Refine the Lessons: Simple Memory Evolution for Embodied Agents
+
+**First release:** 2026-11-08
+
+![Overview of SimplEvo. During online adaptation (left), an annotator instance of GPT-6-Astra reviews one training demonstration and writes a coordinate-free task memory of the stages and the completed state, and after eve](assets/papers/simplevo.png)
+
+*Yifei Yao et al., SimplEvo, Figure 2. [Figure source](https://arxiv.org/html/2611.11509v1#S3.F2).*
+
+Reviews training episodes to rewrite a bounded text memory of procedures, completion checks, and recovery lessons. The fixed memories then guide direct robot control in new scenes and can transfer to other models.
+
+[Paper](https://arxiv.org/abs/2611.11509)
+
+### REINS: A Self-Evolving Agent Harness for Real-Time Trajectory Planning
+
+**First release:** 2026-11-07
+
+![The REINS framework. Phase 1 (offline): learn dynamics 𝒢^,ℱ^\hat{\mathcal{G}},\hat{\mathcal{F}} and compile rules into initial memory ℛ0\mathcal{R}_{0}. Phase 2 (online): per-scene retrieval and rollout-based verificatio](assets/papers/reins.png)
+
+*Zhihong Cui et al., REINS, Figure 2. [Figure source](https://arxiv.org/html/2611.10748v1#S4.F2).*
+
+Checks language-model trajectory rules against a dynamics model before storing them in an indexed memory. Familiar driving scenes reuse verified rules, while new scenes trigger further rule acquisition.
+
+[Paper](https://arxiv.org/abs/2611.10748) · [Code](https://github.com/ZhihongCui/REINS)
+
+### ReSkill: Selective Self-Improvement for Robot Manipulation
+
+**First release:** 2026-11-07
+
+![ReSkill constructs and improves an executable task policy. An instruction and a skill library define a task graph and its node–skill bindings. Trial execution exposes planning or skill gaps, prompting task-level graph re](assets/papers/reskill.png)
+
+*Zheng Sun et al., ReSkill, Figure 2. [Figure source](https://arxiv.org/html/2611.10510v1#S2.F2).*
+
+Locates manipulation failures in an object-centric task graph and selectively repairs stage logic or reusable skills. Full-task tests and paired comparisons decide which revisions to retain for agent-free execution.
+
+[Paper](https://arxiv.org/abs/2611.10510)
+
+### On Agentic Manipulation Policies
+
+**First release:** 2026-11-06
+
+![AMP1 harness. The generalist AI model controls the robot via Python code that runs in a persistent interpreter. The generalist model builds its own skills on top of the harness SDK. The SDK’s functions fall into three gr](assets/papers/amp1.png)
+
+*Chen Chen et al., AMP1, Figure 6. [Figure source](https://arxiv.org/html/2611.09892v1#S4.F6).*
+
+Extends direct manipulation control with a persistent store of lessons from earlier robot episodes. The AMP1+ extension reuses this experience across practice rounds and tasks while keeping the underlying model fixed.
+
+[Paper](https://arxiv.org/abs/2611.09892) · [Code](https://github.com/apple-aiml-research/ml-amp)
+
+[Project](https://apple-aiml-research.github.io/ml-amp/)
+
+### Toward the Era of Agentic Embodied Intelligence
+
+**First release:** 2026-11-06
+
+![The A2-MEAS framework. The MetaBrain coordinates task reasoning and recovery. Grounding agents provide specialized evidence. The correction interface combines recovery language, spatial evidence, executed history, and a ](assets/papers/a2-meas.png)
+
+*Chao Liang et al., A2-MEAS, Figure 1. [Figure source](https://arxiv.org/html/2611.09124v1#S1.F1).*
+
+Learns an action-policy adapter from corrective guidance, spatial evidence, and recorded execution history. The retained correction parameters let a frozen base policy use that experience when recovering from later failures.
+
+[Paper](https://arxiv.org/abs/2611.09124)
+
+### A Controlled Study of Models, Skills, Feedback, and Curriculum in Agentic Robotics
+
+**First release:** 2026-11-06
+
+![Overview of our controlled study of agentic robot self-learning of model, skill, feedback, and curriculum design. A coding agent initializes a policy π0\pi_{0}, executes the current policy πk\pi_{k} in simulation, receiv](assets/papers/controlled-agentic-robotics.png)
+
+*Kaiyuan Chen et al., controlled self-learning study, Figure 2. [Figure source](https://arxiv.org/html/2611.09030v1#S1.F2).*
+
+Tests how model capability, skill priors, feedback, and curriculum affect iterative robot-code improvement. The controlled study examines which execution evidence helps agents diagnose failures and revise policies effectively.
+
+[Paper](https://arxiv.org/abs/2611.09030)
+
+### Flex-RSI: Benchmarking Recursive Self-Improvement of Frontier Agents
+
+**First release:** 2026-11-06
+
+![Flex-RSI at a glance. (a) The RSI loop. In each round, the executor edits the task solution, which is kept or reverted according to its score on held-out validation data; the improver then edits the harness, including th](assets/papers/flex-rsi.png)
+
+*Jingdong Zhang et al., Flex-RSI, Figure 1. [Figure source](https://arxiv.org/html/2611.08946v1#S1.F1).*
+
+Benchmarks agents that revise both task solutions and their own harnesses under fixed budgets. Robot-action tasks use held-out validation to retain candidates and hidden tests to measure the final result.
+
+[Paper](https://arxiv.org/abs/2611.08946) · [Code](https://github.com/flex-rsi/rsi-bench)
+
+[Data](https://huggingface.co/datasets/Flex-RSI/RSI-Dataset) · [Project](https://flex-rsi.github.io)
+
+### Learning the Task or Learning the Verifier? Rethinking Criteria Exposure in Embodied Self-Improvement
+
+**First release:** 2026-11-05
+
+![Overview of the self-improvement loop. Left, learning: the actor (GPT-6 Astra, high reasoning effort) writes and executes Python cells that call the robot’s primitives on five development layouts, and sees the result of ](assets/papers/rsijudge.png)
+
+*Wenbo Huang et al., RSIJudge, Figure 2. [Figure source](https://arxiv.org/html/2611.08318v1#S3.F2).*
+
+Tests whether exposing benchmark success criteria improves task execution or encourages verifier overfitting. It compares retained skill libraries under original and instruction-faithful criteria, including transfer to new tasks.
+
+[Paper](https://arxiv.org/abs/2611.08318) · [Code](https://github.com/DAGroup-PKU/PyRUA-Lean/tree/RSIJudge)
+
+[Project](https://dagroup-pku.github.io/PyRUA-Lean/RSIJudge)
+
+### RoboARCade: Benchmarking Agentic Robot Control
+
+**First release:** 2026-11-05
+
+![Representative tasks from RoboARCade. The benchmark includes 22 tasks spanning single and bimanual manipulation, assembly, physical puzzles, and biolab-inspired procedures. This figure shows 20 of them. Tasks require com](assets/papers/roboarcade.png)
+
+*Satvik Sharma et al., RoboARCade, Figure 1. [Figure source](https://arxiv.org/html/2611.08209v1#S1.F1).*
+
+Evaluates long-horizon robot control and improvement from reusable demonstrations and self-revised prompts. Agents use graded rollout feedback to update a task-specific harness file for fresh sessions.
+
+[Paper](https://arxiv.org/abs/2611.08209)
+
 ### PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data
 
 **First release:** 2026-11-03
@@ -156,7 +350,7 @@ Technical report date; the project was announced on 2026-10-17.
 
 *Manifold AI Team, R²SI technical report, Figure 1. [Figure source](https://r2si.worldscape.io/report.pdf#page=2).*
 
-Uses a Robot Agent to execute tasks and a Recursion Agent to improve reusable skills and train the reactive model from rollout feedback. [RoboDojo-Sim Agent (w/o Open) #7 · Score 45.93 · Success 37.31% (2026-11-15).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Uses a Robot Agent to execute tasks and a Recursion Agent to improve reusable skills and train the reactive model from rollout feedback. [RoboDojo-Sim Agent (w/o Open) #9 · Score 45.93 · Success 37.31% (2026-11-16).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://r2si.worldscape.io/report.pdf)
 
@@ -198,7 +392,7 @@ Evaluates how robot agents improve across repeated attempts, measuring learning 
 
 *Hongcheng Gao, Jianshu Zeng et al., HexaShell v3, Figure 2. CC BY 4.0. [Figure source](https://arxiv.org/html/2610.23479v3#S2.F2).*
 
-Shares a 14-tool harness across simulators and real robots. An analysis agent drafts reusable task skills from earlier execution records, with human review before evaluation. [RoboDojo-Sim Agent (HexaShell-Preview; w/o Open) #6 · Score 51.98 · Success 44.75% (2026-11-15).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Shares a 14-tool harness across simulators and real robots. An analysis agent drafts reusable task skills from earlier execution records, with human review before evaluation. [RoboDojo-Sim Agent (HexaShell-Preview; w/o Open) #7 · Score 51.98 · Success 44.75% (2026-11-16).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.23479) · [Code](https://github.com/HexaFuture/HexaShell)
 
@@ -244,6 +438,20 @@ Keeps revisable user and scene memory for personalized robot assistance. Reflect
 
 [Project](https://vincent2311.github.io/Projects/CarryOn/)
 
+### Has GPT-6-Astra Achieved Embodied Intelligence?
+
+**First release:** 2026-10-15
+
+![In-context learning protocol. For each task, GPT-6-Astra studies the training data and writes a knowledge package KK, which is frozen before testing. Each test episode starts a fresh session with KK and runs under the st](assets/papers/sensenova-roborsi.svg)
+
+*SenseNova et al., embodied-intelligence report, Figure 2. [Figure source](https://arxiv.org/html/2610.22471v2#S2.F2).*
+
+Studies how training-set experience becomes frozen knowledge packages for robot control across multiple benchmarks. The packages retain task guidance, executable helpers, and recovery checks, with separate real-robot evaluations. [RoboDojo-Sim Agent (w/o Open) #5 · Score 57.10 · Success 49.17% (2026-11-16).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+
+[Paper](https://arxiv.org/abs/2610.22471) · [Code](https://github.com/OpenSenseNova/SenseNova-RoboRSI)
+
+[Data](https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages) · [Models](https://huggingface.co/sensenova/sensenova-roborsi-27b-preview) · [Project](https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence)
+
 ### EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence
 
 **First release:** 2026-10-13
@@ -252,7 +460,7 @@ Keeps revisable user and scene memory for personalized robot assistance. Reflect
 
 *Wenyi Li et al., EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence. Core method figure from the official paper/project. [Figure source](https://lab.einsia.ai/embodiedevo/).*
 
-Learns reusable code Skills and diagnostic Lessons in a practice scene, then transfers them to new scenes without weight updates. Learned artifacts for 42 RoboDojo tasks are now public. [RoboDojo-Sim Agent (w/o Open) #8 · Score 43.40 · Success 36.38% (2026-11-15).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Learns reusable code Skills and diagnostic Lessons in a practice scene, then transfers them to new scenes without weight updates. Learned artifacts for 42 RoboDojo tasks are now public. [RoboDojo-Sim Agent (w/o Open) #10 · Score 43.40 · Success 36.38% (2026-11-16).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.18867) · [Code](https://github.com/Einsia/EmbodiedEvo)
 
@@ -370,7 +578,7 @@ Reconstructs tasks in simulation, improves a shared skill library through practi
 
 *Ruiyang Si, Jianxin Bi et al., PyRUA-Lean, Figure 2. [Figure source](https://arxiv.org/html/2610.01939v1/method_red.svg).*
 
-Reduces repeated model calls by letting robot agents compose actions and local checks in Python. The repository also releases PyRUA-RSI’s offline-refined task programs, which run without language-model calls during evaluation. [RoboDojo-Sim Agent (w/o Open) #5 · Score 53.94 · Success 48.37% (2026-11-15).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Reduces repeated model calls by letting robot agents compose actions and local checks in Python. The repository also releases PyRUA-RSI’s offline-refined task programs, which run without language-model calls during evaluation. [RoboDojo-Sim Agent (w/o Open) #6 · Score 53.94 · Success 48.37% (2026-11-16).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.01939) · [Code](https://github.com/DAGroup-PKU/PyRUA-Lean)
 

@@ -393,3 +393,179 @@ All figures are authentic method/overview figures from the linked official paper
 - Source: https://mit-han-lab.github.io/pear-blog/paper.pdf#page=1
 - Original license: no separate figure license is stated in the author-hosted report or project page; original authors retain rights. The code repository’s Apache-2.0 license is not applied to this paper figure.
 - Changes: rendered only the original Figure 1 region from PDF page 1 at 216 dpi, without redrawing or altering its content.
+
+## ace-cap-0
+
+- File: [ace-cap-0.png](papers/ace-cap-0.png)
+- Paper: [ACE-CaP-0: Real-World Code-as-Policies in the Era of Experience](https://arxiv.org/abs/2611.16872)
+- Credit: CaP Team et al., ACE-CaP-0, Figure 5.
+- Authors: CaP Team, Changxu Wei, Yunpeng Qing, Guozheng Ma, Bowen Liu, Zexin He, Yilun Kong, Haoming Gu, Jingyuan Liu, Tianyu Zhu, Jianfei Wang, Junqiang Kou, Huinan Mo, Hao Lv, Pengbin Li, Yuesong Wang, Bo Li, Huan Zhou, Shunyu Liu, Chunxiao Liu, Bixuan Jin, Shaopeng Yin, Fei Wang, Zhi Hou, Jiaxing Huang, Changqing Zou, Dacheng Tao, Xiaogang Wang.
+- Source: https://arxiv.org/html/2611.16872v1#S3.F5
+- Original asset: https://arxiv.org/html/2611.16872v1/ACE-CaP-0-method-working.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original figure asset downloaded unchanged.
+
+## h2e
+
+- File: [h2e.png](papers/h2e.png)
+- Paper: [What Can a VLA Learn from the Agent That Calls It? Task-Level Experience Distillation for Embodied Navigation](https://arxiv.org/abs/2611.16246)
+- Credit: Jinze Tao et al., H2E, Figure 2.
+- Authors: Jinze Tao, Yuxiao Han, Kangkang Dong, Yancong Wei, Xiaojun Zhu, Bokui Chen, Houde Liu.
+- Source: https://arxiv.org/html/2611.16246v1#S2.F2
+- Original asset: https://arxiv.org/html/2611.16246v1/fig_pipeline.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original figure asset downloaded unchanged.
+
+## justrua
+
+- File: [justrua.png](papers/justrua.png)
+- Paper: [JustRUA: A Controlled Study of GPT-6 Robot-Use Agents](https://arxiv.org/abs/2611.16009)
+- Credit: Zefan Wang et al., JustRUA, Figure 2.
+- Authors: Zefan Wang, Yufan Dang, Xuanwei Shi, Mingqi Gao, Cheng Yin, SikYuen Tam, Hanyu Liu, Yasheng Wang, Yaxi Lu, Songyang Zhang, Xin Cong, Yuan Yao.
+- Source: https://arxiv.org/html/2611.16009v1#S2.F2
+- Original asset: https://arxiv.org/html/2611.16009v1/figures/web/fig_framework.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original figure asset downloaded unchanged.
+
+## roboace
+
+- File: [roboace.svg](papers/roboace.svg)
+- Paper: [RoboACE: Adversarial Co-Evolution for Robot Self-Improvement](https://arxiv.org/abs/2611.13034)
+- Credit: Delin Zhao et al., RoboACE, Figure 2.
+- Authors: Delin Zhao, Zhengrong Yue, Junlin He, Yali Wang.
+- Source: https://arxiv.org/html/2611.13034v1#S3.F2
+- Original asset: https://arxiv.org/html/2611.13034v1/RoboACE_Framework_20261104_v4.svg
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original figure asset downloaded unchanged.
+
+## flipanything
+
+- File: [flipanything.png](papers/flipanything.png)
+- Paper: [Flip Anything with Agentic Robotics Self-Learning](https://arxiv.org/abs/2611.11941)
+- Credit: Shuangyu Xie et al., Flip Anything, Figure 2.
+- Authors: Shuangyu Xie, Kaiyuan Chen, Ken Goldberg.
+- Source: https://arxiv.org/html/2611.11941v1#S2.F2
+- Original asset: https://arxiv.org/pdf/2611.11941v1#page=3
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: Rendered only original Figure 2 from PDF page 3 at 288 dpi, without redrawing or altering content.
+
+## roboscript
+
+- File: [roboscript.webp](papers/roboscript.webp)
+- Paper: [World In-Context Learning for Agentic Robot Manipulation](https://arxiv.org/abs/2611.12885)
+- Credit: Heng Fang et al., RoboScript, Figure 4.
+- Authors: Heng Fang, Zehui Guo, Yuehan Zhang, Mingyang Du, Dingkang Liang, Xiang Bai.
+- Source: https://ArcheOne-AI.github.io/RoboScript/static/images/3-RoboScript.webp
+- Original asset: https://ArcheOne-AI.github.io/RoboScript/static/images/3-RoboScript.webp
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original figure asset downloaded unchanged.
+
+## simplevo
+
+- File: [simplevo.png](papers/simplevo.png)
+- Paper: [Review the Episodes, Refine the Lessons: Simple Memory Evolution for Embodied Agents](https://arxiv.org/abs/2611.11509)
+- Credit: Yifei Yao et al., SimplEvo, Figure 2.
+- Authors: Yifei Yao, Yude Zou, Xing Gao, Guanbo Jiao, Yukai Wang, Jianming Ma, Weinan Zhang, Chunhua Shen.
+- Source: https://arxiv.org/html/2611.11509v1#S3.F2
+- Original asset: https://arxiv.org/html/2611.11509v1/framework.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original figure asset downloaded unchanged.
+
+## reins
+
+- File: [reins.png](papers/reins.png)
+- Paper: [REINS: A Self-Evolving Agent Harness for Real-Time Trajectory Planning](https://arxiv.org/abs/2611.10748)
+- Credit: Zhihong Cui et al., REINS, Figure 2.
+- Authors: Zhihong Cui, Hengyu Liu, Haoran Tang, Shijun Liu, Amir Taherkordi, Tor Skeie.
+- Source: https://arxiv.org/html/2611.10748v1#S4.F2
+- Original asset: https://arxiv.org/html/2611.10748v1/figures/CLEAR_framework_exampleFinal-v5.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: None; original figure asset downloaded unchanged.
+
+## reskill
+
+- File: [reskill.png](papers/reskill.png)
+- Paper: [ReSkill: Selective Self-Improvement for Robot Manipulation](https://arxiv.org/abs/2611.10510)
+- Credit: Zheng Sun et al., ReSkill, Figure 2.
+- Authors: Zheng Sun, Zhihao Li, Zhuo Li, Wenrui Liu, Xin Wang, Fei Chen.
+- Source: https://arxiv.org/html/2611.10510v1#S2.F2
+- Original asset: https://arxiv.org/html/2611.10510v1/method.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: None; original figure asset downloaded unchanged.
+
+## amp1
+
+- File: [amp1.png](papers/amp1.png)
+- Paper: [On Agentic Manipulation Policies](https://arxiv.org/abs/2611.09892)
+- Credit: Chen Chen et al., AMP1, Figure 6.
+- Authors: Chen Chen, Omid Bagherieh, Naveen Nikamanth Appiah Balaji, Jesse T. Gonzalez, Negin Heravi, Fahad Islam, Xueting Li, Jean-Baptiste Regli, Kejia Ren, Petr Švec, David J. Yoon, Matthias Müller, Vladlen Koltun.
+- Source: https://arxiv.org/html/2611.09892v1#S4.F6
+- Original asset: https://arxiv.org/html/2611.09892v1/fig6_amp_agent_harness.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original figure asset downloaded unchanged.
+
+## a2-meas
+
+- File: [a2-meas.png](papers/a2-meas.png)
+- Paper: [Toward the Era of Agentic Embodied Intelligence](https://arxiv.org/abs/2611.09124)
+- Credit: Chao Liang et al., A2-MEAS, Figure 1.
+- Authors: Chao Liang, Ke Chen, Fengxiaoxiao Li, Shibo Huang, Yufeng Sun, Zhaokai Yin, Jianhuan Lai, Haozhe Feng, Chenghuan Jia, Zhipeng Zhang.
+- Source: https://arxiv.org/html/2611.09124v1#S1.F1
+- Original asset: https://arxiv.org/html/2611.09124v1/architecture_slide8_cropped.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original figure asset downloaded unchanged.
+
+## controlled-agentic-robotics
+
+- File: [controlled-agentic-robotics.png](papers/controlled-agentic-robotics.png)
+- Paper: [A Controlled Study of Models, Skills, Feedback, and Curriculum in Agentic Robotics](https://arxiv.org/abs/2611.09030)
+- Credit: Kaiyuan Chen et al., controlled self-learning study, Figure 2.
+- Authors: Kaiyuan Chen, Xinyue Zhu, Shuangyu Xie, Uksang Yoo, Thi Thu Phuong Luong, Marcus Gualtieri, Christian Juette, Liu Ren, Spencer Huang, Ken Goldberg.
+- Source: https://arxiv.org/html/2611.09030v1#S1.F2
+- Original asset: https://arxiv.org/html/2611.09030v1/front_draft.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: None; original figure asset downloaded unchanged.
+
+## rsijudge
+
+- File: [rsijudge.png](papers/rsijudge.png)
+- Paper: [Learning the Task or Learning the Verifier? Rethinking Criteria Exposure in Embodied Self-Improvement](https://arxiv.org/abs/2611.08318)
+- Credit: Wenbo Huang et al., RSIJudge, Figure 2.
+- Authors: Wenbo Huang, Jianxin Bi, Shunyu Yang, Ruiyang Si, Rui Ni, Qiang Wang, Shulong Jiang, Yintianrun Zhang, Feixiang Ruan, Kewei Zhang, Ye Huang, Shukai Gong, Daquan Zhou.
+- Source: https://arxiv.org/html/2611.08318v1#S3.F2
+- Original asset: https://arxiv.org/html/2611.08318v1/method_loop.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: None; original figure asset downloaded unchanged.
+
+## flex-rsi
+
+- File: [flex-rsi.png](papers/flex-rsi.png)
+- Paper: [Flex-RSI: Benchmarking Recursive Self-Improvement of Frontier Agents](https://arxiv.org/abs/2611.08946)
+- Credit: Jingdong Zhang et al., Flex-RSI, Figure 1.
+- Authors: Jingdong Zhang, Jionghao Wang, Zhengming Yu, Yancheng Cai, Wei Chow, Chris Choy, Zhiyang Dou, Hang Hua, Jiachen Li, Zhixuan Liu, Chen Wang, Songlin Wei, Siyuan Yang, Yu Yuan, Xiaohang Zhan, Yucheng Zhang, Shuhong Zheng, Xin Li, Lingjie Liu, Wojciech Matusik, Zhengzhong Tu, Wenping Wang.
+- Source: https://arxiv.org/html/2611.08946v1#S1.F1
+- Original asset: https://arxiv.org/html/2611.08946v1/fig1_overview.png
+- Original license: https://creativecommons.org/licenses/by-nc-nd/4.0/
+- Changes: None; original figure asset downloaded unchanged.
+
+## roboarcade
+
+- File: [roboarcade.png](papers/roboarcade.png)
+- Paper: [RoboARCade: Benchmarking Agentic Robot Control](https://arxiv.org/abs/2611.08209)
+- Credit: Satvik Sharma et al., RoboARCade, Figure 1.
+- Authors: Satvik Sharma, Hengyuan Hu, Mihika Kamat, Dorsa Sadigh, Jeannette Bohg.
+- Source: https://arxiv.org/html/2611.08209v1#S1.F1
+- Original asset: https://arxiv.org/html/2611.08209v1/task_lineup_4x5.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: None; original figure asset downloaded unchanged.
+
+## sensenova-roborsi
+
+- File: [sensenova-roborsi.svg](papers/sensenova-roborsi.svg)
+- Paper: [Has GPT-6-Astra Achieved Embodied Intelligence?](https://arxiv.org/abs/2610.22471)
+- Credit: SenseNova et al., embodied-intelligence report, Figure 2.
+- Authors: SenseNova, Joint Research Team, Zhongang Cai, Ziang Cao, Tailai Chen, Han Chong Chua, Linjun Dai, Hanming Deng, Hokin Deng, Haiwen Diao, Chenjing Ding, Weichen Fan, Xiao Fu, Zerui Gong, Chenyang Gu, Zexin He, Zhi Hou, Bo Li, Qinyue Li, Quanzhou Li, Xiaowan Li, Zhichao Liao, Dahua Lin, Zilong Lin, Bo Liu, Chunxiao Liu, Pengfei Liu, Tianqi Liu, Ziwei Liu, Chen Change Loy, Lewei Lu, Jiapeng Luo, Yuexiao Ma, Liang Pan, Xingang Pan, Oscar Qian, Ziyi Shang, Yuyao Shao, Dawei Su, Dacheng Tao, Qingyi Tao, Quan Wang, Ruisi Wang, Xiaogang Wang, Ziyi Wang, Beichen Wen, Donghao Wu, Jiaxu Wu, Silei Wu, Xiaoming Wu, Zhonghua Wu, Hongcan Xiao, Weiye Xu, Atsushi Yamashita, Lei Yang, Zhe Yang, Baiqiao Yin, Wanqi Yin, Hanfei Zhao, Tianbo Zhong, Long Zhuo, Jing Zuo.
+- Source: https://arxiv.org/html/2610.22471v2#S2.F2
+- Original asset: https://arxiv.org/html/2610.22471v2/icl_protocol.svg
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original figure asset downloaded unchanged.
