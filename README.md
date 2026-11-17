@@ -8,17 +8,31 @@ Recent papers on robot recursive self-improvement.
 
 ### Training Reasoning Models in Simulation to Natively Use Real Robots
 
-**First release:** 2026-11-14
+**First release:** 2026-11-13
 
 ![PEAR Figure 1: simulated robot rollouts and rewards train a reasoning policy that transfers to a real robot.](assets/papers/pear.png)
 
-*Jiaming Tang et al., PEAR technical report, Figure 1. [Figure source](https://mit-han-lab.github.io/pear-blog/paper.pdf#page=1).*
+*Jiaming Tang et al., PEAR technical report, Figure 1. [Figure source](https://arxiv.org/html/2611.18562v1#S0.F1).*
 
 Uses simulated robot-task success to update a reasoning model through reinforcement learning, retaining improved control in its weights. The authors report transfer to unseen tasks and a real dual-arm robot without demonstration training.
 
-[Paper](https://mit-han-lab.github.io/pear-blog/paper.pdf) · [Code](https://github.com/mit-han-lab/pear)
+[Paper](https://arxiv.org/abs/2611.18562) · [Code](https://github.com/mit-han-lab/pear)
 
 [Models](https://huggingface.co/collections/mit-han-lab/pear) · [Project](https://mit-han-lab.github.io/pear-blog/)
+
+### ESI: An Embodied Self-Improvement Flywheel for LLM-VLA Agents
+
+**First release:** 2026-11-13
+
+![ESI: execution records update prompt guidance, shared skills and VLA policy weights.](assets/papers/esi.png)
+
+*Yundi Cai et al., ESI v2, Figure 2. [Figure source](https://arxiv.org/html/2611.18176v2#S3.F2).*
+
+Uses LLM–VLA interaction to improve decision prompts, reusable skills, and the action policy together. Effective corrections and student actions, including useful segments of failed episodes, feed later training and collection rounds.
+
+[Paper](https://arxiv.org/abs/2611.18176) · [Code](https://github.com/ZERITH-ZLab/ESI)
+
+[Models](https://huggingface.co/Embodied-Self-Improvement/ESI-pi05) · [Project](https://zerith.com/blog/esi/)
 
 ### ACE-CaP-0: Real-World Code-as-Policies in the Era of Experience
 
@@ -45,6 +59,18 @@ Refines reusable robot-control programs from physical execution feedback, reques
 Turns successful navigation-agent sessions into training examples for the VLA that the agent calls. Task-level relabeling and progress masking retain useful actions while reducing detours, so the adapted VLA navigates without the planner.
 
 [Paper](https://arxiv.org/abs/2611.16246)
+
+### Agentic-Teacher: An Agentic Data Engine for Failure-Driven VLA Post-Training
+
+**First release:** 2026-11-12
+
+![Agentic-Teacher: failure diagnosis, validated code-policy repairs, trajectory curation and VLA post-training.](assets/papers/agentic-teacher.png)
+
+*Gongyue Teng et al., Agentic-Teacher, Figure 1. [Figure source](https://arxiv.org/html/2611.17394v1#S1.F1).*
+
+Diagnoses VLA failures and develops reusable code policies that generate corrective demonstrations. It filters and adapts those trajectories before post-training a VLA that runs without the coding agent.
+
+[Paper](https://arxiv.org/abs/2611.17394)
 
 ### JustRUA: A Controlled Study of GPT-6 Robot-Use Agents
 
@@ -306,7 +332,7 @@ Coding agents improve a frozen teacher’s tools, memory and recovery, keeping e
 
 *Pranjal Aggarwal and Sean Welleck, Gym-Anything for Robotics, Figure 2. CC BY 4.0. [Figure source](https://arxiv.org/html/2610.40565v1#S1.F2).*
 
-Builds audited robot simulations and evaluates agents that retain notes and code across attempts. The code release now includes 175 training-task selections alongside the 25-task RoboWorld test split.
+Builds audited robot simulations and evaluates agents that retain notes and code across attempts. The latest code release adds wrist and head views and makes robot cameras the default observations.
 
 [Paper](https://arxiv.org/abs/2610.40565) · [Code](https://github.com/gym-anything/robotics)
 

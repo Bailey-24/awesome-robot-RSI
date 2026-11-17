@@ -388,11 +388,12 @@ All figures are authentic method/overview figures from the linked official paper
 ## pear
 
 - File: [pear.png](papers/pear.png)
-- Paper: [Training Reasoning Models in Simulation to Natively Use Real Robots](https://mit-han-lab.github.io/pear-blog/paper.pdf)
+- Paper: [Training Reasoning Models in Simulation to Natively Use Real Robots](https://arxiv.org/abs/2611.18562)
 - Credit: Jiaming Tang, Zhuoyang Zhang, Junxian Guo, Fangzhou Zhao, Yilong Zhao, Zekai Li, Xingyang Li, Yuyang Zhao, Song Bian, Zhijian Liu and Song Han. PEAR technical report, Figure 1.
-- Source: https://mit-han-lab.github.io/pear-blog/paper.pdf#page=1
-- Original license: no separate figure license is stated in the author-hosted report or project page; original authors retain rights. The code repository’s Apache-2.0 license is not applied to this paper figure.
-- Changes: rendered only the original Figure 1 region from PDF page 1 at 216 dpi, without redrawing or altering its content.
+- Source: https://arxiv.org/html/2611.18562v1#S0.F1
+- Original PDF: https://arxiv.org/pdf/2611.18562v1#page=1
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: rendered only original Figure 1 from PDF page 1 at 216 dpi, without redrawing or altering content. The canonical arXiv rendering is byte-identical to the retained image originally extracted from the former author-hosted PDF (now unavailable). The code repository’s Apache-2.0 license is not applied to this paper figure.
 
 ## ace-cap-0
 
@@ -569,3 +570,25 @@ All figures are authentic method/overview figures from the linked official paper
 - Original asset: https://arxiv.org/html/2610.22471v2/icl_protocol.svg
 - Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
 - Changes: None; original figure asset downloaded unchanged.
+
+## esi
+
+- File: [esi.png](papers/esi.png)
+- Paper: [ESI: An Embodied Self-Improvement Flywheel for LLM-VLA Agents](https://arxiv.org/abs/2611.18176)
+- Credit: Yundi Cai et al., ESI v2, Figure 2.
+- Authors: Yundi Cai, Zihan Wang, Chenxi Han, Yi Cheng, Houde Liu, Zilei Wang.
+- Source: https://arxiv.org/html/2611.18176v2#S3.F2
+- Original asset: https://arxiv.org/html/2611.18176v2/flywheel_overview_v2.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: none; original method figure downloaded unchanged.
+
+## agentic-teacher
+
+- File: [agentic-teacher.png](papers/agentic-teacher.png)
+- Paper: [Agentic-Teacher: An Agentic Data Engine for Failure-Driven VLA Post-Training](https://arxiv.org/abs/2611.17394)
+- Credit: Gongyue Teng et al., Agentic-Teacher, Figure 1.
+- Authors: Gongyue Teng, Yuqing Xie, Yixian Zhang, Feng Gao, Shu'ang Yu, Jiaji Rao, Sukai Wang, Guanghui Ren, Ya Zhang, Maoqing Yao, Yu Wang, Chao Yu, Xinlei Chen.
+- Source: https://arxiv.org/html/2611.17394v1#S1.F1
+- Original asset: https://arxiv.org/html/2611.17394v1/Agentic-Teacher_overview.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: none; original method figure downloaded unchanged.

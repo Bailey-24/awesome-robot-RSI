@@ -1,7 +1,7 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-16",
+  "updated_at": "2026-11-17",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
@@ -9,9 +9,9 @@
       "id": "pear",
       "name": "PEAR",
       "title": "Training Reasoning Models in Simulation to Natively Use Real Robots",
-      "date": "2026-11-14",
-      "date_source": "https://mit-han-lab.github.io/pear-blog/paper.pdf",
-      "date_evidence": "The author-hosted PDF states “Preprint. November 14, 2026.” Code and model releases are dated November 13; these are distinct from the technical report date. No arXiv identifier is linked by the official report, project or code README at verification.",
+      "date": "2026-11-13",
+      "date_source": "https://arxiv.org/abs/2611.18562",
+      "date_evidence": "arXiv submission history: v1 Friday, November 13, 2026 at 18:59:02 UTC. The report date printed by a later PDF build is not the first public release date.",
       "authors": [
         "Jiaming Tang",
         "Zhuoyang Zhang",
@@ -31,7 +31,7 @@
       "setting": "Qwen3.8-27B trained in LIBERO and on two RoboDojo tasks; zero-shot evaluations include LIBERO perturbations, RoboLab-120 and a physical dual-arm YAM.",
       "evidence": "Section 3.2 explicitly updates model parameters from simulated execution rewards using GRPO-style advantages and score-centering correction. This is persistent policy improvement during training, not a claim of autonomous weight updates on the deployed robot. Author-reported LIBERO success rises from 1.6% to 74.4%; the final model succeeds in 18/30 physical YAM trials (12/20 pickup, 6/10 alignment) versus 0/30 for the base model. The real-world sample is small. Paper RoboDojo results cover only general pickup and align blocks (71.2% and 78.8% success after training); these are not an official full-track leaderboard rank, Score or success rate. Simulator and model logos in Figure 1 illustrate the infrastructure; the reported training uses LIBERO and RoboDojo, not every pictured environment/model.",
       "links": {
-        "paper": "https://mit-han-lab.github.io/pear-blog/paper.pdf",
+        "paper": "https://arxiv.org/abs/2611.18562",
         "code": "https://github.com/mit-han-lab/pear",
         "models": "https://huggingface.co/collections/mit-han-lab/pear",
         "project": "https://mit-han-lab.github.io/pear-blog/"
@@ -39,19 +39,24 @@
       "figure": {
         "path": "assets/papers/pear.png",
         "alt": "PEAR Figure 1: simulated robot rollouts and rewards train a reasoning policy that transfers to a real robot.",
-        "source": "https://mit-han-lab.github.io/pear-blog/paper.pdf#page=1",
+        "source": "https://arxiv.org/html/2611.18562v1#S0.F1",
         "credit": "Jiaming Tang et al., PEAR technical report, Figure 1.",
         "extraction": "Rendered only the original Figure 1 region from PDF page 1 at 216 dpi; no redrawing or content changes.",
-        "license_note": "No separate license for the author-hosted paper figure is stated; original authors retain rights. The code repository Apache-2.0 license is not assumed to relicense this paper figure."
+        "license_note": "The canonical arXiv paper uses the arXiv perpetual non-exclusive distribution license. The code repository Apache-2.0 license is not applied to the paper figure.",
+        "original_url": "https://arxiv.org/pdf/2611.18562v1#page=1",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "verification": "Rendering Figure 1 from the canonical arXiv v1 PDF with the same crop and resolution produces byte-identical PNG output (SHA-256 0901b895cd66fe2f73760042a4b8526e4178e580f8b86af4842ac7eaa6777863). Existing image retained."
       },
       "sources": [
-        "https://mit-han-lab.github.io/pear-blog/paper.pdf",
         "https://mit-han-lab.github.io/pear-blog/",
         "https://github.com/mit-han-lab/pear/tree/f32aa1f7c2ec9c3f45630cc9f8541b3201e8e087",
-        "https://huggingface.co/collections/mit-han-lab/pear"
+        "https://huggingface.co/collections/mit-han-lab/pear",
+        "https://arxiv.org/abs/2611.18562",
+        "https://arxiv.org/html/2611.18562v1",
+        "https://github.com/mit-han-lab/pear/commit/d604856a1b16fdccd47e22a27d4dd935e3a62014"
       ],
       "source_catalogue": "Awesome-Robot-Use-Agent commit 8d83da39f75dc6c7669fade870f345e17e69b422; verified against original report and actual code/weights.",
-      "checked_at": "2026-11-15",
+      "checked_at": "2026-11-17",
       "resource_releases": {
         "code_commit": "f32aa1f7c2ec9c3f45630cc9f8541b3201e8e087",
         "code_date": "2026-11-13",
@@ -62,6 +67,13 @@
           "mit-han-lab/Qwen3.8-27B-PEAR-NVFP4"
         ],
         "model_note": "All three public model repositories contain actual safetensors shards; no model/figure license inferred from the code license."
+      },
+      "previous_release_information": {
+        "checked_at": "2026-11-15",
+        "paper": "https://mit-han-lab.github.io/pear-blog/paper.pdf",
+        "date": "2026-11-14",
+        "date_evidence": "The author-hosted PDF states “Preprint. November 14, 2026.” Code and model releases are dated November 13; these are distinct from the technical report date. No arXiv identifier is linked by the official report, project or code README at verification.",
+        "note": "Historical author-hosted report information; replaced after the author README switched to arXiv and the old PDF returned HTTP 404."
       }
     },
     {
@@ -342,10 +354,10 @@
       "title": "Gym-Anything for Robotics: Scaling physical simulations with digital agents",
       "date": "2026-10-29",
       "category": "Evaluation",
-      "summary": "Builds audited robot simulations and evaluates agents that retain notes and code across attempts. The code release now includes 175 training-task selections alongside the 25-task RoboWorld test split.",
+      "summary": "Builds audited robot simulations and evaluates agents that retain notes and code across attempts. The latest code release adds wrist and head views and makes robot cameras the default observations.",
       "loop": "Execute robot attempts in a simulation → retain notes and code in context → reset to the same start → revise subsequent attempts. Separately, creation and audit agents iteratively repair simulation and task code and share lessons across simulations.",
       "setting": "RoboWorld: 25 simulations, 175 training environments and 25 test environments; robot manipulation, mobile and humanoid embodiments in simulation.",
-      "evidence": "Section 5 studies persistent in-context learning across three attempts, qualitative coaching from a privileged teacher, and transfer from privileged experience. Learning experiments use 11 simulations; code-generated demonstrations train pi0.5 on two gift-box tasks. Initial frontier agents complete no test tasks. These simulation studies do not establish broad real-world transfer. The November 12 code commit expands the training manifest from 25 to 175 distinct selections over 25 simulations while preserving the original prefix; this releases the remaining 150 training selections described by the benchmark. Some added selections use revised task-set contracts, so the code-release scope is kept separate from the paper’s original evaluation protocol.",
+      "evidence": "Section 5 studies persistent in-context learning across three attempts, qualitative coaching from a privileged teacher, and transfer from privileged experience. Learning experiments use 11 simulations; code-generated demonstrations train pi0.5 on two gift-box tasks. Initial frontier agents complete no test tasks. These simulation studies do not establish broad real-world transfer. The November 12 code commit expands the training manifest from 25 to 175 distinct selections over 25 simulations while preserving the original prefix; this releases the remaining 150 training selections described by the benchmark. Some added selections use revised task-set contracts, so the code-release scope is kept separate from the paper’s original evaluation protocol. The November 16 code release adds robot-mounted wrist/head views and defaults; the released camera protocol and hardware geometry are kept distinct from the paper evaluation.",
       "links": {
         "paper": "https://arxiv.org/abs/2610.40565",
         "code": "https://github.com/gym-anything/robotics",
@@ -372,7 +384,9 @@
         "https://github.com/gym-anything/robotics/commit/983fe1a9df95aeb7874c03094f928ec1542d5870",
         "https://github.com/gym-anything/robotics/blob/983fe1a9df95aeb7874c03094f928ec1542d5870/benchmarks/roboworld/splits/train.json",
         "https://github.com/gym-anything/robotics/blob/983fe1a9df95aeb7874c03094f928ec1542d5870/benchmarks/roboworld/splits/test.json",
-        "https://github.com/gym-anything/robotics/blob/983fe1a9df95aeb7874c03094f928ec1542d5870/benchmarks/roboworld/README.md"
+        "https://github.com/gym-anything/robotics/blob/983fe1a9df95aeb7874c03094f928ec1542d5870/benchmarks/roboworld/README.md",
+        "https://github.com/gym-anything/robotics/commit/bcf1df833283d13a69da154f45935ce28467faf0",
+        "https://github.com/gym-anything/robotics/commit/c3847172fe56375b98a5597f187216c21bd76b56"
       ],
       "foundational": false,
       "related_releases": [
@@ -389,6 +403,13 @@
           "additional_training_selections": 150,
           "date_note": "Date uses the Git committer timestamp (November 12); the author timestamp is November 11. This is a code release, not a paper revision.",
           "note": "The preceding commit listed 25 training selections; all 25 remain unchanged as the prefix of the expanded 175-entry manifest. The update adds the remaining six training selections per simulation, with task-set implementations and some revised contracts. Test tasks remain the 25 hardest tasks used in the paper. Revised training contracts are not presented as new paper evaluation results or a new trajectory dataset."
+        },
+        {
+          "date": "2026-11-16",
+          "name": "Robot-mounted wrist/head cameras and robot-camera defaults",
+          "source": "https://github.com/gym-anything/robotics/commit/bcf1df833283d13a69da154f45935ce28467faf0",
+          "preceding_camera_release": "https://github.com/gym-anything/robotics/commit/c3847172fe56375b98a5597f187216c21bd76b56",
+          "note": "Code adds robot-mounted wrist and head views where supported and defaults policy observations to robot cameras. In the affected Panda simulations, D405 cases/brackets are installed irrespective of selected image streams, keeping physical geometry/mass consistent between camera selections. This release changes the code observation/physical setup; it is not a paper revision, a new trajectory dataset or a new benchmark score."
         }
       ]
     },
@@ -2603,6 +2624,97 @@
       "source_catalogue": "Official RoboDojo-Sim Agent entry and author report/code; verified via arXiv submission history and frozen-package protocol.",
       "checked_at": "2026-11-16",
       "updated": "2026-10-19"
+    },
+    {
+      "id": "esi",
+      "category": "Policy & skill learning",
+      "summary": "Uses LLM–VLA interaction to improve decision prompts, reusable skills, and the action policy together. Effective corrections and student actions, including useful segments of failed episodes, feed later training and collection rounds.",
+      "loop": "Collect shared LLM/VLA execution records → review difficulties to refine prompts and skill interfaces → retain locally effective teacher corrections and student continuations → post-train the VLA → redeploy updated components for the next collection round.",
+      "setting": "Ten selected RoboDojo manipulation tasks with twenty scheduled cases per task; paper v2 also reports matched and rollback analyses.",
+      "evidence": "The v2 method explicitly retains prompt, skill-catalog and VLA-parameter changes across rounds while LLM weights stay fixed. The reported 62.03 mean Score and 49.41% mean task success concern a ten-task subset, not an official full-track leaderboard entry. The matched evaluation reports 197 completed cases of 200 scheduled, with 41 shared successes, 55 baseline-failure/ESI-success, 18 regressions and 83 shared failures; do not treat incomplete cases as a complete 200-case result. Released code supports staged collection, annotation, training and evaluation; automatic prompt updates are optional and disabled by default. The author-released Orbax checkpoint contains actual params shards.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.18176",
+        "code": "https://github.com/ZERITH-ZLab/ESI",
+        "models": "https://huggingface.co/Embodied-Self-Improvement/ESI-pi05",
+        "project": "https://zerith.com/blog/esi/"
+      },
+      "title": "ESI: An Embodied Self-Improvement Flywheel for LLM-VLA Agents",
+      "date": "2026-11-13",
+      "date_source": "https://arxiv.org/abs/2611.18176",
+      "authors": [
+        "Yundi Cai",
+        "Zihan Wang",
+        "Chenxi Han",
+        "Yi Cheng",
+        "Houde Liu",
+        "Zilei Wang"
+      ],
+      "figure": {
+        "path": "assets/papers/esi.png",
+        "alt": "ESI: execution records update prompt guidance, shared skills and VLA policy weights.",
+        "source": "https://arxiv.org/html/2611.18176v2#S3.F2",
+        "original_url": "https://arxiv.org/html/2611.18176v2/flywheel_overview_v2.png",
+        "credit": "Yundi Cai et al., ESI v2, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.18176",
+        "https://arxiv.org/html/2611.18176v2",
+        "https://github.com/ZERITH-ZLab/ESI",
+        "https://huggingface.co/Embodied-Self-Improvement/ESI-pi05",
+        "https://zerith.com/blog/esi/"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 566ed8a2a874694e8034004ca5466a28ff9a657f; verified with original paper and author resources.",
+      "checked_at": "2026-11-17",
+      "updated": "2026-11-16",
+      "resource_releases": {
+        "model_revision": "95779bb3877e464523bf6ad8ac8ae9cde2e3eeb6",
+        "model_format": "Orbax checkpoint with params data shards and normalization assets; model weights verified through Hugging Face file metadata.",
+        "code_note": "Released staged training/evaluation scripts; optional prompt evolution is disabled by default."
+      }
+    },
+    {
+      "id": "agentic-teacher",
+      "category": "Policy & skill learning",
+      "summary": "Diagnoses VLA failures and develops reusable code policies that generate corrective demonstrations. It filters and adapts those trajectories before post-training a VLA that runs without the coding agent.",
+      "loop": "Evaluate the VLA and localize failure states → iteratively write and validate repair code using execution feedback → reuse accepted policies as corrective-data generators → inject action noise, remove idle frames and apply base-model loss filtering → combine with successful VLA rollouts → post-train and retain the updated VLA.",
+      "setting": "Simulation post-training on LIBERO-10, MetaWorld-10 and three RoboCasa tasks.",
+      "evidence": "The primary paper reports pi0 success increasing 79.4% to 87.8% on LIBERO-10, 80.4% to 90.6% on MetaWorld-10, and 0% to 30.0% on three RoboCasa tasks. The code-policy generators are validated by execution; successful trajectories are further filtered for learnable supervision. These are author simulation results, not physical-robot trials or official RoboDojo ranks. No corresponding released Code, Data or Models URL is verified in the primary paper.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.17394"
+      },
+      "title": "Agentic-Teacher: An Agentic Data Engine for Failure-Driven VLA Post-Training",
+      "date": "2026-11-12",
+      "date_source": "https://arxiv.org/abs/2611.17394",
+      "authors": [
+        "Gongyue Teng",
+        "Yuqing Xie",
+        "Yixian Zhang",
+        "Feng Gao",
+        "Shu'ang Yu",
+        "Jiaji Rao",
+        "Sukai Wang",
+        "Guanghui Ren",
+        "Ya Zhang",
+        "Maoqing Yao",
+        "Yu Wang",
+        "Chao Yu",
+        "Xinlei Chen"
+      ],
+      "figure": {
+        "path": "assets/papers/agentic-teacher.png",
+        "alt": "Agentic-Teacher: failure diagnosis, validated code-policy repairs, trajectory curation and VLA post-training.",
+        "source": "https://arxiv.org/html/2611.17394v1#S1.F1",
+        "original_url": "https://arxiv.org/html/2611.17394v1/Agentic-Teacher_overview.png",
+        "credit": "Gongyue Teng et al., Agentic-Teacher, Figure 1.",
+        "license": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.17394",
+        "https://arxiv.org/html/2611.17394v1"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 566ed8a2a874694e8034004ca5466a28ff9a657f; verified with original paper and author resources.",
+      "checked_at": "2026-11-17"
     }
   ],
   "leaderboard": {
