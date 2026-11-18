@@ -592,3 +592,13 @@ All figures are authentic method/overview figures from the linked official paper
 - Original asset: https://arxiv.org/html/2611.17394v1/Agentic-Teacher_overview.png
 - Original license: https://creativecommons.org/licenses/by/4.0/
 - Changes: none; original method figure downloaded unchanged.
+
+## h2e-v3
+
+- File: [h2e-v3.png](papers/h2e-v3.png)
+- Paper: [What Can a VLA Learn from the Agent That Calls It? Task-Level Experience Distillation for Embodied Navigation](https://arxiv.org/abs/2611.16246)
+- Credit: Jinze Tao, Yuxiao Han, Kangkang Dong, Yancong Wei, Xiaojun Zhu, Bokui Chen and Houde Liu. H2E v3, Figure 2.
+- Source: https://arxiv.org/html/2611.16246v3#S2.F2
+- Original asset: https://arxiv.org/html/2611.16246v3/fig_pipeline.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: none; original v3 figure downloaded unchanged. Earlier v1 figure and its attribution are retained for the historical version.

@@ -52,11 +52,11 @@ Refines reusable robot-control programs from physical execution feedback, reques
 
 **First release:** 2026-11-12
 
-![Overview of H2E. (a) On training scenes, a frontier LLM planner with a place graph and its own tools calls the base VLA. We keep the sessions that reach the goal. (b) H2E turns one kept session into labels. ① Every step ](assets/papers/h2e.png)
+![H2E v3: two rounds of successful-session distillation, with the second round restarting the agent from the adapted VLA’s training-scene failures.](assets/papers/h2e-v3.png)
 
-*Jinze Tao et al., H2E, Figure 2. [Figure source](https://arxiv.org/html/2611.16246v1#S2.F2).*
+*Jinze Tao et al., H2E v3, Figure 2. [Figure source](https://arxiv.org/html/2611.16246v3#S2.F2).*
 
-Turns successful navigation-agent sessions into training examples for the VLA that the agent calls. Task-level relabeling and progress masking retain useful actions while reducing detours, so the adapted VLA navigates without the planner.
+Distills successful navigation-agent sessions into a VLA through task-level relabeling and progress masking. A second round collects recovery sessions from the adapted VLA’s training-scene failures, then updates it to navigate without the planner.
 
 [Paper](https://arxiv.org/abs/2611.16246)
 
@@ -248,7 +248,7 @@ Evaluates long-horizon robot control and improvement from reusable demonstration
 
 *Kewei Zhang, Juncheng Ma et al., PyRUA-DataFarm, Figure 3. CC BY 4.0. [Figure source](https://arxiv.org/html/2611.05320v1#S4.F3).*
 
-Refines and retains robot expert programs from simulator feedback to generate training demonstrations. The November 11 code release adds user-feedback repairs with re-frozen task contracts and fresh hidden-seed admission checks.
+Refines and retains robot expert programs from simulator feedback to generate training demonstrations. The quickstart now includes one real stack-cups recording with three camera views and robot states.
 
 [Paper](https://arxiv.org/abs/2611.05320) · [Code](https://github.com/DAGroup-PKU/PyRUA-Lean/tree/DataFarm)
 

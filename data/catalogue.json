@@ -1,7 +1,7 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-17",
+  "updated_at": "2026-11-18",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
@@ -81,7 +81,7 @@
       "title": "PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data",
       "date": "2026-11-03",
       "category": "Code & harness evolution",
-      "summary": "Refines and retains robot expert programs from simulator feedback to generate training demonstrations. The November 11 code release adds user-feedback repairs with re-frozen task contracts and fresh hidden-seed admission checks.",
+      "summary": "Refines and retains robot expert programs from simulator feedback to generate training demonstrations. The quickstart now includes one real stack-cups recording with three camera views and robot states.",
       "loop": "Write a task expert → run development-seed rollouts → use the frozen judge’s verdicts to revise controller code → evaluate on hidden held-out seeds → retain verified experts and handoff records → generate and independently review demonstrations for policy training.",
       "setting": "Simulator task reconstruction from one real calibration episode; action-labelled video rendering; pi0.5 policies trained on 100 episodes per task and evaluated on five physical PiPER-arm tasks in the original and an unseen appearance condition.",
       "evidence": "Section 4.4 describes controller-program development through judged simulator rollouts followed by hidden-seed admission. The released expert harness persists handoff bundles and a content-addressed verified-expert library. Figure 3 and Appendix A route rejections to the responsible stage while retaining prior attempts. Author-reported real-robot outcomes are 93/100 successes for farm-data policies versus 84/100 for teleoperation data, and 87/100 versus 46/100 under an unseen tablecloth and coloured lighting. These results evaluate generated-data training, not repeated autonomous policy-weight improvement or demonstrated long-term capability-layer evolution. The separate capability-evolution module’s example evaluator verifies software behaviour only. The November 11 code release adds user-feedback repair phases: a separate reviewer amends only requirements addressed by quoted user feedback, freezes a new contract and hidden admission seeds, and a producer revises the expert in a new version. These are documented role instructions and software capabilities; the release does not change the original paper date or establish new official benchmark gains.",
@@ -127,7 +127,10 @@
         "https://github.com/DAGroup-PKU/PyRUA-Lean/commit/d788388632848576cc33f0de3775df2cefa76b80",
         "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/d788388632848576cc33f0de3775df2cefa76b80/docs/reference/phased-runs.md",
         "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/d788388632848576cc33f0de3775df2cefa76b80/prompts/phases/R1u.md",
-        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/d788388632848576cc33f0de3775df2cefa76b80/prompts/phases/P2u.md"
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/d788388632848576cc33f0de3775df2cefa76b80/prompts/phases/P2u.md",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/commit/9131ba7b14860ca2230a9390b2764ce949d268a8",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/9131ba7b14860ca2230a9390b2764ce949d268a8/examples/quickstart/README.md",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/9131ba7b14860ca2230a9390b2764ce949d268a8/examples/quickstart/SHA256SUMS"
       ],
       "foundational": false,
       "related_releases": [
@@ -138,6 +141,25 @@
           "documentation": "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/d788388632848576cc33f0de3775df2cefa76b80/docs/reference/phased-runs.md",
           "note": "Adds per-role model selection, R1u contract amendment and P2u expert repair, URDF-package inspection, LeRobot episode import, and explicit object-placement modes. User-feedback requirements are quoted with provenance; only addressed contract parts change. The independent reviewer is instructed to freeze a new version and fresh hidden admission seeds, while prior contracts, admissions and failures remain in the record. This is a code release, not a new paper or paper revision.",
           "evaluation_note": "The release documents a RealBot-01 adaptation case in which five of twelve capture attempts were admitted and all five later passed blind H3 render review. These are author-reported data-generation admission outcomes, not physical task success rates or official RoboDojo metrics."
+        },
+        {
+          "date": "2026-11-17",
+          "name": "One real stack-cups input episode for the quickstart",
+          "source": "https://github.com/DAGroup-PKU/PyRUA-Lean/commit/9131ba7b14860ca2230a9390b2764ce949d268a8",
+          "documentation": "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/9131ba7b14860ca2230a9390b2764ce949d268a8/examples/quickstart/README.md",
+          "checksums": "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/9131ba7b14860ca2230a9390b2764ce949d268a8/examples/quickstart/SHA256SUMS",
+          "files": [
+            "episode/cam_high.mp4",
+            "episode/cam_left_wrist.mp4",
+            "episode/cam_right_wrist.mp4",
+            "episode/puppet_state.json",
+            "episode/camera_parameters.json",
+            "episode/quality.json",
+            "request.txt",
+            "request.zh.txt"
+          ],
+          "verification": "All eight released input/request files fetched from the pinned commit and independently checked against the published SHA256SUMS.",
+          "note": "One physical AgileX Cobot Magic/Piper-arm input episode, not a generated demonstration dataset or new policy evaluation. The three videos have 673 frames at 30 fps, approximately 22.4 seconds. The example request asks for five reviewed simulated episodes and stops before rendering/training; these are requested outputs, not five already-released generated episodes. Camera intrinsics were read from current online nodes at export time and do not establish the historical episode calibration; cross-camera extrinsics are absent. No Data badge is added for this quickstart input example."
         }
       ]
     },
@@ -1953,10 +1975,10 @@
     {
       "id": "h2e",
       "category": "Navigation",
-      "summary": "Turns successful navigation-agent sessions into training examples for the VLA that the agent calls. Task-level relabeling and progress masking retain useful actions while reducing detours, so the adapted VLA navigates without the planner.",
-      "loop": "Run planner-assisted navigation in training scenes → retain sessions that reach the goal → relabel all motions under the original instruction, mask regressive steps and label stops → update VLA LoRA adapters and waypoint head → evaluate the VLA alone.",
-      "setting": "REVERIE-CE navigation; all 3,189 validation-unseen episodes with an 8B VLA.",
-      "evidence": "Success filtering and progress masks use execution outcomes to produce persistent weight updates. The paper reports success rising from 35.0% to 44.9%; the vision encoder and base LLM remain frozen. This is experience distillation, not online self-modification at deployment.",
+      "summary": "Distills successful navigation-agent sessions into a VLA through task-level relabeling and progress masking. A second round collects recovery sessions from the adapted VLA’s training-scene failures, then updates it to navigate without the planner.",
+      "loop": "Run a planner with the base VLA on training scenes → retain successful sessions and relabel every motion under the task instruction, mask regressive steps and label stops → update LoRA adapters and the action head → run the adapted VLA on training episodes → restart the planner from selected failure states → retain recovery sessions → post-train a second round → evaluate the VLA alone on unseen scenes.",
+      "setting": "An 8B NavGPT VLA; all 3,189 REVERIE-CE and 6,932 NavRAG-CE validation-unseen episodes, plus separate R2R-CE and held-out agent comparisons.",
+      "evidence": "The latest v3 paper extends one-round experience distillation with failure-driven recovery collection. From 935 training episodes, it selects 216 failure states in 18 training scenes and collects 435 successful recovery sessions from 648 attempts. Training mixes agent sessions, DART and R2R-CE at 0.60/0.25/0.15, updating LoRA adapters and the action head while the vision encoder and base LLM remain frozen. Author-reported REVERIE-CE success is 35.0% for the base, 44.9% after one round and 50.6% after two rounds; NavRAG-CE is 21.3%, 31.8% and 32.4%, respectively, without collecting agent sessions on NavRAG-CE. These are success rates on their declared navigation splits, not RoboDojo scores or official leaderboard ranks. The v3 conclusion says code, adapters and sessions will be released upon acceptance; no promised resource is displayed as available.",
       "title": "What Can a VLA Learn from the Agent That Calls It? Task-Level Experience Distillation for Embodied Navigation",
       "date": "2026-11-12",
       "date_source": "https://arxiv.org/abs/2611.16246",
@@ -1973,19 +1995,39 @@
         "paper": "https://arxiv.org/abs/2611.16246"
       },
       "figure": {
-        "path": "assets/papers/h2e.png",
-        "alt": "Overview of H2E. (a) On training scenes, a frontier LLM planner with a place graph and its own tools calls the base VLA. We keep the sessions that reach the goal. (b) H2E turns one kept session into labels. ① Every step ",
-        "source": "https://arxiv.org/html/2611.16246v1#S2.F2",
-        "original_url": "https://arxiv.org/html/2611.16246v1/fig_pipeline.png",
-        "credit": "Jinze Tao et al., H2E, Figure 2.",
+        "path": "assets/papers/h2e-v3.png",
+        "alt": "H2E v3: two rounds of successful-session distillation, with the second round restarting the agent from the adapted VLA’s training-scene failures.",
+        "source": "https://arxiv.org/html/2611.16246v3#S2.F2",
+        "original_url": "https://arxiv.org/html/2611.16246v3/fig_pipeline.png",
+        "credit": "Jinze Tao et al., H2E v3, Figure 2.",
         "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
       },
       "sources": [
         "https://arxiv.org/abs/2611.16246",
-        "https://arxiv.org/html/2611.16246v1"
+        "https://arxiv.org/html/2611.16246v1",
+        "https://arxiv.org/html/2611.16246v3"
       ],
       "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-16"
+      "checked_at": "2026-11-18",
+      "previous_versions": [
+        {
+          "version": "v1",
+          "checked_at": "2026-11-16",
+          "summary": "Turns successful navigation-agent sessions into training examples for the VLA that the agent calls. Task-level relabeling and progress masking retain useful actions while reducing detours, so the adapted VLA navigates without the planner.",
+          "loop": "Run planner-assisted navigation in training scenes → retain sessions that reach the goal → relabel all motions under the original instruction, mask regressive steps and label stops → update VLA LoRA adapters and waypoint head → evaluate the VLA alone.",
+          "setting": "REVERIE-CE navigation; all 3,189 validation-unseen episodes with an 8B VLA.",
+          "evidence": "Success filtering and progress masks use execution outcomes to produce persistent weight updates. The paper reports success rising from 35.0% to 44.9%; the vision encoder and base LLM remain frozen. This is experience distillation, not online self-modification at deployment.",
+          "figure": {
+            "path": "assets/papers/h2e.png",
+            "alt": "Overview of H2E. (a) On training scenes, a frontier LLM planner with a place graph and its own tools calls the base VLA. We keep the sessions that reach the goal. (b) H2E turns one kept session into labels. ① Every step ",
+            "source": "https://arxiv.org/html/2611.16246v1#S2.F2",
+            "original_url": "https://arxiv.org/html/2611.16246v1/fig_pipeline.png",
+            "credit": "Jinze Tao et al., H2E, Figure 2.",
+            "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+          }
+        }
+      ],
+      "updated": "2026-11-17"
     },
     {
       "id": "justrua",
