@@ -602,3 +602,14 @@ All figures are authentic method/overview figures from the linked official paper
 - Original asset: https://arxiv.org/html/2611.16246v3/fig_pipeline.png
 - Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
 - Changes: none; original v3 figure downloaded unchanged. Earlier v1 figure and its attribution are retained for the historical version.
+
+## amp1-v2
+
+- File: [amp1.png](papers/amp1.png)
+- Paper: [On Agentic Manipulation Policies](https://arxiv.org/abs/2611.09892)
+- Credit: Chen Chen et al., AMP1 v2, Figure 6.
+- Authors: Chen Chen, Omid Bagherieh, Naveen Nikamanth Appiah Balaji, Jesse T. Gonzalez, Negin Heravi, Fahad Islam, Xueting Li, Jean-Baptiste Regli, Kejia Ren, Petr Švec, David J. Yoon, Matthias Müller and Vladlen Koltun.
+- Source: https://arxiv.org/html/2611.09892v2#S4.F6
+- Original asset: https://arxiv.org/html/2611.09892v2/fig6_amp_agent_harness.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: none; v2 original asset is byte-for-byte identical to the retained v1 figure. The earlier attribution is kept for provenance.

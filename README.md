@@ -14,7 +14,7 @@ Recent papers on robot recursive self-improvement.
 
 *Jiaming Tang et al., PEAR technical report, Figure 1. [Figure source](https://arxiv.org/html/2611.18562v1#S0.F1).*
 
-Uses simulated robot-task success to update a reasoning model through reinforcement learning, retaining improved control in its weights. The authors report transfer to unseen tasks and a real dual-arm robot without demonstration training.
+Uses simulated robot-task success to update a reasoning model through reinforcement learning, retaining improved control in its weights. Released models now include a DFlash2 draft checkpoint for the PEAR policy.
 
 [Paper](https://arxiv.org/abs/2611.18562) · [Code](https://github.com/mit-han-lab/pear)
 
@@ -168,9 +168,9 @@ Locates manipulation failures in an object-centric task graph and selectively re
 
 ![AMP1 harness. The generalist AI model controls the robot via Python code that runs in a persistent interpreter. The generalist model builds its own skills on top of the harness SDK. The SDK’s functions fall into three gr](assets/papers/amp1.png)
 
-*Chen Chen et al., AMP1, Figure 6. [Figure source](https://arxiv.org/html/2611.09892v1#S4.F6).*
+*Chen Chen et al., AMP1 v2, Figure 6. [Figure source](https://arxiv.org/html/2611.09892v2#S4.F6).*
 
-Extends direct manipulation control with a persistent store of lessons from earlier robot episodes. The AMP1+ extension reuses this experience across practice rounds and tasks while keeping the underlying model fixed.
+Extends direct manipulation control with a persistent store of lessons from earlier robot episodes. The revised study tests memory formats, transfer from stronger to weaker models, and practice batch sizes.
 
 [Paper](https://arxiv.org/abs/2611.09892) · [Code](https://github.com/apple-aiml-research/ml-amp)
 
@@ -472,7 +472,7 @@ Keeps revisable user and scene memory for personalized robot assistance. Reflect
 
 *SenseNova et al., embodied-intelligence report, Figure 2. [Figure source](https://arxiv.org/html/2610.22471v2#S2.F2).*
 
-Studies how training-set experience becomes frozen knowledge packages for robot control across multiple benchmarks. The packages retain task guidance, executable helpers, and recovery checks, with separate real-robot evaluations. [RoboDojo-Sim Agent (w/o Open) #5 · Score 57.10 · Success 49.17% (2026-11-16).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Studies how training-set experience becomes frozen knowledge packages for robot control across multiple benchmarks. The release adds 336 harness-ablation trajectory records and an initial SIMPLE integration. [RoboDojo-Sim Agent (w/o Open) #5 · Score 57.10 · Success 49.17% (2026-11-16).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.22471) · [Code](https://github.com/OpenSenseNova/SenseNova-RoboRSI)
 

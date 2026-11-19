@@ -1,7 +1,7 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-18",
+  "updated_at": "2026-11-19",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
@@ -26,7 +26,7 @@
         "Song Han"
       ],
       "category": "Policy & skill learning",
-      "summary": "Uses simulated robot-task success to update a reasoning model through reinforcement learning, retaining improved control in its weights. The authors report transfer to unseen tasks and a real dual-arm robot without demonstration training.",
+      "summary": "Uses simulated robot-task success to update a reasoning model through reinforcement learning, retaining improved control in its weights. Released models now include a DFlash2 draft checkpoint for the PEAR policy.",
       "loop": "Sample multi-round robot rollouts → assign terminal binary success rewards → compute group-relative advantages and asynchronous policy-gradient updates → retain updated model weights → collect new rollouts; add harder tasks as transferred success supplies a learning signal.",
       "setting": "Qwen3.8-27B trained in LIBERO and on two RoboDojo tasks; zero-shot evaluations include LIBERO perturbations, RoboLab-120 and a physical dual-arm YAM.",
       "evidence": "Section 3.2 explicitly updates model parameters from simulated execution rewards using GRPO-style advantages and score-centering correction. This is persistent policy improvement during training, not a claim of autonomous weight updates on the deployed robot. Author-reported LIBERO success rises from 1.6% to 74.4%; the final model succeeds in 18/30 physical YAM trials (12/20 pickup, 6/10 alignment) versus 0/30 for the base model. The real-world sample is small. Paper RoboDojo results cover only general pickup and align blocks (71.2% and 78.8% success after training); these are not an official full-track leaderboard rank, Score or success rate. Simulator and model logos in Figure 1 illustrate the infrastructure; the reported training uses LIBERO and RoboDojo, not every pictured environment/model.",
@@ -53,7 +53,9 @@
         "https://huggingface.co/collections/mit-han-lab/pear",
         "https://arxiv.org/abs/2611.18562",
         "https://arxiv.org/html/2611.18562v1",
-        "https://github.com/mit-han-lab/pear/commit/d604856a1b16fdccd47e22a27d4dd935e3a62014"
+        "https://github.com/mit-han-lab/pear/commit/d604856a1b16fdccd47e22a27d4dd935e3a62014",
+        "https://github.com/mit-han-lab/pear/commit/faff47472fe2a4f66ed6503e9a711fa239ced223",
+        "https://huggingface.co/mit-han-lab/Qwen3.8-27B-PEAR-DFlash2"
       ],
       "source_catalogue": "Awesome-Robot-Use-Agent commit 8d83da39f75dc6c7669fade870f345e17e69b422; verified against original report and actual code/weights.",
       "checked_at": "2026-11-17",
@@ -64,9 +66,10 @@
         "models": [
           "mit-han-lab/Qwen3.8-27B-PEAR",
           "mit-han-lab/Qwen3.8-27B-PEAR-LIBERO_only",
-          "mit-han-lab/Qwen3.8-27B-PEAR-NVFP4"
+          "mit-han-lab/Qwen3.8-27B-PEAR-NVFP4",
+          "mit-han-lab/Qwen3.8-27B-PEAR-DFlash2"
         ],
-        "model_note": "All three public model repositories contain actual safetensors shards; no model/figure license inferred from the code license."
+        "model_note": "The three policy checkpoints and the additional DFlash2 draft checkpoint contain actual safetensors artifacts. The DFlash2 repository includes an Apache-2.0 LICENSE; other model/figure licenses are not inferred from it."
       },
       "previous_release_information": {
         "checked_at": "2026-11-15",
@@ -74,7 +77,18 @@
         "date": "2026-11-14",
         "date_evidence": "The author-hosted PDF states “Preprint. November 14, 2026.” Code and model releases are dated November 13; these are distinct from the technical report date. No arXiv identifier is linked by the official report, project or code README at verification.",
         "note": "Historical author-hosted report information; replaced after the author README switched to arXiv and the old PDF returned HTTP 404."
-      }
+      },
+      "related_releases": [
+        {
+          "date": "2026-11-19",
+          "name": "DFlash2 speculative-decoding draft checkpoint",
+          "source": "https://github.com/mit-han-lab/pear/commit/faff47472fe2a4f66ed6503e9a711fa239ced223",
+          "models": "https://huggingface.co/mit-han-lab/Qwen3.8-27B-PEAR-DFlash2",
+          "revision": "25ecb81d5f895f0787e3d4c4cda836e064a2867f",
+          "license": "https://huggingface.co/mit-han-lab/Qwen3.8-27B-PEAR-DFlash2/blob/25ecb81d5f895f0787e3d4c4cda836e064a2867f/LICENSE",
+          "note": "Model metadata and config identify DFlash2DraftModel and a real model.safetensors file. This is a decoding companion for PEAR, not a newly evaluated robot policy or a new RSI result. The author README reports the NVFP4 model decoding at 921 tokens/s on one GB300 and 262 tokens/s on one RTX 5090 with this checkpoint; these are author hardware-specific throughput measurements, not independently reproduced robot task scores."
+        }
+      ]
     },
     {
       "id": "pyrua-datafarm",
@@ -2301,10 +2315,10 @@
     {
       "id": "amp1",
       "category": "Code & harness evolution",
-      "summary": "Extends direct manipulation control with a persistent store of lessons from earlier robot episodes. The AMP1+ extension reuses this experience across practice rounds and tasks while keeping the underlying model fixed.",
+      "summary": "Extends direct manipulation control with a persistent store of lessons from earlier robot episodes. The revised study tests memory formats, transfer from stronger to weaker models, and practice batch sizes.",
       "loop": "Execute practice episodes → compare success/failure → write reusable lessons into persistent memory → freeze/read accumulated memory on unseen layouts → continue with later tasks.",
       "setting": "RoboDojo memory-extension experiments, with separate zero-shot RoboLab/CaP-Gym and physical AMP1 evaluations.",
-      "evidence": "Figure 4 and the experience-learning section establish across-episode memory for AMP1+, distinct from the zero-shot AMP1 baseline. The paper reports 26.4% to 84.1% success in its few-shot RoboDojo protocol, selecting the best of five practice runs per task; continual learning is separately measured in one task permutation. These are author experiments, not current official board scores.",
+      "evidence": "Figure 4 and the experience-learning section establish across-episode memory for AMP1+, distinct from the zero-shot AMP1 baseline. The paper reports 26.4% to 84.1% success in its few-shot RoboDojo protocol, selecting the best of five practice runs per task; continual learning is separately measured in one task permutation. These are author experiments, not current official board scores. The v2 revision adds Figure 4L–N controlled experiments: restricting memory to code-only or notes-only during practice yields 81.0% and 82.2% versus 84.1% unrestricted, while post-hoc restrictions at evaluation yield 64.0% and 71.2%. Memory written by Opus 5.5 transfers to Sonnet 5.5, Qwen3.8-Flash-Next and Haiku 5.5 with author-reported success rates of 69.5%, 45.4% and 42.7%, compared with their own-practice rates of 47.2%, 19.3% and 19.8%. These variants retain the five-practice-run selection protocol. Batch sizes 1–8 at a fixed 48-episode practice budget achieve 80.4%–84.1%. All are paper experiments, not current official board submissions. Figure 4 explicitly dates its reference leaderboard to November 6, 2026.",
       "title": "On Agentic Manipulation Policies",
       "date": "2026-11-06",
       "date_source": "https://arxiv.org/abs/2611.09892",
@@ -2331,19 +2345,38 @@
       "figure": {
         "path": "assets/papers/amp1.png",
         "alt": "AMP1 harness. The generalist AI model controls the robot via Python code that runs in a persistent interpreter. The generalist model builds its own skills on top of the harness SDK. The SDK’s functions fall into three gr",
-        "source": "https://arxiv.org/html/2611.09892v1#S4.F6",
-        "original_url": "https://arxiv.org/html/2611.09892v1/fig6_amp_agent_harness.png",
-        "credit": "Chen Chen et al., AMP1, Figure 6.",
-        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+        "source": "https://arxiv.org/html/2611.09892v2#S4.F6",
+        "original_url": "https://arxiv.org/html/2611.09892v2/fig6_amp_agent_harness.png",
+        "credit": "Chen Chen et al., AMP1 v2, Figure 6.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "verification": "The original v2 Figure 6 asset is byte-for-byte identical to the retained v1 image; no image edit or new rendering."
       },
       "sources": [
         "https://arxiv.org/abs/2611.09892",
         "https://arxiv.org/html/2611.09892v1",
         "https://github.com/apple-aiml-research/ml-amp",
-        "https://apple-aiml-research.github.io/ml-amp/"
+        "https://apple-aiml-research.github.io/ml-amp/",
+        "https://arxiv.org/html/2611.09892v2"
       ],
       "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-16"
+      "checked_at": "2026-11-19",
+      "previous_versions": [
+        {
+          "version": "v1",
+          "checked_at": "2026-11-16",
+          "summary": "Extends direct manipulation control with a persistent store of lessons from earlier robot episodes. The AMP1+ extension reuses this experience across practice rounds and tasks while keeping the underlying model fixed.",
+          "evidence": "Figure 4 and the experience-learning section establish across-episode memory for AMP1+, distinct from the zero-shot AMP1 baseline. The paper reports 26.4% to 84.1% success in its few-shot RoboDojo protocol, selecting the best of five practice runs per task; continual learning is separately measured in one task permutation. These are author experiments, not current official board scores.",
+          "figure": {
+            "path": "assets/papers/amp1.png",
+            "alt": "AMP1 harness. The generalist AI model controls the robot via Python code that runs in a persistent interpreter. The generalist model builds its own skills on top of the harness SDK. The SDK’s functions fall into three gr",
+            "source": "https://arxiv.org/html/2611.09892v1#S4.F6",
+            "original_url": "https://arxiv.org/html/2611.09892v1/fig6_amp_agent_harness.png",
+            "credit": "Chen Chen et al., AMP1, Figure 6.",
+            "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+          }
+        }
+      ],
+      "updated": "2026-11-18"
     },
     {
       "id": "a2-meas",
@@ -2569,7 +2602,7 @@
     {
       "id": "sensenova-roborsi",
       "category": "Evaluation",
-      "summary": "Studies how training-set experience becomes frozen knowledge packages for robot control across multiple benchmarks. The packages retain task guidance, executable helpers, and recovery checks, with separate real-robot evaluations.",
+      "summary": "Studies how training-set experience becomes frozen knowledge packages for robot control across multiple benchmarks. The release adds 336 harness-ablation trajectory records and an initial SIMPLE integration.",
       "loop": "Inspect training demonstrations or explore training scenes → retain guidance, code and recovery knowledge → freeze a hashed read-only package → start each test episode in a fresh session → evaluate standard and extended execution budgets.",
       "setting": "12 embodied benchmarks, harness ablations and demonstrations on eight physical platforms.",
       "evidence": "The original report and linked SenseNova-RoboRSI code specify persistent knowledge packages, with fixed weights and no information written back across test episodes. Task-specific ICL coverage and up to 10x step budgets limit comparison to standard-budget baselines. Its paper/repository all-five-category RoboDojo 60.08 Score/54.17% success is distinct from the current official w/o-Open snapshot. The separate 27B model preview technical report is still forthcoming; do not treat this empirical paper as that model report.",
@@ -2661,11 +2694,43 @@
         "https://github.com/OpenSenseNova/SenseNova-RoboRSI",
         "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages",
         "https://huggingface.co/sensenova/sensenova-roborsi-27b-preview",
-        "https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence"
+        "https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence",
+        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/5dfb9293730616cd14edc2064616bf0e4bba6397",
+        "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Log",
+        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/b946f15bb1bc8d4d5ad6990c351338d2dad15dc0",
+        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/b946f15bb1bc8d4d5ad6990c351338d2dad15dc0/benchmarks/simple/README.md",
+        "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages/tree/main/simple/v1.0.0"
       ],
       "source_catalogue": "Official RoboDojo-Sim Agent entry and author report/code; verified via arXiv submission history and frozen-package protocol.",
       "checked_at": "2026-11-16",
-      "updated": "2026-10-19"
+      "updated": "2026-10-19",
+      "related_releases": [
+        {
+          "date": "2026-11-18",
+          "name": "RoboDojo harness-ablation trajectory records",
+          "source": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/5dfb9293730616cd14edc2064616bf0e4bba6397",
+          "data": "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Log",
+          "revision": "baf3ab6d0e4e724149b696f9dc915952e2f42e53",
+          "archive": "RoboDojo_ablation.zip",
+          "archive_bytes": 60112920160,
+          "archive_sha256": "0557a6caf3fe09bb783fc6411973b955c2c500a66f425e6241881829e58ab9b2",
+          "records": 336,
+          "tasks": 42,
+          "methods": 8,
+          "completed_records": 334,
+          "incomplete_records": 2,
+          "note": "The public dataset card reports sanitized interaction records for eight harness variants, 42 records per method, with conversations, rollout events, actions, observations and media. Two records remain explicitly incomplete; collection completion is not task success. Some media references are unresolved. These are official-evaluation trajectories, so using them for training would leak the corresponding test cases. The collection is an analysis artifact rather than a runnable environment or a fresh policy benchmark result. Its retained LICENSE_STATUS states that no redistribution license is specified for the collection; the repository-level MIT metadata label does not override this collection-specific status. File existence, 60,112,920,160-byte size and published LFS SHA-256 were verified through the public HF API; the 56 GiB archive was not downloaded or its contents independently audited."
+        },
+        {
+          "date": "2026-11-18",
+          "name": "Initial SIMPLE integration and linked experience package",
+          "source": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/b946f15bb1bc8d4d5ad6990c351338d2dad15dc0",
+          "documentation": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/b946f15bb1bc8d4d5ad6990c351338d2dad15dc0/benchmarks/simple/README.md",
+          "package": "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages/tree/main/simple/v1.0.0",
+          "date_note": "Git committer date is November 18; the README announcement is dated November 19. This is a code integration release, not a paper revision.",
+          "note": "Author documentation describes a native evaluation integration candidate with a provider/adapter, worker, source export and API-agent preset. Historical image/source evidence is imported from an earlier checkout; recipient-host and successful-task acceptance remain pending. It does not reproduce historical paper scores and does not ship the historical ICL package inside the API-agent scaffold. The separately linked simple/v1.0.0 package has actual task/payload directories and manifests in the HF dataset; its pre-existing publication date is not relabeled as a new dataset release."
+        }
+      ]
     },
     {
       "id": "esi",
