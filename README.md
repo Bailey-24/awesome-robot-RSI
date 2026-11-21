@@ -14,7 +14,7 @@ Recent papers on robot recursive self-improvement.
 
 *Jiaming Tang et al., PEAR technical report, Figure 1. [Figure source](https://arxiv.org/html/2611.18562v1#S0.F1).*
 
-Uses simulated robot-task success to update a reasoning model through reinforcement learning, retaining improved control in its weights. Released models now include a DFlash2 draft checkpoint for the PEAR policy.
+Uses simulated robot-task success to update a reasoning model through reinforcement learning, retaining improved control in its weights. The code release adds MTP speculative decoding for training rollouts alongside the DFlash2 deployment draft checkpoint.
 
 [Paper](https://arxiv.org/abs/2611.18562) · [Code](https://github.com/mit-han-lab/pear)
 

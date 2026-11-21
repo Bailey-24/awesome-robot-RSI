@@ -1,7 +1,7 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-19",
+  "updated_at": "2026-11-21",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
@@ -26,7 +26,7 @@
         "Song Han"
       ],
       "category": "Policy & skill learning",
-      "summary": "Uses simulated robot-task success to update a reasoning model through reinforcement learning, retaining improved control in its weights. Released models now include a DFlash2 draft checkpoint for the PEAR policy.",
+      "summary": "Uses simulated robot-task success to update a reasoning model through reinforcement learning, retaining improved control in its weights. The code release adds MTP speculative decoding for training rollouts alongside the DFlash2 deployment draft checkpoint.",
       "loop": "Sample multi-round robot rollouts → assign terminal binary success rewards → compute group-relative advantages and asynchronous policy-gradient updates → retain updated model weights → collect new rollouts; add harder tasks as transferred success supplies a learning signal.",
       "setting": "Qwen3.8-27B trained in LIBERO and on two RoboDojo tasks; zero-shot evaluations include LIBERO perturbations, RoboLab-120 and a physical dual-arm YAM.",
       "evidence": "Section 3.2 explicitly updates model parameters from simulated execution rewards using GRPO-style advantages and score-centering correction. This is persistent policy improvement during training, not a claim of autonomous weight updates on the deployed robot. Author-reported LIBERO success rises from 1.6% to 74.4%; the final model succeeds in 18/30 physical YAM trials (12/20 pickup, 6/10 alignment) versus 0/30 for the base model. The real-world sample is small. Paper RoboDojo results cover only general pickup and align blocks (71.2% and 78.8% success after training); these are not an official full-track leaderboard rank, Score or success rate. Simulator and model logos in Figure 1 illustrate the infrastructure; the reported training uses LIBERO and RoboDojo, not every pictured environment/model.",
@@ -55,7 +55,9 @@
         "https://arxiv.org/html/2611.18562v1",
         "https://github.com/mit-han-lab/pear/commit/d604856a1b16fdccd47e22a27d4dd935e3a62014",
         "https://github.com/mit-han-lab/pear/commit/faff47472fe2a4f66ed6503e9a711fa239ced223",
-        "https://huggingface.co/mit-han-lab/Qwen3.8-27B-PEAR-DFlash2"
+        "https://huggingface.co/mit-han-lab/Qwen3.8-27B-PEAR-DFlash2",
+        "https://github.com/mit-han-lab/pear/commit/fd583e97d352b615bee7b083d7f2f441e60d0156",
+        "https://github.com/mit-han-lab/pear/blob/2a81b2eec95e6e6f19c3fc0a80a38aebb40a30e2/examples/models/qwen3_8_27b_pear/train/README.md"
       ],
       "source_catalogue": "Awesome-Robot-Use-Agent commit 8d83da39f75dc6c7669fade870f345e17e69b422; verified against original report and actual code/weights.",
       "checked_at": "2026-11-17",
@@ -87,6 +89,14 @@
           "revision": "25ecb81d5f895f0787e3d4c4cda836e064a2867f",
           "license": "https://huggingface.co/mit-han-lab/Qwen3.8-27B-PEAR-DFlash2/blob/25ecb81d5f895f0787e3d4c4cda836e064a2867f/LICENSE",
           "note": "Model metadata and config identify DFlash2DraftModel and a real model.safetensors file. This is a decoding companion for PEAR, not a newly evaluated robot policy or a new RSI result. The author README reports the NVFP4 model decoding at 921 tokens/s on one GB300 and 262 tokens/s on one RTX 5090 with this checkpoint; these are author hardware-specific throughput measurements, not independently reproduced robot task scores."
+        },
+        {
+          "date": "2026-11-20",
+          "name": "MTP speculative decoding for training rollouts",
+          "source": "https://github.com/mit-han-lab/pear/commit/fd583e97d352b615bee7b083d7f2f441e60d0156",
+          "code": "https://github.com/mit-han-lab/pear/tree/2a81b2eec95e6e6f19c3fc0a80a38aebb40a30e2",
+          "documentation": "https://github.com/mit-han-lab/pear/blob/2a81b2eec95e6e6f19c3fc0a80a38aebb40a30e2/examples/models/qwen3_8_27b_pear/train/README.md",
+          "note": "Released training recipes enable MTP speculative decoding by default with three draft tokens per step; SPECULATIVE_TOKENS=0 disables it. The base model MTP layer remains frozen, separate from the RL-updated actor and from the DFlash2 deployment draft checkpoint. Implementations include verification and drafter kernels for Hopper and Blackwell. The author README reports approximately 40% faster end-to-end training without disclosing a corresponding new robot evaluation; this throughput claim has not been independently reproduced and is not a RoboDojo Score or success rate."
         }
       ]
     },
