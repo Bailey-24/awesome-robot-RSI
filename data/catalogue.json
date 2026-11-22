@@ -1,7 +1,7 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-21",
+  "updated_at": "2026-11-22",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
@@ -105,7 +105,7 @@
       "title": "PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data",
       "date": "2026-11-03",
       "category": "Code & harness evolution",
-      "summary": "Refines and retains robot expert programs from simulator feedback to generate training demonstrations. The quickstart now includes one real stack-cups recording with three camera views and robot states.",
+      "summary": "Refines and retains robot expert programs from simulator feedback to generate training demonstrations. Released code adds chained SolarRenderer windows for rendering multi-view demonstration videos.",
       "loop": "Write a task expert → run development-seed rollouts → use the frozen judge’s verdicts to revise controller code → evaluate on hidden held-out seeds → retain verified experts and handoff records → generate and independently review demonstrations for policy training.",
       "setting": "Simulator task reconstruction from one real calibration episode; action-labelled video rendering; pi0.5 policies trained on 100 episodes per task and evaluated on five physical PiPER-arm tasks in the original and an unseen appearance condition.",
       "evidence": "Section 4.4 describes controller-program development through judged simulator rollouts followed by hidden-seed admission. The released expert harness persists handoff bundles and a content-addressed verified-expert library. Figure 3 and Appendix A route rejections to the responsible stage while retaining prior attempts. Author-reported real-robot outcomes are 93/100 successes for farm-data policies versus 84/100 for teleoperation data, and 87/100 versus 46/100 under an unseen tablecloth and coloured lighting. These results evaluate generated-data training, not repeated autonomous policy-weight improvement or demonstrated long-term capability-layer evolution. The separate capability-evolution module’s example evaluator verifies software behaviour only. The November 11 code release adds user-feedback repair phases: a separate reviewer amends only requirements addressed by quoted user feedback, freezes a new contract and hidden admission seeds, and a producer revises the expert in a new version. These are documented role instructions and software capabilities; the release does not change the original paper date or establish new official benchmark gains.",
@@ -154,7 +154,10 @@
         "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/d788388632848576cc33f0de3775df2cefa76b80/prompts/phases/P2u.md",
         "https://github.com/DAGroup-PKU/PyRUA-Lean/commit/9131ba7b14860ca2230a9390b2764ce949d268a8",
         "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/9131ba7b14860ca2230a9390b2764ce949d268a8/examples/quickstart/README.md",
-        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/9131ba7b14860ca2230a9390b2764ce949d268a8/examples/quickstart/SHA256SUMS"
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/9131ba7b14860ca2230a9390b2764ce949d268a8/examples/quickstart/SHA256SUMS",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/commit/a0417de2039ab136fe2cc1e4732aacbdbac2f6a9",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/a0417de2039ab136fe2cc1e4732aacbdbac2f6a9/src/datafarm/render/solar/README.md",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/a0417de2039ab136fe2cc1e4732aacbdbac2f6a9/configs/render/solar-chain-bidir-v1.json"
       ],
       "foundational": false,
       "related_releases": [
@@ -184,6 +187,16 @@
           ],
           "verification": "All eight released input/request files fetched from the pinned commit and independently checked against the published SHA256SUMS.",
           "note": "One physical AgileX Cobot Magic/Piper-arm input episode, not a generated demonstration dataset or new policy evaluation. The three videos have 673 frames at 30 fps, approximately 22.4 seconds. The example request asks for five reviewed simulated episodes and stops before rendering/training; these are requested outputs, not five already-released generated episodes. Camera intrinsics were read from current online nodes at export time and do not establish the historical episode calibration; cross-camera extrinsics are absent. No Data badge is added for this quickstart input example."
+        },
+        {
+          "date": "2026-11-21",
+          "name": "SolarRenderer chained bidirectional rendering route",
+          "source": "https://github.com/DAGroup-PKU/PyRUA-Lean/commit/a0417de2039ab136fe2cc1e4732aacbdbac2f6a9",
+          "documentation": "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/a0417de2039ab136fe2cc1e4732aacbdbac2f6a9/docs/reference/rendering.md#solarrenderer-chained-bidirectional",
+          "code": "https://github.com/DAGroup-PKU/PyRUA-Lean/tree/a0417de2039ab136fe2cc1e4732aacbdbac2f6a9/src/datafarm/render/solar",
+          "note": "A released optional rendering implementation chains bidirectional MiniMax-H3/SolarRenderer windows, re-anchors static background in the next conditioning frame and cross-fades 16 overlap frames. It preserves the planned carrier-frame mapping; optional hand-over edits affect conditioning frames only and need an accepted same-frame source. External model weights and deployment bindings are required. It produces candidate observations: independent full-episode review and training admission remain necessary, and there is no automatic canary/review gate in this route. This is a code release, not a new paper revision, generated dataset, policy evaluation or RSI benchmark gain.",
+          "evaluation_note": "Author documentation reports blind-review acceptance for five of five weigh-apple videos when appearance hand-over occurs seven frames after the display change; a later hand-over fails four of five. These are limited rendering-review outcomes, not physical robot task success rates. No independent reproduction was performed.",
+          "license_note": "The author documentation identifies SolarRenderer code as Apache-2.0 and states that MiniMax-H3 weight/output restrictions still apply; the DataFarm code license does not override upstream model terms."
         }
       ]
     },

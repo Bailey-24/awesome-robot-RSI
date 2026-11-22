@@ -248,7 +248,7 @@ Evaluates long-horizon robot control and improvement from reusable demonstration
 
 *Kewei Zhang, Juncheng Ma et al., PyRUA-DataFarm, Figure 3. CC BY 4.0. [Figure source](https://arxiv.org/html/2611.05320v1#S4.F3).*
 
-Refines and retains robot expert programs from simulator feedback to generate training demonstrations. The quickstart now includes one real stack-cups recording with three camera views and robot states.
+Refines and retains robot expert programs from simulator feedback to generate training demonstrations. Released code adds chained SolarRenderer windows for rendering multi-view demonstration videos.
 
 [Paper](https://arxiv.org/abs/2611.05320) · [Code](https://github.com/DAGroup-PKU/PyRUA-Lean/tree/DataFarm)
 
