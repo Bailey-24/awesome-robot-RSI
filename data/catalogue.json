@@ -1,7 +1,7 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-22",
+  "updated_at": "2026-11-23",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
@@ -57,7 +57,8 @@
         "https://github.com/mit-han-lab/pear/commit/faff47472fe2a4f66ed6503e9a711fa239ced223",
         "https://huggingface.co/mit-han-lab/Qwen3.8-27B-PEAR-DFlash2",
         "https://github.com/mit-han-lab/pear/commit/fd583e97d352b615bee7b083d7f2f441e60d0156",
-        "https://github.com/mit-han-lab/pear/blob/2a81b2eec95e6e6f19c3fc0a80a38aebb40a30e2/examples/models/qwen3_8_27b_pear/train/README.md"
+        "https://github.com/mit-han-lab/pear/blob/2a81b2eec95e6e6f19c3fc0a80a38aebb40a30e2/examples/models/qwen3_8_27b_pear/train/README.md",
+        "https://arxiv.org/html/2611.18562v2"
       ],
       "source_catalogue": "Awesome-Robot-Use-Agent commit 8d83da39f75dc6c7669fade870f345e17e69b422; verified against original report and actual code/weights.",
       "checked_at": "2026-11-17",
@@ -97,8 +98,16 @@
           "code": "https://github.com/mit-han-lab/pear/tree/2a81b2eec95e6e6f19c3fc0a80a38aebb40a30e2",
           "documentation": "https://github.com/mit-han-lab/pear/blob/2a81b2eec95e6e6f19c3fc0a80a38aebb40a30e2/examples/models/qwen3_8_27b_pear/train/README.md",
           "note": "Released training recipes enable MTP speculative decoding by default with three draft tokens per step; SPECULATIVE_TOKENS=0 disables it. The base model MTP layer remains frozen, separate from the RL-updated actor and from the DFlash2 deployment draft checkpoint. Implementations include verification and drafter kernels for Hopper and Blackwell. The author README reports approximately 40% faster end-to-end training without disclosing a corresponding new robot evaluation; this throughput claim has not been independently reproduced and is not a RoboDojo Score or success rate."
+        },
+        {
+          "date": "2026-11-20",
+          "name": "PEAR arXiv v2 training-infrastructure clarification",
+          "source": "https://arxiv.org/html/2611.18562v2",
+          "note": "Appendix A.2 reports approximately 11,000 rollout tokens/s on either eight H100s or four GB300s, using a frozen MTP drafter with three draft tokens and average acceptance length 2.4. It explicitly says the released robot model was trained before MTP support, using about 50,000 H100-equivalent GPU-hours; 30,000 hours with current PEAR is an author estimate, not an observed retraining run. No new robot benchmark evaluation is added. These throughput and compute claims are author-reported and have not been independently reproduced."
         }
-      ]
+      ],
+      "updated": "2026-11-20",
+      "revision_note": "arXiv v2 updates rollout-throughput and MTP support descriptions. First release remains November 13; original Figure 1 is retained with its v1 source attribution."
     },
     {
       "id": "pyrua-datafarm",
@@ -1849,7 +1858,7 @@
       "title": "PhyAgentOS: A Self-Evolving Operating System for Embodied Agents with Decoupled Cognitive Planning and Physical Execution",
       "date": "2026-07-18",
       "category": "Code & harness evolution",
-      "summary": "Turns verified robot sessions into reusable skills and corrective lessons. File-based state and memory connect planning, supervised execution and later task attempts.",
+      "summary": "Turns verified robot sessions into reusable skills and corrective lessons. Version 1.2.0 adds DeepSeek Harness integration, benchmark policy profiles and recovery of retained runtime invocations.",
       "loop": "Compile a goal into an executable session → supervise physical execution and collect evidence → verify semantic completion → consolidate reusable knowledge, corrective lessons and skills → retrieve them for subsequent sessions.",
       "setting": "Simulation, games and physical-robot validation over heterogeneous embodiments; manipulation evaluations include LIBERO, CALVIN and RoboCasa365.",
       "evidence": "The runtime distinguishes execution termination from task success and retains verified experience through epistemic memory without retraining. Games, simulator benchmarks and hardware demonstrations are separate validation levels; support across embodiments is not equivalent to independently reproduced autonomous RSI gains.",
@@ -1885,9 +1894,24 @@
         "https://arxiv.org/html/2607.16636v1",
         "https://arxiv.org/html/2607.16636v1#S3.F3",
         "https://github.com/PhyAgentOS/PhyAgentOS-core",
-        "https://phy-agent-os.net"
+        "https://phy-agent-os.net",
+        "https://github.com/PhyAgentOS/PhyAgentOS-core/releases/tag/v1.2.0",
+        "https://github.com/PhyAgentOS/PhyAgentOS-core/blob/v1.2.0/CHANGELOG.md",
+        "https://pypi.org/project/PhyAgentOS-ai/1.2.0/"
       ],
-      "foundational": false
+      "foundational": false,
+      "related_releases": [
+        {
+          "date": "2026-11-22",
+          "name": "PhyAgentOS v1.2.0",
+          "source": "https://github.com/PhyAgentOS/PhyAgentOS-core/releases/tag/v1.2.0",
+          "code": "https://github.com/PhyAgentOS/PhyAgentOS-core/tree/35d9c6de1b5208533a969dcce0ae763a86561c0c",
+          "package": "https://pypi.org/project/PhyAgentOS-ai/1.2.0/",
+          "documentation": "https://github.com/PhyAgentOS/PhyAgentOS-core/blob/v1.2.0/docs/benchmarks.md#benchmark-skills",
+          "verification": "Actual PyPI wheel downloaded and its SHA-256 verified against PyPI metadata: 61ba5abd8b62bdaea6e208d6a33f534bb3e0364076ea897240822706699522e9. The wheel contains runtime reconciliation code; GitHub release assets include wheel, source archive and SHA256SUMS. No installation or simulator evaluation performed.",
+          "note": "The release adds a DeepSeek Harness Forge plugin, 18 documented policy profiles across RoboTwin 2.0, LIBERO and CALVIN, and retained Action/Session reconciliation. Long-conversation archive checkpoints support resumption. The RoboDojo developer package covers bottle disposal and episode-boundary/consecutive execution, not a full official Agent-track evaluation. These are software capabilities, not independently reproduced RSI gains or new paper results."
+        }
+      ]
     },
     {
       "id": "aspire",
@@ -2625,10 +2649,10 @@
     {
       "id": "sensenova-roborsi",
       "category": "Evaluation",
-      "summary": "Studies how training-set experience becomes frozen knowledge packages for robot control across multiple benchmarks. The release adds 336 harness-ablation trajectory records and an initial SIMPLE integration.",
+      "summary": "Studies how training-set experience becomes frozen knowledge packages for robot control across multiple benchmarks. The related RoboRSI-27B release co-evolves model weights and harnesses using execution feedback and selected teacher trajectories.",
       "loop": "Inspect training demonstrations or explore training scenes → retain guidance, code and recovery knowledge → freeze a hashed read-only package → start each test episode in a fresh session → evaluate standard and extended execution budgets.",
       "setting": "12 embodied benchmarks, harness ablations and demonstrations on eight physical platforms.",
-      "evidence": "The original report and linked SenseNova-RoboRSI code specify persistent knowledge packages, with fixed weights and no information written back across test episodes. Task-specific ICL coverage and up to 10x step budgets limit comparison to standard-budget baselines. Its paper/repository all-five-category RoboDojo 60.08 Score/54.17% success is distinct from the current official w/o-Open snapshot. The separate 27B model preview technical report is still forthcoming; do not treat this empirical paper as that model report.",
+      "evidence": "The original report and linked SenseNova-RoboRSI code specify persistent knowledge packages, with fixed weights and no information written back across test episodes. Task-specific ICL coverage and up to 10x step budgets limit comparison to standard-budget baselines. Its paper/repository all-five-category RoboDojo 60.08 Score/54.17% success is distinct from the current official w/o-Open snapshot. The separate RoboRSI-27B model release has an author guide and weights, while its technical report remains forthcoming; do not treat this empirical paper as that model report. Its author-reported Score 34.7 uses seed 0/layout 0 and a general-purpose harness, not the official board entry for SenseNova-RoboRSI.",
       "title": "Has GPT-6-Astra Achieved Embodied Intelligence?",
       "date": "2026-10-15",
       "date_source": "https://arxiv.org/abs/2610.22471",
@@ -2700,7 +2724,7 @@
         "paper": "https://arxiv.org/abs/2610.22471",
         "code": "https://github.com/OpenSenseNova/SenseNova-RoboRSI",
         "data": "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages",
-        "models": "https://huggingface.co/sensenova/sensenova-roborsi-27b-preview",
+        "models": "https://huggingface.co/sensenova/SenseNova-RoboRSI-27B",
         "project": "https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence"
       },
       "figure": {
@@ -2722,7 +2746,10 @@
         "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Log",
         "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/b946f15bb1bc8d4d5ad6990c351338d2dad15dc0",
         "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/b946f15bb1bc8d4d5ad6990c351338d2dad15dc0/benchmarks/simple/README.md",
-        "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages/tree/main/simple/v1.0.0"
+        "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages/tree/main/simple/v1.0.0",
+        "https://huggingface.co/sensenova/SenseNova-RoboRSI-27B",
+        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/a28ea4d4c723d7d211ba75f751c92164575a619b",
+        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/eab5896c9f5d61f09d0340f2c18ec9725b3145be/docs/sensenova-roborsi-27b.md"
       ],
       "source_catalogue": "Official RoboDojo-Sim Agent entry and author report/code; verified via arXiv submission history and frozen-package protocol.",
       "checked_at": "2026-11-16",
@@ -2752,6 +2779,19 @@
           "package": "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages/tree/main/simple/v1.0.0",
           "date_note": "Git committer date is November 18; the README announcement is dated November 19. This is a code integration release, not a paper revision.",
           "note": "Author documentation describes a native evaluation integration candidate with a provider/adapter, worker, source export and API-agent preset. Historical image/source evidence is imported from an earlier checkout; recipient-host and successful-task acceptance remain pending. It does not reproduce historical paper scores and does not ship the historical ICL package inside the API-agent scaffold. The separately linked simple/v1.0.0 package has actual task/payload directories and manifests in the HF dataset; its pre-existing publication date is not relabeled as a new dataset release."
+        },
+        {
+          "date": "2026-11-23",
+          "name": "SenseNova-RoboRSI-27B model and deployment guide",
+          "source": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/a28ea4d4c723d7d211ba75f751c92164575a619b",
+          "documentation": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/eab5896c9f5d61f09d0340f2c18ec9725b3145be/docs/sensenova-roborsi-27b.md",
+          "models": "https://huggingface.co/sensenova/SenseNova-RoboRSI-27B",
+          "previous_models": "https://huggingface.co/sensenova/sensenova-roborsi-27b-preview",
+          "revision": "48be9e0ae25b000c3bb85b4d1a701da93eeb642d",
+          "license_note": "The model card and author deployment guide state Apache-2.0. This does not change the original paper figure license or the separate trajectory-collection licensing.",
+          "verification": "Hugging Face model API lists twelve actual safetensors shards. The released weight index maps 1,184 tensors across twelve shards and declares 54,713,457,120 bytes; configuration identifies Qwen3_5ForConditionalGeneration. Only metadata, configuration and index were downloaded, not 54.7 GB of weights.",
+          "loop": "Execution feedback guides harness changes; selected teacher trajectories from the revised harness fine-tune the 27B model; model and harness are re-evaluated across three reported rounds.",
+          "note": "Related model release, not a newly published paper or revision of arXiv 2610.22471. Author-reported RoboDojo Score 34.7 versus Preview 10.0 uses seed 0/layout 0 and a general-purpose harness with no task-specific skills; it is not an official full-track ranking and is not a success percentage. The official board row continues to refer to the earlier SenseNova-RoboRSI system. Author physical trials use the same simulation-post-trained checkpoint: Piper pick-and-place 6/10 and Piper X block stacking 9/10. The samples are small and not independently reproduced. VLA2Agent open-loop targets within 50 mm rise from 24.9% to 49.2% on 374 local actions; this is endpoint prediction accuracy, not task success. The guide says the RoboDojo reproduction script will follow leaderboard submission."
         }
       ]
     },

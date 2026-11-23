@@ -472,11 +472,11 @@ Keeps revisable user and scene memory for personalized robot assistance. Reflect
 
 *SenseNova et al., embodied-intelligence report, Figure 2. [Figure source](https://arxiv.org/html/2610.22471v2#S2.F2).*
 
-Studies how training-set experience becomes frozen knowledge packages for robot control across multiple benchmarks. The release adds 336 harness-ablation trajectory records and an initial SIMPLE integration. [RoboDojo-Sim Agent (w/o Open) #5 · Score 57.10 · Success 49.17% (2026-11-16).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Studies how training-set experience becomes frozen knowledge packages for robot control across multiple benchmarks. The related RoboRSI-27B release co-evolves model weights and harnesses using execution feedback and selected teacher trajectories. [RoboDojo-Sim Agent (w/o Open) #5 · Score 57.10 · Success 49.17% (2026-11-16).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.22471) · [Code](https://github.com/OpenSenseNova/SenseNova-RoboRSI)
 
-[Data](https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages) · [Models](https://huggingface.co/sensenova/sensenova-roborsi-27b-preview) · [Project](https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence)
+[Data](https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages) · [Models](https://huggingface.co/sensenova/SenseNova-RoboRSI-27B) · [Project](https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence)
 
 ### EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence
 
@@ -766,7 +766,7 @@ Uses rollout diagnosis to evolve reusable skills and the agent’s context-code 
 
 *Yang Liu et al., PhyAgentOS, Figure 3. [Figure source](https://arxiv.org/html/2607.16636v1#S3.F3).*
 
-Turns verified robot sessions into reusable skills and corrective lessons. File-based state and memory connect planning, supervised execution and later task attempts.
+Turns verified robot sessions into reusable skills and corrective lessons. Version 1.2.0 adds DeepSeek Harness integration, benchmark policy profiles and recovery of retained runtime invocations.
 
 [Paper](https://arxiv.org/abs/2607.16636) · [Code](https://github.com/PhyAgentOS/PhyAgentOS-core)
 
