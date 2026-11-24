@@ -613,3 +613,33 @@ All figures are authentic method/overview figures from the linked official paper
 - Original asset: https://arxiv.org/html/2611.09892v2/fig6_amp_agent_harness.png
 - Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
 - Changes: none; v2 original asset is byte-for-byte identical to the retained v1 figure. The earlier attribution is kept for provenance.
+
+## evoter
+
+- File: [evoter.png](papers/evoter.png)
+- Paper: [EvoTER: Evolving Embodied Agents via Tool-Use Experience and Reflection](https://arxiv.org/abs/2611.27797)
+- Credit: Yingting Zhou, Yuyin Zhou, Yongliang Wang, Haoran Li, Dongbin Zhao. Figure 1.
+- Source: https://arxiv.org/html/2611.27797v1#S2.F1
+- Original asset: https://arxiv.org/html/2611.27797v1/figure1.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: none; original author asset downloaded unchanged.
+
+## navrsi
+
+- File: [navrsi.png](papers/navrsi.png)
+- Paper: [NavRSI: Recursive Harness Self-Improvement for Vision-and-Language Navigation](https://arxiv.org/abs/2611.27499)
+- Credit: Guangzhao Dai, Guoxin Lian, Shuo Wang, Shengbin Yue, Qianru Sun, Xiangbo Shu, Bin Zhu. Figure 2.
+- Source: https://arxiv.org/html/2611.27499v1#S3.F2
+- Original asset: https://arxiv.org/html/2611.27499v1/overview.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: none; original author asset downloaded unchanged.
+
+## robobuilder
+
+- File: [robobuilder.png](papers/robobuilder.png)
+- Paper: [RoboBuilder: Agentic Robot Co-Design with Real-world Video Feedback in the Loop](https://arxiv.org/abs/2611.23855)
+- Credit: Ghadi Nehme, Dahyun Nam, Akshay Govind Srinivasan, Faez Ahmed. Figure 3, hardware-feedback loop panel.
+- Source: https://arxiv.org/html/2611.23855v1#S2.F3
+- Original asset: https://arxiv.org/html/2611.23855v1/fig_loop_cycle.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: none; original author asset downloaded unchanged.

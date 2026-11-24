@@ -6,6 +6,48 @@ Recent papers on robot recursive self-improvement.
 
 ## Papers
 
+### EvoTER: Evolving Embodied Agents via Tool-Use Experience and Reflection
+
+**First release:** 2026-11-20
+
+![EvoTER overview: execution tools and a persistent skill library connected to Explorer, Diagnoser and Validator revision-and-acceptance stages.](assets/papers/evoter.png)
+
+*Yingting Zhou et al., EvoTER, Figure 1. [Figure source](https://arxiv.org/html/2611.27797v1#S2.F1).*
+
+Turns robot execution traces into reusable tool-use skills while keeping model weights fixed. It retains revisions that improve complete-task validation success and continues refining the library from real-robot feedback.
+
+[Paper](https://arxiv.org/abs/2611.27797)
+
+[Project](https://evoter-project.github.io/)
+
+### NavRSI: Recursive Harness Self-Improvement for Vision-and-Language Navigation
+
+**First release:** 2026-11-20
+
+![NavRSI overview showing isolated navigator and designer inputs, harness and experience updates across rounds, and the resulting navigation harness.](assets/papers/navrsi.png)
+
+*Guangzhao Dai et al., NavRSI, Figure 2. CC BY 4.0. [Figure source](https://arxiv.org/html/2611.27499v1#S3.F2).*
+
+Rewrites a frozen navigation model’s harness using execution logs and failure diagnostics. A designer retains effective code changes and optimization notes, while the deployed navigator uses RGB observations and primitive actions.
+
+[Paper](https://arxiv.org/abs/2611.27499)
+
+[Project](https://daiguangzhao.github.io/NavRSI)
+
+### RoboBuilder: Agentic Robot Co-Design with Real-world Video Feedback in the Loop
+
+**First release:** 2026-11-18
+
+![RoboBuilder hardware-feedback loop: simulated pass, physical failure, simulator correction, redesigned robot and successful real crossing.](assets/papers/robobuilder.png)
+
+*Ghadi Nehme et al., RoboBuilder, Figure 3, hardware-feedback loop panel. [Figure source](https://arxiv.org/html/2611.23855v1#S2.F3).*
+
+Benchmarks agents that revise robot hardware, motor programs and simulator code from simulation and physical-test feedback. Videos of real failures drive redesigns that are rebuilt and tested on the same obstacle course.
+
+[Paper](https://arxiv.org/abs/2611.23855) · [Code](https://github.com/ghadinehme/RoboBuilder)
+
+[Data](https://huggingface.co/datasets/DeCoDELab/RoboBuilder) · [Project](https://ghadinehme.com/robobuilder.github.io/)
+
 ### Training Reasoning Models in Simulation to Natively Use Real Robots
 
 **First release:** 2026-11-13

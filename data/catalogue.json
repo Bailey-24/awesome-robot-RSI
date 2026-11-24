@@ -1,7 +1,7 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-23",
+  "updated_at": "2026-11-24",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
@@ -2885,6 +2885,128 @@
       ],
       "source_catalogue": "Awesome-Robot-Use-Agent commit 566ed8a2a874694e8034004ca5466a28ff9a657f; verified with original paper and author resources.",
       "checked_at": "2026-11-17"
+    },
+    {
+      "id": "evoter",
+      "title": "EvoTER: Evolving Embodied Agents via Tool-Use Experience and Reflection",
+      "date": "2026-11-20",
+      "category": "Code & harness evolution",
+      "summary": "Turns robot execution traces into reusable tool-use skills while keeping model weights fixed. It retains revisions that improve complete-task validation success and continues refining the library from real-robot feedback.",
+      "loop": "Explorer records executions → Diagnoser revises the persistent skill library → Validator compares current and candidate libraries on matched complete-task runs in fresh sessions → retain improvements → freeze the final library for testing.",
+      "setting": "RoboCasa365 Target50 with a PandaOmron mobile manipulator, plus short- and long-horizon tasks on a physical Franka arm.",
+      "evidence": "The persistent skill library changes between episodes; model parameters, ordinary tools and harness configuration stay fixed within each evolution phase. Simulation diagnosis may use privileged tools after stagnation, but skill execution and validation use ordinary observations. Author-reported overall success rises from 53.60% to 80.40%; the frozen test set is excluded from update selection. Composite-Unseen refers to VLA training exposure, not an assertion that those task types never enter skill development. Physical long-horizon results use five independent trials per task and are small-sample author experiments, not independent reproduction or RoboDojo leaderboard values.",
+      "authors": [
+        "Yingting Zhou",
+        "Yuyin Zhou",
+        "Yongliang Wang",
+        "Haoran Li",
+        "Dongbin Zhao"
+      ],
+      "date_source": "https://arxiv.org/abs/2611.27797",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.27797",
+        "project": "https://evoter-project.github.io/"
+      },
+      "figure": {
+        "path": "assets/papers/evoter.png",
+        "alt": "EvoTER overview: execution tools and a persistent skill library connected to Explorer, Diagnoser and Validator revision-and-acceptance stages.",
+        "source": "https://arxiv.org/html/2611.27797v1#S2.F1",
+        "credit": "Yingting Zhou et al., EvoTER, Figure 1.",
+        "original_url": "https://arxiv.org/html/2611.27797v1/figure1.png",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "changes": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.27797",
+        "https://arxiv.org/html/2611.27797v1",
+        "https://evoter-project.github.io/"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit ebad04cd90472f5f4061eb900fe1e0458327dafb; checked against original paper and author resources.",
+      "checked_at": "2026-11-24"
+    },
+    {
+      "id": "navrsi",
+      "title": "NavRSI: Recursive Harness Self-Improvement for Vision-and-Language Navigation",
+      "date": "2026-11-20",
+      "category": "Navigation",
+      "summary": "Rewrites a frozen navigation model’s harness using execution logs and failure diagnostics. A designer retains effective code changes and optimization notes, while the deployed navigator uses RGB observations and primitive actions.",
+      "loop": "Run navigation episodes → designer reads execution logs and training-only simulator diagnostics → write candidate harnesses and retained optimization experience → staged evaluation → select and freeze the final harness.",
+      "setting": "R2R-CE, RxR-CE, NavRAG-CE and a Unitree G1 humanoid; frozen navigator and fixed primitive tools.",
+      "evidence": "The designer can revise prompts, agent loops and observation handling but not the navigator model, tools or budgets. Privileged diagnostics are visible only to the designer; the navigator sees RGB/action feedback. Search uses up to 200 R2R-CE training episodes per round, three candidates per round and eight rounds. Final selection uses 1,302 val-unseen development episodes; the remaining 537 val-unseen episodes, including R2R-CE-100, are held out. Thus the reported full-split 85.64% success over all 1,839 val-unseen episodes includes development episodes and is not entirely held-out evaluation. RxR-CE and NavRAG-CE are separate OOD tests. Results are author-reported; no independent reproduction. Code is promised, not yet linked as a real release.",
+      "authors": [
+        "Guangzhao Dai",
+        "Guoxin Lian",
+        "Shuo Wang",
+        "Shengbin Yue",
+        "Qianru Sun",
+        "Xiangbo Shu",
+        "Bin Zhu"
+      ],
+      "date_source": "https://arxiv.org/abs/2611.27499",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.27499",
+        "project": "https://daiguangzhao.github.io/NavRSI"
+      },
+      "figure": {
+        "path": "assets/papers/navrsi.png",
+        "alt": "NavRSI overview showing isolated navigator and designer inputs, harness and experience updates across rounds, and the resulting navigation harness.",
+        "source": "https://arxiv.org/html/2611.27499v1#S3.F2",
+        "credit": "Guangzhao Dai et al., NavRSI, Figure 2. CC BY 4.0.",
+        "original_url": "https://arxiv.org/html/2611.27499v1/overview.png",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "changes": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.27499",
+        "https://arxiv.org/html/2611.27499v1",
+        "https://daiguangzhao.github.io/NavRSI"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit ebad04cd90472f5f4061eb900fe1e0458327dafb; checked against original paper and author resources.",
+      "checked_at": "2026-11-24"
+    },
+    {
+      "id": "robobuilder",
+      "title": "RoboBuilder: Agentic Robot Co-Design with Real-world Video Feedback in the Loop",
+      "date": "2026-11-18",
+      "category": "Evaluation",
+      "summary": "Benchmarks agents that revise robot hardware, motor programs and simulator code from simulation and physical-test feedback. Videos of real failures drive redesigns that are rebuilt and tested on the same obstacle course.",
+      "loop": "Write assembly and motor program → simulate and validate → build and physically test simulated passes → return failure video → persist simulator corrections and redesigned hardware/program → rebuild and retest.",
+      "setting": "Ten physical obstacle courses at three difficulty levels; four coding agents, modular parts, motors and custom 3D-printed components.",
+      "evidence": "Included as a feedback-driven robot co-design evaluation, not as a learned manipulation policy. The paper reports 16,427 simulations, 12,774 distinct designs and 135 physically built robots. One real-feedback redesign round reduces level-1/2 failures from 18 to 5 (72% removed), raising the share of simulated passes that cross physically from 73% to 93%. The 66% figure covers simulated passes across all levels before this loop and is a different denominator. Redesigns see their failure on the same course, so this measures recovery, not transfer to unseen designs. Human assembly and physical testing remain necessary; no independent reproduction or official RoboDojo metric is implied.",
+      "authors": [
+        "Ghadi Nehme",
+        "Dahyun Nam",
+        "Akshay Govind Srinivasan",
+        "Faez Ahmed"
+      ],
+      "date_source": "https://arxiv.org/abs/2611.23855",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.23855",
+        "code": "https://github.com/ghadinehme/RoboBuilder",
+        "data": "https://huggingface.co/datasets/DeCoDELab/RoboBuilder",
+        "project": "https://ghadinehme.com/robobuilder.github.io/"
+      },
+      "figure": {
+        "path": "assets/papers/robobuilder.png",
+        "alt": "RoboBuilder hardware-feedback loop: simulated pass, physical failure, simulator correction, redesigned robot and successful real crossing.",
+        "source": "https://arxiv.org/html/2611.23855v1#S2.F3",
+        "credit": "Ghadi Nehme et al., RoboBuilder, Figure 3, hardware-feedback loop panel.",
+        "original_url": "https://arxiv.org/html/2611.23855v1/fig_loop_cycle.png",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "changes": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.23855",
+        "https://arxiv.org/html/2611.23855v1",
+        "https://ghadinehme.com/robobuilder.github.io/"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit ebad04cd90472f5f4061eb900fe1e0458327dafb; checked against original paper and author resources.",
+      "checked_at": "2026-11-24",
+      "resource_releases": {
+        "code_commit": "43357b805390a009d4014d05f38cf9de3fc7e674",
+        "data_revision": "55b80cf4a125ba760c37f1a4894f7ce37fb64ce1",
+        "note": "Actual simulator, harness and real-world code directories exist. Dataset API lists 91,480 files including robot designs, result JSON and paired simulation/real-run media. File inventory was checked; the complete dataset was not downloaded."
+      }
     }
   ],
   "leaderboard": {
