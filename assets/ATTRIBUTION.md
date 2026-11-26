@@ -643,3 +643,13 @@ All figures are authentic method/overview figures from the linked official paper
 - Original asset: https://arxiv.org/html/2611.23855v1/fig_loop_cycle.png
 - Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
 - Changes: none; original author asset downloaded unchanged.
+
+## sera-v2
+
+- File: [sera-v2.png](papers/sera-v2.png)
+- Paper: [From VLM Planners to Robotic Agents: Self-Evolving Harnesses for History-Dependent Manipulation](https://arxiv.org/abs/2610.29560)
+- Credit: Tingwen Du, Haoyu Guo, Hanxue Zhang, Xuanxu Wang, Junting Dong, Chao Gao, Mingfei Han, Tao Lu, Mulin Yu, Chunhua Shen, Xiaojun Chang and Zhihui Li. SERA v2, Figure 2.
+- Source: https://arxiv.org/html/2610.29560v2#S3.F2
+- Original asset: https://arxiv.org/html/2610.29560v2/method_overview.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: none; original v2 figure downloaded unchanged. Earlier figure and attribution retained for provenance.

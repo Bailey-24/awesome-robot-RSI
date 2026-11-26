@@ -1,7 +1,7 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-24",
+  "updated_at": "2026-11-26",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
@@ -606,29 +606,30 @@
       "title": "From VLM Planners to Robotic Agents: Self-Evolving Harnesses for History-Dependent Manipulation",
       "date": "2026-10-21",
       "category": "Code & harness evolution",
-      "summary": "Improves a planning harness from robot rollouts while keeping the low-level VLA fixed, helping the agent track task history and recover from failures.",
+      "summary": "Improves a planning harness from robot rollouts while keeping the low-level VLA fixed. The revised study adds real-robot tasks with one round of human-reviewed harness corrections.",
       "loop": "Execute with a frozen VLA → summarize task history and failures → edit planning harness → verify and select → freeze for held-out evaluation.",
-      "setting": "Simulation · RoboMME history-dependent manipulation",
-      "evidence": "The selected harness is frozen before held-out testing, while episode context continues to update. The paper reports 51.38% RoboMME success with autonomous selection versus 44.38% without self-evolution. The Apache-2.0 implementation uses an external Codex planner and the released RoboMME grounded-subgoal π0.5 checkpoint; model weights and benchmark assets are downloaded separately. Evaluation is in simulation.",
+      "setting": "RoboMME simulation and four history-dependent tasks on a physical robot.",
+      "evidence": "Simulation autonomous harness selection achieves 51.38% RoboMME success versus 44.38% without evolution, with the selected harness fixed before held-out testing. The v2 real-robot study reports 41/48 successes (85.4%) over four tasks, twelve trials each. This combines post-correction SwingXtimes (10/12) and PatternLock (12/12) with retained initial results for VideoRepick (10/12) and VideoUnmask (9/12). Corrections were proposed from failures by GPT-5.6 and reviewed by humans, with one review/retest round rather than iterative autonomous rollout validation on hardware. Human review, carried-over results and limited trial counts constrain interpretation; results are author-reported, not independently reproduced or official RoboDojo scores.",
       "links": {
         "paper": "https://arxiv.org/abs/2610.29560",
         "project": "https://stevenkkxs.github.io/sera-webpage/",
         "code": "https://github.com/StevenKKXS/SERA"
       },
       "figure": {
-        "path": "assets/papers/sera.png",
-        "alt": "SERA method: a task-history harness around a frozen VLA is revised and selected using rollout feedback.",
-        "source": "https://stevenkkxs.github.io/sera-webpage/",
-        "url": "https://stevenkkxs.github.io/sera-webpage/assets/method_overview.png",
-        "credit": "Tingwen Du et al., From VLM Planners to Robotic Agents: Self-Evolving Harnesses for History-Dependent Manipulation. Core method figure from the official paper/project.",
-        "bytes": 389680,
-        "content_type": "image/png"
+        "path": "assets/papers/sera-v2.png",
+        "alt": "SERA v2 Figure 2: agentic execution with a frozen VLA and rollout-based diagnosis, harness revision, verification and selection.",
+        "source": "https://arxiv.org/html/2610.29560v2#S3.F2",
+        "original_url": "https://arxiv.org/html/2610.29560v2/method_overview.png",
+        "credit": "Tingwen Du et al., SERA v2, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "changes": "None; original v2 author figure downloaded unchanged."
       },
       "sources": [
         "https://arxiv.org/abs/2610.29560",
         "https://arxiv.org/abs/2610.29560",
         "https://github.com/kairunwen/Awesome-Robot-Use-Agent/blob/main/README.md",
-        "https://stevenkkxs.github.io/sera-webpage/"
+        "https://stevenkkxs.github.io/sera-webpage/",
+        "https://arxiv.org/html/2610.29560v2"
       ],
       "foundational": false,
       "authors": [
@@ -645,7 +646,24 @@
         "Xiaojun Chang",
         "Zhihui Li"
       ],
-      "date_source": "https://arxiv.org/abs/2610.29560"
+      "date_source": "https://arxiv.org/abs/2610.29560",
+      "previous_versions": [
+        {
+          "version": "v1",
+          "figure": {
+            "path": "assets/papers/sera.png",
+            "alt": "SERA method: a task-history harness around a frozen VLA is revised and selected using rollout feedback.",
+            "source": "https://stevenkkxs.github.io/sera-webpage/",
+            "url": "https://stevenkkxs.github.io/sera-webpage/assets/method_overview.png",
+            "credit": "Tingwen Du et al., From VLM Planners to Robotic Agents: Self-Evolving Harnesses for History-Dependent Manipulation. Core method figure from the official paper/project.",
+            "bytes": 389680,
+            "content_type": "image/png"
+          },
+          "summary": "Improves a planning harness from robot rollouts while keeping the low-level VLA fixed, helping the agent track task history and recover from failures.",
+          "evidence": "The selected harness is frozen before held-out testing, while episode context continues to update. The paper reports 51.38% RoboMME success with autonomous selection versus 44.38% without self-evolution. The Apache-2.0 implementation uses an external Codex planner and the released RoboMME grounded-subgoal π0.5 checkpoint; model weights and benchmark assets are downloaded separately. Evaluation is in simulation."
+        }
+      ],
+      "updated": "2026-11-25"
     },
     {
       "id": "physrsi-eval",
@@ -723,7 +741,7 @@
         "Cross-embodiment",
         "Simulation & real robots"
       ],
-      "summary": "Shares a 14-tool harness across simulators and real robots. An analysis agent drafts reusable task skills from earlier execution records, with human review before evaluation.",
+      "summary": "Shares general robot-control tools across simulators and physical robots, with optional reusable skills drafted from execution records and reviewed by people. The release adds humanoid and dexterous-hand adapters and a guide for adapting the harness to new platforms.",
       "loop": "Run robot episodes → analyze recorded code, outputs and images → draft evidence-backed Markdown task skills → human review and format checks → retain skills for later evaluation. The earlier Preview used an optimizer to repair task-specific code tools.",
       "evidence": "arXiv v3, Sections 2.4 and E.6, describes 205 retained task skills drafted from earlier run records and reviewed by people. The new shared harness is distinct from HexaShell-TaskTools (the Preview on branch v1.0). Table 6 reports author-run RoboDojo success 85.00% and Score 88.81 with skills, versus 69.92% / 75.73 without skills, under protocols different from the official Preview leaderboard row (46.85% success / 53.18 Score). Physical tests succeed in 76 of 90 episodes. This is human-reviewed skill acquisition, not fully autonomous recursive harness evolution.",
       "links": {
@@ -749,7 +767,9 @@
         "https://arxiv.org/abs/2610.23479",
         "https://arxiv.org/html/2610.23479v3#S2.SS4",
         "https://arxiv.org/html/2610.23479v3#A5.SS6",
-        "https://raw.githubusercontent.com/HexaFuture/HexaShell/e0190ddb757955131578e9f9071f4ee8e7113f7a/assets/paper-figure-2.png"
+        "https://raw.githubusercontent.com/HexaFuture/HexaShell/e0190ddb757955131578e9f9071f4ee8e7113f7a/assets/paper-figure-2.png",
+        "https://github.com/HexaFuture/HexaShell/commit/914d482e1d9fcf9a6b55c5e3b9334eafb534658f",
+        "https://github.com/HexaFuture/HexaShell/blob/914d482e1d9fcf9a6b55c5e3b9334eafb534658f/skills/README.md"
       ],
       "source_catalogue": "Awesome-Robot-Use-Agent README, matching HexaShell row; primary sources checked.",
       "checked_at": "2026-11-05",
@@ -764,6 +784,16 @@
           "report": "https://github.com/HexaFuture/HexaShell/blob/main/hexashell_paper.pdf",
           "previous_code": "https://github.com/HexaFuture/HexaShell/tree/v1.0",
           "note": "Released runtime, sandbox, simulator and real-robot adapters, general tools and human-reviewed task skills; incorporated in arXiv v3 dated November 3. New self-evaluated metrics use protocols different from the official HexaShell-Preview leaderboard entry."
+        },
+        {
+          "date": "2026-11-25",
+          "name": "Expanded benchmark/robot adapters and adaptation guide",
+          "source": "https://github.com/HexaFuture/HexaShell/commit/914d482e1d9fcf9a6b55c5e3b9334eafb534658f",
+          "documentation": "https://github.com/HexaFuture/HexaShell/blob/914d482e1d9fcf9a6b55c5e3b9334eafb534658f/docs/adding_benchmarks_and_robots.md",
+          "report": "https://github.com/HexaFuture/HexaShell/blob/914d482e1d9fcf9a6b55c5e3b9334eafb534658f/hexashell_paper.pdf",
+          "note": "Actual adapters and prompt/skill files added for RoboColiseum Seasons I/II, SIMPLE with Unitree G1, DexJoCo-X with Wuji hands, LIBERO-Pro 2.0 and physical Franka FR3. The guide separates learning, validation and test plans. RoboDojo task skills are no longer included; current runs use an updated general prompt and task card. This code/report release is distinct from arXiv v3 and from the official HexaShell-Preview row.",
+          "evaluation_note": "Author self-evaluation reports GPT-6.2-Astra RoboDojo Score 89.0 and dimension-averaged success 86.2% on public layouts, without task skills. Raw success is 857/1,019 after one unstable episode is excluded; these are different aggregations. Development used seed 0/layouts 0–9, overlapping part of the official protocol, so the author claim of following current rules is not independently certified. These values must not replace official Preview metrics. Other author results include physical FR3 41/50 and PiPER-X 76/90; RoboColiseum Season II entry is described as under review.",
+          "resource_note": "HexaModel-27B results describe fine-tuning on 10,698 successful harness trajectories; weights and training data are explicitly not included in this release, so no Models or Data badge is added."
         }
       ],
       "updated": "2026-11-03"
@@ -3011,12 +3041,12 @@
   ],
   "leaderboard": {
     "source": "https://robodojo-benchmark.com/leaderboard?bench=sim#agent",
-    "checked_at": "2026-11-16",
-    "updated_at": "2026-11-03T00:00:00.000Z",
-    "latest_news_date": "2026-11-15",
+    "checked_at": "2026-11-26",
+    "updated_at": "2026-11-18T00:00:00.000Z",
+    "latest_news_date": "2026-11-22",
     "freshness_note": "updated_at is the timestamp declared in the official JavaScript bundle; checked_at is the date these rankings were verified.",
-    "metric": "Average Score excluding Open (descending); corresponding Success Rate (%) shown separately",
-    "protocol": "The Sim Agent track now averages Generalization, Precision, Long-Horizon and Memory, excluding Open. Generalization is the mean of standard and randomized layouts. Entries are ordered by unrounded Average Score, then Success Rate, then model name; display ranks are ordinal. Scores and success rates are distinct. The official November 14 rule update marks nonconforming task-specific prompts with an asterisk and explanations. Historical all-five-category values and author experiments remain distinct from this snapshot.",
+    "metric": "Average Score excluding Open; official Agent ranks exclude starred entries; Success Rate (%) is separate",
+    "protocol": "Sim Agent metrics average Generalization, Precision, Long-Horizon and Memory, excluding Open. Generalization averages standard and randomized layouts. Official Agent ranks sort unrounded Score, Success Rate and model name after excluding starred entries; starred scores remain visible but have no rank. Historical catalogue ordinal positions and author experiments are separate from this current official ranking.",
     "protocol_url": "https://robodojo-benchmark.com/leaderboard/protocol",
     "rows": [
       {
@@ -3025,7 +3055,7 @@
         "type": "Agent",
         "links": {},
         "note": "New official leaderboard entry; no verified primary paper or persistent self-improvement mechanism is linked by the board. Not automatically added to the paper collection.",
-        "rank": 1,
+        "rank": null,
         "score": 79.5,
         "success_rate": 74.96,
         "dimensions": {
@@ -3053,10 +3083,12 @@
             79.4975,
             74.96125
           ]
-        }
+        },
+        "ranking_status": "unranked",
+        "ranking_note": "Official starred entry; excluded from Agent ranking under the current track rules."
       },
       {
-        "rank": 2,
+        "rank": null,
         "name": "Q0-Preview",
         "team": "Qoo Tech",
         "score": 73.2,
@@ -3093,7 +3125,9 @@
             74.2,
             68.87
           ]
-        }
+        },
+        "ranking_status": "unranked",
+        "ranking_note": "Official starred entry; excluded from Agent ranking under the current track rules."
       },
       {
         "name": "Agent-as-Policy",
@@ -3101,7 +3135,7 @@
         "type": "Agent",
         "links": {},
         "note": "New official leaderboard entry; no verified primary paper or persistent self-improvement mechanism is linked by the board. Not automatically added to the paper collection.",
-        "rank": 3,
+        "rank": null,
         "score": 63.46,
         "success_rate": 54.42,
         "dimensions": {
@@ -3133,10 +3167,12 @@
             62.36,
             54.88
           ]
-        }
+        },
+        "ranking_status": "unranked",
+        "ranking_note": "Official starred entry; excluded from Agent ranking under the current track rules."
       },
       {
-        "rank": 4,
+        "rank": null,
         "name": "GO-3 Nano Preview",
         "team": "AGIBOT",
         "score": 61.95,
@@ -3173,12 +3209,14 @@
             61.9,
             56.42
           ]
-        }
+        },
+        "ranking_status": "unranked",
+        "ranking_note": "Official starred entry; excluded from Agent ranking under the current track rules."
       },
       {
         "name": "SenseNova-RoboRSI",
         "team": "SenseNova",
-        "rank": 5,
+        "rank": null,
         "score": 57.1,
         "success_rate": 49.17,
         "type": "Agent",
@@ -3189,10 +3227,12 @@
           "models": "https://huggingface.co/sensenova/sensenova-roborsi-27b-preview",
           "project": "https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence"
         },
-        "note": "The exact system name and author repository/report establish the correspondence. Official w/o-Open values differ from historical all-five-category report values; the 27B preview is a separate model release, not identified as the leaderboard entry."
+        "note": "The exact system name and author repository/report establish the correspondence. Official w/o-Open values differ from historical all-five-category report values; the 27B preview is a separate model release, not identified as the leaderboard entry.",
+        "ranking_status": "unranked",
+        "ranking_note": "Official starred entry; excluded from Agent ranking under the current track rules."
       },
       {
-        "rank": 6,
+        "rank": null,
         "name": "PyRUA-Lean",
         "team": "PKU DAGroup",
         "score": 53.94,
@@ -3233,10 +3273,12 @@
             55.26,
             50.35
           ]
-        }
+        },
+        "ranking_status": "unranked",
+        "ranking_note": "Official starred entry; excluded from Agent ranking under the current track rules."
       },
       {
-        "rank": 7,
+        "rank": null,
         "name": "HexaShell-Preview",
         "team": "HexaFuture",
         "score": 51.98,
@@ -3277,20 +3319,24 @@
             53.18,
             46.85
           ]
-        }
+        },
+        "ranking_status": "unranked",
+        "ranking_note": "Official starred entry; excluded from Agent ranking under the current track rules."
       },
       {
         "name": "JoyAI-VL",
         "team": "Joy Future Academy",
-        "rank": 8,
+        "rank": null,
         "score": 48.67,
         "success_rate": 41.21,
         "type": "Agent",
         "links": {},
-        "note": "Leaderboard-only entry. No persistent self-improvement mechanism or canonical primary paper verified from the official board; not automatically added to the paper collection."
+        "note": "Leaderboard-only entry. No persistent self-improvement mechanism or canonical primary paper verified from the official board; not automatically added to the paper collection.",
+        "ranking_status": "unranked",
+        "ranking_note": "Official starred entry; excluded from Agent ranking under the current track rules."
       },
       {
-        "rank": 9,
+        "rank": 1,
         "name": "WorldScape-R²SI",
         "team": "Manifold AI",
         "score": 45.93,
@@ -3331,10 +3377,11 @@
             46.58,
             39.35
           ]
-        }
+        },
+        "ranking_status": "ranked"
       },
       {
-        "rank": 10,
+        "rank": null,
         "name": "EmbodiedEvo",
         "team": "Einsia.AI",
         "score": 43.4,
@@ -3375,11 +3422,13 @@
             45.08,
             38.95
           ]
-        }
+        },
+        "ranking_status": "unranked",
+        "ranking_note": "Official starred entry; excluded from Agent ranking under the current track rules."
       }
     ],
     "additional_baseline": {
-      "rank": 11,
+      "rank": null,
       "name": "PhysicalRSI",
       "team": "HKU MMLab & KAI",
       "score": 38.12,
@@ -3418,15 +3467,17 @@
           36.27,
           31.38
         ]
-      }
+      },
+      "ranking_status": "unranked",
+      "ranking_note": "Official starred entry; excluded from Agent ranking under the current track rules."
     },
     "evidence": {
-      "bundle_url": "https://robodojo-benchmark.com/assets/index-C9Mbdbb-.js",
-      "bundle_sha256": "e77c0894d8f95a5f5ee36fb11ad115d6b0fd5d4a1a91a797f375dbd8c1cfe18c",
-      "extraction": "Current official Agent average excludes Open: mean of Generalization=(standard+random)/2, Precision, Long-Horizon and Memory. Sorted on unrounded metrics before official two-decimal display rounding. New SenseNova-RoboRSI and JoyAI-VL entries shift retained ranks; their author resources are checked independently of rank.",
+      "bundle_url": "https://robodojo-benchmark.com/assets/index-M0Zsr9eW.js",
+      "bundle_sha256": "5443d0f0bede96c50eff4d72013ba988fa8954e3af3641bba14a34ba7344bcd4",
+      "extraction": "Verified the official qo deviation-map keys, Qe membership check and kc rank function: starred Agent entries return null; ranked entries exclude the deviation map before sorting. Metrics are independently recomputed without Open. Previous catalogue rank fields mistakenly used score-order positions.",
       "rules_url": "https://robodojo-benchmark.com/leaderboard/agent-rule",
       "description_url": "https://robodojo-benchmark.com/leaderboard/detail-description",
-      "declared_timestamp_note": "The bundle record timestamp remains November 3; official news dates the SenseNova-RoboRSI and JoyAI-VL additions November 15. checked_at is the independent verification date."
+      "declared_timestamp_note": "The current bundle declares November 18. checked_at is independent verification on November 26; unchanged numeric metrics were preserved."
     },
     "display_scope": "w/o Open",
     "history": [
@@ -3929,6 +3980,454 @@
           "declared_timestamp_note": "The bundle record timestamp remains November 3, while the official news announces the scoring/rule and new-entry update on November 14."
         },
         "display_scope": "w/o Open"
+      },
+      {
+        "source": "https://robodojo-benchmark.com/leaderboard?bench=sim#agent",
+        "checked_at": "2026-11-16",
+        "updated_at": "2026-11-03T00:00:00.000Z",
+        "latest_news_date": "2026-11-15",
+        "freshness_note": "updated_at is the timestamp declared in the official JavaScript bundle; checked_at is the date these rankings were verified.",
+        "metric": "Average Score excluding Open (descending); corresponding Success Rate (%) shown separately",
+        "protocol": "The Sim Agent track now averages Generalization, Precision, Long-Horizon and Memory, excluding Open. Generalization is the mean of standard and randomized layouts. Entries are ordered by unrounded Average Score, then Success Rate, then model name; display ranks are ordinal. Scores and success rates are distinct. The official November 14 rule update marks nonconforming task-specific prompts with an asterisk and explanations. Historical all-five-category values and author experiments remain distinct from this snapshot.",
+        "protocol_url": "https://robodojo-benchmark.com/leaderboard/protocol",
+        "rows": [
+          {
+            "name": "SOLVE",
+            "team": "NVIDIA",
+            "type": "Agent",
+            "links": {},
+            "note": "New official leaderboard entry; no verified primary paper or persistent self-improvement mechanism is linked by the board. Not automatically added to the paper collection.",
+            "rank": 1,
+            "score": 79.5,
+            "success_rate": 74.96,
+            "dimensions": {
+              "generalizationStd": [
+                66.55,
+                61.67
+              ],
+              "generalizationRand": [
+                67.29,
+                64.36
+              ],
+              "precision": [
+                83.59,
+                81.5
+              ],
+              "longHorizon": [
+                72.65,
+                61
+              ],
+              "memory": [
+                94.83,
+                94.33
+              ],
+              "average": [
+                79.4975,
+                74.96125
+              ]
+            }
+          },
+          {
+            "rank": 2,
+            "name": "Q0-Preview",
+            "team": "Qoo Tech",
+            "score": 73.2,
+            "success_rate": 67.34,
+            "type": "Agent",
+            "links": {},
+            "note": "New official leaderboard entry. No primary paper or persistent self-improvement mechanism verified; not added to the paper collection.",
+            "dimensions": {
+              "generalizationStd": [
+                64.75,
+                58.67
+              ],
+              "generalizationRand": [
+                63.25,
+                58.67
+              ],
+              "precision": [
+                65.3,
+                58.5
+              ],
+              "longHorizon": [
+                69.8,
+                58.5
+              ],
+              "memory": [
+                93.68,
+                93.67
+              ],
+              "open": [
+                78.2,
+                75
+              ],
+              "average": [
+                74.2,
+                68.87
+              ]
+            }
+          },
+          {
+            "name": "Agent-as-Policy",
+            "team": "Realworld Labs",
+            "type": "Agent",
+            "links": {},
+            "note": "New official leaderboard entry; no verified primary paper or persistent self-improvement mechanism is linked by the board. Not automatically added to the paper collection.",
+            "rank": 3,
+            "score": 63.46,
+            "success_rate": 54.42,
+            "dimensions": {
+              "generalizationStd": [
+                61.6,
+                57.67
+              ],
+              "generalizationRand": [
+                59.65,
+                54.67
+              ],
+              "precision": [
+                51.92,
+                44.75
+              ],
+              "longHorizon": [
+                52.56,
+                31.75
+              ],
+              "memory": [
+                88.75,
+                85
+              ],
+              "open": [
+                57.94,
+                56.75
+              ],
+              "average": [
+                62.36,
+                54.88
+              ]
+            }
+          },
+          {
+            "rank": 4,
+            "name": "GO-3 Nano Preview",
+            "team": "AGIBOT",
+            "score": 61.95,
+            "success_rate": 56.71,
+            "type": "Agent + WAM",
+            "links": {},
+            "note": "Leaderboard-only preview in this collection; no primary paper, code, or recursive-improvement claim verified. Added by the official news log on 2026-10-27.",
+            "dimensions": {
+              "generalizationStd": [
+                45.93,
+                43
+              ],
+              "generalizationRand": [
+                26.97,
+                24.33
+              ],
+              "precision": [
+                78.65,
+                76
+              ],
+              "longHorizon": [
+                68.21,
+                53.5
+              ],
+              "memory": [
+                64.5,
+                63.67
+              ],
+              "open": [
+                61.71,
+                55.25
+              ],
+              "average": [
+                61.9,
+                56.42
+              ]
+            }
+          },
+          {
+            "name": "SenseNova-RoboRSI",
+            "team": "SenseNova",
+            "rank": 5,
+            "score": 57.1,
+            "success_rate": 49.17,
+            "type": "Agent",
+            "links": {
+              "paper": "https://arxiv.org/abs/2610.22471",
+              "code": "https://github.com/OpenSenseNova/SenseNova-RoboRSI",
+              "data": "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages",
+              "models": "https://huggingface.co/sensenova/sensenova-roborsi-27b-preview",
+              "project": "https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence"
+            },
+            "note": "The exact system name and author repository/report establish the correspondence. Official w/o-Open values differ from historical all-five-category report values; the 27B preview is a separate model release, not identified as the leaderboard entry."
+          },
+          {
+            "rank": 6,
+            "name": "PyRUA-Lean",
+            "team": "PKU DAGroup",
+            "score": 53.94,
+            "success_rate": 48.37,
+            "type": "Agent",
+            "links": {
+              "paper": "https://arxiv.org/abs/2610.01939",
+              "code": "https://github.com/DAGroup-PKU/PyRUA-Lean",
+              "project": "https://dagroup-pku.github.io/PyRUA-Lean/"
+            },
+            "note": "Efficient code-execution framework; keep as an adjacent robot-agent baseline, not evidence of recursive self-improvement. Paper/project experiments differ from this verified leaderboard snapshot.",
+            "dimensions": {
+              "generalizationStd": [
+                50.47,
+                45.33333333333333
+              ],
+              "generalizationRand": [
+                46.07,
+                41
+              ],
+              "precision": [
+                44.77,
+                38.25
+              ],
+              "longHorizon": [
+                54.3,
+                43.75
+              ],
+              "memory": [
+                68.4,
+                68.33
+              ],
+              "open": [
+                60.56,
+                58.25
+              ],
+              "average": [
+                55.26,
+                50.35
+              ]
+            }
+          },
+          {
+            "rank": 7,
+            "name": "HexaShell-Preview",
+            "team": "HexaFuture",
+            "score": 51.98,
+            "success_rate": 44.75,
+            "type": "Agent",
+            "links": {
+              "paper": "https://arxiv.org/abs/2610.23479",
+              "code": "https://github.com/HexaFuture/HexaShell",
+              "project": "https://hexafuture.ai/blog/hexashell/"
+            },
+            "note": "Between episodes, an optimizer repairs reusable tools from failures; frozen tools are used for evaluation. Release is partial, not the complete server/evolution infrastructure.",
+            "dimensions": {
+              "generalizationStd": [
+                43.28,
+                38
+              ],
+              "generalizationRand": [
+                35.15,
+                31
+              ],
+              "precision": [
+                41.25,
+                32
+              ],
+              "longHorizon": [
+                42.91,
+                31.5
+              ],
+              "memory": [
+                84.53,
+                81
+              ],
+              "open": [
+                57.97,
+                55.25
+              ],
+              "average": [
+                53.18,
+                46.85
+              ]
+            }
+          },
+          {
+            "name": "JoyAI-VL",
+            "team": "Joy Future Academy",
+            "rank": 8,
+            "score": 48.67,
+            "success_rate": 41.21,
+            "type": "Agent",
+            "links": {},
+            "note": "Leaderboard-only entry. No persistent self-improvement mechanism or canonical primary paper verified from the official board; not automatically added to the paper collection."
+          },
+          {
+            "rank": 9,
+            "name": "WorldScape-R²SI",
+            "team": "Manifold AI",
+            "score": 45.93,
+            "success_rate": 37.31,
+            "type": "Agent + WAM",
+            "links": {
+              "paper": "https://r2si.worldscape.io/report.pdf",
+              "project": "https://r2si.worldscape.io/",
+              "models": "https://huggingface.co/manifoldai-research/WorldScape-R2SI"
+            },
+            "note": "A Robot Agent acts through Skills; a Recursion Agent revises Skills and can train a reactive model. Historical project-page rank-one claims are separate from the current official rank.",
+            "dimensions": {
+              "generalizationStd": [
+                46.62,
+                40.33
+              ],
+              "generalizationRand": [
+                39.28,
+                31.33
+              ],
+              "precision": [
+                23.51,
+                15.5
+              ],
+              "longHorizon": [
+                51.48,
+                34.25
+              ],
+              "memory": [
+                65.78,
+                63.67
+              ],
+              "open": [
+                49.16,
+                47.5
+              ],
+              "average": [
+                46.58,
+                39.35
+              ]
+            }
+          },
+          {
+            "rank": 10,
+            "name": "EmbodiedEvo",
+            "team": "Einsia.AI",
+            "score": 43.4,
+            "success_rate": 36.38,
+            "type": "Agent",
+            "links": {
+              "paper": "https://arxiv.org/abs/2610.18867",
+              "code": "https://github.com/Einsia/EmbodiedEvo",
+              "project": "https://lab.einsia.ai/embodiedevo/"
+            },
+            "note": "Turns Playground interaction into persistent Skills and Lessons, frozen before test scenes. Original paper metrics 44.48/37.82 differ from current official 45.08/38.95.",
+            "dimensions": {
+              "generalizationStd": [
+                34.55,
+                30.33
+              ],
+              "generalizationRand": [
+                35.88,
+                31.33
+              ],
+              "precision": [
+                25.15,
+                16.25
+              ],
+              "longHorizon": [
+                33.83,
+                21.75
+              ],
+              "memory": [
+                79.4,
+                76.67
+              ],
+              "open": [
+                51.81,
+                49.25
+              ],
+              "average": [
+                45.08,
+                38.95
+              ]
+            }
+          }
+        ],
+        "additional_baseline": {
+          "rank": 11,
+          "name": "PhysicalRSI",
+          "team": "HKU MMLab & KAI",
+          "score": 38.12,
+          "success_rate": 33.0,
+          "type": "Agent + VLA",
+          "links": {
+            "project": "https://mmlab.hk/research/PhysicalRSI"
+          },
+          "note": "Useful RSI baseline outside the top five; official project is a research blog, not a verified standalone paper in this snapshot.",
+          "dimensions": {
+            "generalizationStd": [
+              31.57,
+              25.67
+            ],
+            "generalizationRand": [
+              11.04,
+              5.56
+            ],
+            "precision": [
+              38.05,
+              32.5
+            ],
+            "longHorizon": [
+              46.37,
+              37.33
+            ],
+            "memory": [
+              46.74,
+              46.56
+            ],
+            "open": [
+              28.88,
+              24.92
+            ],
+            "average": [
+              36.27,
+              31.38
+            ]
+          }
+        },
+        "evidence": {
+          "bundle_url": "https://robodojo-benchmark.com/assets/index-C9Mbdbb-.js",
+          "bundle_sha256": "e77c0894d8f95a5f5ee36fb11ad115d6b0fd5d4a1a91a797f375dbd8c1cfe18c",
+          "extraction": "Current official Agent average excludes Open: mean of Generalization=(standard+random)/2, Precision, Long-Horizon and Memory. Sorted on unrounded metrics before official two-decimal display rounding. New SenseNova-RoboRSI and JoyAI-VL entries shift retained ranks; their author resources are checked independently of rank.",
+          "rules_url": "https://robodojo-benchmark.com/leaderboard/agent-rule",
+          "description_url": "https://robodojo-benchmark.com/leaderboard/detail-description",
+          "declared_timestamp_note": "The bundle record timestamp remains November 3; official news dates the SenseNova-RoboRSI and JoyAI-VL additions November 15. checked_at is the independent verification date."
+        },
+        "display_scope": "w/o Open",
+        "interpretation_note": "Historical catalogue snapshot. Its rank fields were ordinal positions in the all-entry score ordering, not official ranks after starred entries were excluded. Preserved for provenance; corrected in the November 26 snapshot."
+      }
+    ],
+    "official_ranked_entries": [
+      {
+        "name": "WorldScape-R²SI",
+        "score": 45.93,
+        "success_rate": 37.31,
+        "rank": 1
+      },
+      {
+        "name": "GPT-6-Astra",
+        "score": 27.63,
+        "success_rate": 20.36,
+        "rank": 2
+      },
+      {
+        "name": "DeepSeek-Flash",
+        "score": 2.12,
+        "success_rate": 0.84,
+        "rank": 3
+      },
+      {
+        "name": "GPT-5.5",
+        "score": 0.7,
+        "success_rate": 0.42,
+        "rank": 4
       }
     ]
   },

@@ -79,11 +79,19 @@ def validate_catalogue(data, root=ROOT):
         if not valid_url(board['source']) or date.fromisoformat(board['checked_at']) > checked_date:
             raise ValueError('Leaderboard source or check date is invalid')
         ranks = set()
+        names = set()
         for row in board['rows']:
             rank = row.get('rank')
-            if type(rank) is not int or rank < 1 or rank in ranks:
-                raise ValueError('Leaderboard ranks must be unique positive integers')
-            ranks.add(rank)
+            if row.get('ranking_status') == 'unranked':
+                if rank is not None:
+                    raise ValueError('Officially unranked entries must not have a rank')
+            else:
+                if type(rank) is not int or rank < 1 or rank in ranks:
+                    raise ValueError('Leaderboard ranks must be unique positive integers')
+                ranks.add(rank)
+            if row.get('name') in names:
+                raise ValueError('Leaderboard names must be unique')
+            names.add(row.get('name'))
             for metric in ('score', 'success_rate'):
                 value = row.get(metric)
                 if type(value) not in (int, float) or not 0 <= value <= 100:
@@ -111,7 +119,8 @@ def leaderboard_note(paper, board):
         if row.get('links', {}).get('paper') == paper['links'].get('paper'):
             labels = [value for value in (paper.get('leaderboard_label'), board.get('display_scope')) if value]
             label = f" ({'; '.join(labels)})" if labels else ""
-            return f"RoboDojo-Sim Agent{label} #{row['rank']} · Score {row['score']:.2f} · Success {row['success_rate']:.2f}% ({board['checked_at']})."
+            rank = 'Unranked*' if row.get('ranking_status') == 'unranked' else f"#{row['rank']}"
+            return f"RoboDojo-Sim Agent{label} {rank} · Score {row['score']:.2f} · Success {row['success_rate']:.2f}% ({board['checked_at']})."
     return ''
 
 

@@ -133,6 +133,33 @@ class RendererTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 builder.validate_catalogue(data, root)
 
+    def test_officially_unranked_entries_never_render_an_ordinal_rank(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / 'assets/papers').mkdir(parents=True)
+            (root / 'assets/papers/test.svg').write_text('<svg/>')
+            data = fixture()
+            paper = data['papers'][0]
+            data['leaderboard'] = {
+                'source': 'https://example.org/board', 'checked_at': '2026-10-28',
+                'rows': [{'name': 'Preview', 'rank': None, 'ranking_status': 'unranked',
+                          'score': 53.18, 'success_rate': 46.85,
+                          'links': {'paper': paper['links']['paper']}},
+                         {'name': 'Ranked agent', 'rank': 1, 'score': 45.93,
+                          'success_rate': 37.31}],
+            }
+            builder.validate_catalogue(data, root)
+            for rendered in (builder.render_html(data), builder.render_readme(data)):
+                self.assertIn('Unranked* · Score 53.18 · Success 46.85%', rendered)
+                self.assertNotIn('#None', rendered)
+            data['leaderboard']['rows'][0]['rank'] = 2
+            with self.assertRaises(ValueError):
+                builder.validate_catalogue(data, root)
+            data['leaderboard']['rows'][0].pop('ranking_status')
+            data['leaderboard']['rows'][0]['rank'] = None
+            with self.assertRaises(ValueError):
+                builder.validate_catalogue(data, root)
+
     def test_repository_catalogue_has_figures_and_matching_generated_content(self):
         path = ROOT / 'data/catalogue.json'
         if not path.exists():

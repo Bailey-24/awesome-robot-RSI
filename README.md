@@ -418,7 +418,7 @@ Technical report date; the project was announced on 2026-10-17.
 
 *Manifold AI Team, R²SI technical report, Figure 1. [Figure source](https://r2si.worldscape.io/report.pdf#page=2).*
 
-Uses a Robot Agent to execute tasks and a Recursion Agent to improve reusable skills and train the reactive model from rollout feedback. [RoboDojo-Sim Agent (w/o Open) #9 · Score 45.93 · Success 37.31% (2026-11-16).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Uses a Robot Agent to execute tasks and a Recursion Agent to improve reusable skills and train the reactive model from rollout feedback. [RoboDojo-Sim Agent (w/o Open) #1 · Score 45.93 · Success 37.31% (2026-11-26).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://r2si.worldscape.io/report.pdf)
 
@@ -428,11 +428,11 @@ Uses a Robot Agent to execute tasks and a Recursion Agent to improve reusable sk
 
 **First release:** 2026-10-21
 
-![SERA method: a task-history harness around a frozen VLA is revised and selected using rollout feedback.](assets/papers/sera.png)
+![SERA v2 Figure 2: agentic execution with a frozen VLA and rollout-based diagnosis, harness revision, verification and selection.](assets/papers/sera-v2.png)
 
-*Tingwen Du et al., From VLM Planners to Robotic Agents: Self-Evolving Harnesses for History-Dependent Manipulation. Core method figure from the official paper/project. [Figure source](https://stevenkkxs.github.io/sera-webpage/).*
+*Tingwen Du et al., SERA v2, Figure 2. [Figure source](https://arxiv.org/html/2610.29560v2#S3.F2).*
 
-Improves a planning harness from robot rollouts while keeping the low-level VLA fixed, helping the agent track task history and recover from failures.
+Improves a planning harness from robot rollouts while keeping the low-level VLA fixed. The revised study adds real-robot tasks with one round of human-reviewed harness corrections.
 
 [Paper](https://arxiv.org/abs/2610.29560) · [Code](https://github.com/StevenKKXS/SERA)
 
@@ -460,7 +460,7 @@ Evaluates how robot agents improve across repeated attempts, measuring learning 
 
 *Hongcheng Gao, Jianshu Zeng et al., HexaShell v3, Figure 2. CC BY 4.0. [Figure source](https://arxiv.org/html/2610.23479v3#S2.F2).*
 
-Shares a 14-tool harness across simulators and real robots. An analysis agent drafts reusable task skills from earlier execution records, with human review before evaluation. [RoboDojo-Sim Agent (HexaShell-Preview; w/o Open) #7 · Score 51.98 · Success 44.75% (2026-11-16).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Shares general robot-control tools across simulators and physical robots, with optional reusable skills drafted from execution records and reviewed by people. The release adds humanoid and dexterous-hand adapters and a guide for adapting the harness to new platforms. [RoboDojo-Sim Agent (HexaShell-Preview; w/o Open) Unranked* · Score 51.98 · Success 44.75% (2026-11-26).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.23479) · [Code](https://github.com/HexaFuture/HexaShell)
 
@@ -514,7 +514,7 @@ Keeps revisable user and scene memory for personalized robot assistance. Reflect
 
 *SenseNova et al., embodied-intelligence report, Figure 2. [Figure source](https://arxiv.org/html/2610.22471v2#S2.F2).*
 
-Studies how training-set experience becomes frozen knowledge packages for robot control across multiple benchmarks. The related RoboRSI-27B release co-evolves model weights and harnesses using execution feedback and selected teacher trajectories. [RoboDojo-Sim Agent (w/o Open) #5 · Score 57.10 · Success 49.17% (2026-11-16).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Studies how training-set experience becomes frozen knowledge packages for robot control across multiple benchmarks. The related RoboRSI-27B release co-evolves model weights and harnesses using execution feedback and selected teacher trajectories. [RoboDojo-Sim Agent (w/o Open) Unranked* · Score 57.10 · Success 49.17% (2026-11-26).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.22471) · [Code](https://github.com/OpenSenseNova/SenseNova-RoboRSI)
 
@@ -528,7 +528,7 @@ Studies how training-set experience becomes frozen knowledge packages for robot 
 
 *Wenyi Li et al., EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence. Core method figure from the official paper/project. [Figure source](https://lab.einsia.ai/embodiedevo/).*
 
-Learns reusable code Skills and diagnostic Lessons in a practice scene, then transfers them to new scenes without weight updates. Learned artifacts for 42 RoboDojo tasks are now public. [RoboDojo-Sim Agent (w/o Open) #10 · Score 43.40 · Success 36.38% (2026-11-16).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Learns reusable code Skills and diagnostic Lessons in a practice scene, then transfers them to new scenes without weight updates. Learned artifacts for 42 RoboDojo tasks are now public. [RoboDojo-Sim Agent (w/o Open) Unranked* · Score 43.40 · Success 36.38% (2026-11-26).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.18867) · [Code](https://github.com/Einsia/EmbodiedEvo)
 
@@ -646,7 +646,7 @@ Reconstructs tasks in simulation, improves a shared skill library through practi
 
 *Ruiyang Si, Jianxin Bi et al., PyRUA-Lean, Figure 2. [Figure source](https://arxiv.org/html/2610.01939v1/method_red.svg).*
 
-Reduces repeated model calls by letting robot agents compose actions and local checks in Python. The repository also releases PyRUA-RSI’s offline-refined task programs, which run without language-model calls during evaluation. [RoboDojo-Sim Agent (w/o Open) #6 · Score 53.94 · Success 48.37% (2026-11-16).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Reduces repeated model calls by letting robot agents compose actions and local checks in Python. The repository also releases PyRUA-RSI’s offline-refined task programs, which run without language-model calls during evaluation. [RoboDojo-Sim Agent (w/o Open) Unranked* · Score 53.94 · Success 48.37% (2026-11-26).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.01939) · [Code](https://github.com/DAGroup-PKU/PyRUA-Lean)
 
