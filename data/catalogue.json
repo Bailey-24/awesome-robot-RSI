@@ -1,10 +1,648 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-26",
+  "updated_at": "2026-11-27",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
+    {
+      "id": "x-harness",
+      "title": "Toward Agentic Robotics: A Large-Scale Study of Harness Design for Robot-Use Agents",
+      "date": "2026-11-25",
+      "date_source": "https://arxiv.org/abs/2611.34778",
+      "date_evidence": "Submission history From: Yuxiang Lai [ view email ] [v1] Wed, 25 Nov 2026 17:39:10 UTC (14,448 KB)",
+      "authors": [
+        "Yuxiang Lai",
+        "Jike Zhong",
+        "Yu-Jhe Li",
+        "Lan Wang",
+        "Chengzhi Liu",
+        "Youbao Tang",
+        "Ming Li",
+        "Xi Xiao",
+        "Xiaofeng Yang",
+        "Liang Zhao",
+        "Zheda Mai",
+        "Ruixi Fan"
+      ],
+      "category": "Evaluation",
+      "summary": "Studies robot harness design at scale, including pre-test evolution that revises policy code or shared tools from training failures and keeps changes only after regression checks.",
+      "loop": "Training failures → revise policy code or shared tool bank → regression evaluation → retain successful changes before held-out testing.",
+      "setting": "Eight simulation benchmarks, six VLMs and 15 VLA/WAM checkpoints; the RSI analysis is a controlled subset of the larger harness study.",
+      "evidence": "The pre-test evolution study explicitly tests persistent code/tool revisions under frozen model weights. The overall 470,000-rollout study is not 470,000 RSI iterations.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.34778"
+      },
+      "figure": {
+        "path": "assets/papers/x-harness.png",
+        "alt": "x-harness Figure 2: Training failures → revise policy code or shared tool bank → regression evaluation → retain successful changes before held-out testing.",
+        "source": "https://arxiv.org/pdf/2611.34778v1#page=3",
+        "original_url": "https://arxiv.org/pdf/2611.34778v1#page=3",
+        "credit": "Yuxiang Lai et al., x-harness, Figure 2.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "extraction": "Rendered only Figure 2 from canonical v1 PDF page 3 at 216 dpi, crop (287, 227, 534, 410) PDF points. No redrawing."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.34778",
+        "https://arxiv.org/html/2611.34778v1"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 39321e6c8f7bbf71cbc295c511bb345775f675ae; independently checked against the canonical paper and author resources.",
+      "checked_at": "2026-11-27"
+    },
+    {
+      "id": "solve",
+      "title": "SOLVE: Sparse, Ordered Keyposes Make LLM Agents Versatile and Efficient Robot Manipulator",
+      "date": "2026-11-25",
+      "date_source": "https://arxiv.org/abs/2611.34750",
+      "date_evidence": "Submission history From: Hongyu Zhou [ view email ] [v1] Wed, 25 Nov 2026 17:25:17 UTC (16,952 KB)",
+      "authors": [
+        "Xiang Li",
+        "Hongyu Zhou",
+        "Ya-Li Li",
+        "Tao Li",
+        "Rui Zhang",
+        "Junjie Lai",
+        "Weihua Zhang",
+        "Shengjin Wang"
+      ],
+      "category": "Policy & skill learning",
+      "summary": "Controls manipulation with sparse, ordered keyposes and turns offline rollout reflections into compact task rules reused in later episodes.",
+      "loop": "Roll out on spare layouts → reflect on failures → merge recurring lessons into bounded task notes → reuse the retained rules in subsequent episodes.",
+      "setting": "RoboDojo, RoboLab and physical manipulation with frozen language models and retained task guides.",
+      "evidence": "The paper explicitly evaluates offline self-evolution notes. Its RoboDojo 74.5% success averages all five categories, including Open; the official board uses four categories without Open and marks SOLVE unranked. These protocols and values must not be conflated.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.34750",
+        "project": "https://serenos.github.io/solve-website/"
+      },
+      "figure": {
+        "path": "assets/papers/solve.png",
+        "alt": "solve Figure 2: Roll out on spare layouts → reflect on failures → merge recurring lessons into bounded task notes → reuse the retained rules in subsequent episodes.",
+        "source": "https://arxiv.org/html/2611.34750v1#S1.F2",
+        "original_url": "https://arxiv.org/html/2611.34750v1/fig2_framework_v3.png",
+        "credit": "Xiang Li et al., solve, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "extraction": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.34750",
+        "https://arxiv.org/html/2611.34750v1",
+        "https://serenos.github.io/solve-website/"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 39321e6c8f7bbf71cbc295c511bb345775f675ae; independently checked against the canonical paper and author resources.",
+      "checked_at": "2026-11-27"
+    },
+    {
+      "id": "roboevo2",
+      "title": "RoboEvo²: Recursive Robot Self-Improvement via Harness-Policy Co-Evolution",
+      "date": "2026-11-25",
+      "date_source": "https://arxiv.org/abs/2611.34675",
+      "date_evidence": "Submission history From: Chenzhi Liu [ view email ] [v1] Wed, 25 Nov 2026 16:39:10 UTC (8,359 KB)",
+      "authors": [
+        "Chenzhi Liu",
+        "Jiehong Lin",
+        "Wei Huang",
+        "Xuzhao Huang",
+        "Haoyuan Li",
+        "Yang Zhang",
+        "Junchao Huang",
+        "Chenyeyang Cai",
+        "Bo Wang",
+        "Kazuhiro Kosuge",
+        "Zhongrui Wang",
+        "Xiaojuan Qi"
+      ],
+      "category": "Code & harness evolution",
+      "summary": "Co-evolves robot policies and their harnesses: policy failures improve reusable code, skills and routing memory, while verified repairs become training data for the next policy.",
+      "loop": "Policy failures → harness/skill/routing revision → verify repair trajectories → supervised and contrastive policy training → repeat with the updated policy.",
+      "setting": "LIBERO-PRO and G1D simulation with code, policy and hybrid solution routes.",
+      "evidence": "The paper explicitly alternates policy-to-harness and harness-to-policy updates. Released code and actual model artifacts are available, but README placeholders identify companion runtime/checkpoint components still pending; this is a partial release.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.34675",
+        "project": "https://kaiknower.github.io/RoboEvo2/",
+        "code": "https://github.com/kaiknower/RoboEvo2",
+        "models": "https://huggingface.co/Liukaikai/RoboEvo2"
+      },
+      "figure": {
+        "path": "assets/papers/roboevo2.png",
+        "alt": "roboevo2 Figure 2: Policy failures → harness/skill/routing revision → verify repair trajectories → supervised and contrastive policy training → repeat with the updated policy.",
+        "source": "https://arxiv.org/html/2611.34675v1#S2.F2",
+        "original_url": "https://arxiv.org/html/2611.34675v1/method_roboevo2.png",
+        "credit": "Chenzhi Liu et al., RoboEvo², Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "extraction": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.34675",
+        "https://arxiv.org/html/2611.34675v1",
+        "https://kaiknower.github.io/RoboEvo2/",
+        "https://github.com/kaiknower/RoboEvo2"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 39321e6c8f7bbf71cbc295c511bb345775f675ae; independently checked against the canonical paper and author resources.",
+      "checked_at": "2026-11-27",
+      "resource_releases": {
+        "models_revision": "b868e7b47274684662f4f65353cc49b5c5d6a46f",
+        "note": "Actual model.safetensors and PPO checkpoint artifacts verified via HF file metadata; companion runtime and v8 checkpoint placeholders remain in the README."
+      }
+    },
+    {
+      "id": "seek",
+      "title": "SEEK: Self-Evolution through Execution Knowledge for Agentic Robot Manipulation",
+      "date": "2026-11-25",
+      "date_source": "https://arxiv.org/abs/2611.33915",
+      "date_evidence": "Submission history From: Zeyang Guan [ view email ] [v1] Wed, 25 Nov 2026 07:37:06 UTC (4,593 KB)",
+      "authors": [
+        "Zeyang Guan",
+        "Qihao Zhao",
+        "Rui Gong",
+        "Zhang Haitian",
+        "Yalun Dai",
+        "Yangyu Huang",
+        "Lingao Xiao",
+        "Haozhe Du",
+        "Xuehui Yu",
+        "Ye Lu",
+        "Jianjun Gao",
+        "Ruoyu Wang",
+        "Haowen Bai",
+        "Hao Li",
+        "Scarlett Li",
+        "Kim-Hui Yap"
+      ],
+      "category": "Policy & skill learning",
+      "summary": "Builds executable procedures and a persistent bank of measured action effects from repeated manipulation attempts. Later attempts reuse this execution knowledge and revise procedures when new conditions appear.",
+      "loop": "Execute a procedure → measure successful/failed action effects → consolidate the persistent effect bank → revise uncovered procedural conditions → retry and reuse.",
+      "setting": "Repeated RoboDojo manipulation practice with fixed general-purpose models.",
+      "evidence": "The cross-attempt execution knowledge and procedures persist with frozen weights. Reported practice curves are author experiments, not a verified official leaderboard score or ranking.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.33915",
+        "project": "https://zeyangguan.github.io/SEEK-Agentic-Robot-Manipulation/",
+        "code": "https://github.com/ZeyangGuan/SEEK-Agentic-Robot-Manipulation"
+      },
+      "figure": {
+        "path": "assets/papers/seek.png",
+        "alt": "seek Figure 2: Execute a procedure → measure successful/failed action effects → consolidate the persistent effect bank → revise uncovered procedural conditions → retry and reuse.",
+        "source": "https://arxiv.org/html/2611.33915v1#S3.F2",
+        "original_url": "https://arxiv.org/html/2611.33915v1/SEEK_framework_ppt2_method.png",
+        "credit": "Zeyang Guan et al., seek, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "extraction": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.33915",
+        "https://arxiv.org/html/2611.33915v1",
+        "https://zeyangguan.github.io/SEEK-Agentic-Robot-Manipulation/",
+        "https://github.com/ZeyangGuan/SEEK-Agentic-Robot-Manipulation"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 39321e6c8f7bbf71cbc295c511bb345775f675ae; independently checked against the canonical paper and author resources.",
+      "checked_at": "2026-11-27"
+    },
+    {
+      "id": "skeptic",
+      "title": "Skeptic: Grounding Failure Diagnosis for Robot Skill Discovery",
+      "date": "2026-11-25",
+      "date_source": "https://arxiv.org/abs/2611.33560",
+      "date_evidence": "Submission history From: Wenfang Sun [ view email ] [v1] Wed, 25 Nov 2026 00:19:07 UTC (2,712 KB)",
+      "authors": [
+        "Wenfang Sun",
+        "Jianghao Deng",
+        "Wenzhe Yin",
+        "Yingjun Du",
+        "Cees G. M. Snoek"
+      ],
+      "category": "Policy & skill learning",
+      "summary": "Grounds failure diagnosis in measured action effects and admits a discovered skill to its reusable library only after both development success and an independent reproduction check.",
+      "loop": "Execute candidate skill → record grounded events → diagnose and repair → independently reproduce success → promote verified skills into the persistent library.",
+      "setting": "LIBERO-Pro and robosuite skill-discovery campaigns with frozen Qwen3.8-27B.",
+      "evidence": "Skill promotion requires observed success and an independent reproduction; failed attempts do not write reusable skills. Held-out gains are author-reported and have not been independently reproduced.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.33560",
+        "project": "https://wenfangsun.cn/Skeptic/",
+        "code": "https://github.com/lmsdss/Skeptic"
+      },
+      "figure": {
+        "path": "assets/papers/skeptic.png",
+        "alt": "skeptic Figure 2: Execute candidate skill → record grounded events → diagnose and repair → independently reproduce success → promote verified skills into the persistent library.",
+        "source": "https://arxiv.org/html/2611.33560v1#S3.F2",
+        "original_url": "https://arxiv.org/html/2611.33560v1/method.png",
+        "credit": "Wenfang Sun et al., skeptic, Figure 2.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "extraction": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.33560",
+        "https://arxiv.org/html/2611.33560v1",
+        "https://wenfangsun.cn/Skeptic/",
+        "https://github.com/lmsdss/Skeptic"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 39321e6c8f7bbf71cbc295c511bb345775f675ae; independently checked against the canonical paper and author resources.",
+      "checked_at": "2026-11-27"
+    },
+    {
+      "id": "demofoundry",
+      "title": "DemoFoundry: Toward Scalable Photorealistic Robot Data with Coding Agents and Generative Rendering",
+      "date": "2026-11-25",
+      "date_source": "https://arxiv.org/abs/2611.34671",
+      "date_evidence": "Submission history From: Ruixiang Wang [ view email ] [v1] Wed, 25 Nov 2026 16:37:10 UTC (38,329 KB)",
+      "authors": [
+        "Ruixiang Wang",
+        "Xinyue Yao",
+        "Xuanning Zhou",
+        "Yueci Deng",
+        "Yongyi Su",
+        "Kui Jia"
+      ],
+      "category": "Code & harness evolution",
+      "summary": "Uses coding agents to repair executable simulation reconstructions from replay feedback, retaining accepted scenes and programs for new demonstration generation. A learned renderer converts the resulting rollouts into photorealistic robot training data.",
+      "loop": "Replay reconstructed interactions → check geometry/interaction agreement → repair executable programs → retain accepted scene assets and programs → generate checked rollouts and policy-training data.",
+      "setting": "Real demonstration reconstruction, simulation interaction programs, generative rendering and downstream robot learning.",
+      "evidence": "Persistent executable-program repair, rather than rendering or teacher SFT alone, motivates inclusion as a related data-engine method. Reconstruction uses view-wise calibration checks and bounded repair attempts; failures are discarded. The released paired-video data are a subset, and the H3 weights are a renderer, not a robot policy.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.34671",
+        "project": "https://robbinw.github.io/DemoFoundry-Web",
+        "code": "https://github.com/RobbinW/DemoFoundry",
+        "data": "https://huggingface.co/datasets/RobbinWang123/DemoFoundry",
+        "models": "https://huggingface.co/RobbinWang123/demofoundry-h3"
+      },
+      "figure": {
+        "path": "assets/papers/demofoundry.png",
+        "alt": "demofoundry Figure 2: Replay reconstructed interactions → check geometry/interaction agreement → repair executable programs → retain accepted scene assets and programs → generate checked rollouts and policy-training data.",
+        "source": "https://arxiv.org/html/2611.34671v1#S2.F2",
+        "original_url": "https://arxiv.org/html/2611.34671v1/method.png",
+        "credit": "Ruixiang Wang et al., demofoundry, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "extraction": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.34671",
+        "https://arxiv.org/html/2611.34671v1",
+        "https://robbinw.github.io/DemoFoundry-Web",
+        "https://github.com/RobbinW/DemoFoundry"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 39321e6c8f7bbf71cbc295c511bb345775f675ae; independently checked against the canonical paper and author resources.",
+      "checked_at": "2026-11-27",
+      "resource_releases": {
+        "data_revision": "4f341b1c1848d792aa78ae6670f31eb81daf5750",
+        "model_revision": "b2d7893cefa36823ec5126686f89f5dfcab4373d",
+        "note": "Actual paired real/sim videos and DemoFoundry-H3.safetensors verified via HF file metadata. Released data are a subset; the model is a renderer, not a policy. Large artifacts were not downloaded or independently executed."
+      }
+    },
+    {
+      "id": "roboharness-rl",
+      "title": "RoboHarness-RL: Agentic Reinforcement Learning for VLM-Based Robot Manipulation",
+      "date": "2026-11-24",
+      "date_source": "https://arxiv.org/abs/2611.32016",
+      "date_evidence": "Submission history From: Liyang Li [ view email ] [v1] Tue, 24 Nov 2026 05:59:50 UTC (1,554 KB)",
+      "authors": [
+        "Liyang Li",
+        "Mingyu Liu",
+        "Xiaoman Li",
+        "Zhiyue Zhao",
+        "Jin-Chuan Shi",
+        "Canyu Zhao",
+        "Haokai Zhang",
+        "Jinyuan Tian",
+        "Linhao Zhong",
+        "Hao Chen",
+        "Chunhua Shen"
+      ],
+      "category": "Policy & skill learning",
+      "summary": "Trains a robot-use reasoning policy with multi-turn reinforcement learning from execution outcomes. A compact hierarchical memory harness supports the rollouts, while successful teacher trajectories initialize the policy.",
+      "loop": "Teacher-success SFT → sample multi-turn robot rollouts → task-outcome rewards and group-relative updates → retain updated model weights → collect further rollouts.",
+      "setting": "Qwen3.5-9B on RoboTwin and LIBERO-Pro manipulation.",
+      "evidence": "Persistent policy-weight updates are explicit. LiteHarness memory supports RL rollouts; the paper does not establish autonomous policy updating on a deployed physical robot. No corresponding released code or checkpoint verified.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.32016",
+        "project": "https://aim-uofa.github.io/RoboHarness-RL/"
+      },
+      "figure": {
+        "path": "assets/papers/roboharness-rl.png",
+        "alt": "roboharness-rl Figure 3: Teacher-success SFT → sample multi-turn robot rollouts → task-outcome rewards and group-relative updates → retain updated model weights → collect further rollouts.",
+        "source": "https://arxiv.org/html/2611.32016v1#S2.F3",
+        "original_url": "https://arxiv.org/html/2611.32016v1/framework_figure.png",
+        "credit": "Liyang Li et al., roboharness-rl, Figure 3.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "extraction": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.32016",
+        "https://arxiv.org/html/2611.32016v1",
+        "https://aim-uofa.github.io/RoboHarness-RL/"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 39321e6c8f7bbf71cbc295c511bb345775f675ae; independently checked against the canonical paper and author resources.",
+      "checked_at": "2026-11-27"
+    },
+    {
+      "id": "embo-harness",
+      "title": "Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness",
+      "date": "2026-11-23",
+      "date_source": "https://arxiv.org/abs/2611.31201",
+      "date_evidence": "Submission history From: Xiao-Ming Wu [ view email ] [v1] Mon, 23 Nov 2026 18:48:54 UTC (32,147 KB)",
+      "authors": [
+        "Xiao-Ming Wu",
+        "Kang Liao",
+        "Yuexiao Ma",
+        "Taolin Zhang",
+        "Mingqian Zhou",
+        "Nuo Chen",
+        "Ziming Li",
+        "Yihang Luo",
+        "Rui Li",
+        "Zhonghua Wu",
+        "Tianyu Xie",
+        "Xiawu Zheng",
+        "Zhongang Cai",
+        "Zhi Hou",
+        "Chen Change Loy"
+      ],
+      "category": "Evaluation",
+      "summary": "Evaluates frontier-model robot harness choices, including an RSI ablation that distills failure rollouts into reusable, task-agnostic reminders. Those reminders reduce performance in this study and are omitted from its final recipe.",
+      "loop": "Failure rollouts → distill twelve task-agnostic reminders with task-specific information removed → retain and test reminders → compare against the same harness without them.",
+      "setting": "Controlled RoboLab manipulation harness study, plus a small physical-robot evaluation of the final recipe.",
+      "evidence": "Included as an explicit evaluation of RSI-derived reminders, not a claim that its final zero-shot harness performs persistent self-improvement. Within-episode policy refinement is distinct from this RSI ablation.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.31201",
+        "project": "https://dravenalg.github.io/projects/Embo-Harness/",
+        "code": "https://github.com/DravenALG/Embo-Harness"
+      },
+      "figure": {
+        "path": "assets/papers/embo-harness.png",
+        "alt": "embo-harness Figure 4: Failure rollouts → distill twelve task-agnostic reminders with task-specific information removed → retain and test reminders → compare against the same harness without them.",
+        "source": "https://arxiv.org/html/2611.31201v1#S3.F4",
+        "original_url": "https://arxiv.org/html/2611.31201v1/embo-harness.png",
+        "credit": "Xiao-Ming Wu et al., embo-harness, Figure 4.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "extraction": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.31201",
+        "https://arxiv.org/html/2611.31201v1",
+        "https://dravenalg.github.io/projects/Embo-Harness/",
+        "https://github.com/DravenALG/Embo-Harness"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 39321e6c8f7bbf71cbc295c511bb345775f675ae; independently checked against the canonical paper and author resources.",
+      "checked_at": "2026-11-27"
+    },
+    {
+      "id": "real2worlds2real",
+      "title": "Real2Worlds2Real: Scaling Self-Improving Agentic Real2Sim2Real for Robot Manipulation",
+      "date": "2026-11-23",
+      "date_source": "https://arxiv.org/abs/2611.31098",
+      "date_evidence": "Submission history From: Yan Shen [ view email ] [v1] Mon, 23 Nov 2026 17:39:59 UTC (22,436 KB)",
+      "authors": [
+        "Jinzhong Gu",
+        "Jiakai Chen",
+        "Xinyi Cao",
+        "Yan Shen",
+        "Hangke Sui",
+        "Shutian Zheng",
+        "Xiang Xiao",
+        "Haoran Lu",
+        "Fan Xu",
+        "Lu Shi",
+        "Daochen Shi",
+        "Ruihua Zhang",
+        "Wei Zhan",
+        "Masayoshi Tomizuka",
+        "Ruihai Wu"
+      ],
+      "category": "Code & harness evolution",
+      "summary": "Uses execution feedback to refine simulated worlds and robot skills in a real-to-simulation-to-real loop. Verified world-building procedures and learned skills are retained for transfer and composition across tasks.",
+      "loop": "Real feedback → refine visual/physical world models and skill-learning procedures → validate transfer → retain reusable skills and system procedures → improve the next task.",
+      "setting": "Agentic world reconstruction, simulated policy development and real manipulation transfer.",
+      "evidence": "The method explicitly retains changes to world-building and policy-learning procedures and reuses skills across tasks. Real transfer and composition results are author-reported; released code requires external dependencies and is not a complete weight release.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.31098",
+        "project": "https://real2worlds2real.github.io/",
+        "code": "https://github.com/real2worlds2real/real2worlds2real"
+      },
+      "figure": {
+        "path": "assets/papers/real2worlds2real.webp",
+        "alt": "real2worlds2real Figure 2: Real feedback → refine visual/physical world models and skill-learning procedures → validate transfer → retain reusable skills and system procedures → improve the next task.",
+        "source": "https://arxiv.org/html/2611.31098v1#S2.F2",
+        "original_url": "https://arxiv.org/html/2611.31098v1/figures/self_improvement.png",
+        "credit": "Jinzhong Gu et al., real2worlds2real, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "extraction": "Lossless PNG-to-WebP conversion; dimensions and every decoded RGBA pixel are preserved. No cropping or redrawing."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.31098",
+        "https://arxiv.org/html/2611.31098v1",
+        "https://real2worlds2real.github.io/",
+        "https://github.com/real2worlds2real/real2worlds2real"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 39321e6c8f7bbf71cbc295c511bb345775f675ae; independently checked against the canonical paper and author resources.",
+      "checked_at": "2026-11-27"
+    },
+    {
+      "id": "reweave",
+      "title": "ReWeave: Emergent Physical Task Topologies for Embodied Harness Optimization and Cross-Task Meta-Distillation",
+      "date": "2026-11-23",
+      "date_source": "https://arxiv.org/abs/2611.31053",
+      "date_evidence": "Submission history From: Yicheng Xu [ view email ] [v1] Mon, 23 Nov 2026 17:16:04 UTC (7,525 KB)",
+      "authors": [
+        "Yicheng Xu",
+        "Wencan Jiang",
+        "Zihao Zhu",
+        "Keru Zhou",
+        "Chang Zhou",
+        "Li Liu",
+        "Maoqing Yao",
+        "Yong Liu",
+        "Jiangning Zhang"
+      ],
+      "category": "Code & harness evolution",
+      "summary": "Evolves robot harnesses using execution feedback organized into physical task-dependency topologies. It then distills specialized harnesses into a reusable shared harness that can continue improving across tasks.",
+      "loop": "Execute harness candidates → infer physical dependencies from trials → select parents and revise harnesses → evaluate candidates → meta-distill specialist experience into a retained shared harness.",
+      "setting": "LIBERO and RoboDojo harness optimization, specialist meta-distillation and continual cross-task evaluation.",
+      "evidence": "The executor/perception models remain frozen while harness code and distilled guidance persist. Paper success percentages are author experimental values, not the current official RoboDojo board.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.31053",
+        "project": "https://xuyicheng-zju.github.io/ReWeave/",
+        "code": "https://github.com/xuyicheng-zju/ReWeave"
+      },
+      "figure": {
+        "path": "assets/papers/reweave.png",
+        "alt": "reweave Figure 2: Execute harness candidates → infer physical dependencies from trials → select parents and revise harnesses → evaluate candidates → meta-distill specialist experience into a retained shared harness.",
+        "source": "https://arxiv.org/html/2611.31053v1#S1.F2",
+        "original_url": "https://arxiv.org/html/2611.31053v1/method.png",
+        "credit": "Yicheng Xu et al., reweave, Figure 2.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "extraction": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.31053",
+        "https://arxiv.org/html/2611.31053v1",
+        "https://xuyicheng-zju.github.io/ReWeave/",
+        "https://github.com/xuyicheng-zju/ReWeave"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 39321e6c8f7bbf71cbc295c511bb345775f675ae; independently checked against the canonical paper and author resources.",
+      "checked_at": "2026-11-27"
+    },
+    {
+      "id": "supernav-15",
+      "title": "SuperNav-1.5: Structured Spatial Memory For Agentic Navigation Systems",
+      "date": "2026-11-23",
+      "date_source": "https://arxiv.org/abs/2611.29912",
+      "date_evidence": "Submission history From: Jiarui Guo [ view email ] [v1] Mon, 23 Nov 2026 02:10:43 UTC (2,574 KB) [v2] Tue, 24 Nov 2026 13:05:14 UTC (2,574 KB)",
+      "authors": [
+        "Jiarui Guo",
+        "Jinkai Zhang",
+        "Yuanhong Yu",
+        "Yongchen Zai",
+        "Futang Zhu",
+        "Ruizhen Hu",
+        "Sida Peng",
+        "Xiaowei Zhou"
+      ],
+      "category": "Navigation",
+      "summary": "Retains map-grounded spatial memory built during exploration and reuses it across navigation sessions. Agent-guided relocalization lets the robot recover its position in the saved map and pursue later object goals.",
+      "loop": "Explore and observe → selectively create map-grounded memory nodes → retain annotated occupancy map across sessions → relocalize from new observations → reuse and extend memory.",
+      "setting": "Multi-object and multi-session HM3D-OVON navigation with changed spawn locations, plus a physical quadruped demonstration.",
+      "evidence": "Persistent scene memory, rather than model-weight or harness-code evolution, is the improvement mechanism. The project links the older SuperNav repository; a paper-specific 1.5 memory implementation was not verified, so no Code link is displayed.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.29912",
+        "project": "https://zju3dv.github.io/SuperNav-1.5/"
+      },
+      "figure": {
+        "path": "assets/papers/supernav-15.png",
+        "alt": "supernav-15 Figure 2: Explore and observe → selectively create map-grounded memory nodes → retain annotated occupancy map across sessions → relocalize from new observations → reuse and extend memory.",
+        "source": "https://arxiv.org/html/2611.29912v2#S2.F2",
+        "original_url": "https://arxiv.org/html/2611.29912v2/pipeline.png",
+        "credit": "Jiarui Guo et al., supernav-15, Figure 2.",
+        "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "extraction": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.29912",
+        "https://arxiv.org/html/2611.29912v2",
+        "https://zju3dv.github.io/SuperNav-1.5/"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 39321e6c8f7bbf71cbc295c511bb345775f675ae; independently checked against the canonical paper and author resources.",
+      "checked_at": "2026-11-27",
+      "updated": "2026-11-24"
+    },
+    {
+      "id": "evoter",
+      "title": "EvoTER: Evolving Embodied Agents via Tool-Use Experience and Reflection",
+      "date": "2026-11-20",
+      "category": "Code & harness evolution",
+      "summary": "Turns robot execution traces into reusable tool-use skills while keeping model weights fixed. It retains revisions that improve complete-task validation success and continues refining the library from real-robot feedback.",
+      "loop": "Explorer records executions → Diagnoser revises the persistent skill library → Validator compares current and candidate libraries on matched complete-task runs in fresh sessions → retain improvements → freeze the final library for testing.",
+      "setting": "RoboCasa365 Target50 with a PandaOmron mobile manipulator, plus short- and long-horizon tasks on a physical Franka arm.",
+      "evidence": "The persistent skill library changes between episodes; model parameters, ordinary tools and harness configuration stay fixed within each evolution phase. Simulation diagnosis may use privileged tools after stagnation, but skill execution and validation use ordinary observations. Author-reported overall success rises from 53.60% to 80.40%; the frozen test set is excluded from update selection. Composite-Unseen refers to VLA training exposure, not an assertion that those task types never enter skill development. Physical long-horizon results use five independent trials per task and are small-sample author experiments, not independent reproduction or RoboDojo leaderboard values.",
+      "authors": [
+        "Yingting Zhou",
+        "Yuyin Zhou",
+        "Yongliang Wang",
+        "Haoran Li",
+        "Dongbin Zhao"
+      ],
+      "date_source": "https://arxiv.org/abs/2611.27797",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.27797",
+        "project": "https://evoter-project.github.io/"
+      },
+      "figure": {
+        "path": "assets/papers/evoter.png",
+        "alt": "EvoTER overview: execution tools and a persistent skill library connected to Explorer, Diagnoser and Validator revision-and-acceptance stages.",
+        "source": "https://arxiv.org/html/2611.27797v1#S2.F1",
+        "credit": "Yingting Zhou et al., EvoTER, Figure 1.",
+        "original_url": "https://arxiv.org/html/2611.27797v1/figure1.png",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "changes": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.27797",
+        "https://arxiv.org/html/2611.27797v1",
+        "https://evoter-project.github.io/"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit ebad04cd90472f5f4061eb900fe1e0458327dafb; checked against original paper and author resources.",
+      "checked_at": "2026-11-24"
+    },
+    {
+      "id": "navrsi",
+      "title": "NavRSI: Recursive Harness Self-Improvement for Vision-and-Language Navigation",
+      "date": "2026-11-20",
+      "category": "Navigation",
+      "summary": "Rewrites a frozen navigation model’s harness using execution logs and failure diagnostics. A designer retains effective code changes and optimization notes, while the deployed navigator uses RGB observations and primitive actions.",
+      "loop": "Run navigation episodes → designer reads execution logs and training-only simulator diagnostics → write candidate harnesses and retained optimization experience → staged evaluation → select and freeze the final harness.",
+      "setting": "R2R-CE, RxR-CE, NavRAG-CE and a Unitree G1 humanoid; frozen navigator and fixed primitive tools.",
+      "evidence": "The designer can revise prompts, agent loops and observation handling but not the navigator model, tools or budgets. Privileged diagnostics are visible only to the designer; the navigator sees RGB/action feedback. Search uses up to 200 R2R-CE training episodes per round, three candidates per round and eight rounds. Final selection uses 1,302 val-unseen development episodes; the remaining 537 val-unseen episodes, including R2R-CE-100, are held out. Thus the reported full-split 85.64% success over all 1,839 val-unseen episodes includes development episodes and is not entirely held-out evaluation. RxR-CE and NavRAG-CE are separate OOD tests. Results are author-reported; no independent reproduction. Code is promised, not yet linked as a real release.",
+      "authors": [
+        "Guangzhao Dai",
+        "Guoxin Lian",
+        "Shuo Wang",
+        "Shengbin Yue",
+        "Qianru Sun",
+        "Xiangbo Shu",
+        "Bin Zhu"
+      ],
+      "date_source": "https://arxiv.org/abs/2611.27499",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.27499",
+        "project": "https://daiguangzhao.github.io/NavRSI"
+      },
+      "figure": {
+        "path": "assets/papers/navrsi.png",
+        "alt": "NavRSI overview showing isolated navigator and designer inputs, harness and experience updates across rounds, and the resulting navigation harness.",
+        "source": "https://arxiv.org/html/2611.27499v1#S3.F2",
+        "credit": "Guangzhao Dai et al., NavRSI, Figure 2. CC BY 4.0.",
+        "original_url": "https://arxiv.org/html/2611.27499v1/overview.png",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "changes": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.27499",
+        "https://arxiv.org/html/2611.27499v1",
+        "https://daiguangzhao.github.io/NavRSI"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit ebad04cd90472f5f4061eb900fe1e0458327dafb; checked against original paper and author resources.",
+      "checked_at": "2026-11-24"
+    },
+    {
+      "id": "robobuilder",
+      "title": "RoboBuilder: Agentic Robot Co-Design with Real-world Video Feedback in the Loop",
+      "date": "2026-11-18",
+      "category": "Evaluation",
+      "summary": "Benchmarks agents that revise robot hardware, motor programs and simulator code from simulation and physical-test feedback. Videos of real failures drive redesigns that are rebuilt and tested on the same obstacle course.",
+      "loop": "Write assembly and motor program → simulate and validate → build and physically test simulated passes → return failure video → persist simulator corrections and redesigned hardware/program → rebuild and retest.",
+      "setting": "Ten physical obstacle courses at three difficulty levels; four coding agents, modular parts, motors and custom 3D-printed components.",
+      "evidence": "Included as a feedback-driven robot co-design evaluation, not as a learned manipulation policy. The paper reports 16,427 simulations, 12,774 distinct designs and 135 physically built robots. One real-feedback redesign round reduces level-1/2 failures from 18 to 5 (72% removed), raising the share of simulated passes that cross physically from 73% to 93%. The 66% figure covers simulated passes across all levels before this loop and is a different denominator. Redesigns see their failure on the same course, so this measures recovery, not transfer to unseen designs. Human assembly and physical testing remain necessary; no independent reproduction or official RoboDojo metric is implied.",
+      "authors": [
+        "Ghadi Nehme",
+        "Dahyun Nam",
+        "Akshay Govind Srinivasan",
+        "Faez Ahmed"
+      ],
+      "date_source": "https://arxiv.org/abs/2611.23855",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.23855",
+        "code": "https://github.com/ghadinehme/RoboBuilder",
+        "data": "https://huggingface.co/datasets/DeCoDELab/RoboBuilder",
+        "project": "https://ghadinehme.com/robobuilder.github.io/"
+      },
+      "figure": {
+        "path": "assets/papers/robobuilder.png",
+        "alt": "RoboBuilder hardware-feedback loop: simulated pass, physical failure, simulator correction, redesigned robot and successful real crossing.",
+        "source": "https://arxiv.org/html/2611.23855v1#S2.F3",
+        "credit": "Ghadi Nehme et al., RoboBuilder, Figure 3, hardware-feedback loop panel.",
+        "original_url": "https://arxiv.org/html/2611.23855v1/fig_loop_cycle.png",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "changes": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.23855",
+        "https://arxiv.org/html/2611.23855v1",
+        "https://ghadinehme.com/robobuilder.github.io/"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit ebad04cd90472f5f4061eb900fe1e0458327dafb; checked against original paper and author resources.",
+      "checked_at": "2026-11-24",
+      "resource_releases": {
+        "code_commit": "43357b805390a009d4014d05f38cf9de3fc7e674",
+        "data_revision": "55b80cf4a125ba760c37f1a4894f7ce37fb64ce1",
+        "note": "Actual simulator, harness and real-world code directories exist. Dataset API lists 91,480 files including robot designs, result JSON and paired simulation/real-run media. File inventory was checked; the complete dataset was not downloaded."
+      }
+    },
     {
       "id": "pear",
       "name": "PEAR",
@@ -108,6 +746,815 @@
       ],
       "updated": "2026-11-20",
       "revision_note": "arXiv v2 updates rollout-throughput and MTP support descriptions. First release remains November 13; original Figure 1 is retained with its v1 source attribution."
+    },
+    {
+      "id": "esi",
+      "category": "Policy & skill learning",
+      "summary": "Uses LLM–VLA interaction to improve decision prompts, reusable skills, and the action policy together. Effective corrections and student actions, including useful segments of failed episodes, feed later training and collection rounds.",
+      "loop": "Collect shared LLM/VLA execution records → review difficulties to refine prompts and skill interfaces → retain locally effective teacher corrections and student continuations → post-train the VLA → redeploy updated components for the next collection round.",
+      "setting": "Ten selected RoboDojo manipulation tasks with twenty scheduled cases per task; paper v2 also reports matched and rollback analyses.",
+      "evidence": "The v2 method explicitly retains prompt, skill-catalog and VLA-parameter changes across rounds while LLM weights stay fixed. The reported 62.03 mean Score and 49.41% mean task success concern a ten-task subset, not an official full-track leaderboard entry. The matched evaluation reports 197 completed cases of 200 scheduled, with 41 shared successes, 55 baseline-failure/ESI-success, 18 regressions and 83 shared failures; do not treat incomplete cases as a complete 200-case result. Released code supports staged collection, annotation, training and evaluation; automatic prompt updates are optional and disabled by default. The author-released Orbax checkpoint contains actual params shards.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.18176",
+        "code": "https://github.com/ZERITH-ZLab/ESI",
+        "models": "https://huggingface.co/Embodied-Self-Improvement/ESI-pi05",
+        "project": "https://zerith.com/blog/esi/"
+      },
+      "title": "ESI: An Embodied Self-Improvement Flywheel for LLM-VLA Agents",
+      "date": "2026-11-13",
+      "date_source": "https://arxiv.org/abs/2611.18176",
+      "authors": [
+        "Yundi Cai",
+        "Zihan Wang",
+        "Chenxi Han",
+        "Yi Cheng",
+        "Houde Liu",
+        "Zilei Wang"
+      ],
+      "figure": {
+        "path": "assets/papers/esi.png",
+        "alt": "ESI: execution records update prompt guidance, shared skills and VLA policy weights.",
+        "source": "https://arxiv.org/html/2611.18176v2#S3.F2",
+        "original_url": "https://arxiv.org/html/2611.18176v2/flywheel_overview_v2.png",
+        "credit": "Yundi Cai et al., ESI v2, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.18176",
+        "https://arxiv.org/html/2611.18176v2",
+        "https://github.com/ZERITH-ZLab/ESI",
+        "https://huggingface.co/Embodied-Self-Improvement/ESI-pi05",
+        "https://zerith.com/blog/esi/"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 566ed8a2a874694e8034004ca5466a28ff9a657f; verified with original paper and author resources.",
+      "checked_at": "2026-11-17",
+      "updated": "2026-11-16",
+      "resource_releases": {
+        "model_revision": "95779bb3877e464523bf6ad8ac8ae9cde2e3eeb6",
+        "model_format": "Orbax checkpoint with params data shards and normalization assets; model weights verified through Hugging Face file metadata.",
+        "code_note": "Released staged training/evaluation scripts; optional prompt evolution is disabled by default."
+      }
+    },
+    {
+      "id": "ace-cap-0",
+      "category": "Code & harness evolution",
+      "summary": "Refines reusable robot-control programs from physical execution feedback, requesting demonstrations and simulator trials when needed. The retained programs run with perception and control but no coding agent at deployment.",
+      "loop": "Execute a candidate policy on the robot → diagnose the outcome → request targeted robot demonstrations or simulated probes → revise the reusable program → freeze and evaluate.",
+      "setting": "Eight physical bimanual manipulation tasks; 30 trials per frozen task program.",
+      "evidence": "The author paper reports 221/240 successful physical trials (92.1%). Human demonstrations are available on request during development; this is not fully unguided learning. Runtime perception/control remain active after the coding agent is removed.",
+      "title": "ACE-CaP-0: Real-World Code-as-Policies in the Era of Experience",
+      "date": "2026-11-12",
+      "date_source": "https://arxiv.org/abs/2611.16872",
+      "authors": [
+        "CaP Team",
+        "Changxu Wei",
+        "Yunpeng Qing",
+        "Guozheng Ma",
+        "Bowen Liu",
+        "Zexin He",
+        "Yilun Kong",
+        "Haoming Gu",
+        "Jingyuan Liu",
+        "Tianyu Zhu",
+        "Jianfei Wang",
+        "Junqiang Kou",
+        "Huinan Mo",
+        "Hao Lv",
+        "Pengbin Li",
+        "Yuesong Wang",
+        "Bo Li",
+        "Huan Zhou",
+        "Shunyu Liu",
+        "Chunxiao Liu",
+        "Bixuan Jin",
+        "Shaopeng Yin",
+        "Fei Wang",
+        "Zhi Hou",
+        "Jiaxing Huang",
+        "Changqing Zou",
+        "Dacheng Tao",
+        "Xiaogang Wang"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.16872",
+        "project": "https://acerobotics2025.github.io/ACE-CaP/"
+      },
+      "figure": {
+        "path": "assets/papers/ace-cap-0.png",
+        "alt": "ACE-CaP-0: from policy development to standalone execution. (a) The coding agent writes and revises an executable policy using real-world feedback, with a shared robot toolbox that supports both policy execution and dire",
+        "source": "https://arxiv.org/html/2611.16872v1#S3.F5",
+        "original_url": "https://arxiv.org/html/2611.16872v1/ACE-CaP-0-method-working.png",
+        "credit": "CaP Team et al., ACE-CaP-0, Figure 5.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.16872",
+        "https://arxiv.org/html/2611.16872v1",
+        "https://acerobotics2025.github.io/ACE-CaP/"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
+      "checked_at": "2026-11-16"
+    },
+    {
+      "id": "h2e",
+      "category": "Navigation",
+      "summary": "Distills successful navigation-agent sessions into a VLA through task-level relabeling and progress masking. A second round collects recovery sessions from the adapted VLA’s training-scene failures, then updates it to navigate without the planner.",
+      "loop": "Run a planner with the base VLA on training scenes → retain successful sessions and relabel every motion under the task instruction, mask regressive steps and label stops → update LoRA adapters and the action head → run the adapted VLA on training episodes → restart the planner from selected failure states → retain recovery sessions → post-train a second round → evaluate the VLA alone on unseen scenes.",
+      "setting": "An 8B NavGPT VLA; all 3,189 REVERIE-CE and 6,932 NavRAG-CE validation-unseen episodes, plus separate R2R-CE and held-out agent comparisons.",
+      "evidence": "The latest v3 paper extends one-round experience distillation with failure-driven recovery collection. From 935 training episodes, it selects 216 failure states in 18 training scenes and collects 435 successful recovery sessions from 648 attempts. Training mixes agent sessions, DART and R2R-CE at 0.60/0.25/0.15, updating LoRA adapters and the action head while the vision encoder and base LLM remain frozen. Author-reported REVERIE-CE success is 35.0% for the base, 44.9% after one round and 50.6% after two rounds; NavRAG-CE is 21.3%, 31.8% and 32.4%, respectively, without collecting agent sessions on NavRAG-CE. These are success rates on their declared navigation splits, not RoboDojo scores or official leaderboard ranks. The v3 conclusion says code, adapters and sessions will be released upon acceptance; no promised resource is displayed as available.",
+      "title": "What Can a VLA Learn from the Agent That Calls It? Task-Level Experience Distillation for Embodied Navigation",
+      "date": "2026-11-12",
+      "date_source": "https://arxiv.org/abs/2611.16246",
+      "authors": [
+        "Jinze Tao",
+        "Yuxiao Han",
+        "Kangkang Dong",
+        "Yancong Wei",
+        "Xiaojun Zhu",
+        "Bokui Chen",
+        "Houde Liu"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.16246"
+      },
+      "figure": {
+        "path": "assets/papers/h2e-v3.png",
+        "alt": "H2E v3: two rounds of successful-session distillation, with the second round restarting the agent from the adapted VLA’s training-scene failures.",
+        "source": "https://arxiv.org/html/2611.16246v3#S2.F2",
+        "original_url": "https://arxiv.org/html/2611.16246v3/fig_pipeline.png",
+        "credit": "Jinze Tao et al., H2E v3, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.16246",
+        "https://arxiv.org/html/2611.16246v1",
+        "https://arxiv.org/html/2611.16246v3"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
+      "checked_at": "2026-11-18",
+      "previous_versions": [
+        {
+          "version": "v1",
+          "checked_at": "2026-11-16",
+          "summary": "Turns successful navigation-agent sessions into training examples for the VLA that the agent calls. Task-level relabeling and progress masking retain useful actions while reducing detours, so the adapted VLA navigates without the planner.",
+          "loop": "Run planner-assisted navigation in training scenes → retain sessions that reach the goal → relabel all motions under the original instruction, mask regressive steps and label stops → update VLA LoRA adapters and waypoint head → evaluate the VLA alone.",
+          "setting": "REVERIE-CE navigation; all 3,189 validation-unseen episodes with an 8B VLA.",
+          "evidence": "Success filtering and progress masks use execution outcomes to produce persistent weight updates. The paper reports success rising from 35.0% to 44.9%; the vision encoder and base LLM remain frozen. This is experience distillation, not online self-modification at deployment.",
+          "figure": {
+            "path": "assets/papers/h2e.png",
+            "alt": "Overview of H2E. (a) On training scenes, a frontier LLM planner with a place graph and its own tools calls the base VLA. We keep the sessions that reach the goal. (b) H2E turns one kept session into labels. ① Every step ",
+            "source": "https://arxiv.org/html/2611.16246v1#S2.F2",
+            "original_url": "https://arxiv.org/html/2611.16246v1/fig_pipeline.png",
+            "credit": "Jinze Tao et al., H2E, Figure 2.",
+            "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+          }
+        }
+      ],
+      "updated": "2026-11-17"
+    },
+    {
+      "id": "agentic-teacher",
+      "category": "Policy & skill learning",
+      "summary": "Diagnoses VLA failures and develops reusable code policies that generate corrective demonstrations. It filters and adapts those trajectories before post-training a VLA that runs without the coding agent.",
+      "loop": "Evaluate the VLA and localize failure states → iteratively write and validate repair code using execution feedback → reuse accepted policies as corrective-data generators → inject action noise, remove idle frames and apply base-model loss filtering → combine with successful VLA rollouts → post-train and retain the updated VLA.",
+      "setting": "Simulation post-training on LIBERO-10, MetaWorld-10 and three RoboCasa tasks.",
+      "evidence": "The primary paper reports pi0 success increasing 79.4% to 87.8% on LIBERO-10, 80.4% to 90.6% on MetaWorld-10, and 0% to 30.0% on three RoboCasa tasks. The code-policy generators are validated by execution; successful trajectories are further filtered for learnable supervision. These are author simulation results, not physical-robot trials or official RoboDojo ranks. No corresponding released Code, Data or Models URL is verified in the primary paper.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.17394"
+      },
+      "title": "Agentic-Teacher: An Agentic Data Engine for Failure-Driven VLA Post-Training",
+      "date": "2026-11-12",
+      "date_source": "https://arxiv.org/abs/2611.17394",
+      "authors": [
+        "Gongyue Teng",
+        "Yuqing Xie",
+        "Yixian Zhang",
+        "Feng Gao",
+        "Shu'ang Yu",
+        "Jiaji Rao",
+        "Sukai Wang",
+        "Guanghui Ren",
+        "Ya Zhang",
+        "Maoqing Yao",
+        "Yu Wang",
+        "Chao Yu",
+        "Xinlei Chen"
+      ],
+      "figure": {
+        "path": "assets/papers/agentic-teacher.png",
+        "alt": "Agentic-Teacher: failure diagnosis, validated code-policy repairs, trajectory curation and VLA post-training.",
+        "source": "https://arxiv.org/html/2611.17394v1#S1.F1",
+        "original_url": "https://arxiv.org/html/2611.17394v1/Agentic-Teacher_overview.png",
+        "credit": "Gongyue Teng et al., Agentic-Teacher, Figure 1.",
+        "license": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.17394",
+        "https://arxiv.org/html/2611.17394v1"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 566ed8a2a874694e8034004ca5466a28ff9a657f; verified with original paper and author resources.",
+      "checked_at": "2026-11-17"
+    },
+    {
+      "id": "justrua",
+      "category": "Evaluation",
+      "summary": "Separates the effects of robot harnesses, action interfaces, experience reuse, and scene geometry in controlled experiments. Its experience-reuse ablations test whether demonstrations and self-written skills help beyond a simpler fixed harness.",
+      "loop": "For the experience-reuse ablations, collect robot episodes → retain demonstrations or write a reusable skill library → compare later execution, behavior and cost against a fixed baseline.",
+      "setting": "RoboDojo-Sim; a 111-episode study set covering all 42 tasks.",
+      "evidence": "Included as a controlled evaluation relevant to RSI, not as a self-improving final system. The final JustRUA excludes experience reuse and reports study-set Score 50.3 versus 29.7. Reuse variants draw on the tasks being scored and are not comparable to a standard evaluation. These are paper experiments, not verified official full-track ranks.",
+      "title": "JustRUA: A Controlled Study of GPT-6 Robot-Use Agents",
+      "date": "2026-11-11",
+      "date_source": "https://arxiv.org/abs/2611.16009",
+      "authors": [
+        "Zefan Wang",
+        "Yufan Dang",
+        "Xuanwei Shi",
+        "Mingqi Gao",
+        "Cheng Yin",
+        "SikYuen Tam",
+        "Hanyu Liu",
+        "Yasheng Wang",
+        "Yaxi Lu",
+        "Songyang Zhang",
+        "Xin Cong",
+        "Yuan Yao"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.16009",
+        "code": "https://github.com/ZefanW/JustRUA",
+        "project": "https://zefanw.github.io/JustRUA"
+      },
+      "figure": {
+        "path": "assets/papers/justrua.png",
+        "alt": "The testbed loop and the four axes of the study. The model issues a command, the unchanged planner turns it into a motion, and the simulator returns the next observation and, at the end, the score. Solid blue outlines ma",
+        "source": "https://arxiv.org/html/2611.16009v1#S2.F2",
+        "original_url": "https://arxiv.org/html/2611.16009v1/figures/web/fig_framework.png",
+        "credit": "Zefan Wang et al., JustRUA, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.16009",
+        "https://arxiv.org/html/2611.16009v1",
+        "https://github.com/ZefanW/JustRUA",
+        "https://zefanw.github.io/JustRUA"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
+      "checked_at": "2026-11-16"
+    },
+    {
+      "id": "roboace",
+      "category": "Code & harness evolution",
+      "summary": "Alternates improvements to a practice-generating curriculum and an execution harness around frozen models. Fixed challenge snapshots test whether reusable execution revisions address the weaknesses found during practice.",
+      "loop": "Probe a frozen execution deployment using accumulated capability evidence → admit a fixed challenge snapshot → revise and test the execution harness → retain reusable changes → update the curriculum against the new deployment.",
+      "setting": "LIBERO development with frozen evaluation on four LIBERO-family panels.",
+      "evidence": "The paper reports 74.0% success on LIBERO-PRO, 15.0 points above the initial deployment. Final test evidence stays outside the improvement loop. The author-linked DeLin1001/RoboACE repository is empty at verification, so no Code link is displayed.",
+      "unreleased_code": "https://github.com/DeLin1001/RoboACE",
+      "title": "RoboACE: Adversarial Co-Evolution for Robot Self-Improvement",
+      "date": "2026-11-09",
+      "date_source": "https://arxiv.org/abs/2611.13034",
+      "authors": [
+        "Delin Zhao",
+        "Zhengrong Yue",
+        "Junlin He",
+        "Yali Wang"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.13034"
+      },
+      "figure": {
+        "path": "assets/papers/roboace.svg",
+        "alt": "Alternating revisions connect challenge production and execution. The curriculum side uses prior capability evidence to probe a fixed execution deployment. Admitted conditions form a fixed snapshot for comparing executio",
+        "source": "https://arxiv.org/html/2611.13034v1#S3.F2",
+        "original_url": "https://arxiv.org/html/2611.13034v1/RoboACE_Framework_20261104_v4.svg",
+        "credit": "Delin Zhao et al., RoboACE, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.13034",
+        "https://arxiv.org/html/2611.13034v1"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
+      "checked_at": "2026-11-16"
+    },
+    {
+      "id": "flipanything",
+      "category": "Code & harness evolution",
+      "summary": "Uses simulation failures to develop and revise reusable bimanual flipping strategies. The resulting graph program combines grasping, handover, pushing, and recovery, with physical-robot demonstrations.",
+      "loop": "Freeze a graph-code version → run 360 episodes over 24 objects → inspect traces, physical diagnostics and per-object failures → revise strategies and check regressions → retain the next graph program.",
+      "setting": "Physics-simulated bimanual flipping across 24 objects, plus physical-robot demonstrations.",
+      "evidence": "The author paper reports simulation success rising from 24.7% to 95.0% over 36 code versions. Development repeatedly uses the object suite, so the final simulation figure is not a held-out generalization estimate. Physical demonstrations are distinct from that 360-episode simulation aggregate.",
+      "title": "Flip Anything with Agentic Robotics Self-Learning",
+      "date": "2026-11-09",
+      "date_source": "https://arxiv.org/abs/2611.11941",
+      "authors": [
+        "Shuangyu Xie",
+        "Kaiyuan Chen",
+        "Ken Goldberg"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.11941",
+        "project": "https://berkeleyautomation.github.io/flipanything/"
+      },
+      "figure": {
+        "path": "assets/papers/flipanything.png",
+        "alt": "self-learning loop; evaluation traces guide reusable graph-code revisions.",
+        "source": "https://arxiv.org/html/2611.11941v1#S2.F2",
+        "original_url": "https://arxiv.org/pdf/2611.11941v1#page=3",
+        "credit": "Shuangyu Xie et al., Flip Anything, Figure 2.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "extraction": "Rendered only original Figure 2 from PDF page 3 at 288 dpi, without redrawing or altering content."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.11941",
+        "https://arxiv.org/html/2611.11941v1",
+        "https://berkeleyautomation.github.io/flipanything/"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
+      "checked_at": "2026-11-16"
+    },
+    {
+      "id": "roboscript",
+      "category": "Code & harness evolution",
+      "summary": "Rehearses a manipulation task in simulation and stores execution lessons as reusable Task Memory. RoboScript freezes that memory for new scenes and uses later reflection to guide subsequent improvement rounds.",
+      "loop": "Build reusable skills → start from one demonstration → rehearse and verify in simulation → freeze Task Memory → deploy on unseen instances → reflect over disjoint evaluation blocks to guide later memory revisions.",
+      "setting": "All 50 RoboTwin 2.0 tasks, clean/randomized settings, and physical dual-arm transfer.",
+      "evidence": "The original PDF and official Figure 4 specify separate deployable and privileged data tiers. The paper reports 83.4% mean success with one demonstration per task and no gradient updates. Frozen deployment still receives ordinary execution observations; evaluation instances are not rehearsed.",
+      "title": "World In-Context Learning for Agentic Robot Manipulation",
+      "date": "2026-11-09",
+      "date_source": "https://arxiv.org/abs/2611.12885",
+      "authors": [
+        "Heng Fang",
+        "Zehui Guo",
+        "Yuehan Zhang",
+        "Mingyang Du",
+        "Dingkang Liang",
+        "Xiang Bai"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.12885",
+        "code": "https://github.com/ArcheOne-AI/RoboScript",
+        "project": "https://ArcheOne-AI.github.io/RoboScript"
+      },
+      "figure": {
+        "path": "assets/papers/roboscript.webp",
+        "alt": "RoboScript method overview from the official project.",
+        "source": "https://ArcheOne-AI.github.io/RoboScript/static/images/3-RoboScript.webp",
+        "original_url": "https://ArcheOne-AI.github.io/RoboScript/static/images/3-RoboScript.webp",
+        "credit": "Heng Fang et al., RoboScript, Figure 4.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.12885",
+        "https://arxiv.org/html/2611.12885v1",
+        "https://github.com/ArcheOne-AI/RoboScript",
+        "https://ArcheOne-AI.github.io/RoboScript"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
+      "checked_at": "2026-11-16"
+    },
+    {
+      "id": "simplevo",
+      "category": "Code & harness evolution",
+      "summary": "Reviews training episodes to rewrite a bounded text memory of procedures, completion checks, and recovery lessons. The fixed memories then guide direct robot control in new scenes and can transfer to other models.",
+      "loop": "Initialize coordinate-free Task Memory from one demonstration → execute training episodes → revise Working Memory from trajectories and outcomes after each episode → freeze both memories → evaluate on unseen layouts.",
+      "setting": "EBench and 42 RoboDojo tasks; no model-weight update or post-trained action policy.",
+      "evidence": "The paper reports EBench success rising from 46.7% to 81.7%. Its RoboDojo 75.32 Score/69.63% success and leaderboard claim are author-reported paper values; no matching SimplEvo entry appears on the current official board, so no official inline rank is attached.",
+      "title": "Review the Episodes, Refine the Lessons: Simple Memory Evolution for Embodied Agents",
+      "date": "2026-11-08",
+      "date_source": "https://arxiv.org/abs/2611.11509",
+      "authors": [
+        "Yifei Yao",
+        "Yude Zou",
+        "Xing Gao",
+        "Guanbo Jiao",
+        "Yukai Wang",
+        "Jianming Ma",
+        "Weinan Zhang",
+        "Chunhua Shen"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.11509"
+      },
+      "figure": {
+        "path": "assets/papers/simplevo.png",
+        "alt": "Overview of SimplEvo. During online adaptation (left), an annotator instance of GPT-6-Astra reviews one training demonstration and writes a coordinate-free task memory of the stages and the completed state, and after eve",
+        "source": "https://arxiv.org/html/2611.11509v1#S3.F2",
+        "original_url": "https://arxiv.org/html/2611.11509v1/framework.png",
+        "credit": "Yifei Yao et al., SimplEvo, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.11509",
+        "https://arxiv.org/html/2611.11509v1"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
+      "checked_at": "2026-11-16"
+    },
+    {
+      "id": "reins",
+      "category": "Navigation",
+      "summary": "Checks language-model trajectory rules against a dynamics model before storing them in an indexed memory. Familiar driving scenes reuse verified rules, while new scenes trigger further rule acquisition.",
+      "loop": "Retrieve a scene-indexed rule → verify a forward rollout → on a miss ask the LLM for a rule → ground and validate it → persist the accepted rule for future scenes.",
+      "setting": "Highway-env driving scenarios and closed-loop replay of highD/rounD recorded traffic.",
+      "evidence": "The paper compares 1,000-episode online acquisition against a frozen initial rule memory. Its reported millisecond latency covers the tactical layer; LLM misses are much slower and use a verified fallback. Real-world rows replay recorded vehicle trajectories, not physical autonomous-driving trials.",
+      "title": "REINS: A Self-Evolving Agent Harness for Real-Time Trajectory Planning",
+      "date": "2026-11-07",
+      "date_source": "https://arxiv.org/abs/2611.10748",
+      "authors": [
+        "Zhihong Cui",
+        "Hengyu Liu",
+        "Haoran Tang",
+        "Shijun Liu",
+        "Amir Taherkordi",
+        "Tor Skeie"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.10748",
+        "code": "https://github.com/ZhihongCui/REINS"
+      },
+      "figure": {
+        "path": "assets/papers/reins.png",
+        "alt": "The REINS framework. Phase 1 (offline): learn dynamics 𝒢^,ℱ^\\hat{\\mathcal{G}},\\hat{\\mathcal{F}} and compile rules into initial memory ℛ0\\mathcal{R}_{0}. Phase 2 (online): per-scene retrieval and rollout-based verificatio",
+        "source": "https://arxiv.org/html/2611.10748v1#S4.F2",
+        "original_url": "https://arxiv.org/html/2611.10748v1/figures/CLEAR_framework_exampleFinal-v5.png",
+        "credit": "Zhihong Cui et al., REINS, Figure 2.",
+        "license": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.10748",
+        "https://arxiv.org/html/2611.10748v1",
+        "https://github.com/ZhihongCui/REINS"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
+      "checked_at": "2026-11-16"
+    },
+    {
+      "id": "reskill",
+      "category": "Code & harness evolution",
+      "summary": "Locates manipulation failures in an object-centric task graph and selectively repairs stage logic or reusable skills. Full-task tests and paired comparisons decide which revisions to retain for agent-free execution.",
+      "loop": "Construct a task graph → record node-level execution failures → revise graph stages or local skills → run full-task and paired evaluations → admit validated changes into the skill library and executable policy.",
+      "setting": "Ten RoboDojo tasks and eight physical manipulation tasks.",
+      "evidence": "The author paper separates 86.2% final development-set success from 83.6% recorded robustness/model-selection success and 62/80 physical successes (77.5%). These are not the official full-track RoboDojo aggregate. The development agent makes no API calls in the deployed retained programs.",
+      "title": "ReSkill: Selective Self-Improvement for Robot Manipulation",
+      "date": "2026-11-07",
+      "date_source": "https://arxiv.org/abs/2611.10510",
+      "authors": [
+        "Zheng Sun",
+        "Zhihao Li",
+        "Zhuo Li",
+        "Wenrui Liu",
+        "Xin Wang",
+        "Fei Chen"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.10510"
+      },
+      "figure": {
+        "path": "assets/papers/reskill.png",
+        "alt": "ReSkill constructs and improves an executable task policy. An instruction and a skill library define a task graph and its node–skill bindings. Trial execution exposes planning or skill gaps, prompting task-level graph re",
+        "source": "https://arxiv.org/html/2611.10510v1#S2.F2",
+        "original_url": "https://arxiv.org/html/2611.10510v1/method.png",
+        "credit": "Zheng Sun et al., ReSkill, Figure 2.",
+        "license": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.10510",
+        "https://arxiv.org/html/2611.10510v1"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
+      "checked_at": "2026-11-16"
+    },
+    {
+      "id": "amp1",
+      "category": "Code & harness evolution",
+      "summary": "Extends direct manipulation control with a persistent store of lessons from earlier robot episodes. The revised study tests memory formats, transfer from stronger to weaker models, and practice batch sizes.",
+      "loop": "Execute practice episodes → compare success/failure → write reusable lessons into persistent memory → freeze/read accumulated memory on unseen layouts → continue with later tasks.",
+      "setting": "RoboDojo memory-extension experiments, with separate zero-shot RoboLab/CaP-Gym and physical AMP1 evaluations.",
+      "evidence": "Figure 4 and the experience-learning section establish across-episode memory for AMP1+, distinct from the zero-shot AMP1 baseline. The paper reports 26.4% to 84.1% success in its few-shot RoboDojo protocol, selecting the best of five practice runs per task; continual learning is separately measured in one task permutation. These are author experiments, not current official board scores. The v2 revision adds Figure 4L–N controlled experiments: restricting memory to code-only or notes-only during practice yields 81.0% and 82.2% versus 84.1% unrestricted, while post-hoc restrictions at evaluation yield 64.0% and 71.2%. Memory written by Opus 5.5 transfers to Sonnet 5.5, Qwen3.8-Flash-Next and Haiku 5.5 with author-reported success rates of 69.5%, 45.4% and 42.7%, compared with their own-practice rates of 47.2%, 19.3% and 19.8%. These variants retain the five-practice-run selection protocol. Batch sizes 1–8 at a fixed 48-episode practice budget achieve 80.4%–84.1%. All are paper experiments, not current official board submissions. Figure 4 explicitly dates its reference leaderboard to November 6, 2026.",
+      "title": "On Agentic Manipulation Policies",
+      "date": "2026-11-06",
+      "date_source": "https://arxiv.org/abs/2611.09892",
+      "authors": [
+        "Chen Chen",
+        "Omid Bagherieh",
+        "Naveen Nikamanth Appiah Balaji",
+        "Jesse T. Gonzalez",
+        "Negin Heravi",
+        "Fahad Islam",
+        "Xueting Li",
+        "Jean-Baptiste Regli",
+        "Kejia Ren",
+        "Petr Švec",
+        "David J. Yoon",
+        "Matthias Müller",
+        "Vladlen Koltun"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.09892",
+        "code": "https://github.com/apple-aiml-research/ml-amp",
+        "project": "https://apple-aiml-research.github.io/ml-amp/"
+      },
+      "figure": {
+        "path": "assets/papers/amp1.png",
+        "alt": "AMP1 harness. The generalist AI model controls the robot via Python code that runs in a persistent interpreter. The generalist model builds its own skills on top of the harness SDK. The SDK’s functions fall into three gr",
+        "source": "https://arxiv.org/html/2611.09892v2#S4.F6",
+        "original_url": "https://arxiv.org/html/2611.09892v2/fig6_amp_agent_harness.png",
+        "credit": "Chen Chen et al., AMP1 v2, Figure 6.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+        "verification": "The original v2 Figure 6 asset is byte-for-byte identical to the retained v1 image; no image edit or new rendering."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.09892",
+        "https://arxiv.org/html/2611.09892v1",
+        "https://github.com/apple-aiml-research/ml-amp",
+        "https://apple-aiml-research.github.io/ml-amp/",
+        "https://arxiv.org/html/2611.09892v2"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
+      "checked_at": "2026-11-19",
+      "previous_versions": [
+        {
+          "version": "v1",
+          "checked_at": "2026-11-16",
+          "summary": "Extends direct manipulation control with a persistent store of lessons from earlier robot episodes. The AMP1+ extension reuses this experience across practice rounds and tasks while keeping the underlying model fixed.",
+          "evidence": "Figure 4 and the experience-learning section establish across-episode memory for AMP1+, distinct from the zero-shot AMP1 baseline. The paper reports 26.4% to 84.1% success in its few-shot RoboDojo protocol, selecting the best of five practice runs per task; continual learning is separately measured in one task permutation. These are author experiments, not current official board scores.",
+          "figure": {
+            "path": "assets/papers/amp1.png",
+            "alt": "AMP1 harness. The generalist AI model controls the robot via Python code that runs in a persistent interpreter. The generalist model builds its own skills on top of the harness SDK. The SDK’s functions fall into three gr",
+            "source": "https://arxiv.org/html/2611.09892v1#S4.F6",
+            "original_url": "https://arxiv.org/html/2611.09892v1/fig6_amp_agent_harness.png",
+            "credit": "Chen Chen et al., AMP1, Figure 6.",
+            "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+          }
+        }
+      ],
+      "updated": "2026-11-18"
+    },
+    {
+      "id": "a2-meas",
+      "category": "Policy & skill learning",
+      "summary": "Learns an action-policy adapter from corrective guidance, spatial evidence, and recorded execution history. The retained correction parameters let a frozen base policy use that experience when recovering from later failures.",
+      "loop": "Gather failure and correction segments → combine MetaBrain guidance with spatial evidence/history and base-action proposals → train correction encoder/adapter parameters against expert continuations → retain the adapter → evaluate with frozen weights.",
+      "setting": "BEHAVIOR 2026, RoboTwin 2.0, 12 physical tasks and long-horizon coffee-preparation recovery.",
+      "evidence": "Section 2.5 describes a separate correction-learning stage with the base policy frozen. The physical recovery adapter uses measured failure-history sequences and differs from the complete four-input simulation interface. Deployment corrections do not update weights. System, models and scripts are promised rather than verified released resources.",
+      "title": "Toward the Era of Agentic Embodied Intelligence",
+      "date": "2026-11-06",
+      "date_source": "https://arxiv.org/abs/2611.09124",
+      "authors": [
+        "Chao Liang",
+        "Ke Chen",
+        "Fengxiaoxiao Li",
+        "Shibo Huang",
+        "Yufeng Sun",
+        "Zhaokai Yin",
+        "Jianhuan Lai",
+        "Haozhe Feng",
+        "Chenghuan Jia",
+        "Zhipeng Zhang"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.09124"
+      },
+      "figure": {
+        "path": "assets/papers/a2-meas.png",
+        "alt": "The A2-MEAS framework. The MetaBrain coordinates task reasoning and recovery. Grounding agents provide specialized evidence. The correction interface combines recovery language, spatial evidence, executed history, and a ",
+        "source": "https://arxiv.org/html/2611.09124v1#S1.F1",
+        "original_url": "https://arxiv.org/html/2611.09124v1/architecture_slide8_cropped.png",
+        "credit": "Chao Liang et al., A2-MEAS, Figure 1.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.09124",
+        "https://arxiv.org/html/2611.09124v1"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
+      "checked_at": "2026-11-16"
+    },
+    {
+      "id": "controlled-agentic-robotics",
+      "category": "Evaluation",
+      "summary": "Tests how model capability, skill priors, feedback, and curriculum affect iterative robot-code improvement. The controlled study examines which execution evidence helps agents diagnose failures and revise policies effectively.",
+      "loop": "Initialize code policy → execute in simulation → supply controlled feedback and skill/curriculum conditions → revise policy → compare zero-shot and final self-learning performance.",
+      "setting": "Nine simulated manipulation tasks; 631 configurations and approximately 28,000 coding-agent rollouts.",
+      "evidence": "Primary Figure 2 explicitly defines the execution-feedback-policy-update loop. The study concerns failure attribution, geometric reasoning and selective restructuring, not a standalone deployed RSI product or official leaderboard submission.",
+      "title": "A Controlled Study of Models, Skills, Feedback, and Curriculum in Agentic Robotics",
+      "date": "2026-11-06",
+      "date_source": "https://arxiv.org/abs/2611.09030",
+      "authors": [
+        "Kaiyuan Chen",
+        "Xinyue Zhu",
+        "Shuangyu Xie",
+        "Uksang Yoo",
+        "Thi Thu Phuong Luong",
+        "Marcus Gualtieri",
+        "Christian Juette",
+        "Liu Ren",
+        "Spencer Huang",
+        "Ken Goldberg"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.09030"
+      },
+      "figure": {
+        "path": "assets/papers/controlled-agentic-robotics.png",
+        "alt": "Overview of our controlled study of agentic robot self-learning of model, skill, feedback, and curriculum design. A coding agent initializes a policy π0\\pi_{0}, executes the current policy πk\\pi_{k} in simulation, receiv",
+        "source": "https://arxiv.org/html/2611.09030v1#S1.F2",
+        "original_url": "https://arxiv.org/html/2611.09030v1/front_draft.png",
+        "credit": "Kaiyuan Chen et al., controlled self-learning study, Figure 2.",
+        "license": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.09030",
+        "https://arxiv.org/html/2611.09030v1"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
+      "checked_at": "2026-11-16"
+    },
+    {
+      "id": "flex-rsi",
+      "category": "Evaluation",
+      "summary": "Benchmarks agents that revise both task solutions and their own harnesses under fixed budgets. Robot-action tasks use held-out validation to retain candidates and hidden tests to measure the final result.",
+      "loop": "Executor edits and tests a solution on development data → withheld validation accepts or reverts it → improver revises executor and its own harness → repeat within budget → score the final solution once on hidden tests.",
+      "setting": "24 vision/robotics tasks including LIBERO manipulation, active search and physical-stability checks.",
+      "evidence": "The paper and released protocol separate development, validation and test data and compare harness editing against fixed-harness conditions. The suite spans several nonrobotic domains; only the robot-action/physical tasks motivate inclusion here.",
+      "title": "Flex-RSI: Benchmarking Recursive Self-Improvement of Frontier Agents",
+      "date": "2026-11-06",
+      "date_source": "https://arxiv.org/abs/2611.08946",
+      "authors": [
+        "Jingdong Zhang",
+        "Jionghao Wang",
+        "Zhengming Yu",
+        "Yancheng Cai",
+        "Wei Chow",
+        "Chris Choy",
+        "Zhiyang Dou",
+        "Hang Hua",
+        "Jiachen Li",
+        "Zhixuan Liu",
+        "Chen Wang",
+        "Songlin Wei",
+        "Siyuan Yang",
+        "Yu Yuan",
+        "Xiaohang Zhan",
+        "Yucheng Zhang",
+        "Shuhong Zheng",
+        "Xin Li",
+        "Lingjie Liu",
+        "Wojciech Matusik",
+        "Zhengzhong Tu",
+        "Wenping Wang"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.08946",
+        "code": "https://github.com/flex-rsi/rsi-bench",
+        "data": "https://huggingface.co/datasets/Flex-RSI/RSI-Dataset",
+        "project": "https://flex-rsi.github.io"
+      },
+      "figure": {
+        "path": "assets/papers/flex-rsi.png",
+        "alt": "Flex-RSI at a glance. (a) The RSI loop. In each round, the executor edits the task solution, which is kept or reverted according to its score on held-out validation data; the improver then edits the harness, including th",
+        "source": "https://arxiv.org/html/2611.08946v1#S1.F1",
+        "original_url": "https://arxiv.org/html/2611.08946v1/fig1_overview.png",
+        "credit": "Jingdong Zhang et al., Flex-RSI, Figure 1.",
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.08946",
+        "https://arxiv.org/html/2611.08946v1",
+        "https://github.com/flex-rsi/rsi-bench",
+        "https://huggingface.co/datasets/Flex-RSI/RSI-Dataset",
+        "https://flex-rsi.github.io"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
+      "checked_at": "2026-11-16"
+    },
+    {
+      "id": "rsijudge",
+      "category": "Evaluation",
+      "summary": "Tests whether exposing benchmark success criteria improves task execution or encourages verifier overfitting. It compares retained skill libraries under original and instruction-faithful criteria, including transfer to new tasks.",
+      "loop": "Actor executes on development layouts → learner revises a reusable skill/memory library with or without criteria exposure → verify and roll back regressions → freeze the library → evaluate unseen layouts and transfer under alternate criteria.",
+      "setting": "RoboDojo criteria-exposure study, with transfer to LIBERO-PRO and RoboCasa365.",
+      "evidence": "On the same 320 episodes of 16 criteria-limited tasks, exposure leads 51.6% versus 27.8% under original criteria but 45.0% versus 47.2% under instruction-faithful criteria. The controlled switch changes only information available to the learner. These are study-specific results, not official full-track ranks.",
+      "title": "Learning the Task or Learning the Verifier? Rethinking Criteria Exposure in Embodied Self-Improvement",
+      "date": "2026-11-05",
+      "date_source": "https://arxiv.org/abs/2611.08318",
+      "authors": [
+        "Wenbo Huang",
+        "Jianxin Bi",
+        "Shunyu Yang",
+        "Ruiyang Si",
+        "Rui Ni",
+        "Qiang Wang",
+        "Shulong Jiang",
+        "Yintianrun Zhang",
+        "Feixiang Ruan",
+        "Kewei Zhang",
+        "Ye Huang",
+        "Shukai Gong",
+        "Daquan Zhou"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.08318",
+        "code": "https://github.com/DAGroup-PKU/PyRUA-Lean/tree/RSIJudge",
+        "project": "https://dagroup-pku.github.io/PyRUA-Lean/RSIJudge"
+      },
+      "figure": {
+        "path": "assets/papers/rsijudge.png",
+        "alt": "Overview of the self-improvement loop. Left, learning: the actor (GPT-6 Astra, high reasoning effort) writes and executes Python cells that call the robot’s primitives on five development layouts, and sees the result of ",
+        "source": "https://arxiv.org/html/2611.08318v1#S3.F2",
+        "original_url": "https://arxiv.org/html/2611.08318v1/method_loop.png",
+        "credit": "Wenbo Huang et al., RSIJudge, Figure 2.",
+        "license": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.08318",
+        "https://arxiv.org/html/2611.08318v1",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/tree/RSIJudge",
+        "https://dagroup-pku.github.io/PyRUA-Lean/RSIJudge"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
+      "checked_at": "2026-11-16"
+    },
+    {
+      "id": "roboarcade",
+      "category": "Evaluation",
+      "summary": "Evaluates long-horizon robot control and improvement from reusable demonstrations and self-revised prompts. Agents use graded rollout feedback to update a task-specific harness file for fresh sessions.",
+      "loop": "Collect a successful episode → distill a text-only harness.md → run fresh sessions with that file → revise it using graded earlier attempts → compare later-round task performance.",
+      "setting": "22 MuJoCo manipulation tasks over three embodiments; improvement experiments on five tasks.",
+      "evidence": "Section on task-specific prompt optimization describes persistent harness.md revisions over two rounds. Five-task mean rubric score rises from 53.5% to 72.0%; this is not a binary episode success rate or evidence across all 22 tasks. The author project https://roboarcade.org returns HTTP 403, so no unverified Code/Data links are displayed.",
+      "unavailable_project": "https://roboarcade.org",
+      "title": "RoboARCade: Benchmarking Agentic Robot Control",
+      "date": "2026-11-05",
+      "date_source": "https://arxiv.org/abs/2611.08209",
+      "authors": [
+        "Satvik Sharma",
+        "Hengyuan Hu",
+        "Mihika Kamat",
+        "Dorsa Sadigh",
+        "Jeannette Bohg"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.08209"
+      },
+      "figure": {
+        "path": "assets/papers/roboarcade.png",
+        "alt": "Representative tasks from RoboARCade. The benchmark includes 22 tasks spanning single and bimanual manipulation, assembly, physical puzzles, and biolab-inspired procedures. This figure shows 20 of them. Tasks require com",
+        "source": "https://arxiv.org/html/2611.08209v1#S1.F1",
+        "original_url": "https://arxiv.org/html/2611.08209v1/task_lineup_4x5.png",
+        "credit": "Satvik Sharma et al., RoboARCade, Figure 1.",
+        "license": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.08209",
+        "https://arxiv.org/html/2611.08209v1"
+      ],
+      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
+      "checked_at": "2026-11-16"
+    },
+    {
+      "id": "pyrua-real",
+      "title": "PyRUA-REAL: Robot Exploration and Adaptive Learning through RSI in the Real World",
+      "date": "2026-11-04",
+      "date_source": "https://arxiv.org/abs/2611.06768",
+      "date_evidence": "arXiv submission history v1 November 4, 2026.",
+      "authors": [
+        "Qiang Wang",
+        "Jianxin Bi",
+        "Shulong Jiang",
+        "Ruiyang Si",
+        "Wenbo Huang",
+        "Kaiqi Chen",
+        "Jiaxin Li",
+        "Liyun Li",
+        "Xuanyi Li",
+        "Daquan Zhou"
+      ],
+      "category": "Code & harness evolution",
+      "summary": "Uses a researcher–engineer loop to explore real robot tasks, diagnose execution failures and revise standalone control programs. Verified facts, experience and skills persist between improvement rounds.",
+      "loop": "Execute real robot program → collect observed failures and facts → researcher diagnoses and engineer revises code → test revised program → retain verified experience, skills and implementations.",
+      "setting": "Eight real-world development tasks and a 42-task simulation evaluation of frozen programs.",
+      "evidence": "The paper reports persistent code and experience updates through explicit RSI. Real-world results are development-task measurements, not demonstrated held-out cross-task generalization. The author framework README links this paper, but no separate released real-robot implementation was verified.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.06768",
+        "project": "https://dagroup-pku.github.io/PyRUA-Lean/real/"
+      },
+      "figure": {
+        "path": "assets/papers/pyrua-real.png",
+        "alt": "pyrua-real Figure 2: Execute real robot program → collect observed failures and facts → researcher diagnoses and engineer revises code → test revised program → retain verified experience, skills and implementations.",
+        "source": "https://arxiv.org/html/2611.06768v1#S3.F2",
+        "original_url": "https://arxiv.org/html/2611.06768v1/rsi_system_architecture_v16.png",
+        "credit": "Qiang Wang et al., pyrua-real, Figure 2.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "extraction": "None; original author image downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.06768",
+        "https://arxiv.org/html/2611.06768v1",
+        "https://dagroup-pku.github.io/PyRUA-Lean/real/",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/commit/634d89d0573f753ed671fe859cc1914e846228d8"
+      ],
+      "source_catalogue": "Discovered through the existing source-catalogue PyRUA-Lean entry and author README commit 634d89d0573f753ed671fe859cc1914e846228d8; verified against canonical arXiv paper and real-robot project.",
+      "checked_at": "2026-11-27"
     },
     {
       "id": "pyrua-datafarm",
@@ -920,6 +2367,164 @@
         "https://vincent2311.github.io/Projects/CarryOn/"
       ],
       "foundational": false
+    },
+    {
+      "id": "sensenova-roborsi",
+      "category": "Evaluation",
+      "summary": "Studies how training-set experience becomes frozen knowledge packages for robot control. The related RoboRSI-27B release now documents model–harness co-evolution and includes RoboDojo reproduction tools.",
+      "loop": "Inspect training demonstrations or explore training scenes → retain guidance, code and recovery knowledge → freeze a hashed read-only package → start each test episode in a fresh session → evaluate standard and extended execution budgets.",
+      "setting": "12 embodied benchmarks, harness ablations and demonstrations on eight physical platforms.",
+      "evidence": "The original report and linked SenseNova-RoboRSI code specify persistent knowledge packages, with fixed weights and no information written back across test episodes. Task-specific ICL coverage and up to 10x step budgets limit comparison to standard-budget baselines. Its paper/repository all-five-category RoboDojo 60.08 Score/54.17% success is distinct from the current official w/o-Open snapshot. The separate RoboRSI-27B model release has an author guide and weights, now with a November 27 technical article describing model–harness co-evolution; the original empirical paper remains a distinct publication. Its author-reported Score 34.7 uses seed 0/layout 0 and a general-purpose harness, not the official board entry for SenseNova-RoboRSI.",
+      "title": "Has GPT-6-Astra Achieved Embodied Intelligence?",
+      "date": "2026-10-15",
+      "date_source": "https://arxiv.org/abs/2610.22471",
+      "authors": [
+        "SenseNova",
+        "Joint Research Team",
+        "Zhongang Cai",
+        "Ziang Cao",
+        "Tailai Chen",
+        "Han Chong Chua",
+        "Linjun Dai",
+        "Hanming Deng",
+        "Hokin Deng",
+        "Haiwen Diao",
+        "Chenjing Ding",
+        "Weichen Fan",
+        "Xiao Fu",
+        "Zerui Gong",
+        "Chenyang Gu",
+        "Zexin He",
+        "Zhi Hou",
+        "Bo Li",
+        "Qinyue Li",
+        "Quanzhou Li",
+        "Xiaowan Li",
+        "Zhichao Liao",
+        "Dahua Lin",
+        "Zilong Lin",
+        "Bo Liu",
+        "Chunxiao Liu",
+        "Pengfei Liu",
+        "Tianqi Liu",
+        "Ziwei Liu",
+        "Chen Change Loy",
+        "Lewei Lu",
+        "Jiapeng Luo",
+        "Yuexiao Ma",
+        "Liang Pan",
+        "Xingang Pan",
+        "Oscar Qian",
+        "Ziyi Shang",
+        "Yuyao Shao",
+        "Dawei Su",
+        "Dacheng Tao",
+        "Qingyi Tao",
+        "Quan Wang",
+        "Ruisi Wang",
+        "Xiaogang Wang",
+        "Ziyi Wang",
+        "Beichen Wen",
+        "Donghao Wu",
+        "Jiaxu Wu",
+        "Silei Wu",
+        "Xiaoming Wu",
+        "Zhonghua Wu",
+        "Hongcan Xiao",
+        "Weiye Xu",
+        "Atsushi Yamashita",
+        "Lei Yang",
+        "Zhe Yang",
+        "Baiqiao Yin",
+        "Wanqi Yin",
+        "Hanfei Zhao",
+        "Tianbo Zhong",
+        "Long Zhuo",
+        "Jing Zuo"
+      ],
+      "links": {
+        "paper": "https://arxiv.org/abs/2610.22471",
+        "code": "https://github.com/OpenSenseNova/SenseNova-RoboRSI",
+        "data": "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages",
+        "models": "https://huggingface.co/sensenova/SenseNova-RoboRSI-27B",
+        "project": "https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence"
+      },
+      "figure": {
+        "path": "assets/papers/sensenova-roborsi.svg",
+        "alt": "In-context learning protocol. For each task, GPT-6-Astra studies the training data and writes a knowledge package KK, which is frozen before testing. Each test episode starts a fresh session with KK and runs under the st",
+        "source": "https://arxiv.org/html/2610.22471v2#S2.F2",
+        "original_url": "https://arxiv.org/html/2610.22471v2/icl_protocol.svg",
+        "credit": "SenseNova et al., embodied-intelligence report, Figure 2.",
+        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.22471",
+        "https://arxiv.org/html/2610.22471v2",
+        "https://github.com/OpenSenseNova/SenseNova-RoboRSI",
+        "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages",
+        "https://huggingface.co/sensenova/sensenova-roborsi-27b-preview",
+        "https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence",
+        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/5dfb9293730616cd14edc2064616bf0e4bba6397",
+        "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Log",
+        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/b946f15bb1bc8d4d5ad6990c351338d2dad15dc0",
+        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/b946f15bb1bc8d4d5ad6990c351338d2dad15dc0/benchmarks/simple/README.md",
+        "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages/tree/main/simple/v1.0.0",
+        "https://huggingface.co/sensenova/SenseNova-RoboRSI-27B",
+        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/a28ea4d4c723d7d211ba75f751c92164575a619b",
+        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/eab5896c9f5d61f09d0340f2c18ec9725b3145be/docs/sensenova-roborsi-27b.md",
+        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/3dc3e2c2778703e8c284b485c6e13f9ea874426a/docs/sensenova-roborsi-27b.md",
+        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/4b71539e30c8ba450bb770f7fb7573690944daf7"
+      ],
+      "source_catalogue": "Official RoboDojo-Sim Agent entry and author report/code; verified via arXiv submission history and frozen-package protocol.",
+      "checked_at": "2026-11-27",
+      "updated": "2026-10-19",
+      "related_releases": [
+        {
+          "date": "2026-11-18",
+          "name": "RoboDojo harness-ablation trajectory records",
+          "source": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/5dfb9293730616cd14edc2064616bf0e4bba6397",
+          "data": "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Log",
+          "revision": "baf3ab6d0e4e724149b696f9dc915952e2f42e53",
+          "archive": "RoboDojo_ablation.zip",
+          "archive_bytes": 60112920160,
+          "archive_sha256": "0557a6caf3fe09bb783fc6411973b955c2c500a66f425e6241881829e58ab9b2",
+          "records": 336,
+          "tasks": 42,
+          "methods": 8,
+          "completed_records": 334,
+          "incomplete_records": 2,
+          "note": "The public dataset card reports sanitized interaction records for eight harness variants, 42 records per method, with conversations, rollout events, actions, observations and media. Two records remain explicitly incomplete; collection completion is not task success. Some media references are unresolved. These are official-evaluation trajectories, so using them for training would leak the corresponding test cases. The collection is an analysis artifact rather than a runnable environment or a fresh policy benchmark result. Its retained LICENSE_STATUS states that no redistribution license is specified for the collection; the repository-level MIT metadata label does not override this collection-specific status. File existence, 60,112,920,160-byte size and published LFS SHA-256 were verified through the public HF API; the 56 GiB archive was not downloaded or its contents independently audited."
+        },
+        {
+          "date": "2026-11-18",
+          "name": "Initial SIMPLE integration and linked experience package",
+          "source": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/b946f15bb1bc8d4d5ad6990c351338d2dad15dc0",
+          "documentation": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/b946f15bb1bc8d4d5ad6990c351338d2dad15dc0/benchmarks/simple/README.md",
+          "package": "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages/tree/main/simple/v1.0.0",
+          "date_note": "Git committer date is November 18; the README announcement is dated November 19. This is a code integration release, not a paper revision.",
+          "note": "Author documentation describes a native evaluation integration candidate with a provider/adapter, worker, source export and API-agent preset. Historical image/source evidence is imported from an earlier checkout; recipient-host and successful-task acceptance remain pending. It does not reproduce historical paper scores and does not ship the historical ICL package inside the API-agent scaffold. The separately linked simple/v1.0.0 package has actual task/payload directories and manifests in the HF dataset; its pre-existing publication date is not relabeled as a new dataset release."
+        },
+        {
+          "date": "2026-11-23",
+          "name": "SenseNova-RoboRSI-27B model and deployment guide",
+          "source": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/a28ea4d4c723d7d211ba75f751c92164575a619b",
+          "documentation": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/eab5896c9f5d61f09d0340f2c18ec9725b3145be/docs/sensenova-roborsi-27b.md",
+          "models": "https://huggingface.co/sensenova/SenseNova-RoboRSI-27B",
+          "previous_models": "https://huggingface.co/sensenova/sensenova-roborsi-27b-preview",
+          "revision": "48be9e0ae25b000c3bb85b4d1a701da93eeb642d",
+          "license_note": "The model card and author deployment guide state Apache-2.0. This does not change the original paper figure license or the separate trajectory-collection licensing.",
+          "verification": "Hugging Face model API lists twelve actual safetensors shards. The released weight index maps 1,184 tensors across twelve shards and declares 54,713,457,120 bytes; configuration identifies Qwen3_5ForConditionalGeneration. Only metadata, configuration and index were downloaded, not 54.7 GB of weights.",
+          "loop": "Execution feedback guides harness changes; selected teacher trajectories from the revised harness fine-tune the 27B model; model and harness are re-evaluated across three reported rounds.",
+          "note": "Related model release, not a newly published paper or revision of arXiv 2610.22471. Author-reported RoboDojo Score 34.7 versus Preview 10.0 uses seed 0/layout 0 and a general-purpose harness with no task-specific skills; it is not an official full-track ranking and is not a success percentage. The official board row continues to refer to the earlier SenseNova-RoboRSI system. Author physical trials use the same simulation-post-trained checkpoint: Piper pick-and-place 6/10 and Piper X block stacking 9/10. The samples are small and not independently reproduced. VLA2Agent open-loop targets within 50 mm rise from 24.9% to 49.2% on 374 local actions; this is endpoint prediction accuracy, not task success. Historical guide availability statement superseded by the November 26–27 reproduction integration and technical article below."
+        },
+        {
+          "date": "2026-11-27",
+          "name": "RoboRSI-27B model–harness co-evolution technical article and RoboDojo reproduction tools",
+          "source": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/3dc3e2c2778703e8c284b485c6e13f9ea874426a/docs/sensenova-roborsi-27b.md",
+          "code": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/4b71539e30c8ba450bb770f7fb7573690944daf7",
+          "note": "The November 26 code integration adds a RoboDojo adapter, configuration, environment setup and evaluation documentation; the November 27 article details three model–harness rounds. Actual source files and commands were inspected, but robot evaluations and container execution were not independently reproduced. This is related release information, not a new arXiv paper or an updated official leaderboard result."
+        }
+      ]
     },
     {
       "id": "embodiedevo",
@@ -2002,1048 +3607,13 @@
         "https://research.nvidia.com/labs/gear/enpire/",
         "https://github.com/NVlabs/ENPIRE"
       ]
-    },
-    {
-      "id": "ace-cap-0",
-      "category": "Code & harness evolution",
-      "summary": "Refines reusable robot-control programs from physical execution feedback, requesting demonstrations and simulator trials when needed. The retained programs run with perception and control but no coding agent at deployment.",
-      "loop": "Execute a candidate policy on the robot → diagnose the outcome → request targeted robot demonstrations or simulated probes → revise the reusable program → freeze and evaluate.",
-      "setting": "Eight physical bimanual manipulation tasks; 30 trials per frozen task program.",
-      "evidence": "The author paper reports 221/240 successful physical trials (92.1%). Human demonstrations are available on request during development; this is not fully unguided learning. Runtime perception/control remain active after the coding agent is removed.",
-      "title": "ACE-CaP-0: Real-World Code-as-Policies in the Era of Experience",
-      "date": "2026-11-12",
-      "date_source": "https://arxiv.org/abs/2611.16872",
-      "authors": [
-        "CaP Team",
-        "Changxu Wei",
-        "Yunpeng Qing",
-        "Guozheng Ma",
-        "Bowen Liu",
-        "Zexin He",
-        "Yilun Kong",
-        "Haoming Gu",
-        "Jingyuan Liu",
-        "Tianyu Zhu",
-        "Jianfei Wang",
-        "Junqiang Kou",
-        "Huinan Mo",
-        "Hao Lv",
-        "Pengbin Li",
-        "Yuesong Wang",
-        "Bo Li",
-        "Huan Zhou",
-        "Shunyu Liu",
-        "Chunxiao Liu",
-        "Bixuan Jin",
-        "Shaopeng Yin",
-        "Fei Wang",
-        "Zhi Hou",
-        "Jiaxing Huang",
-        "Changqing Zou",
-        "Dacheng Tao",
-        "Xiaogang Wang"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.16872",
-        "project": "https://acerobotics2025.github.io/ACE-CaP/"
-      },
-      "figure": {
-        "path": "assets/papers/ace-cap-0.png",
-        "alt": "ACE-CaP-0: from policy development to standalone execution. (a) The coding agent writes and revises an executable policy using real-world feedback, with a shared robot toolbox that supports both policy execution and dire",
-        "source": "https://arxiv.org/html/2611.16872v1#S3.F5",
-        "original_url": "https://arxiv.org/html/2611.16872v1/ACE-CaP-0-method-working.png",
-        "credit": "CaP Team et al., ACE-CaP-0, Figure 5.",
-        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.16872",
-        "https://arxiv.org/html/2611.16872v1",
-        "https://acerobotics2025.github.io/ACE-CaP/"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-16"
-    },
-    {
-      "id": "h2e",
-      "category": "Navigation",
-      "summary": "Distills successful navigation-agent sessions into a VLA through task-level relabeling and progress masking. A second round collects recovery sessions from the adapted VLA’s training-scene failures, then updates it to navigate without the planner.",
-      "loop": "Run a planner with the base VLA on training scenes → retain successful sessions and relabel every motion under the task instruction, mask regressive steps and label stops → update LoRA adapters and the action head → run the adapted VLA on training episodes → restart the planner from selected failure states → retain recovery sessions → post-train a second round → evaluate the VLA alone on unseen scenes.",
-      "setting": "An 8B NavGPT VLA; all 3,189 REVERIE-CE and 6,932 NavRAG-CE validation-unseen episodes, plus separate R2R-CE and held-out agent comparisons.",
-      "evidence": "The latest v3 paper extends one-round experience distillation with failure-driven recovery collection. From 935 training episodes, it selects 216 failure states in 18 training scenes and collects 435 successful recovery sessions from 648 attempts. Training mixes agent sessions, DART and R2R-CE at 0.60/0.25/0.15, updating LoRA adapters and the action head while the vision encoder and base LLM remain frozen. Author-reported REVERIE-CE success is 35.0% for the base, 44.9% after one round and 50.6% after two rounds; NavRAG-CE is 21.3%, 31.8% and 32.4%, respectively, without collecting agent sessions on NavRAG-CE. These are success rates on their declared navigation splits, not RoboDojo scores or official leaderboard ranks. The v3 conclusion says code, adapters and sessions will be released upon acceptance; no promised resource is displayed as available.",
-      "title": "What Can a VLA Learn from the Agent That Calls It? Task-Level Experience Distillation for Embodied Navigation",
-      "date": "2026-11-12",
-      "date_source": "https://arxiv.org/abs/2611.16246",
-      "authors": [
-        "Jinze Tao",
-        "Yuxiao Han",
-        "Kangkang Dong",
-        "Yancong Wei",
-        "Xiaojun Zhu",
-        "Bokui Chen",
-        "Houde Liu"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.16246"
-      },
-      "figure": {
-        "path": "assets/papers/h2e-v3.png",
-        "alt": "H2E v3: two rounds of successful-session distillation, with the second round restarting the agent from the adapted VLA’s training-scene failures.",
-        "source": "https://arxiv.org/html/2611.16246v3#S2.F2",
-        "original_url": "https://arxiv.org/html/2611.16246v3/fig_pipeline.png",
-        "credit": "Jinze Tao et al., H2E v3, Figure 2.",
-        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.16246",
-        "https://arxiv.org/html/2611.16246v1",
-        "https://arxiv.org/html/2611.16246v3"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-18",
-      "previous_versions": [
-        {
-          "version": "v1",
-          "checked_at": "2026-11-16",
-          "summary": "Turns successful navigation-agent sessions into training examples for the VLA that the agent calls. Task-level relabeling and progress masking retain useful actions while reducing detours, so the adapted VLA navigates without the planner.",
-          "loop": "Run planner-assisted navigation in training scenes → retain sessions that reach the goal → relabel all motions under the original instruction, mask regressive steps and label stops → update VLA LoRA adapters and waypoint head → evaluate the VLA alone.",
-          "setting": "REVERIE-CE navigation; all 3,189 validation-unseen episodes with an 8B VLA.",
-          "evidence": "Success filtering and progress masks use execution outcomes to produce persistent weight updates. The paper reports success rising from 35.0% to 44.9%; the vision encoder and base LLM remain frozen. This is experience distillation, not online self-modification at deployment.",
-          "figure": {
-            "path": "assets/papers/h2e.png",
-            "alt": "Overview of H2E. (a) On training scenes, a frontier LLM planner with a place graph and its own tools calls the base VLA. We keep the sessions that reach the goal. (b) H2E turns one kept session into labels. ① Every step ",
-            "source": "https://arxiv.org/html/2611.16246v1#S2.F2",
-            "original_url": "https://arxiv.org/html/2611.16246v1/fig_pipeline.png",
-            "credit": "Jinze Tao et al., H2E, Figure 2.",
-            "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
-          }
-        }
-      ],
-      "updated": "2026-11-17"
-    },
-    {
-      "id": "justrua",
-      "category": "Evaluation",
-      "summary": "Separates the effects of robot harnesses, action interfaces, experience reuse, and scene geometry in controlled experiments. Its experience-reuse ablations test whether demonstrations and self-written skills help beyond a simpler fixed harness.",
-      "loop": "For the experience-reuse ablations, collect robot episodes → retain demonstrations or write a reusable skill library → compare later execution, behavior and cost against a fixed baseline.",
-      "setting": "RoboDojo-Sim; a 111-episode study set covering all 42 tasks.",
-      "evidence": "Included as a controlled evaluation relevant to RSI, not as a self-improving final system. The final JustRUA excludes experience reuse and reports study-set Score 50.3 versus 29.7. Reuse variants draw on the tasks being scored and are not comparable to a standard evaluation. These are paper experiments, not verified official full-track ranks.",
-      "title": "JustRUA: A Controlled Study of GPT-6 Robot-Use Agents",
-      "date": "2026-11-11",
-      "date_source": "https://arxiv.org/abs/2611.16009",
-      "authors": [
-        "Zefan Wang",
-        "Yufan Dang",
-        "Xuanwei Shi",
-        "Mingqi Gao",
-        "Cheng Yin",
-        "SikYuen Tam",
-        "Hanyu Liu",
-        "Yasheng Wang",
-        "Yaxi Lu",
-        "Songyang Zhang",
-        "Xin Cong",
-        "Yuan Yao"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.16009",
-        "code": "https://github.com/ZefanW/JustRUA",
-        "project": "https://zefanw.github.io/JustRUA"
-      },
-      "figure": {
-        "path": "assets/papers/justrua.png",
-        "alt": "The testbed loop and the four axes of the study. The model issues a command, the unchanged planner turns it into a motion, and the simulator returns the next observation and, at the end, the score. Solid blue outlines ma",
-        "source": "https://arxiv.org/html/2611.16009v1#S2.F2",
-        "original_url": "https://arxiv.org/html/2611.16009v1/figures/web/fig_framework.png",
-        "credit": "Zefan Wang et al., JustRUA, Figure 2.",
-        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.16009",
-        "https://arxiv.org/html/2611.16009v1",
-        "https://github.com/ZefanW/JustRUA",
-        "https://zefanw.github.io/JustRUA"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-16"
-    },
-    {
-      "id": "roboace",
-      "category": "Code & harness evolution",
-      "summary": "Alternates improvements to a practice-generating curriculum and an execution harness around frozen models. Fixed challenge snapshots test whether reusable execution revisions address the weaknesses found during practice.",
-      "loop": "Probe a frozen execution deployment using accumulated capability evidence → admit a fixed challenge snapshot → revise and test the execution harness → retain reusable changes → update the curriculum against the new deployment.",
-      "setting": "LIBERO development with frozen evaluation on four LIBERO-family panels.",
-      "evidence": "The paper reports 74.0% success on LIBERO-PRO, 15.0 points above the initial deployment. Final test evidence stays outside the improvement loop. The author-linked DeLin1001/RoboACE repository is empty at verification, so no Code link is displayed.",
-      "unreleased_code": "https://github.com/DeLin1001/RoboACE",
-      "title": "RoboACE: Adversarial Co-Evolution for Robot Self-Improvement",
-      "date": "2026-11-09",
-      "date_source": "https://arxiv.org/abs/2611.13034",
-      "authors": [
-        "Delin Zhao",
-        "Zhengrong Yue",
-        "Junlin He",
-        "Yali Wang"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.13034"
-      },
-      "figure": {
-        "path": "assets/papers/roboace.svg",
-        "alt": "Alternating revisions connect challenge production and execution. The curriculum side uses prior capability evidence to probe a fixed execution deployment. Admitted conditions form a fixed snapshot for comparing executio",
-        "source": "https://arxiv.org/html/2611.13034v1#S3.F2",
-        "original_url": "https://arxiv.org/html/2611.13034v1/RoboACE_Framework_20261104_v4.svg",
-        "credit": "Delin Zhao et al., RoboACE, Figure 2.",
-        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.13034",
-        "https://arxiv.org/html/2611.13034v1"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-16"
-    },
-    {
-      "id": "flipanything",
-      "category": "Code & harness evolution",
-      "summary": "Uses simulation failures to develop and revise reusable bimanual flipping strategies. The resulting graph program combines grasping, handover, pushing, and recovery, with physical-robot demonstrations.",
-      "loop": "Freeze a graph-code version → run 360 episodes over 24 objects → inspect traces, physical diagnostics and per-object failures → revise strategies and check regressions → retain the next graph program.",
-      "setting": "Physics-simulated bimanual flipping across 24 objects, plus physical-robot demonstrations.",
-      "evidence": "The author paper reports simulation success rising from 24.7% to 95.0% over 36 code versions. Development repeatedly uses the object suite, so the final simulation figure is not a held-out generalization estimate. Physical demonstrations are distinct from that 360-episode simulation aggregate.",
-      "title": "Flip Anything with Agentic Robotics Self-Learning",
-      "date": "2026-11-09",
-      "date_source": "https://arxiv.org/abs/2611.11941",
-      "authors": [
-        "Shuangyu Xie",
-        "Kaiyuan Chen",
-        "Ken Goldberg"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.11941",
-        "project": "https://berkeleyautomation.github.io/flipanything/"
-      },
-      "figure": {
-        "path": "assets/papers/flipanything.png",
-        "alt": "self-learning loop; evaluation traces guide reusable graph-code revisions.",
-        "source": "https://arxiv.org/html/2611.11941v1#S2.F2",
-        "original_url": "https://arxiv.org/pdf/2611.11941v1#page=3",
-        "credit": "Shuangyu Xie et al., Flip Anything, Figure 2.",
-        "license": "https://creativecommons.org/licenses/by/4.0/",
-        "extraction": "Rendered only original Figure 2 from PDF page 3 at 288 dpi, without redrawing or altering content."
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.11941",
-        "https://arxiv.org/html/2611.11941v1",
-        "https://berkeleyautomation.github.io/flipanything/"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-16"
-    },
-    {
-      "id": "roboscript",
-      "category": "Code & harness evolution",
-      "summary": "Rehearses a manipulation task in simulation and stores execution lessons as reusable Task Memory. RoboScript freezes that memory for new scenes and uses later reflection to guide subsequent improvement rounds.",
-      "loop": "Build reusable skills → start from one demonstration → rehearse and verify in simulation → freeze Task Memory → deploy on unseen instances → reflect over disjoint evaluation blocks to guide later memory revisions.",
-      "setting": "All 50 RoboTwin 2.0 tasks, clean/randomized settings, and physical dual-arm transfer.",
-      "evidence": "The original PDF and official Figure 4 specify separate deployable and privileged data tiers. The paper reports 83.4% mean success with one demonstration per task and no gradient updates. Frozen deployment still receives ordinary execution observations; evaluation instances are not rehearsed.",
-      "title": "World In-Context Learning for Agentic Robot Manipulation",
-      "date": "2026-11-09",
-      "date_source": "https://arxiv.org/abs/2611.12885",
-      "authors": [
-        "Heng Fang",
-        "Zehui Guo",
-        "Yuehan Zhang",
-        "Mingyang Du",
-        "Dingkang Liang",
-        "Xiang Bai"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.12885",
-        "code": "https://github.com/ArcheOne-AI/RoboScript",
-        "project": "https://ArcheOne-AI.github.io/RoboScript"
-      },
-      "figure": {
-        "path": "assets/papers/roboscript.webp",
-        "alt": "RoboScript method overview from the official project.",
-        "source": "https://ArcheOne-AI.github.io/RoboScript/static/images/3-RoboScript.webp",
-        "original_url": "https://ArcheOne-AI.github.io/RoboScript/static/images/3-RoboScript.webp",
-        "credit": "Heng Fang et al., RoboScript, Figure 4.",
-        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.12885",
-        "https://arxiv.org/html/2611.12885v1",
-        "https://github.com/ArcheOne-AI/RoboScript",
-        "https://ArcheOne-AI.github.io/RoboScript"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-16"
-    },
-    {
-      "id": "simplevo",
-      "category": "Code & harness evolution",
-      "summary": "Reviews training episodes to rewrite a bounded text memory of procedures, completion checks, and recovery lessons. The fixed memories then guide direct robot control in new scenes and can transfer to other models.",
-      "loop": "Initialize coordinate-free Task Memory from one demonstration → execute training episodes → revise Working Memory from trajectories and outcomes after each episode → freeze both memories → evaluate on unseen layouts.",
-      "setting": "EBench and 42 RoboDojo tasks; no model-weight update or post-trained action policy.",
-      "evidence": "The paper reports EBench success rising from 46.7% to 81.7%. Its RoboDojo 75.32 Score/69.63% success and leaderboard claim are author-reported paper values; no matching SimplEvo entry appears on the current official board, so no official inline rank is attached.",
-      "title": "Review the Episodes, Refine the Lessons: Simple Memory Evolution for Embodied Agents",
-      "date": "2026-11-08",
-      "date_source": "https://arxiv.org/abs/2611.11509",
-      "authors": [
-        "Yifei Yao",
-        "Yude Zou",
-        "Xing Gao",
-        "Guanbo Jiao",
-        "Yukai Wang",
-        "Jianming Ma",
-        "Weinan Zhang",
-        "Chunhua Shen"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.11509"
-      },
-      "figure": {
-        "path": "assets/papers/simplevo.png",
-        "alt": "Overview of SimplEvo. During online adaptation (left), an annotator instance of GPT-6-Astra reviews one training demonstration and writes a coordinate-free task memory of the stages and the completed state, and after eve",
-        "source": "https://arxiv.org/html/2611.11509v1#S3.F2",
-        "original_url": "https://arxiv.org/html/2611.11509v1/framework.png",
-        "credit": "Yifei Yao et al., SimplEvo, Figure 2.",
-        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.11509",
-        "https://arxiv.org/html/2611.11509v1"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-16"
-    },
-    {
-      "id": "reins",
-      "category": "Navigation",
-      "summary": "Checks language-model trajectory rules against a dynamics model before storing them in an indexed memory. Familiar driving scenes reuse verified rules, while new scenes trigger further rule acquisition.",
-      "loop": "Retrieve a scene-indexed rule → verify a forward rollout → on a miss ask the LLM for a rule → ground and validate it → persist the accepted rule for future scenes.",
-      "setting": "Highway-env driving scenarios and closed-loop replay of highD/rounD recorded traffic.",
-      "evidence": "The paper compares 1,000-episode online acquisition against a frozen initial rule memory. Its reported millisecond latency covers the tactical layer; LLM misses are much slower and use a verified fallback. Real-world rows replay recorded vehicle trajectories, not physical autonomous-driving trials.",
-      "title": "REINS: A Self-Evolving Agent Harness for Real-Time Trajectory Planning",
-      "date": "2026-11-07",
-      "date_source": "https://arxiv.org/abs/2611.10748",
-      "authors": [
-        "Zhihong Cui",
-        "Hengyu Liu",
-        "Haoran Tang",
-        "Shijun Liu",
-        "Amir Taherkordi",
-        "Tor Skeie"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.10748",
-        "code": "https://github.com/ZhihongCui/REINS"
-      },
-      "figure": {
-        "path": "assets/papers/reins.png",
-        "alt": "The REINS framework. Phase 1 (offline): learn dynamics 𝒢^,ℱ^\\hat{\\mathcal{G}},\\hat{\\mathcal{F}} and compile rules into initial memory ℛ0\\mathcal{R}_{0}. Phase 2 (online): per-scene retrieval and rollout-based verificatio",
-        "source": "https://arxiv.org/html/2611.10748v1#S4.F2",
-        "original_url": "https://arxiv.org/html/2611.10748v1/figures/CLEAR_framework_exampleFinal-v5.png",
-        "credit": "Zhihong Cui et al., REINS, Figure 2.",
-        "license": "https://creativecommons.org/licenses/by/4.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.10748",
-        "https://arxiv.org/html/2611.10748v1",
-        "https://github.com/ZhihongCui/REINS"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-16"
-    },
-    {
-      "id": "reskill",
-      "category": "Code & harness evolution",
-      "summary": "Locates manipulation failures in an object-centric task graph and selectively repairs stage logic or reusable skills. Full-task tests and paired comparisons decide which revisions to retain for agent-free execution.",
-      "loop": "Construct a task graph → record node-level execution failures → revise graph stages or local skills → run full-task and paired evaluations → admit validated changes into the skill library and executable policy.",
-      "setting": "Ten RoboDojo tasks and eight physical manipulation tasks.",
-      "evidence": "The author paper separates 86.2% final development-set success from 83.6% recorded robustness/model-selection success and 62/80 physical successes (77.5%). These are not the official full-track RoboDojo aggregate. The development agent makes no API calls in the deployed retained programs.",
-      "title": "ReSkill: Selective Self-Improvement for Robot Manipulation",
-      "date": "2026-11-07",
-      "date_source": "https://arxiv.org/abs/2611.10510",
-      "authors": [
-        "Zheng Sun",
-        "Zhihao Li",
-        "Zhuo Li",
-        "Wenrui Liu",
-        "Xin Wang",
-        "Fei Chen"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.10510"
-      },
-      "figure": {
-        "path": "assets/papers/reskill.png",
-        "alt": "ReSkill constructs and improves an executable task policy. An instruction and a skill library define a task graph and its node–skill bindings. Trial execution exposes planning or skill gaps, prompting task-level graph re",
-        "source": "https://arxiv.org/html/2611.10510v1#S2.F2",
-        "original_url": "https://arxiv.org/html/2611.10510v1/method.png",
-        "credit": "Zheng Sun et al., ReSkill, Figure 2.",
-        "license": "https://creativecommons.org/licenses/by/4.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.10510",
-        "https://arxiv.org/html/2611.10510v1"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-16"
-    },
-    {
-      "id": "amp1",
-      "category": "Code & harness evolution",
-      "summary": "Extends direct manipulation control with a persistent store of lessons from earlier robot episodes. The revised study tests memory formats, transfer from stronger to weaker models, and practice batch sizes.",
-      "loop": "Execute practice episodes → compare success/failure → write reusable lessons into persistent memory → freeze/read accumulated memory on unseen layouts → continue with later tasks.",
-      "setting": "RoboDojo memory-extension experiments, with separate zero-shot RoboLab/CaP-Gym and physical AMP1 evaluations.",
-      "evidence": "Figure 4 and the experience-learning section establish across-episode memory for AMP1+, distinct from the zero-shot AMP1 baseline. The paper reports 26.4% to 84.1% success in its few-shot RoboDojo protocol, selecting the best of five practice runs per task; continual learning is separately measured in one task permutation. These are author experiments, not current official board scores. The v2 revision adds Figure 4L–N controlled experiments: restricting memory to code-only or notes-only during practice yields 81.0% and 82.2% versus 84.1% unrestricted, while post-hoc restrictions at evaluation yield 64.0% and 71.2%. Memory written by Opus 5.5 transfers to Sonnet 5.5, Qwen3.8-Flash-Next and Haiku 5.5 with author-reported success rates of 69.5%, 45.4% and 42.7%, compared with their own-practice rates of 47.2%, 19.3% and 19.8%. These variants retain the five-practice-run selection protocol. Batch sizes 1–8 at a fixed 48-episode practice budget achieve 80.4%–84.1%. All are paper experiments, not current official board submissions. Figure 4 explicitly dates its reference leaderboard to November 6, 2026.",
-      "title": "On Agentic Manipulation Policies",
-      "date": "2026-11-06",
-      "date_source": "https://arxiv.org/abs/2611.09892",
-      "authors": [
-        "Chen Chen",
-        "Omid Bagherieh",
-        "Naveen Nikamanth Appiah Balaji",
-        "Jesse T. Gonzalez",
-        "Negin Heravi",
-        "Fahad Islam",
-        "Xueting Li",
-        "Jean-Baptiste Regli",
-        "Kejia Ren",
-        "Petr Švec",
-        "David J. Yoon",
-        "Matthias Müller",
-        "Vladlen Koltun"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.09892",
-        "code": "https://github.com/apple-aiml-research/ml-amp",
-        "project": "https://apple-aiml-research.github.io/ml-amp/"
-      },
-      "figure": {
-        "path": "assets/papers/amp1.png",
-        "alt": "AMP1 harness. The generalist AI model controls the robot via Python code that runs in a persistent interpreter. The generalist model builds its own skills on top of the harness SDK. The SDK’s functions fall into three gr",
-        "source": "https://arxiv.org/html/2611.09892v2#S4.F6",
-        "original_url": "https://arxiv.org/html/2611.09892v2/fig6_amp_agent_harness.png",
-        "credit": "Chen Chen et al., AMP1 v2, Figure 6.",
-        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-        "verification": "The original v2 Figure 6 asset is byte-for-byte identical to the retained v1 image; no image edit or new rendering."
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.09892",
-        "https://arxiv.org/html/2611.09892v1",
-        "https://github.com/apple-aiml-research/ml-amp",
-        "https://apple-aiml-research.github.io/ml-amp/",
-        "https://arxiv.org/html/2611.09892v2"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-19",
-      "previous_versions": [
-        {
-          "version": "v1",
-          "checked_at": "2026-11-16",
-          "summary": "Extends direct manipulation control with a persistent store of lessons from earlier robot episodes. The AMP1+ extension reuses this experience across practice rounds and tasks while keeping the underlying model fixed.",
-          "evidence": "Figure 4 and the experience-learning section establish across-episode memory for AMP1+, distinct from the zero-shot AMP1 baseline. The paper reports 26.4% to 84.1% success in its few-shot RoboDojo protocol, selecting the best of five practice runs per task; continual learning is separately measured in one task permutation. These are author experiments, not current official board scores.",
-          "figure": {
-            "path": "assets/papers/amp1.png",
-            "alt": "AMP1 harness. The generalist AI model controls the robot via Python code that runs in a persistent interpreter. The generalist model builds its own skills on top of the harness SDK. The SDK’s functions fall into three gr",
-            "source": "https://arxiv.org/html/2611.09892v1#S4.F6",
-            "original_url": "https://arxiv.org/html/2611.09892v1/fig6_amp_agent_harness.png",
-            "credit": "Chen Chen et al., AMP1, Figure 6.",
-            "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
-          }
-        }
-      ],
-      "updated": "2026-11-18"
-    },
-    {
-      "id": "a2-meas",
-      "category": "Policy & skill learning",
-      "summary": "Learns an action-policy adapter from corrective guidance, spatial evidence, and recorded execution history. The retained correction parameters let a frozen base policy use that experience when recovering from later failures.",
-      "loop": "Gather failure and correction segments → combine MetaBrain guidance with spatial evidence/history and base-action proposals → train correction encoder/adapter parameters against expert continuations → retain the adapter → evaluate with frozen weights.",
-      "setting": "BEHAVIOR 2026, RoboTwin 2.0, 12 physical tasks and long-horizon coffee-preparation recovery.",
-      "evidence": "Section 2.5 describes a separate correction-learning stage with the base policy frozen. The physical recovery adapter uses measured failure-history sequences and differs from the complete four-input simulation interface. Deployment corrections do not update weights. System, models and scripts are promised rather than verified released resources.",
-      "title": "Toward the Era of Agentic Embodied Intelligence",
-      "date": "2026-11-06",
-      "date_source": "https://arxiv.org/abs/2611.09124",
-      "authors": [
-        "Chao Liang",
-        "Ke Chen",
-        "Fengxiaoxiao Li",
-        "Shibo Huang",
-        "Yufeng Sun",
-        "Zhaokai Yin",
-        "Jianhuan Lai",
-        "Haozhe Feng",
-        "Chenghuan Jia",
-        "Zhipeng Zhang"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.09124"
-      },
-      "figure": {
-        "path": "assets/papers/a2-meas.png",
-        "alt": "The A2-MEAS framework. The MetaBrain coordinates task reasoning and recovery. Grounding agents provide specialized evidence. The correction interface combines recovery language, spatial evidence, executed history, and a ",
-        "source": "https://arxiv.org/html/2611.09124v1#S1.F1",
-        "original_url": "https://arxiv.org/html/2611.09124v1/architecture_slide8_cropped.png",
-        "credit": "Chao Liang et al., A2-MEAS, Figure 1.",
-        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.09124",
-        "https://arxiv.org/html/2611.09124v1"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-16"
-    },
-    {
-      "id": "controlled-agentic-robotics",
-      "category": "Evaluation",
-      "summary": "Tests how model capability, skill priors, feedback, and curriculum affect iterative robot-code improvement. The controlled study examines which execution evidence helps agents diagnose failures and revise policies effectively.",
-      "loop": "Initialize code policy → execute in simulation → supply controlled feedback and skill/curriculum conditions → revise policy → compare zero-shot and final self-learning performance.",
-      "setting": "Nine simulated manipulation tasks; 631 configurations and approximately 28,000 coding-agent rollouts.",
-      "evidence": "Primary Figure 2 explicitly defines the execution-feedback-policy-update loop. The study concerns failure attribution, geometric reasoning and selective restructuring, not a standalone deployed RSI product or official leaderboard submission.",
-      "title": "A Controlled Study of Models, Skills, Feedback, and Curriculum in Agentic Robotics",
-      "date": "2026-11-06",
-      "date_source": "https://arxiv.org/abs/2611.09030",
-      "authors": [
-        "Kaiyuan Chen",
-        "Xinyue Zhu",
-        "Shuangyu Xie",
-        "Uksang Yoo",
-        "Thi Thu Phuong Luong",
-        "Marcus Gualtieri",
-        "Christian Juette",
-        "Liu Ren",
-        "Spencer Huang",
-        "Ken Goldberg"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.09030"
-      },
-      "figure": {
-        "path": "assets/papers/controlled-agentic-robotics.png",
-        "alt": "Overview of our controlled study of agentic robot self-learning of model, skill, feedback, and curriculum design. A coding agent initializes a policy π0\\pi_{0}, executes the current policy πk\\pi_{k} in simulation, receiv",
-        "source": "https://arxiv.org/html/2611.09030v1#S1.F2",
-        "original_url": "https://arxiv.org/html/2611.09030v1/front_draft.png",
-        "credit": "Kaiyuan Chen et al., controlled self-learning study, Figure 2.",
-        "license": "https://creativecommons.org/licenses/by/4.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.09030",
-        "https://arxiv.org/html/2611.09030v1"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-16"
-    },
-    {
-      "id": "rsijudge",
-      "category": "Evaluation",
-      "summary": "Tests whether exposing benchmark success criteria improves task execution or encourages verifier overfitting. It compares retained skill libraries under original and instruction-faithful criteria, including transfer to new tasks.",
-      "loop": "Actor executes on development layouts → learner revises a reusable skill/memory library with or without criteria exposure → verify and roll back regressions → freeze the library → evaluate unseen layouts and transfer under alternate criteria.",
-      "setting": "RoboDojo criteria-exposure study, with transfer to LIBERO-PRO and RoboCasa365.",
-      "evidence": "On the same 320 episodes of 16 criteria-limited tasks, exposure leads 51.6% versus 27.8% under original criteria but 45.0% versus 47.2% under instruction-faithful criteria. The controlled switch changes only information available to the learner. These are study-specific results, not official full-track ranks.",
-      "title": "Learning the Task or Learning the Verifier? Rethinking Criteria Exposure in Embodied Self-Improvement",
-      "date": "2026-11-05",
-      "date_source": "https://arxiv.org/abs/2611.08318",
-      "authors": [
-        "Wenbo Huang",
-        "Jianxin Bi",
-        "Shunyu Yang",
-        "Ruiyang Si",
-        "Rui Ni",
-        "Qiang Wang",
-        "Shulong Jiang",
-        "Yintianrun Zhang",
-        "Feixiang Ruan",
-        "Kewei Zhang",
-        "Ye Huang",
-        "Shukai Gong",
-        "Daquan Zhou"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.08318",
-        "code": "https://github.com/DAGroup-PKU/PyRUA-Lean/tree/RSIJudge",
-        "project": "https://dagroup-pku.github.io/PyRUA-Lean/RSIJudge"
-      },
-      "figure": {
-        "path": "assets/papers/rsijudge.png",
-        "alt": "Overview of the self-improvement loop. Left, learning: the actor (GPT-6 Astra, high reasoning effort) writes and executes Python cells that call the robot’s primitives on five development layouts, and sees the result of ",
-        "source": "https://arxiv.org/html/2611.08318v1#S3.F2",
-        "original_url": "https://arxiv.org/html/2611.08318v1/method_loop.png",
-        "credit": "Wenbo Huang et al., RSIJudge, Figure 2.",
-        "license": "https://creativecommons.org/licenses/by/4.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.08318",
-        "https://arxiv.org/html/2611.08318v1",
-        "https://github.com/DAGroup-PKU/PyRUA-Lean/tree/RSIJudge",
-        "https://dagroup-pku.github.io/PyRUA-Lean/RSIJudge"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-16"
-    },
-    {
-      "id": "flex-rsi",
-      "category": "Evaluation",
-      "summary": "Benchmarks agents that revise both task solutions and their own harnesses under fixed budgets. Robot-action tasks use held-out validation to retain candidates and hidden tests to measure the final result.",
-      "loop": "Executor edits and tests a solution on development data → withheld validation accepts or reverts it → improver revises executor and its own harness → repeat within budget → score the final solution once on hidden tests.",
-      "setting": "24 vision/robotics tasks including LIBERO manipulation, active search and physical-stability checks.",
-      "evidence": "The paper and released protocol separate development, validation and test data and compare harness editing against fixed-harness conditions. The suite spans several nonrobotic domains; only the robot-action/physical tasks motivate inclusion here.",
-      "title": "Flex-RSI: Benchmarking Recursive Self-Improvement of Frontier Agents",
-      "date": "2026-11-06",
-      "date_source": "https://arxiv.org/abs/2611.08946",
-      "authors": [
-        "Jingdong Zhang",
-        "Jionghao Wang",
-        "Zhengming Yu",
-        "Yancheng Cai",
-        "Wei Chow",
-        "Chris Choy",
-        "Zhiyang Dou",
-        "Hang Hua",
-        "Jiachen Li",
-        "Zhixuan Liu",
-        "Chen Wang",
-        "Songlin Wei",
-        "Siyuan Yang",
-        "Yu Yuan",
-        "Xiaohang Zhan",
-        "Yucheng Zhang",
-        "Shuhong Zheng",
-        "Xin Li",
-        "Lingjie Liu",
-        "Wojciech Matusik",
-        "Zhengzhong Tu",
-        "Wenping Wang"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.08946",
-        "code": "https://github.com/flex-rsi/rsi-bench",
-        "data": "https://huggingface.co/datasets/Flex-RSI/RSI-Dataset",
-        "project": "https://flex-rsi.github.io"
-      },
-      "figure": {
-        "path": "assets/papers/flex-rsi.png",
-        "alt": "Flex-RSI at a glance. (a) The RSI loop. In each round, the executor edits the task solution, which is kept or reverted according to its score on held-out validation data; the improver then edits the harness, including th",
-        "source": "https://arxiv.org/html/2611.08946v1#S1.F1",
-        "original_url": "https://arxiv.org/html/2611.08946v1/fig1_overview.png",
-        "credit": "Jingdong Zhang et al., Flex-RSI, Figure 1.",
-        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.08946",
-        "https://arxiv.org/html/2611.08946v1",
-        "https://github.com/flex-rsi/rsi-bench",
-        "https://huggingface.co/datasets/Flex-RSI/RSI-Dataset",
-        "https://flex-rsi.github.io"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-16"
-    },
-    {
-      "id": "roboarcade",
-      "category": "Evaluation",
-      "summary": "Evaluates long-horizon robot control and improvement from reusable demonstrations and self-revised prompts. Agents use graded rollout feedback to update a task-specific harness file for fresh sessions.",
-      "loop": "Collect a successful episode → distill a text-only harness.md → run fresh sessions with that file → revise it using graded earlier attempts → compare later-round task performance.",
-      "setting": "22 MuJoCo manipulation tasks over three embodiments; improvement experiments on five tasks.",
-      "evidence": "Section on task-specific prompt optimization describes persistent harness.md revisions over two rounds. Five-task mean rubric score rises from 53.5% to 72.0%; this is not a binary episode success rate or evidence across all 22 tasks. The author project https://roboarcade.org returns HTTP 403, so no unverified Code/Data links are displayed.",
-      "unavailable_project": "https://roboarcade.org",
-      "title": "RoboARCade: Benchmarking Agentic Robot Control",
-      "date": "2026-11-05",
-      "date_source": "https://arxiv.org/abs/2611.08209",
-      "authors": [
-        "Satvik Sharma",
-        "Hengyuan Hu",
-        "Mihika Kamat",
-        "Dorsa Sadigh",
-        "Jeannette Bohg"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.08209"
-      },
-      "figure": {
-        "path": "assets/papers/roboarcade.png",
-        "alt": "Representative tasks from RoboARCade. The benchmark includes 22 tasks spanning single and bimanual manipulation, assembly, physical puzzles, and biolab-inspired procedures. This figure shows 20 of them. Tasks require com",
-        "source": "https://arxiv.org/html/2611.08209v1#S1.F1",
-        "original_url": "https://arxiv.org/html/2611.08209v1/task_lineup_4x5.png",
-        "credit": "Satvik Sharma et al., RoboARCade, Figure 1.",
-        "license": "https://creativecommons.org/licenses/by/4.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.08209",
-        "https://arxiv.org/html/2611.08209v1"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 96d35e0f3d77405da0aaf1300de6077d24bb08ae; checked against original paper and author resources.",
-      "checked_at": "2026-11-16"
-    },
-    {
-      "id": "sensenova-roborsi",
-      "category": "Evaluation",
-      "summary": "Studies how training-set experience becomes frozen knowledge packages for robot control across multiple benchmarks. The related RoboRSI-27B release co-evolves model weights and harnesses using execution feedback and selected teacher trajectories.",
-      "loop": "Inspect training demonstrations or explore training scenes → retain guidance, code and recovery knowledge → freeze a hashed read-only package → start each test episode in a fresh session → evaluate standard and extended execution budgets.",
-      "setting": "12 embodied benchmarks, harness ablations and demonstrations on eight physical platforms.",
-      "evidence": "The original report and linked SenseNova-RoboRSI code specify persistent knowledge packages, with fixed weights and no information written back across test episodes. Task-specific ICL coverage and up to 10x step budgets limit comparison to standard-budget baselines. Its paper/repository all-five-category RoboDojo 60.08 Score/54.17% success is distinct from the current official w/o-Open snapshot. The separate RoboRSI-27B model release has an author guide and weights, while its technical report remains forthcoming; do not treat this empirical paper as that model report. Its author-reported Score 34.7 uses seed 0/layout 0 and a general-purpose harness, not the official board entry for SenseNova-RoboRSI.",
-      "title": "Has GPT-6-Astra Achieved Embodied Intelligence?",
-      "date": "2026-10-15",
-      "date_source": "https://arxiv.org/abs/2610.22471",
-      "authors": [
-        "SenseNova",
-        "Joint Research Team",
-        "Zhongang Cai",
-        "Ziang Cao",
-        "Tailai Chen",
-        "Han Chong Chua",
-        "Linjun Dai",
-        "Hanming Deng",
-        "Hokin Deng",
-        "Haiwen Diao",
-        "Chenjing Ding",
-        "Weichen Fan",
-        "Xiao Fu",
-        "Zerui Gong",
-        "Chenyang Gu",
-        "Zexin He",
-        "Zhi Hou",
-        "Bo Li",
-        "Qinyue Li",
-        "Quanzhou Li",
-        "Xiaowan Li",
-        "Zhichao Liao",
-        "Dahua Lin",
-        "Zilong Lin",
-        "Bo Liu",
-        "Chunxiao Liu",
-        "Pengfei Liu",
-        "Tianqi Liu",
-        "Ziwei Liu",
-        "Chen Change Loy",
-        "Lewei Lu",
-        "Jiapeng Luo",
-        "Yuexiao Ma",
-        "Liang Pan",
-        "Xingang Pan",
-        "Oscar Qian",
-        "Ziyi Shang",
-        "Yuyao Shao",
-        "Dawei Su",
-        "Dacheng Tao",
-        "Qingyi Tao",
-        "Quan Wang",
-        "Ruisi Wang",
-        "Xiaogang Wang",
-        "Ziyi Wang",
-        "Beichen Wen",
-        "Donghao Wu",
-        "Jiaxu Wu",
-        "Silei Wu",
-        "Xiaoming Wu",
-        "Zhonghua Wu",
-        "Hongcan Xiao",
-        "Weiye Xu",
-        "Atsushi Yamashita",
-        "Lei Yang",
-        "Zhe Yang",
-        "Baiqiao Yin",
-        "Wanqi Yin",
-        "Hanfei Zhao",
-        "Tianbo Zhong",
-        "Long Zhuo",
-        "Jing Zuo"
-      ],
-      "links": {
-        "paper": "https://arxiv.org/abs/2610.22471",
-        "code": "https://github.com/OpenSenseNova/SenseNova-RoboRSI",
-        "data": "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages",
-        "models": "https://huggingface.co/sensenova/SenseNova-RoboRSI-27B",
-        "project": "https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence"
-      },
-      "figure": {
-        "path": "assets/papers/sensenova-roborsi.svg",
-        "alt": "In-context learning protocol. For each task, GPT-6-Astra studies the training data and writes a knowledge package KK, which is frozen before testing. Each test episode starts a fresh session with KK and runs under the st",
-        "source": "https://arxiv.org/html/2610.22471v2#S2.F2",
-        "original_url": "https://arxiv.org/html/2610.22471v2/icl_protocol.svg",
-        "credit": "SenseNova et al., embodied-intelligence report, Figure 2.",
-        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2610.22471",
-        "https://arxiv.org/html/2610.22471v2",
-        "https://github.com/OpenSenseNova/SenseNova-RoboRSI",
-        "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages",
-        "https://huggingface.co/sensenova/sensenova-roborsi-27b-preview",
-        "https://www.sensenova.ai/has-gpt-6-astra-achieved-embodied-intelligence",
-        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/5dfb9293730616cd14edc2064616bf0e4bba6397",
-        "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Log",
-        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/b946f15bb1bc8d4d5ad6990c351338d2dad15dc0",
-        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/b946f15bb1bc8d4d5ad6990c351338d2dad15dc0/benchmarks/simple/README.md",
-        "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages/tree/main/simple/v1.0.0",
-        "https://huggingface.co/sensenova/SenseNova-RoboRSI-27B",
-        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/a28ea4d4c723d7d211ba75f751c92164575a619b",
-        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/eab5896c9f5d61f09d0340f2c18ec9725b3145be/docs/sensenova-roborsi-27b.md"
-      ],
-      "source_catalogue": "Official RoboDojo-Sim Agent entry and author report/code; verified via arXiv submission history and frozen-package protocol.",
-      "checked_at": "2026-11-16",
-      "updated": "2026-10-19",
-      "related_releases": [
-        {
-          "date": "2026-11-18",
-          "name": "RoboDojo harness-ablation trajectory records",
-          "source": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/5dfb9293730616cd14edc2064616bf0e4bba6397",
-          "data": "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Log",
-          "revision": "baf3ab6d0e4e724149b696f9dc915952e2f42e53",
-          "archive": "RoboDojo_ablation.zip",
-          "archive_bytes": 60112920160,
-          "archive_sha256": "0557a6caf3fe09bb783fc6411973b955c2c500a66f425e6241881829e58ab9b2",
-          "records": 336,
-          "tasks": 42,
-          "methods": 8,
-          "completed_records": 334,
-          "incomplete_records": 2,
-          "note": "The public dataset card reports sanitized interaction records for eight harness variants, 42 records per method, with conversations, rollout events, actions, observations and media. Two records remain explicitly incomplete; collection completion is not task success. Some media references are unresolved. These are official-evaluation trajectories, so using them for training would leak the corresponding test cases. The collection is an analysis artifact rather than a runnable environment or a fresh policy benchmark result. Its retained LICENSE_STATUS states that no redistribution license is specified for the collection; the repository-level MIT metadata label does not override this collection-specific status. File existence, 60,112,920,160-byte size and published LFS SHA-256 were verified through the public HF API; the 56 GiB archive was not downloaded or its contents independently audited."
-        },
-        {
-          "date": "2026-11-18",
-          "name": "Initial SIMPLE integration and linked experience package",
-          "source": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/b946f15bb1bc8d4d5ad6990c351338d2dad15dc0",
-          "documentation": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/b946f15bb1bc8d4d5ad6990c351338d2dad15dc0/benchmarks/simple/README.md",
-          "package": "https://huggingface.co/datasets/sensenova/SenseNova-RoboRSI-Packages/tree/main/simple/v1.0.0",
-          "date_note": "Git committer date is November 18; the README announcement is dated November 19. This is a code integration release, not a paper revision.",
-          "note": "Author documentation describes a native evaluation integration candidate with a provider/adapter, worker, source export and API-agent preset. Historical image/source evidence is imported from an earlier checkout; recipient-host and successful-task acceptance remain pending. It does not reproduce historical paper scores and does not ship the historical ICL package inside the API-agent scaffold. The separately linked simple/v1.0.0 package has actual task/payload directories and manifests in the HF dataset; its pre-existing publication date is not relabeled as a new dataset release."
-        },
-        {
-          "date": "2026-11-23",
-          "name": "SenseNova-RoboRSI-27B model and deployment guide",
-          "source": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/a28ea4d4c723d7d211ba75f751c92164575a619b",
-          "documentation": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/eab5896c9f5d61f09d0340f2c18ec9725b3145be/docs/sensenova-roborsi-27b.md",
-          "models": "https://huggingface.co/sensenova/SenseNova-RoboRSI-27B",
-          "previous_models": "https://huggingface.co/sensenova/sensenova-roborsi-27b-preview",
-          "revision": "48be9e0ae25b000c3bb85b4d1a701da93eeb642d",
-          "license_note": "The model card and author deployment guide state Apache-2.0. This does not change the original paper figure license or the separate trajectory-collection licensing.",
-          "verification": "Hugging Face model API lists twelve actual safetensors shards. The released weight index maps 1,184 tensors across twelve shards and declares 54,713,457,120 bytes; configuration identifies Qwen3_5ForConditionalGeneration. Only metadata, configuration and index were downloaded, not 54.7 GB of weights.",
-          "loop": "Execution feedback guides harness changes; selected teacher trajectories from the revised harness fine-tune the 27B model; model and harness are re-evaluated across three reported rounds.",
-          "note": "Related model release, not a newly published paper or revision of arXiv 2610.22471. Author-reported RoboDojo Score 34.7 versus Preview 10.0 uses seed 0/layout 0 and a general-purpose harness with no task-specific skills; it is not an official full-track ranking and is not a success percentage. The official board row continues to refer to the earlier SenseNova-RoboRSI system. Author physical trials use the same simulation-post-trained checkpoint: Piper pick-and-place 6/10 and Piper X block stacking 9/10. The samples are small and not independently reproduced. VLA2Agent open-loop targets within 50 mm rise from 24.9% to 49.2% on 374 local actions; this is endpoint prediction accuracy, not task success. The guide says the RoboDojo reproduction script will follow leaderboard submission."
-        }
-      ]
-    },
-    {
-      "id": "esi",
-      "category": "Policy & skill learning",
-      "summary": "Uses LLM–VLA interaction to improve decision prompts, reusable skills, and the action policy together. Effective corrections and student actions, including useful segments of failed episodes, feed later training and collection rounds.",
-      "loop": "Collect shared LLM/VLA execution records → review difficulties to refine prompts and skill interfaces → retain locally effective teacher corrections and student continuations → post-train the VLA → redeploy updated components for the next collection round.",
-      "setting": "Ten selected RoboDojo manipulation tasks with twenty scheduled cases per task; paper v2 also reports matched and rollback analyses.",
-      "evidence": "The v2 method explicitly retains prompt, skill-catalog and VLA-parameter changes across rounds while LLM weights stay fixed. The reported 62.03 mean Score and 49.41% mean task success concern a ten-task subset, not an official full-track leaderboard entry. The matched evaluation reports 197 completed cases of 200 scheduled, with 41 shared successes, 55 baseline-failure/ESI-success, 18 regressions and 83 shared failures; do not treat incomplete cases as a complete 200-case result. Released code supports staged collection, annotation, training and evaluation; automatic prompt updates are optional and disabled by default. The author-released Orbax checkpoint contains actual params shards.",
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.18176",
-        "code": "https://github.com/ZERITH-ZLab/ESI",
-        "models": "https://huggingface.co/Embodied-Self-Improvement/ESI-pi05",
-        "project": "https://zerith.com/blog/esi/"
-      },
-      "title": "ESI: An Embodied Self-Improvement Flywheel for LLM-VLA Agents",
-      "date": "2026-11-13",
-      "date_source": "https://arxiv.org/abs/2611.18176",
-      "authors": [
-        "Yundi Cai",
-        "Zihan Wang",
-        "Chenxi Han",
-        "Yi Cheng",
-        "Houde Liu",
-        "Zilei Wang"
-      ],
-      "figure": {
-        "path": "assets/papers/esi.png",
-        "alt": "ESI: execution records update prompt guidance, shared skills and VLA policy weights.",
-        "source": "https://arxiv.org/html/2611.18176v2#S3.F2",
-        "original_url": "https://arxiv.org/html/2611.18176v2/flywheel_overview_v2.png",
-        "credit": "Yundi Cai et al., ESI v2, Figure 2.",
-        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.18176",
-        "https://arxiv.org/html/2611.18176v2",
-        "https://github.com/ZERITH-ZLab/ESI",
-        "https://huggingface.co/Embodied-Self-Improvement/ESI-pi05",
-        "https://zerith.com/blog/esi/"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 566ed8a2a874694e8034004ca5466a28ff9a657f; verified with original paper and author resources.",
-      "checked_at": "2026-11-17",
-      "updated": "2026-11-16",
-      "resource_releases": {
-        "model_revision": "95779bb3877e464523bf6ad8ac8ae9cde2e3eeb6",
-        "model_format": "Orbax checkpoint with params data shards and normalization assets; model weights verified through Hugging Face file metadata.",
-        "code_note": "Released staged training/evaluation scripts; optional prompt evolution is disabled by default."
-      }
-    },
-    {
-      "id": "agentic-teacher",
-      "category": "Policy & skill learning",
-      "summary": "Diagnoses VLA failures and develops reusable code policies that generate corrective demonstrations. It filters and adapts those trajectories before post-training a VLA that runs without the coding agent.",
-      "loop": "Evaluate the VLA and localize failure states → iteratively write and validate repair code using execution feedback → reuse accepted policies as corrective-data generators → inject action noise, remove idle frames and apply base-model loss filtering → combine with successful VLA rollouts → post-train and retain the updated VLA.",
-      "setting": "Simulation post-training on LIBERO-10, MetaWorld-10 and three RoboCasa tasks.",
-      "evidence": "The primary paper reports pi0 success increasing 79.4% to 87.8% on LIBERO-10, 80.4% to 90.6% on MetaWorld-10, and 0% to 30.0% on three RoboCasa tasks. The code-policy generators are validated by execution; successful trajectories are further filtered for learnable supervision. These are author simulation results, not physical-robot trials or official RoboDojo ranks. No corresponding released Code, Data or Models URL is verified in the primary paper.",
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.17394"
-      },
-      "title": "Agentic-Teacher: An Agentic Data Engine for Failure-Driven VLA Post-Training",
-      "date": "2026-11-12",
-      "date_source": "https://arxiv.org/abs/2611.17394",
-      "authors": [
-        "Gongyue Teng",
-        "Yuqing Xie",
-        "Yixian Zhang",
-        "Feng Gao",
-        "Shu'ang Yu",
-        "Jiaji Rao",
-        "Sukai Wang",
-        "Guanghui Ren",
-        "Ya Zhang",
-        "Maoqing Yao",
-        "Yu Wang",
-        "Chao Yu",
-        "Xinlei Chen"
-      ],
-      "figure": {
-        "path": "assets/papers/agentic-teacher.png",
-        "alt": "Agentic-Teacher: failure diagnosis, validated code-policy repairs, trajectory curation and VLA post-training.",
-        "source": "https://arxiv.org/html/2611.17394v1#S1.F1",
-        "original_url": "https://arxiv.org/html/2611.17394v1/Agentic-Teacher_overview.png",
-        "credit": "Gongyue Teng et al., Agentic-Teacher, Figure 1.",
-        "license": "https://creativecommons.org/licenses/by/4.0/"
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.17394",
-        "https://arxiv.org/html/2611.17394v1"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit 566ed8a2a874694e8034004ca5466a28ff9a657f; verified with original paper and author resources.",
-      "checked_at": "2026-11-17"
-    },
-    {
-      "id": "evoter",
-      "title": "EvoTER: Evolving Embodied Agents via Tool-Use Experience and Reflection",
-      "date": "2026-11-20",
-      "category": "Code & harness evolution",
-      "summary": "Turns robot execution traces into reusable tool-use skills while keeping model weights fixed. It retains revisions that improve complete-task validation success and continues refining the library from real-robot feedback.",
-      "loop": "Explorer records executions → Diagnoser revises the persistent skill library → Validator compares current and candidate libraries on matched complete-task runs in fresh sessions → retain improvements → freeze the final library for testing.",
-      "setting": "RoboCasa365 Target50 with a PandaOmron mobile manipulator, plus short- and long-horizon tasks on a physical Franka arm.",
-      "evidence": "The persistent skill library changes between episodes; model parameters, ordinary tools and harness configuration stay fixed within each evolution phase. Simulation diagnosis may use privileged tools after stagnation, but skill execution and validation use ordinary observations. Author-reported overall success rises from 53.60% to 80.40%; the frozen test set is excluded from update selection. Composite-Unseen refers to VLA training exposure, not an assertion that those task types never enter skill development. Physical long-horizon results use five independent trials per task and are small-sample author experiments, not independent reproduction or RoboDojo leaderboard values.",
-      "authors": [
-        "Yingting Zhou",
-        "Yuyin Zhou",
-        "Yongliang Wang",
-        "Haoran Li",
-        "Dongbin Zhao"
-      ],
-      "date_source": "https://arxiv.org/abs/2611.27797",
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.27797",
-        "project": "https://evoter-project.github.io/"
-      },
-      "figure": {
-        "path": "assets/papers/evoter.png",
-        "alt": "EvoTER overview: execution tools and a persistent skill library connected to Explorer, Diagnoser and Validator revision-and-acceptance stages.",
-        "source": "https://arxiv.org/html/2611.27797v1#S2.F1",
-        "credit": "Yingting Zhou et al., EvoTER, Figure 1.",
-        "original_url": "https://arxiv.org/html/2611.27797v1/figure1.png",
-        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-        "changes": "None; original author image downloaded unchanged."
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.27797",
-        "https://arxiv.org/html/2611.27797v1",
-        "https://evoter-project.github.io/"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit ebad04cd90472f5f4061eb900fe1e0458327dafb; checked against original paper and author resources.",
-      "checked_at": "2026-11-24"
-    },
-    {
-      "id": "navrsi",
-      "title": "NavRSI: Recursive Harness Self-Improvement for Vision-and-Language Navigation",
-      "date": "2026-11-20",
-      "category": "Navigation",
-      "summary": "Rewrites a frozen navigation model’s harness using execution logs and failure diagnostics. A designer retains effective code changes and optimization notes, while the deployed navigator uses RGB observations and primitive actions.",
-      "loop": "Run navigation episodes → designer reads execution logs and training-only simulator diagnostics → write candidate harnesses and retained optimization experience → staged evaluation → select and freeze the final harness.",
-      "setting": "R2R-CE, RxR-CE, NavRAG-CE and a Unitree G1 humanoid; frozen navigator and fixed primitive tools.",
-      "evidence": "The designer can revise prompts, agent loops and observation handling but not the navigator model, tools or budgets. Privileged diagnostics are visible only to the designer; the navigator sees RGB/action feedback. Search uses up to 200 R2R-CE training episodes per round, three candidates per round and eight rounds. Final selection uses 1,302 val-unseen development episodes; the remaining 537 val-unseen episodes, including R2R-CE-100, are held out. Thus the reported full-split 85.64% success over all 1,839 val-unseen episodes includes development episodes and is not entirely held-out evaluation. RxR-CE and NavRAG-CE are separate OOD tests. Results are author-reported; no independent reproduction. Code is promised, not yet linked as a real release.",
-      "authors": [
-        "Guangzhao Dai",
-        "Guoxin Lian",
-        "Shuo Wang",
-        "Shengbin Yue",
-        "Qianru Sun",
-        "Xiangbo Shu",
-        "Bin Zhu"
-      ],
-      "date_source": "https://arxiv.org/abs/2611.27499",
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.27499",
-        "project": "https://daiguangzhao.github.io/NavRSI"
-      },
-      "figure": {
-        "path": "assets/papers/navrsi.png",
-        "alt": "NavRSI overview showing isolated navigator and designer inputs, harness and experience updates across rounds, and the resulting navigation harness.",
-        "source": "https://arxiv.org/html/2611.27499v1#S3.F2",
-        "credit": "Guangzhao Dai et al., NavRSI, Figure 2. CC BY 4.0.",
-        "original_url": "https://arxiv.org/html/2611.27499v1/overview.png",
-        "license": "https://creativecommons.org/licenses/by/4.0/",
-        "changes": "None; original author image downloaded unchanged."
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.27499",
-        "https://arxiv.org/html/2611.27499v1",
-        "https://daiguangzhao.github.io/NavRSI"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit ebad04cd90472f5f4061eb900fe1e0458327dafb; checked against original paper and author resources.",
-      "checked_at": "2026-11-24"
-    },
-    {
-      "id": "robobuilder",
-      "title": "RoboBuilder: Agentic Robot Co-Design with Real-world Video Feedback in the Loop",
-      "date": "2026-11-18",
-      "category": "Evaluation",
-      "summary": "Benchmarks agents that revise robot hardware, motor programs and simulator code from simulation and physical-test feedback. Videos of real failures drive redesigns that are rebuilt and tested on the same obstacle course.",
-      "loop": "Write assembly and motor program → simulate and validate → build and physically test simulated passes → return failure video → persist simulator corrections and redesigned hardware/program → rebuild and retest.",
-      "setting": "Ten physical obstacle courses at three difficulty levels; four coding agents, modular parts, motors and custom 3D-printed components.",
-      "evidence": "Included as a feedback-driven robot co-design evaluation, not as a learned manipulation policy. The paper reports 16,427 simulations, 12,774 distinct designs and 135 physically built robots. One real-feedback redesign round reduces level-1/2 failures from 18 to 5 (72% removed), raising the share of simulated passes that cross physically from 73% to 93%. The 66% figure covers simulated passes across all levels before this loop and is a different denominator. Redesigns see their failure on the same course, so this measures recovery, not transfer to unseen designs. Human assembly and physical testing remain necessary; no independent reproduction or official RoboDojo metric is implied.",
-      "authors": [
-        "Ghadi Nehme",
-        "Dahyun Nam",
-        "Akshay Govind Srinivasan",
-        "Faez Ahmed"
-      ],
-      "date_source": "https://arxiv.org/abs/2611.23855",
-      "links": {
-        "paper": "https://arxiv.org/abs/2611.23855",
-        "code": "https://github.com/ghadinehme/RoboBuilder",
-        "data": "https://huggingface.co/datasets/DeCoDELab/RoboBuilder",
-        "project": "https://ghadinehme.com/robobuilder.github.io/"
-      },
-      "figure": {
-        "path": "assets/papers/robobuilder.png",
-        "alt": "RoboBuilder hardware-feedback loop: simulated pass, physical failure, simulator correction, redesigned robot and successful real crossing.",
-        "source": "https://arxiv.org/html/2611.23855v1#S2.F3",
-        "credit": "Ghadi Nehme et al., RoboBuilder, Figure 3, hardware-feedback loop panel.",
-        "original_url": "https://arxiv.org/html/2611.23855v1/fig_loop_cycle.png",
-        "license": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/",
-        "changes": "None; original author image downloaded unchanged."
-      },
-      "sources": [
-        "https://arxiv.org/abs/2611.23855",
-        "https://arxiv.org/html/2611.23855v1",
-        "https://ghadinehme.com/robobuilder.github.io/"
-      ],
-      "source_catalogue": "Awesome-Robot-Use-Agent commit ebad04cd90472f5f4061eb900fe1e0458327dafb; checked against original paper and author resources.",
-      "checked_at": "2026-11-24",
-      "resource_releases": {
-        "code_commit": "43357b805390a009d4014d05f38cf9de3fc7e674",
-        "data_revision": "55b80cf4a125ba760c37f1a4894f7ce37fb64ce1",
-        "note": "Actual simulator, harness and real-world code directories exist. Dataset API lists 91,480 files including robot designs, result JSON and paired simulation/real-run media. File inventory was checked; the complete dataset was not downloaded."
-      }
     }
   ],
   "leaderboard": {
     "source": "https://robodojo-benchmark.com/leaderboard?bench=sim#agent",
-    "checked_at": "2026-11-26",
+    "checked_at": "2026-11-27",
     "updated_at": "2026-11-18T00:00:00.000Z",
-    "latest_news_date": "2026-11-22",
+    "latest_news_date": "2026-11-26",
     "freshness_note": "updated_at is the timestamp declared in the official JavaScript bundle; checked_at is the date these rankings were verified.",
     "metric": "Average Score excluding Open; official Agent ranks exclude starred entries; Success Rate (%) is separate",
     "protocol": "Sim Agent metrics average Generalization, Precision, Long-Horizon and Memory, excluding Open. Generalization averages standard and randomized layouts. Official Agent ranks sort unrounded Score, Success Rate and model name after excluding starred entries; starred scores remain visible but have no rank. Historical catalogue ordinal positions and author experiments are separate from this current official ranking.",
@@ -3053,8 +3623,11 @@
         "name": "SOLVE",
         "team": "NVIDIA",
         "type": "Agent",
-        "links": {},
-        "note": "New official leaderboard entry; no verified primary paper or persistent self-improvement mechanism is linked by the board. Not automatically added to the paper collection.",
+        "links": {
+          "paper": "https://arxiv.org/abs/2611.34750",
+          "project": "https://serenos.github.io/solve-website/"
+        },
+        "note": "The canonical SOLVE paper and NVIDIA author project establish the exact system correspondence and retained offline reflection notes. Paper all-five-category success 74.5% is separate from current official w/o-Open Score 79.50 and success 74.96%; the official entry remains starred and unranked.",
         "rank": null,
         "score": 79.5,
         "success_rate": 74.96,
@@ -3472,12 +4045,13 @@
       "ranking_note": "Official starred entry; excluded from Agent ranking under the current track rules."
     },
     "evidence": {
-      "bundle_url": "https://robodojo-benchmark.com/assets/index-M0Zsr9eW.js",
-      "bundle_sha256": "5443d0f0bede96c50eff4d72013ba988fa8954e3af3641bba14a34ba7344bcd4",
+      "bundle_url": "https://robodojo-benchmark.com/assets/index-GzJO5R6C.js",
+      "bundle_sha256": "a23d17587b8b062304d4d97067ca6260c9d2b01cced7d2f01629069cd4756195",
       "extraction": "Verified the official qo deviation-map keys, Qe membership check and kc rank function: starred Agent entries return null; ranked entries exclude the deviation map before sorting. Metrics are independently recomputed without Open. Previous catalogue rank fields mistakenly used score-order positions.",
       "rules_url": "https://robodojo-benchmark.com/leaderboard/agent-rule",
       "description_url": "https://robodojo-benchmark.com/leaderboard/detail-description",
-      "declared_timestamp_note": "The current bundle declares November 18. checked_at is independent verification on November 26; unchanged numeric metrics were preserved."
+      "declared_timestamp_note": "The current bundle declares November 18. checked_at is independent verification on November 27; unchanged numeric metrics were preserved.",
+      "verification_2026_11_27": "2026-11-27: current bundle index-GzJO5R6C.js verified. Existing included systems retain identical official ranks/statuses and scores. New Mibot-RUA is starred/unranked; no canonical primary paper or author project was linked by the board, so it is not automatically added. No score or rank is inferred from its news snippet. SOLVE is now matched to its canonical paper and author project; its paper all-five-category result is separate from the official w/o-Open row."
     },
     "display_scope": "w/o Open",
     "history": [

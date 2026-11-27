@@ -653,3 +653,135 @@ All figures are authentic method/overview figures from the linked official paper
 - Original asset: https://arxiv.org/html/2610.29560v2/method_overview.png
 - Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
 - Changes: none; original v2 figure downloaded unchanged. Earlier figure and attribution retained for provenance.
+
+## x-harness
+
+- File: [x-harness.png](papers/x-harness.png)
+- Paper: [Toward Agentic Robotics: A Large-Scale Study of Harness Design for Robot-Use Agents](https://arxiv.org/abs/2611.34778)
+- Credit: Yuxiang Lai et al., x-harness, Figure 2.
+- Authors: Yuxiang Lai, Jike Zhong, Yu-Jhe Li, Lan Wang, Chengzhi Liu, Youbao Tang, Ming Li, Xi Xiao, Xiaofeng Yang, Liang Zhao, Zheda Mai, Ruixi Fan.
+- Source: https://arxiv.org/pdf/2611.34778v1#page=3
+- Original asset: https://arxiv.org/pdf/2611.34778v1#page=3
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: Rendered only Figure 2 from canonical v1 PDF page 3 at 216 dpi, crop (287, 227, 534, 410) PDF points. No redrawing.
+
+## solve
+
+- File: [solve.png](papers/solve.png)
+- Paper: [SOLVE: Sparse, Ordered Keyposes Make LLM Agents Versatile and Efficient Robot Manipulator](https://arxiv.org/abs/2611.34750)
+- Credit: Xiang Li et al., solve, Figure 2.
+- Authors: Xiang Li, Hongyu Zhou, Ya-Li Li, Tao Li, Rui Zhang, Junjie Lai, Weihua Zhang, Shengjin Wang.
+- Source: https://arxiv.org/html/2611.34750v1#S1.F2
+- Original asset: https://arxiv.org/html/2611.34750v1/fig2_framework_v3.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original author image downloaded unchanged.
+
+## roboevo2
+
+- File: [roboevo2.png](papers/roboevo2.png)
+- Paper: [RoboEvo²: Recursive Robot Self-Improvement via Harness-Policy Co-Evolution](https://arxiv.org/abs/2611.34675)
+- Credit: Chenzhi Liu et al., RoboEvo², Figure 2.
+- Authors: Chenzhi Liu, Jiehong Lin, Wei Huang, Xuzhao Huang, Haoyuan Li, Yang Zhang, Junchao Huang, Chenyeyang Cai, Bo Wang, Kazuhiro Kosuge, Zhongrui Wang, Xiaojuan Qi.
+- Source: https://arxiv.org/html/2611.34675v1#S2.F2
+- Original asset: https://arxiv.org/html/2611.34675v1/method_roboevo2.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original author image downloaded unchanged.
+
+## seek
+
+- File: [seek.png](papers/seek.png)
+- Paper: [SEEK: Self-Evolution through Execution Knowledge for Agentic Robot Manipulation](https://arxiv.org/abs/2611.33915)
+- Credit: Zeyang Guan et al., seek, Figure 2.
+- Authors: Zeyang Guan, Qihao Zhao, Rui Gong, Zhang Haitian, Yalun Dai, Yangyu Huang, Lingao Xiao, Haozhe Du, Xuehui Yu, Ye Lu, Jianjun Gao, Ruoyu Wang, Haowen Bai, Hao Li, Scarlett Li, Kim-Hui Yap.
+- Source: https://arxiv.org/html/2611.33915v1#S3.F2
+- Original asset: https://arxiv.org/html/2611.33915v1/SEEK_framework_ppt2_method.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original author image downloaded unchanged.
+
+## skeptic
+
+- File: [skeptic.png](papers/skeptic.png)
+- Paper: [Skeptic: Grounding Failure Diagnosis for Robot Skill Discovery](https://arxiv.org/abs/2611.33560)
+- Credit: Wenfang Sun et al., skeptic, Figure 2.
+- Authors: Wenfang Sun, Jianghao Deng, Wenzhe Yin, Yingjun Du, Cees G. M. Snoek.
+- Source: https://arxiv.org/html/2611.33560v1#S3.F2
+- Original asset: https://arxiv.org/html/2611.33560v1/method.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: None; original author image downloaded unchanged.
+
+## demofoundry
+
+- File: [demofoundry.png](papers/demofoundry.png)
+- Paper: [DemoFoundry: Toward Scalable Photorealistic Robot Data with Coding Agents and Generative Rendering](https://arxiv.org/abs/2611.34671)
+- Credit: Ruixiang Wang et al., demofoundry, Figure 2.
+- Authors: Ruixiang Wang, Xinyue Yao, Xuanning Zhou, Yueci Deng, Yongyi Su, Kui Jia.
+- Source: https://arxiv.org/html/2611.34671v1#S2.F2
+- Original asset: https://arxiv.org/html/2611.34671v1/method.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original author image downloaded unchanged.
+
+## roboharness-rl
+
+- File: [roboharness-rl.png](papers/roboharness-rl.png)
+- Paper: [RoboHarness-RL: Agentic Reinforcement Learning for VLM-Based Robot Manipulation](https://arxiv.org/abs/2611.32016)
+- Credit: Liyang Li et al., roboharness-rl, Figure 3.
+- Authors: Liyang Li, Mingyu Liu, Xiaoman Li, Zhiyue Zhao, Jin-Chuan Shi, Canyu Zhao, Haokai Zhang, Jinyuan Tian, Linhao Zhong, Hao Chen, Chunhua Shen.
+- Source: https://arxiv.org/html/2611.32016v1#S2.F3
+- Original asset: https://arxiv.org/html/2611.32016v1/framework_figure.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: None; original author image downloaded unchanged.
+
+## embo-harness
+
+- File: [embo-harness.png](papers/embo-harness.png)
+- Paper: [Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness](https://arxiv.org/abs/2611.31201)
+- Credit: Xiao-Ming Wu et al., embo-harness, Figure 4.
+- Authors: Xiao-Ming Wu, Kang Liao, Yuexiao Ma, Taolin Zhang, Mingqian Zhou, Nuo Chen, Ziming Li, Yihang Luo, Rui Li, Zhonghua Wu, Tianyu Xie, Xiawu Zheng, Zhongang Cai, Zhi Hou, Chen Change Loy.
+- Source: https://arxiv.org/html/2611.31201v1#S3.F4
+- Original asset: https://arxiv.org/html/2611.31201v1/embo-harness.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: None; original author image downloaded unchanged.
+
+## real2worlds2real
+
+- File: [real2worlds2real.webp](papers/real2worlds2real.webp)
+- Paper: [Real2Worlds2Real: Scaling Self-Improving Agentic Real2Sim2Real for Robot Manipulation](https://arxiv.org/abs/2611.31098)
+- Credit: Jinzhong Gu et al., real2worlds2real, Figure 2.
+- Authors: Jinzhong Gu, Jiakai Chen, Xinyi Cao, Yan Shen, Hangke Sui, Shutian Zheng, Xiang Xiao, Haoran Lu, Fan Xu, Lu Shi, Daochen Shi, Ruihua Zhang, Wei Zhan, Masayoshi Tomizuka, Ruihai Wu.
+- Source: https://arxiv.org/html/2611.31098v1#S2.F2
+- Original asset: https://arxiv.org/html/2611.31098v1/figures/self_improvement.png
+- Original license: https://arxiv.org/licenses/nonexclusive-distrib/1.0/
+- Changes: Lossless PNG-to-WebP conversion; dimensions and every decoded RGBA pixel are preserved. No cropping or redrawing.
+
+## reweave
+
+- File: [reweave.png](papers/reweave.png)
+- Paper: [ReWeave: Emergent Physical Task Topologies for Embodied Harness Optimization and Cross-Task Meta-Distillation](https://arxiv.org/abs/2611.31053)
+- Credit: Yicheng Xu et al., reweave, Figure 2.
+- Authors: Yicheng Xu, Wencan Jiang, Zihao Zhu, Keru Zhou, Chang Zhou, Li Liu, Maoqing Yao, Yong Liu, Jiangning Zhang.
+- Source: https://arxiv.org/html/2611.31053v1#S1.F2
+- Original asset: https://arxiv.org/html/2611.31053v1/method.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: None; original author image downloaded unchanged.
+
+## supernav-15
+
+- File: [supernav-15.png](papers/supernav-15.png)
+- Paper: [SuperNav-1.5: Structured Spatial Memory For Agentic Navigation Systems](https://arxiv.org/abs/2611.29912)
+- Credit: Jiarui Guo et al., supernav-15, Figure 2.
+- Authors: Jiarui Guo, Jinkai Zhang, Yuanhong Yu, Yongchen Zai, Futang Zhu, Ruizhen Hu, Sida Peng, Xiaowei Zhou.
+- Source: https://arxiv.org/html/2611.29912v2#S2.F2
+- Original asset: https://arxiv.org/html/2611.29912v2/pipeline.png
+- Original license: https://creativecommons.org/licenses/by-sa/4.0/
+- Changes: None; original author image downloaded unchanged.
+
+## pyrua-real
+
+- File: [pyrua-real.png](papers/pyrua-real.png)
+- Paper: [PyRUA-REAL: Robot Exploration and Adaptive Learning through RSI in the Real World](https://arxiv.org/abs/2611.06768)
+- Credit: Qiang Wang et al., pyrua-real, Figure 2.
+- Authors: Qiang Wang, Jianxin Bi, Shulong Jiang, Ruiyang Si, Wenbo Huang, Kaiqi Chen, Jiaxin Li, Liyun Li, Xuanyi Li, Daquan Zhou.
+- Source: https://arxiv.org/html/2611.06768v1#S3.F2
+- Original asset: https://arxiv.org/html/2611.06768v1/rsi_system_architecture_v16.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: None; original author image downloaded unchanged.

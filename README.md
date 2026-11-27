@@ -6,6 +6,158 @@ Recent papers on robot recursive self-improvement.
 
 ## Papers
 
+### Toward Agentic Robotics: A Large-Scale Study of Harness Design for Robot-Use Agents
+
+**First release:** 2026-11-25
+
+![x-harness Figure 2: Training failures → revise policy code or shared tool bank → regression evaluation → retain successful changes before held-out testing.](assets/papers/x-harness.png)
+
+*Yuxiang Lai et al., x-harness, Figure 2. [Figure source](https://arxiv.org/pdf/2611.34778v1#page=3).*
+
+Studies robot harness design at scale, including pre-test evolution that revises policy code or shared tools from training failures and keeps changes only after regression checks.
+
+[Paper](https://arxiv.org/abs/2611.34778)
+
+### SOLVE: Sparse, Ordered Keyposes Make LLM Agents Versatile and Efficient Robot Manipulator
+
+**First release:** 2026-11-25
+
+![solve Figure 2: Roll out on spare layouts → reflect on failures → merge recurring lessons into bounded task notes → reuse the retained rules in subsequent episodes.](assets/papers/solve.png)
+
+*Xiang Li et al., solve, Figure 2. [Figure source](https://arxiv.org/html/2611.34750v1#S1.F2).*
+
+Controls manipulation with sparse, ordered keyposes and turns offline rollout reflections into compact task rules reused in later episodes. [RoboDojo-Sim Agent (w/o Open) Unranked* · Score 79.50 · Success 74.96% (2026-11-27).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+
+[Paper](https://arxiv.org/abs/2611.34750)
+
+[Project](https://serenos.github.io/solve-website/)
+
+### RoboEvo²: Recursive Robot Self-Improvement via Harness-Policy Co-Evolution
+
+**First release:** 2026-11-25
+
+![roboevo2 Figure 2: Policy failures → harness/skill/routing revision → verify repair trajectories → supervised and contrastive policy training → repeat with the updated policy.](assets/papers/roboevo2.png)
+
+*Chenzhi Liu et al., RoboEvo², Figure 2. [Figure source](https://arxiv.org/html/2611.34675v1#S2.F2).*
+
+Co-evolves robot policies and their harnesses: policy failures improve reusable code, skills and routing memory, while verified repairs become training data for the next policy.
+
+[Paper](https://arxiv.org/abs/2611.34675) · [Code](https://github.com/kaiknower/RoboEvo2)
+
+[Models](https://huggingface.co/Liukaikai/RoboEvo2) · [Project](https://kaiknower.github.io/RoboEvo2/)
+
+### SEEK: Self-Evolution through Execution Knowledge for Agentic Robot Manipulation
+
+**First release:** 2026-11-25
+
+![seek Figure 2: Execute a procedure → measure successful/failed action effects → consolidate the persistent effect bank → revise uncovered procedural conditions → retry and reuse.](assets/papers/seek.png)
+
+*Zeyang Guan et al., seek, Figure 2. [Figure source](https://arxiv.org/html/2611.33915v1#S3.F2).*
+
+Builds executable procedures and a persistent bank of measured action effects from repeated manipulation attempts. Later attempts reuse this execution knowledge and revise procedures when new conditions appear.
+
+[Paper](https://arxiv.org/abs/2611.33915) · [Code](https://github.com/ZeyangGuan/SEEK-Agentic-Robot-Manipulation)
+
+[Project](https://zeyangguan.github.io/SEEK-Agentic-Robot-Manipulation/)
+
+### Skeptic: Grounding Failure Diagnosis for Robot Skill Discovery
+
+**First release:** 2026-11-25
+
+![skeptic Figure 2: Execute candidate skill → record grounded events → diagnose and repair → independently reproduce success → promote verified skills into the persistent library.](assets/papers/skeptic.png)
+
+*Wenfang Sun et al., skeptic, Figure 2. [Figure source](https://arxiv.org/html/2611.33560v1#S3.F2).*
+
+Grounds failure diagnosis in measured action effects and admits a discovered skill to its reusable library only after both development success and an independent reproduction check.
+
+[Paper](https://arxiv.org/abs/2611.33560) · [Code](https://github.com/lmsdss/Skeptic)
+
+[Project](https://wenfangsun.cn/Skeptic/)
+
+### DemoFoundry: Toward Scalable Photorealistic Robot Data with Coding Agents and Generative Rendering
+
+**First release:** 2026-11-25
+
+![demofoundry Figure 2: Replay reconstructed interactions → check geometry/interaction agreement → repair executable programs → retain accepted scene assets and programs → generate checked rollouts and policy-training data.](assets/papers/demofoundry.png)
+
+*Ruixiang Wang et al., demofoundry, Figure 2. [Figure source](https://arxiv.org/html/2611.34671v1#S2.F2).*
+
+Uses coding agents to repair executable simulation reconstructions from replay feedback, retaining accepted scenes and programs for new demonstration generation. A learned renderer converts the resulting rollouts into photorealistic robot training data.
+
+[Paper](https://arxiv.org/abs/2611.34671) · [Code](https://github.com/RobbinW/DemoFoundry)
+
+[Data](https://huggingface.co/datasets/RobbinWang123/DemoFoundry) · [Models](https://huggingface.co/RobbinWang123/demofoundry-h3) · [Project](https://robbinw.github.io/DemoFoundry-Web)
+
+### RoboHarness-RL: Agentic Reinforcement Learning for VLM-Based Robot Manipulation
+
+**First release:** 2026-11-24
+
+![roboharness-rl Figure 3: Teacher-success SFT → sample multi-turn robot rollouts → task-outcome rewards and group-relative updates → retain updated model weights → collect further rollouts.](assets/papers/roboharness-rl.png)
+
+*Liyang Li et al., roboharness-rl, Figure 3. [Figure source](https://arxiv.org/html/2611.32016v1#S2.F3).*
+
+Trains a robot-use reasoning policy with multi-turn reinforcement learning from execution outcomes. A compact hierarchical memory harness supports the rollouts, while successful teacher trajectories initialize the policy.
+
+[Paper](https://arxiv.org/abs/2611.32016)
+
+[Project](https://aim-uofa.github.io/RoboHarness-RL/)
+
+### Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness
+
+**First release:** 2026-11-23
+
+![embo-harness Figure 4: Failure rollouts → distill twelve task-agnostic reminders with task-specific information removed → retain and test reminders → compare against the same harness without them.](assets/papers/embo-harness.png)
+
+*Xiao-Ming Wu et al., embo-harness, Figure 4. [Figure source](https://arxiv.org/html/2611.31201v1#S3.F4).*
+
+Evaluates frontier-model robot harness choices, including an RSI ablation that distills failure rollouts into reusable, task-agnostic reminders. Those reminders reduce performance in this study and are omitted from its final recipe.
+
+[Paper](https://arxiv.org/abs/2611.31201) · [Code](https://github.com/DravenALG/Embo-Harness)
+
+[Project](https://dravenalg.github.io/projects/Embo-Harness/)
+
+### Real2Worlds2Real: Scaling Self-Improving Agentic Real2Sim2Real for Robot Manipulation
+
+**First release:** 2026-11-23
+
+![real2worlds2real Figure 2: Real feedback → refine visual/physical world models and skill-learning procedures → validate transfer → retain reusable skills and system procedures → improve the next task.](assets/papers/real2worlds2real.webp)
+
+*Jinzhong Gu et al., real2worlds2real, Figure 2. [Figure source](https://arxiv.org/html/2611.31098v1#S2.F2).*
+
+Uses execution feedback to refine simulated worlds and robot skills in a real-to-simulation-to-real loop. Verified world-building procedures and learned skills are retained for transfer and composition across tasks.
+
+[Paper](https://arxiv.org/abs/2611.31098) · [Code](https://github.com/real2worlds2real/real2worlds2real)
+
+[Project](https://real2worlds2real.github.io/)
+
+### ReWeave: Emergent Physical Task Topologies for Embodied Harness Optimization and Cross-Task Meta-Distillation
+
+**First release:** 2026-11-23
+
+![reweave Figure 2: Execute harness candidates → infer physical dependencies from trials → select parents and revise harnesses → evaluate candidates → meta-distill specialist experience into a retained shared harness.](assets/papers/reweave.png)
+
+*Yicheng Xu et al., reweave, Figure 2. [Figure source](https://arxiv.org/html/2611.31053v1#S1.F2).*
+
+Evolves robot harnesses using execution feedback organized into physical task-dependency topologies. It then distills specialized harnesses into a reusable shared harness that can continue improving across tasks.
+
+[Paper](https://arxiv.org/abs/2611.31053) · [Code](https://github.com/xuyicheng-zju/ReWeave)
+
+[Project](https://xuyicheng-zju.github.io/ReWeave/)
+
+### SuperNav-1.5: Structured Spatial Memory For Agentic Navigation Systems
+
+**First release:** 2026-11-23
+
+![supernav-15 Figure 2: Explore and observe → selectively create map-grounded memory nodes → retain annotated occupancy map across sessions → relocalize from new observations → reuse and extend memory.](assets/papers/supernav-15.png)
+
+*Jiarui Guo et al., supernav-15, Figure 2. [Figure source](https://arxiv.org/html/2611.29912v2#S2.F2).*
+
+Retains map-grounded spatial memory built during exploration and reuses it across navigation sessions. Agent-guided relocalization lets the robot recover its position in the saved map and pursue later object goals.
+
+[Paper](https://arxiv.org/abs/2611.29912)
+
+[Project](https://zju3dv.github.io/SuperNav-1.5/)
+
 ### EvoTER: Evolving Embodied Agents via Tool-Use Experience and Reflection
 
 **First release:** 2026-11-20
@@ -282,6 +434,20 @@ Evaluates long-horizon robot control and improvement from reusable demonstration
 
 [Paper](https://arxiv.org/abs/2611.08209)
 
+### PyRUA-REAL: Robot Exploration and Adaptive Learning through RSI in the Real World
+
+**First release:** 2026-11-04
+
+![pyrua-real Figure 2: Execute real robot program → collect observed failures and facts → researcher diagnoses and engineer revises code → test revised program → retain verified experience, skills and implementations.](assets/papers/pyrua-real.png)
+
+*Qiang Wang et al., pyrua-real, Figure 2. [Figure source](https://arxiv.org/html/2611.06768v1#S3.F2).*
+
+Uses a researcher–engineer loop to explore real robot tasks, diagnose execution failures and revise standalone control programs. Verified facts, experience and skills persist between improvement rounds.
+
+[Paper](https://arxiv.org/abs/2611.06768)
+
+[Project](https://dagroup-pku.github.io/PyRUA-Lean/real/)
+
 ### PyRUA-DataFarm: LLM Agent as a Cost-Efficient Teleoperator for Real-Ready Robot Data
 
 **First release:** 2026-11-03
@@ -418,7 +584,7 @@ Technical report date; the project was announced on 2026-10-17.
 
 *Manifold AI Team, R²SI technical report, Figure 1. [Figure source](https://r2si.worldscape.io/report.pdf#page=2).*
 
-Uses a Robot Agent to execute tasks and a Recursion Agent to improve reusable skills and train the reactive model from rollout feedback. [RoboDojo-Sim Agent (w/o Open) #1 · Score 45.93 · Success 37.31% (2026-11-26).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Uses a Robot Agent to execute tasks and a Recursion Agent to improve reusable skills and train the reactive model from rollout feedback. [RoboDojo-Sim Agent (w/o Open) #1 · Score 45.93 · Success 37.31% (2026-11-27).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://r2si.worldscape.io/report.pdf)
 
@@ -460,7 +626,7 @@ Evaluates how robot agents improve across repeated attempts, measuring learning 
 
 *Hongcheng Gao, Jianshu Zeng et al., HexaShell v3, Figure 2. CC BY 4.0. [Figure source](https://arxiv.org/html/2610.23479v3#S2.F2).*
 
-Shares general robot-control tools across simulators and physical robots, with optional reusable skills drafted from execution records and reviewed by people. The release adds humanoid and dexterous-hand adapters and a guide for adapting the harness to new platforms. [RoboDojo-Sim Agent (HexaShell-Preview; w/o Open) Unranked* · Score 51.98 · Success 44.75% (2026-11-26).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Shares general robot-control tools across simulators and physical robots, with optional reusable skills drafted from execution records and reviewed by people. The release adds humanoid and dexterous-hand adapters and a guide for adapting the harness to new platforms. [RoboDojo-Sim Agent (HexaShell-Preview; w/o Open) Unranked* · Score 51.98 · Success 44.75% (2026-11-27).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.23479) · [Code](https://github.com/HexaFuture/HexaShell)
 
@@ -514,7 +680,7 @@ Keeps revisable user and scene memory for personalized robot assistance. Reflect
 
 *SenseNova et al., embodied-intelligence report, Figure 2. [Figure source](https://arxiv.org/html/2610.22471v2#S2.F2).*
 
-Studies how training-set experience becomes frozen knowledge packages for robot control across multiple benchmarks. The related RoboRSI-27B release co-evolves model weights and harnesses using execution feedback and selected teacher trajectories. [RoboDojo-Sim Agent (w/o Open) Unranked* · Score 57.10 · Success 49.17% (2026-11-26).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Studies how training-set experience becomes frozen knowledge packages for robot control. The related RoboRSI-27B release now documents model–harness co-evolution and includes RoboDojo reproduction tools. [RoboDojo-Sim Agent (w/o Open) Unranked* · Score 57.10 · Success 49.17% (2026-11-27).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.22471) · [Code](https://github.com/OpenSenseNova/SenseNova-RoboRSI)
 
@@ -528,7 +694,7 @@ Studies how training-set experience becomes frozen knowledge packages for robot 
 
 *Wenyi Li et al., EmbodiedEvo: Self-Evolving Coding Agent For Physical Intelligence. Core method figure from the official paper/project. [Figure source](https://lab.einsia.ai/embodiedevo/).*
 
-Learns reusable code Skills and diagnostic Lessons in a practice scene, then transfers them to new scenes without weight updates. Learned artifacts for 42 RoboDojo tasks are now public. [RoboDojo-Sim Agent (w/o Open) Unranked* · Score 43.40 · Success 36.38% (2026-11-26).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Learns reusable code Skills and diagnostic Lessons in a practice scene, then transfers them to new scenes without weight updates. Learned artifacts for 42 RoboDojo tasks are now public. [RoboDojo-Sim Agent (w/o Open) Unranked* · Score 43.40 · Success 36.38% (2026-11-27).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.18867) · [Code](https://github.com/Einsia/EmbodiedEvo)
 
@@ -646,7 +812,7 @@ Reconstructs tasks in simulation, improves a shared skill library through practi
 
 *Ruiyang Si, Jianxin Bi et al., PyRUA-Lean, Figure 2. [Figure source](https://arxiv.org/html/2610.01939v1/method_red.svg).*
 
-Reduces repeated model calls by letting robot agents compose actions and local checks in Python. The repository also releases PyRUA-RSI’s offline-refined task programs, which run without language-model calls during evaluation. [RoboDojo-Sim Agent (w/o Open) Unranked* · Score 53.94 · Success 48.37% (2026-11-26).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Reduces repeated model calls by letting robot agents compose actions and local checks in Python. The repository also releases PyRUA-RSI’s offline-refined task programs, which run without language-model calls during evaluation. [RoboDojo-Sim Agent (w/o Open) Unranked* · Score 53.94 · Success 48.37% (2026-11-27).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.01939) · [Code](https://github.com/DAGroup-PKU/PyRUA-Lean)
 
