@@ -1,7 +1,7 @@
 {
   "title": "Awesome Robot RSI",
   "description": "Recent papers on robot recursive self-improvement.",
-  "updated_at": "2026-11-27",
+  "updated_at": "2026-11-28",
   "cutoff": "2026-07-01",
   "repository": "https://github.com/Bailey-24/awesome-robot-RSI",
   "papers": [
@@ -330,6 +330,66 @@
       ],
       "source_catalogue": "Awesome-Robot-Use-Agent commit 39321e6c8f7bbf71cbc295c511bb345775f675ae; independently checked against the canonical paper and author resources.",
       "checked_at": "2026-11-27"
+    },
+    {
+      "id": "pyrua-dex",
+      "title": "PyRUA-Dex: Learning Programmatic Policies for Dexterous Bimanual Manipulation with Coding Agents",
+      "date": "2026-11-24",
+      "date_source": "https://arxiv.org/abs/2611.33144",
+      "date_evidence": "arXiv submission history: v1 Tuesday, November 24, 2026 at 18:56:44 UTC. The author README news date of November 25 is not the first publication date.",
+      "authors": [
+        "Feixiang Ruan",
+        "Guodong Lv",
+        "Kewei Zhang",
+        "Wenbo Huang",
+        "Yintianrun Zhang",
+        "Qiang Wang",
+        "Ruiyang Si",
+        "Shunyu Yang",
+        "Shulong Jiang",
+        "Weicheng Duan",
+        "Rui Ni",
+        "Jianxin Bi",
+        "Lekai Wang",
+        "Yuze Fan",
+        "Haobo Li",
+        "Zeliang Fu",
+        "Jiankun Zhang",
+        "Duomin Wang",
+        "Enze Xie",
+        "Daquan Zhou"
+      ],
+      "category": "Code & harness evolution",
+      "summary": "Develops dexterous manipulation programs through parallel exploration, distillation and stage-wise refinement on randomized layouts. The resulting task libraries and frozen programs retain improvements and run without language-model calls.",
+      "loop": "Explore stages in parallel and share execution records → evaluate and distill programs into a task library → identify bottleneck stages across randomized layouts → repair and validate revisions → retain a program only if validation does not worsen; real-robot discrepancies update the simulation for later refinement.",
+      "setting": "Bench2Dex with 26 bimanual tasks, DexJoCo with 11 Allegro-hand tasks, and a physical dual-arm platform with two 22-DoF hands. Learning runs in simulation; the robot executes frozen programs.",
+      "evidence": "Sections 3.3–3.5 explicitly persist revised task libraries and programs from execution feedback, with stage-wise failure analysis and non-regression selection. Training uses simulator stage counts and state resets; frozen evaluation programs receive camera, joint and tactile observations rather than privileged simulator state. Held-out counts guide version selection, so validation and final benchmark test layouts must remain distinct. Author-reported Bench2Dex Score 72.9 is separate from its 60.6% success; DexJoCo full-randomization success is 81.0%. These are paper experiments on different benchmarks, not RoboDojo leaderboard values. Physical feedback updates simulation parameters/task rules between rounds; reported 168/192 completed validation layouts are simulation validation counts, not physical-robot successes. Results have not been independently reproduced.",
+      "links": {
+        "paper": "https://arxiv.org/abs/2611.33144",
+        "project": "https://vme0522.github.io/PyRUA-Dex/"
+      },
+      "figure": {
+        "path": "assets/papers/pyrua-dex.png",
+        "alt": "PyRUA-Dex Figure 2: parallel exploration and shared memory produce a program; stage-wise failure analysis refines it before frozen deployment and real-to-simulation feedback.",
+        "source": "https://arxiv.org/html/2611.33144v1#S3.F2",
+        "original_url": "https://arxiv.org/html/2611.33144v1/fig-method.png",
+        "credit": "Feixiang Ruan et al., PyRUA-Dex, Figure 2.",
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "extraction": "None; original author figure downloaded unchanged."
+      },
+      "sources": [
+        "https://arxiv.org/abs/2611.33144",
+        "https://arxiv.org/html/2611.33144v1",
+        "https://vme0522.github.io/PyRUA-Dex/",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/commit/3cb319e34c3618e51f9c9e0e3d2e59dfc289c1e7",
+        "https://github.com/DAGroup-PKU/PyRUA-Lean/blob/43990102844d5f009daa7c934b8666398daf50f3/README.md"
+      ],
+      "source_catalogue": "Discovered through the previously included PyRUA-Lean author repository, whose November 27 main update links the new PyRUA-Dex paper. Verified against canonical arXiv submission history, original paper and author project.",
+      "checked_at": "2026-11-28",
+      "resource_releases": {
+        "branch_commit": "43990102844d5f009daa7c934b8666398daf50f3",
+        "note": "The linked dex branch contains only README.md and assets/fig-teaser.png. Its own README explicitly states that code is not open-sourced yet. No Code, Data or Models links are displayed; the existing PyRUA-Lean framework is not substituted for this unreleased harness."
+      }
     },
     {
       "id": "embo-harness",
@@ -2216,10 +2276,12 @@
         "https://arxiv.org/html/2610.23479v3#A5.SS6",
         "https://raw.githubusercontent.com/HexaFuture/HexaShell/e0190ddb757955131578e9f9071f4ee8e7113f7a/assets/paper-figure-2.png",
         "https://github.com/HexaFuture/HexaShell/commit/914d482e1d9fcf9a6b55c5e3b9334eafb534658f",
-        "https://github.com/HexaFuture/HexaShell/blob/914d482e1d9fcf9a6b55c5e3b9334eafb534658f/skills/README.md"
+        "https://github.com/HexaFuture/HexaShell/blob/914d482e1d9fcf9a6b55c5e3b9334eafb534658f/skills/README.md",
+        "https://github.com/HexaFuture/HexaShell/commit/0a2099b227019e15fe2f86cce88aeb0d0d31abe0",
+        "https://github.com/HexaFuture/HexaShell/commit/97214a0d4a892c058ce1e9265a645ff87d58aeee"
       ],
       "source_catalogue": "Awesome-Robot-Use-Agent README, matching HexaShell row; primary sources checked.",
-      "checked_at": "2026-11-05",
+      "checked_at": "2026-11-28",
       "setting": "RoboDojo, RoboCasa365, LIBERO-PRO and RoboTwin 2.0 simulation; nine tasks on physical dual-arm PiPER-X robots.",
       "foundational": false,
       "leaderboard_label": "HexaShell-Preview",
@@ -2241,6 +2303,13 @@
           "note": "Actual adapters and prompt/skill files added for RoboColiseum Seasons I/II, SIMPLE with Unitree G1, DexJoCo-X with Wuji hands, LIBERO-Pro 2.0 and physical Franka FR3. The guide separates learning, validation and test plans. RoboDojo task skills are no longer included; current runs use an updated general prompt and task card. This code/report release is distinct from arXiv v3 and from the official HexaShell-Preview row.",
           "evaluation_note": "Author self-evaluation reports GPT-6.2-Astra RoboDojo Score 89.0 and dimension-averaged success 86.2% on public layouts, without task skills. Raw success is 857/1,019 after one unstable episode is excluded; these are different aggregations. Development used seed 0/layouts 0–9, overlapping part of the official protocol, so the author claim of following current rules is not independently certified. These values must not replace official Preview metrics. Other author results include physical FR3 41/50 and PiPER-X 76/90; RoboColiseum Season II entry is described as under review.",
           "resource_note": "HexaModel-27B results describe fine-tuning on 10,698 successful harness trajectories; weights and training data are explicitly not included in this release, so no Models or Data badge is added."
+        },
+        {
+          "date": "2026-11-27",
+          "name": "RoboColiseum skill geometry grounded in episode measurements",
+          "source": "https://github.com/HexaFuture/HexaShell/commit/0a2099b227019e15fe2f86cce88aeb0d0d31abe0",
+          "previous_change": "https://github.com/HexaFuture/HexaShell/commit/97214a0d4a892c058ce1e9265a645ff87d58aeee",
+          "note": "Released skill instructions replace memorized object dimensions and scene coordinates with measurements from the current episode, including door levers, pedals and bin rims. The author explicitly marks new instructions untested; these edits are not evidence of a new validated success rate, autonomous skill evolution or a changed official Preview leaderboard result. Existing adapters and resource links are retained."
         }
       ],
       "updated": "2026-11-03"
@@ -2371,7 +2440,7 @@
     {
       "id": "sensenova-roborsi",
       "category": "Evaluation",
-      "summary": "Studies how training-set experience becomes frozen knowledge packages for robot control. The related RoboRSI-27B release now documents model–harness co-evolution and includes RoboDojo reproduction tools.",
+      "summary": "Studies how training-set experience becomes frozen knowledge packages for robot control. Related RoboRSI-27B resources cover model–harness co-evolution, RoboDojo reproduction tools and GGUF weights for llama.cpp.",
       "loop": "Inspect training demonstrations or explore training scenes → retain guidance, code and recovery knowledge → freeze a hashed read-only package → start each test episode in a fresh session → evaluate standard and extended execution budgets.",
       "setting": "12 embodied benchmarks, harness ablations and demonstrations on eight physical platforms.",
       "evidence": "The original report and linked SenseNova-RoboRSI code specify persistent knowledge packages, with fixed weights and no information written back across test episodes. Task-specific ICL coverage and up to 10x step budgets limit comparison to standard-budget baselines. Its paper/repository all-five-category RoboDojo 60.08 Score/54.17% success is distinct from the current official w/o-Open snapshot. The separate RoboRSI-27B model release has an author guide and weights, now with a November 27 technical article describing model–harness co-evolution; the original empirical paper remains a distinct publication. Its author-reported Score 34.7 uses seed 0/layout 0 and a general-purpose harness, not the official board entry for SenseNova-RoboRSI.",
@@ -2473,10 +2542,13 @@
         "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/a28ea4d4c723d7d211ba75f751c92164575a619b",
         "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/eab5896c9f5d61f09d0340f2c18ec9725b3145be/docs/sensenova-roborsi-27b.md",
         "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/3dc3e2c2778703e8c284b485c6e13f9ea874426a/docs/sensenova-roborsi-27b.md",
-        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/4b71539e30c8ba450bb770f7fb7573690944daf7"
+        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/4b71539e30c8ba450bb770f7fb7573690944daf7",
+        "https://huggingface.co/sensenova/SenseNova-RoboRSI-27B-GGUF",
+        "https://huggingface.co/sensenova/SenseNova-RoboRSI-27B-GGUF/blob/c0ec222ff7b31a569a04452d5662a4a883b76d9a/README.md",
+        "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/b2e6dcb569bd986a7c7b2f2d3367ac4ca85d2085"
       ],
       "source_catalogue": "Official RoboDojo-Sim Agent entry and author report/code; verified via arXiv submission history and frozen-package protocol.",
-      "checked_at": "2026-11-27",
+      "checked_at": "2026-11-28",
       "updated": "2026-10-19",
       "related_releases": [
         {
@@ -2523,6 +2595,44 @@
           "source": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/blob/3dc3e2c2778703e8c284b485c6e13f9ea874426a/docs/sensenova-roborsi-27b.md",
           "code": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/4b71539e30c8ba450bb770f7fb7573690944daf7",
           "note": "The November 26 code integration adds a RoboDojo adapter, configuration, environment setup and evaluation documentation; the November 27 article details three model–harness rounds. Actual source files and commands were inspected, but robot evaluations and container execution were not independently reproduced. This is related release information, not a new arXiv paper or an updated official leaderboard result."
+        },
+        {
+          "date": "2026-11-27",
+          "name": "Official RoboRSI-27B GGUF weights and llama.cpp guide",
+          "source": "https://github.com/OpenSenseNova/SenseNova-RoboRSI/commit/b2e6dcb569bd986a7c7b2f2d3367ac4ca85d2085",
+          "models": "https://huggingface.co/sensenova/SenseNova-RoboRSI-27B-GGUF",
+          "revision": "c0ec222ff7b31a569a04452d5662a4a883b76d9a",
+          "documentation": "https://huggingface.co/sensenova/SenseNova-RoboRSI-27B-GGUF/blob/c0ec222ff7b31a569a04452d5662a4a883b76d9a/README.md",
+          "license": "https://huggingface.co/sensenova/SenseNova-RoboRSI-27B-GGUF/blob/c0ec222ff7b31a569a04452d5662a4a883b76d9a/LICENSE",
+          "files": [
+            {
+              "path": "SenseNova-RoboRSI-27B-BF16.gguf",
+              "bytes": 53808277152,
+              "sha256": "7f6f23557e74b2ec1da4cff4480acfb485289f4a2fb577422793bdbf7f6ee375"
+            },
+            {
+              "path": "SenseNova-RoboRSI-27B-Q4_K_M.gguf",
+              "bytes": 16742037152,
+              "sha256": "e20a02c2f9d391b7bd29b849a93d8f757d81df7bc0e03a5f61399537f2cba1dd"
+            },
+            {
+              "path": "SenseNova-RoboRSI-27B-Q5_K_M.gguf",
+              "bytes": 19331364512,
+              "sha256": "09bc49aba25f22e3db9db921836b96f97fc76b1b6d35608c4d992468a0b17a9b"
+            },
+            {
+              "path": "SenseNova-RoboRSI-27B-Q8_0.gguf",
+              "bytes": 28595758752,
+              "sha256": "3909e5380170b70b8b5ff518a95e1f17d1ee936263e0ef6abc7a8aa56f4b063f"
+            },
+            {
+              "path": "mmproj-SenseNova-RoboRSI-27B-F16.gguf",
+              "bytes": 927607232,
+              "sha256": "38f08ed70ebd9d741c2f33e039eb277f6410d4c2cb29e55042cc362ce4ecc23e"
+            }
+          ],
+          "date_note": "The author repository linked the canonical GGUF model on November 27; HF metadata says the model repository was created November 26. This is a model-format release, not a new paper date.",
+          "note": "Actual BF16, Q4_K_M, Q5_K_M and Q8_0 GGUF weights and an F16 vision projector are listed with LFS sizes and hashes in the pinned HF tree. The author guide provides llama.cpp b12767 deployment commands and requires the projector for image input. Large weight files were not downloaded or inference-tested. No new robot evaluation or official leaderboard result is supplied; do not infer unchanged quantized-model task accuracy. The canonical full-precision Models link is retained, and its model card and author deployment guide link the GGUF variant."
         }
       ]
     },

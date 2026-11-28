@@ -102,6 +102,20 @@ Trains a robot-use reasoning policy with multi-turn reinforcement learning from 
 
 [Project](https://aim-uofa.github.io/RoboHarness-RL/)
 
+### PyRUA-Dex: Learning Programmatic Policies for Dexterous Bimanual Manipulation with Coding Agents
+
+**First release:** 2026-11-24
+
+![PyRUA-Dex Figure 2: parallel exploration and shared memory produce a program; stage-wise failure analysis refines it before frozen deployment and real-to-simulation feedback.](assets/papers/pyrua-dex.png)
+
+*Feixiang Ruan et al., PyRUA-Dex, Figure 2. [Figure source](https://arxiv.org/html/2611.33144v1#S3.F2).*
+
+Develops dexterous manipulation programs through parallel exploration, distillation and stage-wise refinement on randomized layouts. The resulting task libraries and frozen programs retain improvements and run without language-model calls.
+
+[Paper](https://arxiv.org/abs/2611.33144)
+
+[Project](https://vme0522.github.io/PyRUA-Dex/)
+
 ### Embo-Harness: Towards Understanding Frontier-Model-as-Policy Harness
 
 **First release:** 2026-11-23
@@ -680,7 +694,7 @@ Keeps revisable user and scene memory for personalized robot assistance. Reflect
 
 *SenseNova et al., embodied-intelligence report, Figure 2. [Figure source](https://arxiv.org/html/2610.22471v2#S2.F2).*
 
-Studies how training-set experience becomes frozen knowledge packages for robot control. The related RoboRSI-27B release now documents model–harness co-evolution and includes RoboDojo reproduction tools. [RoboDojo-Sim Agent (w/o Open) Unranked* · Score 57.10 · Success 49.17% (2026-11-27).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
+Studies how training-set experience becomes frozen knowledge packages for robot control. Related RoboRSI-27B resources cover model–harness co-evolution, RoboDojo reproduction tools and GGUF weights for llama.cpp. [RoboDojo-Sim Agent (w/o Open) Unranked* · Score 57.10 · Success 49.17% (2026-11-27).](https://robodojo-benchmark.com/leaderboard?bench=sim#agent)
 
 [Paper](https://arxiv.org/abs/2610.22471) · [Code](https://github.com/OpenSenseNova/SenseNova-RoboRSI)
 

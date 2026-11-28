@@ -785,3 +785,14 @@ All figures are authentic method/overview figures from the linked official paper
 - Original asset: https://arxiv.org/html/2611.06768v1/rsi_system_architecture_v16.png
 - Original license: https://creativecommons.org/licenses/by/4.0/
 - Changes: None; original author image downloaded unchanged.
+
+## pyrua-dex
+
+- File: [pyrua-dex.png](papers/pyrua-dex.png)
+- Paper: [PyRUA-Dex: Learning Programmatic Policies for Dexterous Bimanual Manipulation with Coding Agents](https://arxiv.org/abs/2611.33144)
+- Credit: Feixiang Ruan et al., PyRUA-Dex, Figure 2.
+- Authors: Feixiang Ruan, Guodong Lv, Kewei Zhang, Wenbo Huang, Yintianrun Zhang, Qiang Wang, Ruiyang Si, Shunyu Yang, Shulong Jiang, Weicheng Duan, Rui Ni, Jianxin Bi, Lekai Wang, Yuze Fan, Haobo Li, Zeliang Fu, Jiankun Zhang, Duomin Wang, Enze Xie, Daquan Zhou.
+- Source: https://arxiv.org/html/2611.33144v1#S3.F2
+- Original asset: https://arxiv.org/html/2611.33144v1/fig-method.png
+- Original license: https://creativecommons.org/licenses/by/4.0/
+- Changes: none; original author asset downloaded unchanged.
